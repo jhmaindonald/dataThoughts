@@ -3,5 +3,6 @@
 .RData
 _publish.R
 _bookdown_files
+_book/*md
 dataSense-book.rds
 rsconnect
