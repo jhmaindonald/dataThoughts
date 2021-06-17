@@ -2,7 +2,7 @@
 title: 'Making Sense of Data'
 subtitle: "Getting it wrong, and getting it right"
 author: "John Maindonald"
-date: "`r Sys.Date()`"
+date: "2021-06-17"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -30,9 +30,7 @@ header-includes:
 - \usepackage{float}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.5,fig.height=5.5)
-```
+
 
 # Preface {-}
 
@@ -71,9 +69,4 @@ investigators find that the results on which they hoped to build are
 flawed.
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+

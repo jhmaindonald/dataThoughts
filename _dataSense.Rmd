@@ -1,0 +1,107 @@
+---
+title: 'Making Sense of Data'
+subtitle: "Common fallacies and misunderstandings"
+author: "John Maindonald, Statistics Research Associates"
+date: '`r format(Sys.Date(),"%d %B %Y")`'
+documentclass: article
+classoption: b5paper
+fontsize: 10pt
+bibliography: ["dataSense.bib"]
+link-citations: true
+output: 
+  bookdown::html_document2:
+    theme: cayman
+    highlight: vignette
+    base_format: prettydoc::html_pretty
+    toc: true
+    toc_depth: 2
+    number-sections: true
+    pandoc_args: NULL
+    link-citations: true
+  bookdown::pdf_book:
+     keep_tex: yes
+urlcolor: blue
+linkcolor: red
+header-includes:
+- \usepackage{amssymb}
+- \usepackage{pifont}
+- \usepackage{colortbl}
+- \usepackage{xcolor}
+- \usepackage{float}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.5,fig.height=5.5)
+```
+
+
+<!-- ### Paul the psychic octopus -->
+
+<!-- Prior to UEFA Euro 2008 matches, and again prior to 2010 FIFA World Cup, -->
+<!-- Paul was presented with a choice between two clear plastic boxes that -->
+<!-- were marked with a flag, one for each of the opposing teams.  Each -->
+<!-- contained a mussel or an oyster. The flag on the box which Paul first  -->
+<!-- chose (eating its contents) was deemed to predict the winner of the  -->
+<!-- match. There was no allowance for a draw.  Figure \@ref(fig:paul)  -->
+<!-- compares Paul's 'predictions' with the outcomes.   -->
+
+<!-- ```{r paul, echo=FALSE, fig.pos="h", out.extra="", out.width="90%"} -->
+<!-- knitr::include_graphics("pictures/paul2.png") -->
+<!-- ``` -->
+
+<!-- The predictions proved correct for four out of six matches in 2008,  -->
+<!-- and for all 8 matches in 2010.  Was the positioning of box random? -->
+<!-- Did Paul show a preference for a box on one side or the other?  Was -->
+<!-- Paul attracted to the patterns of horizontal stripes of flags -->
+<!-- from Germany, Croatia, and Spain;  did they appear similar to stripes -->
+<!-- on an animal that was a food source? -->
+
+<!-- See https://en.wikipedia.org/wiki/Paul_the_Octopus -->
+<!-- ### Paul the psychic octopus -->
+
+<!-- Prior to UEFA Euro 2008 matches, and again prior to 2010 FIFA World Cup, -->
+<!-- Paul was presented with a choice between two clear plastic boxes that -->
+<!-- were marked with a flag, one for each of the opposing teams.  Each -->
+<!-- contained a mussel or an oyster. The flag on the box which Paul first  -->
+<!-- chose (eating its contents) was deemed to predict the winner of the  -->
+<!-- match. There was no allowance for a draw.  Figure \@ref(fig:paul)  -->
+<!-- compares Paul's 'predictions' with the outcomes.   -->
+
+<!-- ```{r paul, echo=FALSE, fig.pos="h", out.extra="", out.width="90%"} -->
+<!-- knitr::include_graphics("pictures/paul2.png") -->
+<!-- ``` -->
+
+<!-- The predictions proved correct for four out of six matches in 2008,  -->
+<!-- and for all 8 matches in 2010.  Was the positioning of box random? -->
+<!-- Did Paul show a preference for a box on one side or the other?  Was -->
+<!-- Paul attracted to the patterns of horizontal stripes of flags -->
+<!-- from Germany, Croatia, and Spain;  did they appear similar to stripes -->
+<!-- on an animal that was a food source? -->
+
+<!-- See https://en.wikipedia.org/wiki/Paul_the_Octopus -->
+
+<!-- # Aside -- UK pre-election polls -->
+
+<!-- ```{r polls, fig.width=8, out.width="85%"} -->
+<!-- load("data/UKpolls.Rdata") -->
+<!-- plot(1:14, UKpolls$LEAD, pch=16, col='blue', ylim=c(-1,13), cex=1.4, -->
+<!--      xlab="", ylab="Conservative lead estimate (%)",  -->
+<!--      fg="gray", cex.lab=1.4) -->
+<!-- mtext(side=3, line=1, cex=1.5, -->
+<!--       "Conservative lead estimates, ordered a/c published leads") -->
+<!-- points((1:14)+0.2,UKpolls$LEAD-UKpolls$addC, pch=16, cex=1.4, -->
+<!--        col='lightblue') -->
+<!-- legend('topleft', pch=c(16,16), col=c("blue","lightblue"), cex=1.4, -->
+<!--        title="Con. Lead estimate", -->
+<!--        legend=c("Published","Raw")) -->
+<!-- ``` -->
+
+<!-- Average lead estimate: 2.6 (unadjusted); 6.3(adjusted)   -->
+<!-- https://fivethirtyeight.com/features/uk-election-hung-parliament/ -->
+
+<!-- David Wootton argues that science as we know it had its beginnings in the late 16th and early 17th centuries.  Lorraine Daston, in a Guardian review, argues that Wootton places too much weight on the literary evidence. -->
+<!-- https://www.theguardian.com/books/2015/nov/28/invention-of-science-scientific-revolution-david-wootton-review -->
+
+<!-- Dating back to Archimedes and earlier, there'd been a long tradition of tradespeople, experimentalists, and mathematicians (Wootton does discuss these) whose work and insights developed pretty much independently of a philosophical and theological tradition that valued the statements of Aristotle (who was, ironically, himself an experimentalist) above the evidence of their own eyes. -->
+

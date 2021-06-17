@@ -1,0 +1,564 @@
+# Covariate adjustments in observational studies
+
+At least in principle, it is relatively straightforward to use 
+regression type methods to make predictions for a set of new 
+data that have been sampled in the same way.  What is hard for 
+observational data, much harder than is commonly acknowledged,
+is to give the model coefficients a causal interpretation. 
+For this, it is necessary to have a clear understanding of the
+processes involved.
+
+* There will be several, perhaps a very large number,
+of explanatory variables, and an outcome variable.
+* The aim is to find a model that will make predictions for new data.
+* Note the predictive/descriptive distinction.  
+    + How do engineers predict building risk?
+    + Note the "in sample/out of sample" distinction.
+    + But is the "new" a random sample of the old population?  
+    (Is the 'target' a random sample of the 'source'?)  
+
+There are insightful comments at:  
+<https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/>
+
+## What is driving predictions? --- sources of advice
+
+The issues that arise for observational studies do not in general have 
+clear and easy answers.  The discussion on 
+[Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/)^[https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/] canvasses 
+some of the more important issues. There are no simple answers!
+
+Where there are several explanatory variables, and the aim is
+to determine the manner in which they may be driving predictions,
+matters get much more complicated.  Thus, in a comparison
+between two groups (in the example that follows, midwife led
+versus medical led neonatal care) one variable or factor may
+be of particular interest, while other variables are used to
+adjust for differences between the two groups that are at
+most a secondary focus of interest.  Variables that are of 
+secondary interest are commonly referred to as covariates.
+Regression coefficients can be misleading guides to what is 
+driving predictions if one or more of the relevant covariates 
+is not available or is not properly accounted for.  A paradox 
+of the Yule-Simpson type, sometimes referred to as Laird's 
+paradox, has the same potential to deceive, a potential that 
+should be ignored.
+
+Little that has been published since @RosBook clarifies greatly the
+advice that can be given for practical data analysis, beyond what
+Rosenbaum has to say.  Note, however, that @pearl2018book would 
+dispute this assessment.  Pearl and his co-author do a good job of 
+highlighting important issues that should be addressed in order to
+make causality judgments, at the same time overplaying what their 
+methodology can in general achieve.  If strictly implemented,
+the standards are so high that they severely limit what they can
+in practice achieve. Causality diagrams have a central role.
+There is a detailed, and insightful, discussion of the history 
+that finally led to the conclusion that smoking causes lung cancer.
+
+## From air, or from water --- 1849 deaths from cholera
+
+Farr, who worked as statistician in the UK Registrar General's 
+office, collected data on deaths from cholera in London in the 
+1849 epidemic.  The prevailing theory at the time was that 
+miasma, or bad air created from rotting matter, was responsible 
+for transmitting diseases.  
+Farr classified districts into three groups this,  according
+to the source of the water for most of the householders:  
+1) Thames between Battersea Bridge and Waterloo Bridge, coded 
+as `Battersea`;  
+2) New River/Rivers Lea and Ravensbourne (sources away from
+the Thames), coded as `NewRiver`;  
+3) Thames between Kew and Hammersmith, i.e., further up the 
+Thames than the first group, where the water was less polluted 
+by sewage, coded as `Kew`.
+
+A regression analysis, using Farr's data, gives
+results that have been summarized in Figure \@ref(fig:Farr)
+
+
+
+<div class="figure">
+<img src="09-covariate_files/figure-epub3/Farr-1.png" alt="Each panel shows, in turn, the estimated contribution
+of a term in the model relative to the mean contribution from other 
+model terms. Changes in deaths are on a `log` scale, so that an 
+increase by one unit multiplies the odds of death by close to 2.7, 
+around an overall mean of just over six per 1000.
+" width="32%" /><img src="09-covariate_files/figure-epub3/Farr-2.png" alt="Each panel shows, in turn, the estimated contribution
+of a term in the model relative to the mean contribution from other 
+model terms. Changes in deaths are on a `log` scale, so that an 
+increase by one unit multiplies the odds of death by close to 2.7, 
+around an overall mean of just over six per 1000.
+" width="32%" /><img src="09-covariate_files/figure-epub3/Farr-3.png" alt="Each panel shows, in turn, the estimated contribution
+of a term in the model relative to the mean contribution from other 
+model terms. Changes in deaths are on a `log` scale, so that an 
+increase by one unit multiplies the odds of death by close to 2.7, 
+around an overall mean of just over six per 1000.
+" width="32%" />
+<p class="caption">(\#fig:Farr)Each panel shows, in turn, the estimated contribution
+of a term in the model relative to the mean contribution from other 
+model terms. Changes in deaths are on a `log` scale, so that an 
+increase by one unit multiplies the odds of death by close to 2.7, 
+around an overall mean of just over six per 1000.
+</p>
+</div>
+
+What can be concluded about the manner in which the three terms 
+contributed to death rates.  None of the terms stands out as 
+being substantially more important than any other. Higher rates 
+for the poor, who were more likely to be living in crowded
+conditions where it was difficult to maintain hygiene, were to
+be expected.
+
+@snow1849mode argued that those living
+close to the Thames, and especially in the South, were
+more likely to be getting their water from or via sources
+that were likely to be contaminated with human excreta. The
+piping of water up to higher ground gave contaminants
+more time to settle, with less chance of exposure to human
+excreta.  He gave examples that he had observed directly, 
+where the likely means of transmission of the infection 
+appeared to be via a water source, or from poor hygiene.
+
+Farr gave Snow's arguments some credibility, but discussed
+ways that the air might be the main source of transmission
+of an organism responsible for the disease, which multiplied
+in a process akin to fermentation that was presumed to take
+place in putrefying matter.
+
+A context has to be provided in which to interpret the data
+and the regression results.  While Snow had a better understanding
+of the contextual information, it was not comprehensive 
+enough to persuade other medical specialists.  Data from the
+1854 epidemic, where it was possible to compare deaths supplied
+from a company that continued to get its supply from lower
+highly polluted Thames water with that from the company that
+had moved its supply higher up to less polluted water, seems
+in retrospect to clinch the issue. The perspective brought by
+germ theory would come later, with the work of Pasteur in the
+late 1850s and Koch in the 1880s.
+
+## Are there missing covariates?
+
+The [@wernham_EtAl_2016] study used data from 244,047 singleton term 
+deliveries that occurred between 2008 and 2012.  It made the claim
+that midwife led care, as opposed to medical led care, gave a
+greater risk of adverse fetal and neonatal outcomes.  Notably, the
+claim was that midwife led care resulted in a lower Apgar score
+(a measure of infant health immediately after birth) and a greater
+risk of the imprecisely defined diagnosis of birth asphyxia.
+Studies that are similarly relatively carefully done, 
+but naive in the weight placed on the regression results,
+are embarrassingly common.
+
+This study was then the basis for exaggerated claims in an article 
+in the October 8-14 2016 issue of the NZ 
+Listener [@chisholm_2016 "Birth Control"]. Contrary to what was 
+claimed, the research did not
+  "lob a grenade into the historically war-torn territory of
+   New Zealand's maternity care."
+Even less did its results warrant the melodramatic claims of
+"Alarming maternity research" and "Revolution gone wrong" that
+appeared on the Listener's front cover.
+
+A major issue with the analysis is that it relies on using
+the [NZ Deprivation Index]
+(https://www.health.govt.nz/publication/nzdep2013-index-deprivation) 
+to adjust for socioeconomic differences. This provides a deprivation 
+score for meshblocks, each of around 60–110 people. It estimates the 
+relative socioeconomic deprivation of an area, and does not directly 
+relate to individuals.  Deprived areas will often include some
+individuals with high socioeconomic status. Caesarean section, as a
+delivery type, may well have been more accessible for those of 
+higher socioeconomic status.  For National Women's in Auckland,
+the elective Caesarean rate at term over 2006-2015 for doctor-led 
+care was 32.8%, as against 7.4% for self employed midwives
+[farquhar2016letter].  Effects from fetal alcohol syndrome were
+not accounted for, nor were direct effects from substance abuse.
+According to NZ Ministry of Health information, international data
+indicates that
+[fetal alcohol syndrome may affect as many as 3% of births]
+(https://www.health.govt.nz/our-work/diseases-and-conditions/fetal-alcohol-spectrum-disorder)
+
+There are analysis tools, and associated graphs, that the authors 
+of the study could and should have used to shed light on the likely 
+effectiveness of the covariate adjustments. 
+
+## The May 2020 Lancet paper that was quickly withdrawn {#sec:lancet}
+
+Thirteen days after it was published on May 20 2020, three of the 
+four authors withdrew a paper that claimed to find that malaria drugs, 
+when used experimentally with patients with Covid-19, led to around 
+30% excess deaths.  Irrespective of the problems with the data that
+will be noted shortly, serious flaws in the analysis ought to have
+attracted the attention of referees.  There was inadequate 
+adjustment for known and measured confounders (disease severity, 
+temporal effects, site effects, dose used).
+
+The study claimed to be based on data from 96,032 
+hospitalized COVID-19 patients from six continents, of which 66%
+were from North Ammerica.  Very soon after it appeared, the article 
+attracted critical attention, with a number of critics joining 
+together to submit the letter @watson2020open to Lancet.
+
+The sources from which the data had been obtained could not be verified,
+data that claimed to be from just five Australian sources had more
+cases than the total of Australian government figures, and similarly
+for Australian deaths, there were implausibly small reported variances
+in baseline variables, mean daily doses of hydroxychloroquine that were 
+100 mg higher than US FDA recommendations.
+
+Randomized trials designed to test the effectiveness of the drugs,
+and that were in progress at the time when the paper appeared,
+were temporarily halted.  The eventual conclusion was that the
+drugs did not improve medical outcomes. There was some evidence
+that hydroxychloroquine could have adverse effects.
+
+With current web-based technology, RCTs can be planned and carried out and yield definitive answers, in much the same time as it would take to collect and analyze the data that are required for an observational study whose conclusions can be, at best, suggestive. Data confidentiality issues are easier to handle in the context of an RCT.
+
+## The uses and traps of "algorithmic" methods -- trees
+
+Take as an example spam prediction, using tree-based methods. 
+The boxplots in the figure show the distributions of variable
+values.
+
+
+```r
+cap16 <- paste("Boxplots, showing distribution of variable values
+               in data used to predict email spam")
+```
+
+
+```r
+par(oma=c(0,3,0,0), mfrow=c(2,6), mgp=c(1,0.5,0), mar=c(3.1,3.6,1.6,.6),las=0)
+nam <- c("crl.tot", "dollar", "bang", "money", "n000", "make")
+  nr <- sample(1:dim(DAAG::spam7)[1],500)
+  yesno<-DAAG::spam7$yesno[nr]
+  spam7 <- DAAG::spam7[nr,nam]
+  nam2 <- names(spam7)
+  nam2[1] <- "Total runs of capitals"  
+  nam2[2] <- "No. of '$' as % of symbols"
+  nam2[3] <- "No. '!' as % of symbols"
+  nam2[4] <- "No. 'money', as % of words"  
+  nam2[5] <- "No. 'make', as % of words"
+  nam2[6] <- "No. '000', as % of words"
+  spam7.2 <- spam7
+  spam7.2[,1]<-log(spam7.2[,1]+0.5)
+  spam7.2[,2:6]<-log(spam7.2[,2:6]+0.5)
+  for (namtxt in nam){
+    boxplot(split(spam7[,namtxt],yesno),cex=0.65,axes=F,boxwex=0.5)
+    box()
+    par(mgp=c(1,.5,0))
+    axis(2, cex.axis=1)
+    par(mgp=c(1,.25,0))
+    axis(1,at=1:2,labels=c("n","y"))
+    i <- match(namtxt,nam)
+    mtext(side=2,line=1.75,nam2[i],adj=0.5,cex=0.8)
+  }
+  xval <-c(.1,.2,.5,1,2,5,10,20,50,100,200,500,1000,2000)
+  for (namtxt in nam){
+    boxplot(split(spam7.2[,namtxt],yesno),cex=0.65,axes=F,boxwex=0.5)
+    box()
+    ranx <- range(spam7[,namtxt])
+    yloc<-xval[xval>=min(ranx)&xval<max(ranx)]
+    par(mgp=c(1,.5,0))
+    axis(2,at=log(yloc+0.5),labels=paste(round(yloc,1)), cex.axis=1)
+    par(mgp=c(1,.25,0))
+    axis(1,at=1:2,labels=c("n","y"))
+    i <- match(namtxt,nam)
+    if(i==1)mtext(side=2,line=1,"(Logarithmic scales)",outer=T,at=0.25)
+    mtext(side=2,line=1.75,nam2[i],adj=0.5,cex=0.8)
+  }
+```
+
+<div class="figure">
+<img src="09-covariate_files/figure-epub3/seeSpam-1.png" alt="Boxplots, showing distribution of variable values
+               in data used to predict email spam"  />
+<p class="caption">(\#fig:seeSpam)Boxplots, showing distribution of variable values
+               in data used to predict email spam</p>
+</div>
+
+The decision tree that is obtained is:
+
+
+```r
+cap17 <- paste("Decision tree for spam data. If the condition is satisfied, take
+               the branch to the left.  Otherwise, take the branch to the right.")
+```
+
+
+```r
+par(mar=c(4.1,3.1,2.6,0.6), xpd=TRUE)
+require(rpart)
+spam.rpart <- rpart(formula = yesno ~ crl.tot + dollar + bang +
+   money + n000 + make, data=DAAG::spam7)
+plot(spam.rpart, uniform=TRUE)
+text(spam.rpart)
+par(mar=c(0,4,0,0))
+plot(c(1,8),c(0.5,8.5), asp=0.4, axes=FALSE, type="n", bty="n", cex=0.8, xlab="",ylab="")
+text(1,8.0, "  ",pos=4)
+text(2,8.0, "Symbols used in tree are:",pos=4)
+text(2,6.0, "dollar: Number of `$` symbols\n(as % of symbols)",pos=4)
+text(2,3.5, "bang: Number of `!` symbols\n(as % of symbols)",pos=4)
+text(2,1.5, "crl.tot: Total runs of capitals",pos=4)
+text(2,0.75, "  ", pos=4)
+```
+
+<div class="figure">
+<img src="09-covariate_files/figure-epub3/spam-1.png" alt="Decision tree for spam data. If the condition is satisfied, take
+               the branch to the left.  Otherwise, take the branch to the right." width="48%" /><img src="09-covariate_files/figure-epub3/spam-2.png" alt="Decision tree for spam data. If the condition is satisfied, take
+               the branch to the left.  Otherwise, take the branch to the right." width="48%" />
+<p class="caption">(\#fig:spam)Decision tree for spam data. If the condition is satisfied, take
+               the branch to the left.  Otherwise, take the branch to the right.</p>
+</div>
+
+### From trees to forests {-}
+
+Trees such as shown will often have poor predictive power.
+A much more effective way to use "trees", in many or most
+cases, is to make a forest (a "random forest"), and then
+vote between the trees.  A downside is that "Random forests"
+and similar methods operate largely as black boxes.
+
+* Random forest type methods may work well when the way that
+explanatory factors conspire to give an output is unclear.
+* What works, but one does not know why, may be effective for
+present circumstances. 
+* This can be both a trap and a virtue. Thus, for detecting spam:
+    + When it fails, we will likely have few clues why!
+    + This may, for a short time, impede spammers!
+* Spammers are anyway continually refining their strategies
+    + Spam detectors must be responsive to new challenges
+* Automated systems that can be easily gamed abound. They are a
+menace!
+
+### It helps to know the how and why of the algorithms used {-}
+
+Cathy O'Neill: "... it’s not enough to just know how to run a black box
+algorithm. You actually need to know how and why it works, so that when
+it does’nt work, you can adjust."
+
+## Regression bloopers -- examples of other traps
+\vspace*{-5pt}
+
+### Herricanes vs Himmicanes {-}
+
+
+```r
+cap18 <- "Deaths versus damage estimate in US dollars, with logarithmic scales
+               on both axes. Separate fitted lines for male and female
+               hurricanes cannot be distinguished. Jung et al used a 
+               logarithmic scale on the vertical axis only, which on
+               this graph leads to the dashed curves."
+```
+
+<div class="figure">
+<img src="09-covariate_files/figure-epub3/hurricanes-1.png" alt="Deaths versus damage estimate in US dollars, with logarithmic scales
+               on both axes. Separate fitted lines for male and female
+               hurricanes cannot be distinguished. Jung et al used a 
+               logarithmic scale on the vertical axis only, which on
+               this graph leads to the dashed curves."  />
+<p class="caption">(\#fig:hurricanes)Deaths versus damage estimate in US dollars, with logarithmic scales
+               on both axes. Separate fitted lines for male and female
+               hurricanes cannot be distinguished. Jung et al used a 
+               logarithmic scale on the vertical axis only, which on
+               this graph leads to the dashed curves.</p>
+</div>
+
+Authors of a paper titled "Female hurricanes are deadlier than male 
+hurricanes" [@jung2014female] compared death rates  from hurricanes 
+with female names with death rates for those given male names 
+(jokingly called himmicanes), for 94 Atlantic hurricanes that made 
+landfall in the United States during 1950-2012. The suggestion was
+that authorities took the risk from hurricanes with female names
+less seriously. A storm of reaction on the blogosphere was mostly 
+himmicane!
+
+As the primary measure of the 
+risk posed by the hurricanes, the authors used a 2013 US\$ estimate
+of damage that could have been expected from a comparable hurricane 
+in 2013.  Figure \@ref(fig:hurricanes) uses, instead, the estimate of 
+damage at the time, converted to 2014 US\$.  
+
+The Jung et al analysis was roughly equivalent to regressing 
+$\log$(\mbox{deaths}) on a their 2013 US\$ measure of damage, 
+accounting also for femaleness of the name, a minor effect from 
+barometric pressure at landfall, and interactions.  Why did the 
+authors not use, at least as a starting point, the same 
+transformation on both axes, as in Figure \@ref(fig:hurricanes)? 
+The femaleness effect then vanishes.
+
+Jung et al's damage measure, because designed for use for 2013 
+insurance purposes, assessed risk to the infrastructure
+that was in place in 2013.  The damage measure that is 
+more relevant to risk to human life at the time is damage caused at 
+the time, in inflation-adjusted dollars.  This makes little 
+difference to the graph or to the analysis.
+
+Yet another issue was that the judgment on how female a name sounded
+was made by students in 2014.  Unconscious judgments that might have 
+influenced disaster management, at the time when the hurricanes occurred,
+would very likely have been different.
+
+### Historical speed of light estimates --- is there a pattern?{-}
+
+Creationist Barry Setterfield has argued that a reduction over time
+in the speed of light has led the passage of time to slow down,
+relative to the remote past, so that the universe is thousands
+rather than billions of years old.  His arguments rely on
+making various adjustments to figures obtained historically,
+selecting what he regarded as the most reliable data, and
+then fitting a curve.  He tells a story that is very different 
+from that of Panel A of Figure \@ref(fig:plot-c-data).
+Data are from <https://en.wikipedia.org/wiki/Speed_of_light>.
+
+
+```r
+cvalues <- data.frame(
+  Year = c(1675, 1729, 1849, 1862, 1907, 1926, 1950, 1958, 1972),
+  speed = c(220000, 301000, 315000, 298000, 299710, 299796,
+            299792.5, 299792.50, 299792.4562)/1000,
+  error = c(NA, NA, NA, 500, 30, 4, 3, 0.1, 0.00111)/1000
+)
+```
+
+
+```r
+cap19 <- "Successive speed of light estimates.
+Error estimates are available for the 1855 and later
+measurments.  Panel B limits attention to measurements
+made in 1926 and later. The line 
+was fitted with no adjustment for the very different error
+estimates.  The dashed curve, which incorporates
+such adjustments, is statistically indistinguishable
+from the red horizontal line."
+```
+
+
+```r
+par(mfrow=c(1,2), mar=c(3.1,4.1,2.1,0.6))
+plot(speed ~ Year, data=cvalues, cex=1.0, cex.lab=1.0, pch=1,
+     xlab="", ylab="Speed (1000s of km/s)")
+rect(1915,296.5,1980, 303, col="lightgray", border=NA)
+with(cvalues, points(speed ~ Year, pch=16, cex=1.0))
+obj <- lm(speed ~ Year, data=cvalues)
+abline(obj)
+mtext("A: All measurments", side=3, line=0.75, cex=1.25, at=1650, adj=0)
+subdata <- subset(cvalues, Year>=1926)
+ylim <- with(subdata, range(c(speed-error, speed+error), na.rm=TRUE))
+plot(speed ~ Year, data=subdata, ylim=ylim, pch=0, cex.lab=1.15,
+     xlab="", ylab="")
+obj <- lm(speed ~ Year, data=subdata)
+abline(obj)
+obj3 <- lm(speed ~ poly(Year,2), data=subdata, weights=error^-2)
+obj4 <- lm(speed ~ 1, data=subdata, weights=error^-2)
+lines(subdata$Year, fitted(obj3), lty=2)
+lines(subdata$Year, fitted(obj4), col='red')
+mtext("B: From 1926, with confidence bands", side=3, line=0.75, at=1922, adj=0, cex=1.25)
+with(subdata, segments(Year, speed - error, Year, speed +
+     error))
+with(subdata, segments(Year - 1.25, speed - error, Year +
+     1.25, speed - error))
+with(subdata, segments(Year - 1.25, speed + error, Year +
+     1.25, speed + error))
+```
+
+<div class="figure">
+<img src="09-covariate_files/figure-epub3/plot-c-data-1.png" alt="Successive speed of light estimates.
+Error estimates are available for the 1855 and later
+measurments.  Panel B limits attention to measurements
+made in 1926 and later. The line 
+was fitted with no adjustment for the very different error
+estimates.  The dashed curve, which incorporates
+such adjustments, is statistically indistinguishable
+from the red horizontal line."  />
+<p class="caption">(\#fig:plot-c-data)Successive speed of light estimates.
+Error estimates are available for the 1855 and later
+measurments.  Panel B limits attention to measurements
+made in 1926 and later. The line 
+was fitted with no adjustment for the very different error
+estimates.  The dashed curve, which incorporates
+such adjustments, is statistically indistinguishable
+from the red horizontal line.</p>
+</div>
+
+Even if one were to accept Setterfield's manipulation of the data, 
+it makes no sense at all to fit either lines such as are shown, or
+curves, to data values which have such very different
+accuracies as those shown in the graphs.  For the 
+measurements from 1862 onwards, estimates of accuracy are
+available.  Until 1950, each new estimate lay outside the
+bounds for the previous estimate, indicating that these
+were underestimates.
+
+The right panel is limited to the points from 1926 and on,
+marked off with the gray background on the left panel.
+
+## Global mean temperature trends
+
+Figure \@ref(fig:climate) plots global 
+[air and sea surface temperature anomaly data](http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.GISSTEMP/.Global/.LOTI/)
+against year. Anomalies, in hundredths of a degree centigrade, are
+differences from the 1951-1980 global average. The grey curve plots
+the average anomaly up to that point in time. 
+
+
+```r
+cap20 <- "Anomalies (differences) in hundredths of a degree centigrade
+from global average temperatures over 1951-1980, plotted against year.
+The gray curve shows, for each year, the average anomaly up to that
+point in time.  The last year in which this lay below the gray line
+was 1962."
+```
+  
+
+```r
+## ---- loti-smooth --------
+load('data/loti.RData')
+anomaly <- loti[, "J.D"]
+num <- seq(along = anomaly)
+AVtodate <- cumsum(anomaly)/num
+yr <- loti$Year
+anomTxt <- "Difference from baseline"
+yl = substitute(txt * " (0.01" * degree * "C)",
+                  list(txt=anomTxt))
+plot(yr, anomaly, xlab = "Year", ylab = as.expression(yl))
+mtext(side=3, line=0.75,
+      "Global temperature differences from 1951-1980 global average")
+lines(AVtodate ~ yr, col = "gray", lwd = 2)
+lastLessYr <- max(yr[anomaly < AVtodate])
+lastLessy <- loti[as.character(lastLessYr), "J.D"]
+yarrow <- lastLessy - c(4, 0.75) * strheight("O")
+arrows(lastLessYr, yarrow[1], lastLessYr, yarrow[2],
+       col = "gray", lwd = 2)
+```
+
+<div class="figure">
+<img src="09-covariate_files/figure-epub3/climate-1.png" alt="Anomalies (differences) in hundredths of a degree centigrade
+from global average temperatures over 1951-1980, plotted against year.
+The gray curve shows, for each year, the average anomaly up to that
+point in time.  The last year in which this lay below the gray line
+was 1962." width="80%" />
+<p class="caption">(\#fig:climate)Anomalies (differences) in hundredths of a degree centigrade
+from global average temperatures over 1951-1980, plotted against year.
+The gray curve shows, for each year, the average anomaly up to that
+point in time.  The last year in which this lay below the gray line
+was 1962.</p>
+</div>
+
+Observe that 1964 was the last year in which the global 
+temperature fell below the average to that time.
+For the 52 subsequent years (from 1965 to 2016 inclusive),
+the global average was above the average up to that date.  Under
+the (false) assumption that global temperature is varying
+randomly (and therefore independently) about a common mean,
+the probability of this happening is 2$^{-40}$ = 9.1
+$\times$ 10$^{-13}$.  A variation of this argument came
+from a speaker on the Australian ABC Science Show on April
+3 2011.  Under any model that accounts for what are now
+fairly well understood patterns of correlation over time,
+the probability, while very small, is not that small!
+Arguments that overstate the case for what is now a
+well-established pattern of change are unhelpful
+
+It is likewise nonsensical to fit a line to the cherry-picked
+years 1998-2008, where the trend was relatively flat.
