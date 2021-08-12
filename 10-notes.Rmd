@@ -1,0 +1,115 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Notes
+
+## 1. The @jung2014female US hurricane data {#hurricanes .unnumbered}
+
+Figures \@ref(fig:hurricanes1) and \@ref(fig:hurricanes2) checked 
+for a difference between the fitted male and female line or curve.
+Jung et al's approach was, instead, to examine whether numbers of 
+deaths varied with the "femaleness" of name, as judged by students 
+in 2014.  
+
+As a check on how the association of a name with one or other sex
+may have changed with time, Table \@ref(tab:changetab) uses
+US social security administration data to examine names where 
+the difference over years from 1950 to 2012 between the 
+maximum proportion of females and the minimum was 0.08 or more.
+
+
+```{r cap1, echo=FALSE}
+cap1 <- "The minimum and maximum value of the relative proportion
+of female names, and the difference, are shown for the eight names
+that showed the greatest change over the years 1950 to 2012."
+```
+
+```{r changetab, out.width="90%", fig.align='center', echo=FALSE}
+mat <- match(babynames::babynames$name, DAAG::hurricNamed$Name, nomatch=0)
+matnames <- babynames::babynames[mat>0,]
+mf <-merge(subset(matnames,sex=='F')[, c(1,3:4)], 
+           subset(matnames,sex=='M')[,c(1,3:4)],all=TRUE,
+           by=c("year",'name'),suffixes=c('f','m'))
+mf <- within(mf, {nf[is.na(nf)]<-0; nm[is.na(nm)]<-0})
+mf$fracf <- with(mf, nf/(nf+nm))
+## table(mf$name[mf$fracf>0.075&mf$fracf<0.925])
+mfsub <- subset(mf, year%in%(1950:2012))
+ran <- with(mfsub, sapply(split(fracf,name),range))
+d <- apply(ran, 2, diff)
+ord <- round(order(abs(d), decreasing=T))
+stats <- round(rbind(ran[,ord[1:8]],d[ord[1:8]]),2)
+rownames(stats) <- c('Minimum','Maximum','Difference')
+z <- match(DAAG::hurricNamed$Name, mfsub$name, nomatch=0)
+library(kableExtra)
+kable(stats, digits=2, caption=cap1) %>% 
+  row_spec(3, bold=TRUE) %>% kable_styling(font_size=10)
+```
+Frequencies for other names, as well as staying relatively
+constant, were in all years within 0.07 of either 0 (i.e.,
+mostly judged female) or 1.0 (i.e., mostly judged male).
+
+Figure \@ref(fig:plotchanges) shows how the numbers of
+either sex changed over time, for the first six of the
+names in Table \@ref(tab:changetab).
+
+```{r cap2, echo=FALSE}
+suppressPackageStartupMessages(library(latticeExtra))
+cap2 <- "Change in numbers of names given to males and females
+over the years 1950 to 2012, for the six names where the 
+maximum difference in relative frequency was 0.1 or more.
+The maximum change is shown against each name."
+```
+
+
+```{r plotchanges, echo=FALSE, eval=TRUE, fig.width=6, fig.height=3.75, out.width="90%", fig.cap=cap2, fig.align='center'}
+lookat <- subset(mfsub, name%in%c('Charley','Cleo',
+                               'Fran','Sandy','Erin','Inez'))
+lookat$name <- factor(lookat$name)
+dnam <- round(abs(d[c('Charley','Cleo','Fran','Sandy','Erin','Inez')]),2)
+levels(lookat$name) <- paste0(levels(lookat$name), ": ",dnam)
+atx <- c(10,100,1000, 10000)
+xyplot(nm+nf~year|name, data=lookat,  xlab="Year", 
+       ylab="Number of babies", par.settings=simpleTheme(pch=c(3,2)), 
+       auto.key=list(text=c("Males","Females"),columns=2),
+       scales=list(y=list(log='e', at=atx, labels=paste(atx)))) +
+  latticeExtra::layer(panel.axis('left', at=atx*sqrt(10), labels=F, tck=0.5))
+```
+
+The names where the assessment of femaleness is of greatest concern,
+as differing substantially from 0 or 1, are those (especially Charley,
+Cleo and Fran) where the judgment of parents at the time is likely to
+quite different from that for students in 2014. 
+
+\enlargethispage{21pt}
+
+Other differences from the analyses on which Figures 
+\@ref(fig:hurricanes1) and \@ref(fig:hurricanes2) were based
+are
+
+* As the primary measure of the risk posed by the hurricanes, the 
+authors used a 2013 US\$ estimate of damage that could have been 
+expected from a comparable hurricane in 2013.  Figure 
+\@ref(fig:hurricanes1) uses what is surely the more relevant
+measure, namely `NDAM2014` --- this converts the estimate of
+damage caused at the time to 2014 US\$.^[The damage measure that
+Jung et al used was by contrast designed for, and suited to, use 
+for 2013 insurance purposes. This change makes no difference of
+consequence to the graph or to the conclusions reached.] 
+* Jung et al allowed for minor effects from barometric pressure 
+at landfall, and interactions. Again, these were of no 
+consequence for the conclusions reached.
+
+```{r missed, echo=FALSE, eval=FALSE}
+missed <- DAAG::hurricNamed$Name[z==0]
+mfOther <- subset(mf, name%in%missed)
+ranOther <- with(mfOther, sapply(split(fracf,name),range))
+dOther <- apply(ranOther, 2, diff)
+```
+
+```{r changes, echo=FALSE}
+stats <- round(rbind(ran[,ord[1:8]],d[ord[1:8]]),2)
+x <- knitr::kable(stats)
+```
+

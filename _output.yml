@@ -1,4 +1,8 @@
 bookdown::gitbook:
+  toc_depth: 3
+  split_by: none
+  number-sections: true
+  pandoc_args: NULL
   css: style.css
   config:
     toc:
@@ -11,7 +15,9 @@ bookdown::gitbook:
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
+  toc_depth: 2
   latex_engine: xelatex
-  citation_package: natbib
+  toc_bib: true
   keep_tex: yes
+  dev: "cairo_pdf"
 bookdown::epub_book: default

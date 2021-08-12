@@ -1,0 +1,740 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# The uses and limits of observational data
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.5,fig.height=5.5)
+```
+
+At least in principle, it is relatively straightforward to use 
+regression type methods to make predictions for a set of new 
+data that have been sampled in the same way.  What is hard for 
+observational data, harder than is commonly acknowledged,
+is to give the model coefficients a causal interpretation. 
+For this, it is necessary to have a clear understanding of the
+processes involved.
+
+* There will be several, perhaps a very large number,
+of explanatory variables, and an outcome variable.
+* The aim is to find a model that will make predictions for new data.
+* Note the predictive/descriptive distinction.  
+    + Note the "in sample/out of sample" distinction.
+    + But is the "new" a random sample of the old population?  
+    (Is the 'target' a random sample of the 'source'?)  
+
+There are insightful comments at:  
+<https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/>
+
+## We have a prediction. What are the drivers?
+
+The issues that arise for observational studies do not in general have 
+clear and easy answers.  The discussion on 
+[Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/)^[https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/] canvasses some of the more important issues. There are no simple answers!
+
+Where there are several explanatory variables, and the aim is
+to determine the manner in which they may be driving predictions,
+matters get much more complicated.  Thus, in a comparison
+between two groups (in the example that follows, midwife led
+versus medical led neonatal care) one variable or factor may
+be of particular interest, while other variables are used to
+adjust for differences between the two groups that are at
+most a secondary focus of interest.  Variables that are of 
+secondary interest are commonly referred to as covariates.
+Regression coefficients can be misleading guides to what is 
+driving predictions if one or more of the relevant covariates 
+is not available or is not properly accounted for.  A paradox 
+of the Yule-Simpson type, sometimes referred to as Laird's 
+paradox, has the same potential to deceive, a potential that 
+should be ignored.
+
+Little that has been published since @RosBook clarifies greatly the
+advice that can be given for practical data analysis, beyond what
+Rosenbaum has to say.  Note, however, that @pearl2018book would 
+dispute this assessment.  Pearl and his co-author do a good job of 
+highlighting important issues that should be addressed in order to
+make causality judgments, at the same time overplaying what their 
+methodology can in general achieve.  If strictly implemented,
+the standards are so high that they severely limit what they can
+in practice achieve. Causality diagrams have a central role.
+There is a detailed, and insightful, discussion of the history 
+that finally led to the conclusion that smoking causes lung cancer.
+
+## Time per unit distance for hillraces
+
+The `DAAG:nihills` dataset has record times for 23 Northern Ireland 
+Mountain Running Association hillraces, as given in the 2007
+calendar.  In the models fitted and graphs shown that follow,
+the distance measure is `Dist` (distance converted to kilometers), 
+the climb measure is `Climb` (vertical distance between lowest 
+and highest point, in meters), and the time measure is `Time`
+(in minutes).
+
+```{r nihr, echo=FALSE}
+nihr <- with(DAAG::nihills, 
+             data.frame(Dist=dist*1.609344, Climb=climb*0.3048,
+                        Time=time*60, Timef=timef*60))
+climb.lm <- lm(I(Time/Dist)~log(Dist)+log(Climb), data = nihr)
+tms.climb <- predict(climb.lm, type='terms')
+offy <- attributes(tms.climb)$constant
+bcl <- coef(climb.lm)
+constCl <- offy - bcl[2]*mean(log(nihr$Dist))
+slope.lm <- lm(I(Time/Dist)~log(Dist)+log(Climb/Dist), data = nihr)
+bsl <- coef(slope.lm)
+constSl <- offy - bsl[2]*mean(log(nihr$Dist))
+```
+
+How does time per unit distance (`timePerKm`) vary with distance. 
+We will fit two equations, both with $y$ = `timePerKm`.
+
+Figure \@ref(fig:resid)A gives a visual represention of the
+way that `timePerKm` depends on `log(Dist)`, when `log(Climb)`
+is held at its mean value.  Use of `log(Dist)` rather than 
+`Dist` means that we are looking at the effect of relative, 
+rather than absolute  changes.  Thus, distance on the $x$-axis 
+from 2 to 4 (km) is the same as the distance from 4 to 8, or
+from 8 to 16, or from 16 to 32.  The equation that is plotted
+is  
+`timePerKm` = `r round(constCl,2)` `r round(bcl[2],2)` $\times$ `log(Dist)`  
+
+Figure \@ref(fig:resid)B gives a visual represention of the
+way that `timePerKm` depends on `log(Dist)`, when `log(Climb/Dist)`
+is held at its mean value. The equation that is plotted
+is  
+`timePerKm` = `r round(constSl,2)` + `r round(bsl[2],2)` $\times$ `log(Climb/Dist)`   
+
+```{r cap1}
+cap1 <- "Variation in time per unit distance with distance.  Panel A
+shows the pattern of change when `log(Climb)` is held constant at its 
+mean value, while Panel B shows the pattern of change when 
+`log(Climb/Dist)` is held constant at its mean value."
+```
+
+```{r partial, fig.width=7.5, fig.height=3.5, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap1}
+opar <- par(mgp=c(2.1,.4,0), mfrow=c(1,2))
+atx <- c(4,8,16,32)
+partial.climb <- resid(climb.lm, type='partial')
+plot(log(nihr$Dist), partial.climb[,1]+offy, xaxt='n', fg='gray',
+     xlab="Distance (km)", ylab="Minutes per km")
+mtext("A: `Climb` held constant", side=3, line=0.5, at=1, adj=0)
+axis(1, at=log(atx), labels=atx, col="gray")
+lines(log(nihr$Dist), tms.climb[,1]+offy, col='red')
+## Replace `climb` by `climb/dist`
+partial.slope <- resid(slope.lm, type='partial')
+tms.slope <- predict(slope.lm, type='terms')
+plot(log(nihr$Dist), partial.slope[,1]+offy, fg='gray',
+     xlab="Distance (km)", ylab="Minutes per km")
+mtext("B: `Climb/Dist` held constant", side=3, line=0.5, at=1, adj=0)
+lines(log(nihr$Dist), tms.slope[,1]+offy, col='red')
+par(opar)
+```
+In Panel A, time per kilometer decreases quite sharply as distance
+increases.  This happens because the ratio of `Climb` to `Dist` 
+decreases if `Climb` is held constant while `Dist` increases, 
+i.e., longer distance races involve gentler ascents and  descents.  
+
+Panel B shows what happens when `Climb/Dist` is held 
+constant, i.e., we are comparing races with the same ratio of 
+`Climb` to `Dist`.  As expected, time per kilometer does then 
+decrease as distance increases.
+
+The point of this example is to emphasize that the regression
+coefficients may differ greatly depending on what adjustments
+are made for other variables.  This is important for attaching
+meaning to a coefficient.
+
+## By air, or by water --- 1849 cholera deaths
+
+Farr, who worked as statistician in the UK Registrar General's 
+office, collected data on deaths from cholera in London in the 
+1849 epidemic.  The prevailing theory at the time was that 
+miasma, or bad air created from rotting matter, was responsible 
+for transmitting diseases.
+Farr classified districts into three groups thus,  according
+to the source of the water for most of the householders:  
+1) Thames between Battersea Bridge and Waterloo Bridge, coded 
+as `Battersea`;  
+2) New River/Rivers Lea and Ravensbourne (sources away from
+the Thames), coded as `NewRiver`;  
+3) Thames between Kew and Hammersmith, i.e., further up the 
+Thames than the first group, where the water was less polluted 
+by sewage, coded as `Kew`.
+
+Figure \@ref(fig:Farr) summarizes results from a regression analysis
+that used Farr's data 
+
+```{r Farr1849, echo=FALSE}
+capFarr <- "Each panel shows, in turn, the estimated contribution
+of a term in the model relative to the mean contribution from other 
+model terms. Changes in deaths are on a `log` scale, so that an 
+increase by one unit multiplies the odds of death by close to 2.7, 
+around an overall mean of just over six per 1000.
+"
+```
+
+```{r Farr, out.width='100%', fig.width=7.5, fig.height=2.5, fig.show='hold', echo=F, fig.cap=capFarr}
+opar <- par(mgp=c(2.1,.4,0), mfrow=c(1,3))
+Cholera <- HistData::Cholera
+fitP2.glm <- glm(cholera_deaths ~ offset(log(popn)) + water + 
+                elevation + poly(poor_rate,2) +I(elevation==350),
+                data=Cholera, family=quasipoisson)
+
+Cholera[["water"]] <- factor(Cholera[["water"]], labels=c("Battersea",
+                             "NewRiver","Kew"))
+termplot(fitP2.glm, partial=T, se=TRUE, pch =1, ylim='free', terms=1:3,
+         ylabs=rep("Partial residual",3))
+par(opar)
+```
+
+None of the terms stands out as substantially more important 
+than any other. Higher rates for the poor, where crowded 
+conditions would commonly make it difficult to maintain hygiene, 
+were to be expected.
+
+@snow1849mode argued that those living
+close to the Thames, and especially in the South, were
+more likely to be getting their water from or via sources
+that were likely to be contaminated with human excreta. The
+piping of water up to higher ground gave contaminants
+more time to settle, with less chance of exposure to human
+excreta.  He gave examples that he had observed directly, 
+where the likely means of transmission of the infection 
+appeared to be via a water source, or from poor hygiene.
+
+Farr gave Snow's arguments some credibility, but discussed
+ways that the air might be the main source of transmission
+of an organism responsible for the disease, which multiplied
+in a process akin to fermentation that was presumed to take
+place in putrefying matter.
+
+A context has to be provided in which to interpret the data
+and the regression results.  While Snow had a better understanding
+of the contextual information, it was not comprehensive 
+enough to persuade other medical specialists.  Data from the
+1854 epidemic, where it was possible to compare deaths supplied
+from a company that continued to get its supply from lower
+highly polluted Thames water with that from the company that
+had moved its supply higher up to less polluted water, seems
+in retrospect to clinch the issue. The perspective brought by
+germ theory would come later, with the work of Pasteur in the
+late 1850s and Koch in the 1880s.
+
+## John Snow documents a natural experiment
+
+Events that led up to the 1849 cholera deaths and that followed,
+were^[See _Cholera epidemics in Victorian London_\newline <https://www.thegazette.co.uk/all-notices/content/100519>]
+
+* 6,500 died from cholera in London in 1832
+     + Medical opinion blamed "miasma", or noxious air  
+     (Stink from rotting garbage, faeces, & pollution in Thames)
+     + Poor areas had more cholera -- worst smell, sanitation  
+     (But, also, people were older, houses poorly heated, ...)
+* Cesspits -- night-soil periodically taken away
+* 1842:[Edwin Chadwick, in The Sanitary Conditions of the Labouring Population (1842)](https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london)^[<https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london>]
+showed a direct link between poor living conditions, disease and life expectancy
+     + Like others who accepted the "miasma" theory of disease, Chadwick did 
+      not understand that cholera, along with some other major diseases, were water-borne.
+* 1848: the Nuisances Removal and Diseases Prevention Act (Gazette issue 20637) was passed with the aim of stopping the 1848-9 epidemic.  The suggestion was to
+effectively dump the contents of cesspools and raw 
+sewage pits into the Thames, which was London's main source of drinking water. This only served to exacerbate the problem.
+* 1848-49 epidemic followed shortly after the cesspits were banned
+     + Both water companies --- Lambeth, and Southwark and Vauxhall, 
+     were taking water from the same polluted source.
+     + Death rates were high for both companies
+* 1850: Arthur Hassall's careful microbiological study:
+     + "... a portion of the inhabitants are made to consume  
+     ... a portion of their own excrement, and ... to pay  
+     for the privilege" [@hassall1850memoir]
+
+### The 1854 epidemic --- a natural experiment {-}
+
+The 1852 act required water supply companies to move water intake 
+upriver by 1855.  By the time of the 1854 epidemic, Lambeth had 
+moved the intake 22 miles upriver, where the water was not
+contaminated by London sewage.  The Southwark and Vauxhall intake 
+was unchanged until 1855.  Data on the distribution of cholera in 
+the 1854 epidemic then allowed Snow to test the claims made in his 
+1849 study.
+
+### Lambeth versus Southwark & Vauxhall {-}
+
+```{r DeathTable, results="asis"}
+tab <- cbind("#Houses"=c(40046,26107,256423),
+             "#Deaths"=c(1263,98,1422),
+             "Rate per 10,000"=c(315,37,59))
+dimnames(tab)[[1]] <- c("Southwark & Vauxhall","Lambeth","Rest of London")
+print(xtable::xtable(tab, auto=TRUE),type='latex', comment=FALSE, floating=FALSE, scalebox=1.12)
+```
+
+"The experiment, too, was on the grandest scale. No fewer than 300,000 people ..., from gentlefolks down to the very poor, were divided into two groups without their choice, and, in most cases, without their knowledge; one group being supplied with water containing the sewage of London, and, amongst it, whatever might have come from the cholera patients, the other group having water quite free from such impurity."
+
+### Use water from the brewery, and stay healthy! {-}
+
+Snow noted that “Within 250 yards of the spot where Cambridge Street joins Broad 
+Street there were upwards of 500 fatal attacks of cholera in 10 days…”.
+By contrast, none of the employees of a local Soho brewery developed cholera.
+
+```{r cap2, echo=FALSE}
+cap2 <- "Deaths (red dots) and pump locations.  Polygons that surround
+each pump enclose the locations for which that is the nearest pump."
+```
+
+```{r pump, fig.show="hold", out.width="60%", fig.pos="H", fig.cap=cap2}
+suppressPackageStartupMessages(library(HistData))
+SnowMap(polygons=TRUE, main="Snow's Cholera Map with Pump Polygons")
+```
+
+The reason, he judged, was that they drank water from the brewery (which had a 
+different source from the Broad St pump) or just drank beer alone.  
+@coleman2019causality gives detailed comments on Snow's work.
+It took a further ten years for the medical establishment to begin to accept
+Snow's conclusions.
+
+Similar issues, arising from failures to ensure proper drainage systems,
+were repeated, from the 1840s and 1850s through until the end of the century,
+in New Zealand cities.^[See Christine Dann: 'Sewage, water and waste - Stinking cities', Te Ara - the Encyclopedia of New Zealand, (8 June 2017) https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool]
+
+## Are there missing explanatory factors?
+
+The [@wernham_EtAl_2016] study used data from 244,047 singleton term 
+deliveries that occurred between 2008 and 2012 to make the claim
+that midwife led care, as opposed to medical led care, gave a
+greater risk of adverse fetal and neonatal outcomes.  Notably, the
+claim was that midwife led care resulted in a lower Apgar score
+(a measure of infant health immediately after birth) and a greater
+risk of the imprecisely defined diagnosis of birth asphyxia.
+
+This study was then the basis for exaggerated claims in an article 
+in the October 8-14 2016 issue of the NZ Listener 
+[@chisholm_2016 "Birth Control"]. Contrary to what was 
+claimed, the research did not
+  "lob a grenade into the historically war-torn territory of
+   New Zealand's maternity care."
+Even less did its results warrant the melodramatic claims of
+"Alarming maternity research" and "Revolution gone wrong" that
+appeared on the Listener's front cover.
+
+A major issue with the analysis is that it relies on using the NZ
+Deprivation Index^[
+https://www.health.govt.nz/publication/nzdep2013-index-deprivation] 
+to adjust for socioeconomic differences. This provides a deprivation 
+score for meshblocks, each of around 60–110 people. It estimates the 
+relative socioeconomic deprivation of an area, and does not directly 
+relate to individuals.  Deprived areas will often include some
+individuals with high socioeconomic status. Caesarean section, as a
+delivery type, may well have been more accessible for those of 
+higher socioeconomic status.  For National Women's in Auckland,
+the elective Caesarean rate at term over 2006-2015 for doctor-led 
+care was 32.8%, as against 7.4% for self employed midwives
+[@farquhar2016letter].  Effects from fetal alcohol syndrome were
+not accounted for, nor were direct effects from substance abuse.
+According to NZ Ministry of Health information, international data
+indicates that fetal alcohol syndrome may affect as many as 3% of 
+births.^[<https://www.health.govt.nz/our-work/diseases-and-conditions/fetal-alcohol-spectrum-disorder>]
+
+Studies that are similarly relatively carefully done, 
+but naive in the weight placed on the regression results,
+are embarrassingly common. There are analysis tools, and 
+associated graphs, that the authors of the study could 
+and should have used to shed light on the likely 
+effectiveness of the adjustments made for differences
+between the two groups, other than whether the delivery
+was midwife led or medical led.
+
+## The uses and traps of "algorithmic" methods
+
+Decision tree approaches offer a way to use data that includes
+both spam and legitimate email messages to screen out spam as
+new messages appear.  In practical use, such datasets have to
+be continually updated, as spammers change their strategies.
+
+For illustrative purposes, we will work
+with a dataset that is long past its "use by" date. 
+Figure \@ref(fig:seeSpam) shows the distributions of values of 
+what were judged relevant variables.
+
+```{r cap16}
+cap16 <- paste("Boxplots, showing distribution of variable values
+               in data used to predict email spam")
+```
+
+```{r seeSpam, fig.width=6.5, fig.height=2.5, fig.pos='H', fig.cap=cap16}
+opar <- par(mfrow=c(1,6), mgp=c(1,0.5,0), mar=c(3.1,3.6,1.6,.6),las=0)
+xval <-c(.1,.2,.5,1,2,5,10,20,50,100,200,500,1000,2000)
+nam <- c("crl.tot", "dollar", "bang", "money", "n000", "make")
+  nr <- sample(1:dim(DAAG::spam7)[1],500)
+  yesno<-DAAG::spam7$yesno[nr]
+  spam7 <- DAAG::spam7[nr,nam]
+  nam2 <- names(spam7)
+  nam2[1] <- "Total runs of capitals"  
+  nam2[2] <- "No. of '$' as % of symbols"
+  nam2[3] <- "No. '!' as % of symbols"
+  nam2[4] <- "No. 'money', as % of words"  
+  nam2[5] <- "No. 'make', as % of words"
+  nam2[6] <- "No. '000', as % of words"
+  spam7.2 <- spam7
+  spam7.2[,1]<-log(spam7.2[,1]+0.5)
+  spam7.2[,2:6]<-log(spam7.2[,2:6]+0.5)
+  i <- 0
+  for (namtxt in nam){
+    i <- i+1
+    boxplot(split(spam7.2[,namtxt],yesno),cex=0.65,axes=F,boxwex=0.5, fg="gray")
+    box()
+    ranx <- range(spam7[,namtxt])
+    yloc<-xval[xval>=min(ranx)&xval<max(ranx)]
+    par(mgp=c(1,.5,0))
+    axis(2,at=log(yloc+0.5),labels=paste(round(yloc,1)), cex.axis=1)
+    par(mgp=c(1,.25,0))
+    axis(1,at=1:2,labels=c("n","y"))
+    mtext(side=2,line=1.75,nam2[i],adj=0.5,cex=0.8)
+  }
+  par(opar)
+```
+Figure \@ref(fig:spam) shows a decision tree that has been derived
+for the spam data.  
+
+```{r cap17}
+cap17 <- paste("Decision tree for spam data. If the condition is satisfied, take
+               the branch to the left.  Otherwise, take the branch to the right.")
+```
+
+```{r spam, message=FALSE, fig.width=4.5, fig.asp=0.725, out.width='48%', fig.cap=cap17, fig.show='hold', fig.pos='H'}
+par(mar=c(4.1,3.1,2.6,0.6), xpd=TRUE)
+require(rpart)
+spam.rpart <- rpart(formula = yesno ~ crl.tot + dollar + bang +
+   money + n000 + make, data=DAAG::spam7)
+plot(spam.rpart, uniform=TRUE)
+text(spam.rpart)
+par(mar=c(0,4,0,0))
+plot(c(1,8),c(0.5,8.5), asp=0.4, axes=FALSE, type="n", bty="n", cex=0.8, xlab="",ylab="")
+text(1,8.0, "  ",pos=4)
+text(2,8.0, "Symbols used in tree are:",pos=4)
+text(2,6.0, "dollar: Number of `$` symbols\n(as % of symbols)",pos=4)
+text(2,3.5, "bang: Number of `!` symbols\n(as % of symbols)",pos=4)
+text(2,1.5, "crl.tot: Total runs of capitals",pos=4)
+text(2,0.75, "  ", pos=4)
+```
+
+The tree in Figure \@ref(fig:spam) would be too inaccurate
+for practical use, even suitably updated with new data, 
+but it is easy to see how it might be used.  Here, it serves 
+as a lead in to discussing random forests.
+
+### From trees to forests {-}
+
+"Random forests" improve on decision trees by using samples from
+the data to create a forest (a "random forest") of trees, then
+voting between the trees.  A downside is that "Random forests"
+and similar methods operate largely as black boxes.
+
+* Random forest type methods may work well when the way that
+explanatory factors conspire to give an output is unclear.
+* What works, but one does not know why, may be effective for
+present circumstances. 
+* This can be both a trap and a virtue. Thus, for detecting spam:
+    + When it fails, we will likely have few clues why!
+    + This may, for a short time, impede spammers!
+* Spammers are anyway continually refining their strategies
+    + Spam detectors must be responsive to new challenges
+* Automated systems that can be easily gamed abound. They are a
+menace!
+
+### It helps to know the how and why of the algorithms used {-}
+
+Cathy O'Neill: "... it’s not enough to just know how to run a black box
+algorithm. You actually need to know how and why it works, so that when
+it does’nt work, you can adjust."
+
+## Examples that illustrate other traps
+
+### Are herricanes more dangerous than himmicanes? {-}
+
+The United States National Hurricane Center began formally naming
+hurricanes in 1950, a task now under control of the
+World Meteorological Organization.  Female names were used for
+Atlantic hurricanes from 1953 to 1978, with a mix of male and
+female names used from 1979 onwards.
+
+In a paper titled "Female hurricanes are deadlier than male 
+hurricanes", @jung2014female used data for 94 Atlantic hurricanes 
+that made landfall in the United States during 1950-2012 to argue
+that death rates from those with female names were overall higher 
+than for those with male names. The suggestion was that where names
+were female, authorities took the risk less seriously.  The paper 
+attracted wide interest on the blogosphere, with female hurricanes 
+jokingly called herricanes and males called himmicanes.
+
+The separate dotted lines in Figure \@ref(fig:hurricanes1), red for 
+female and blue for male, are a close equivalent to the authors' fit 
+to the data.  Notice the use of a relative (numbers of deaths) scale 
+on the $y$-axis, and a dollar scale on the $x$-axis. 
+An unfortunate consequence of the use of a linear dollar scale
+on the $x$-axis is that the slopes of the lines are strongly
+influenced by the final four points at the upper end of the scale.
+Why did the authors not use, at least as a starting point, the same 
+relative scale on both axes, as in Figure \@ref(fig:hurricanes2)?
+
+```{r cap17-5}
+cap17.5 <- "Deaths versus damage estimate in US dollars. The red (for female) 
+and blue (for male) dashed lines are close equivalents of Jung at al's fit
+to the data. The $y$-axis uses a scale of equal relative numbers of deaths, 
+while the\ $x$-axis uses a scale of equal dollar damage costs."
+```
+
+```{r hurricanes1, echo=FALSE, fig.width=6.5, fig.height=4.45, message=FALSE, fig.cap=cap17.5, fig.pos='H', out.width="85%", fig.align="center"}
+hurricNamed <- within(DAAG::hurricNamed, lnNDAM2014<-log(NDAM2014))
+suppressPackageStartupMessages(library(latticeExtra, quietly=TRUE))
+suppressPackageStartupMessages(library(mgcv))
+library(MASS)
+ytxt <- c(1,3,10, 30, 100, 300, 1000)
+funy <- function(y)log(y+1)
+gph <- xyplot(funy(deaths) ~ NDAM2014,
+       groups= mf,
+       data=hurricNamed,
+       scales=list(y=list(at=funy(ytxt), labels=paste(ytxt))),
+       xlab =expression("Damage at the time (millions of 2014 US$)"),
+       ylab=expression("Deaths"),
+       auto.key=list(text=c("Females","Males"), columns=2),
+       main=list("US Atlantic Hurricanes -- 1950 to 2012",font=1),
+       par.settings=simpleTheme(col=c("red","blue"),
+                                pch=16))
+gph2 <- gph + layer(panel.text(x[c(13,84)], y[c(13,84)],
+                       labels=hurricNamed[c(13,84), "Name"], pos=3,col="gray30", cex=0.8),
+                    panel.text(x[c(13,84)], y[c(13,84)],
+                       labels=hurricNamed[c(13,84), "Year"], pos=1, col="gray30", cex=0.8))
+ab <- coef(lm(funy(deaths) ~ NDAM2014 + mf, data=hurricNamed))
+gph3 <- gph2+layer(panel.abline(ab[1], b=ab[2], col="red", lty=2, lwd=2),
+          panel.abline(ab[1]+ab[3], b=ab[2], col="blue", lty=2, lwd=2))
+# gph4 <- gph3 + latticeExtra::layer(data=df,
+#            panel.lines(funx(NDAM2014[mf=='f']), hat[mf=='f'], col='red',
+#                        lwd=2, lty=2, alpha=0.5),
+#            panel.lines(funx(NDAM2014[mf=='m']),
+#            hat[mf=='m'], col='blue', lwd=2, lty=2, alpha=0.5))
+gph3 + layer(lims <- current.panel.limits(),
+             xleft <- lims$xlim[1] + 0.01*diff(lims$xlim),
+             ytop <- lims$ylim[2] - 0.125*diff(lims$ylim),
+             panel.text(xleft, ytop, adj=0,
+                        paste("Dashed lines, red for femaleand blue for male,\n",
+                              "are close equivalents to the Jung et al fits.\n"),
+                        cex=0.8, col="gray30"))
+```
+
+As well as using a relative scale on the $x$-axis, Figure 
+\@ref(fig:hurricanes2) uses a methodology that allows the 
+data to determine the form of the response.  Deaths do on 
+average increase more at a higher rate than the damage measure, 
+but not at the rate suggested by the dashed curves. There
+is now no evident difference between the two curves.
+
+```{r cap18}
+cap18 <- "Deaths versus damage estimate in US dollars, with logarithmic scales
+               on both axes. Separate fitted lines for male and female
+               hurricanes cannot be distinguished. Jung et al used a 
+               logarithmic scale on the vertical axis only, which on
+               this graph leads to the dashed curves."
+```
+
+```{r hurricanes2, echo=FALSE, fig.width=6.5, fig.height=4.45, message=FALSE, fig.cap=cap18, fig.pos='H', out.width="85%", fig.align="center"}
+hurricNamed <- within(DAAG::hurricNamed, lnNDAM2014<-log(NDAM2014))
+suppressPackageStartupMessages(library(latticeExtra, quietly=TRUE))
+suppressPackageStartupMessages(library(mgcv))
+library(MASS)
+ytxt <- c(1,3,10, 30, 100, 300, 1000)
+xtxt <- c(1,10,100,1000, 10000, 100000, 1000000 )
+funx <- function(x)log(x)
+funy <- function(y)log(y+1)
+gph <- xyplot(funy(deaths) ~ funx(NDAM2014),
+       groups= mf, data=hurricNamed,
+       scales=list(y=list(at=funy(ytxt), labels=paste(ytxt)),
+                   x=list(at=funx(xtxt), labels=paste(xtxt))),
+       xlab =expression("Damage at the time (millions of 2014 US$)"),
+       ylab=expression("Deaths"),
+       auto.key=list(text=c("Females","Males"), columns=2),
+       main=list("US Atlantic Hurricanes -- 1950 to 2012",font=1),
+       par.settings=simpleTheme(col=c("red","blue"),
+                                pch=16))
+gph2 <- gph + layer(panel.text(x[c(13,84)], y[c(13,84)],
+                       labels=hurricNamed[c(13,84), "Name"], pos=3,col="gray30", cex=0.8),
+                    panel.text(x[c(13,84)], y[c(13,84)],
+                       labels=hurricNamed[c(13,84), "Year"], pos=1, col="gray30", cex=0.8))
+ab <- coef(lm(funy(deaths) ~ funx(NDAM2014) + mf, data=hurricNamed))
+curve.gam <- gam(funy(deaths)~s(lnNDAM2014) + mf, family=scat,
+                 data=hurricNamed)
+dfs <- expand.grid(mf=factor(c('f','m')),
+                             lnNDAM2014=pretty(hurricNamed$lnNDAM2014, 25))
+dfs[["hats"]] <- predict(curve.gam, newdata=dfs)
+## gph3 <- gph2+layer(panel.abline(ab[1], b=ab[2], col="red", alpha=0.4),
+##           panel.abline(ab[1]+ab[3], b=ab[2], col="blue", lty=2,
+##                        alpha=0.4))
+ord <- order(hurricNamed$NDAM2014)
+gph3 <- gph2+as.layer(xyplot(hats~lnNDAM2014, groups=mf, lty=1, type="l", lwd=4,
+                             alpha=0.4, data=dfs))
+hurricJ <- hurricNamed[-(c(13,84)),]
+curve.nb <- glm.nb(deaths~NDAM2014+mf, data=hurricJ)
+x <- exp(log(with(hurricJ, pretty(funx(NDAM2014), 40)))/0.14)
+df<- expand.grid(mf=factor(c('f','m')), NDAM2014=x)
+df[,'hat'] <- funy(predict(curve.nb, newdata=df, type='response')-1)
+gph4 <- gph3 + latticeExtra::layer(data=df,
+           panel.lines(funx(NDAM2014[mf=='f']), hat[mf=='f'], col='red',
+                       lwd=2, lty=2, alpha=0.5),
+           panel.lines(funx(NDAM2014[mf=='m']),
+           hat[mf=='m'], col='blue', lwd=2, lty=2, alpha=0.5))
+gph4 + layer(lims <- current.panel.limits(),
+             xleft <- lims$xlim[1] + 0.01*diff(lims$xlim),
+             ytop <- lims$ylim[2] - 0.125*diff(lims$ylim),
+             panel.text(xleft, ytop, adj=0,
+                        paste("Dashed curves translate the male &\n",
+                              "female regression lines in the previous\n",
+                              "figure to the present graph. The solid\n",
+                              "curves show a data-based relationship."),
+                        cex=0.8, col="gray30"))
+```
+
+Jung et al omitted `Audrey` (in 1957) and `Katrina` (in 2005), as 
+outliers. These are included in Figures \@ref(fig:hurricanes1) and \@ref(fig:hurricanes2), with the curves fitted using a "robust" 
+fitting method that is relatively insensitive to outliers. 
+Other differences between the Jung et al analysis, and the
+analyses reflected in Figures \@ref(fig:hurricanes1) and 
+\@ref(fig:hurricanes2) are documented in Note 1
+`r if (knitr:::is_latex_output()) ', on p. \\pageref{hurricanes}'`
+
+### Historical speed of light estimates --- is there a pattern?{-}
+
+Creationist Barry Setterfield has argued that a reduction over 
+time in the speed of light has led the passage of time to slow 
+down, relative to the remote past, so that the universe is 
+thousands rather than billions of years old.  His arguments rely 
+on making various adjustments to figures obtained historically,
+selecting what he regarded as the most reliable data, and
+then fitting a curve.  
+
+Setterfield tells a story that, while different from that of 
+the line in Panel A of Figure \@ref(fig:plot-c-data), makes equally 
+little sense.  The right panel is limited to the points from 1926 
+and on, marked off with the gray background on the left panel.^[Data 
+are from <https://en.wikipedia.org/wiki/Speed_of_light>]
+
+```{r c-data}
+cvalues <- data.frame(
+  Year = c(1675, 1729, 1849, 1862, 1907, 1926, 1950, 1958, 1972),
+  speed = c(220000, 301000, 315000, 298000, 299710, 299796,
+            299792.5, 299792.50, 299792.4562)/1000,
+  error = c(NA, NA, NA, 500, 30, 4, 3, 0.1, 0.00111)/1000
+)
+```
+
+```{r cap19}
+cap19 <- "Successive speed of light estimates.
+Error estimates are available for the 1855 and later
+measurments.  Panel B limits attention to measurements
+made in 1926 and later. The line 
+was fitted with no adjustment for the very different error
+estimates.  The dashed curve, which incorporates
+such adjustments, is statistically indistinguishable
+from the thick gray horizontal line."
+```
+
+```{r plot-c-data, fig.width=7.5, fig.height=3.0, fig.show='hold', fig.pos='H', fig.cap=cap19}
+par(mfrow=c(1,2), mar=c(3.1,4.1,2.1,0.6), mgp=c(2.1,0.4,0))
+plot(speed ~ Year, data=cvalues, cex=1.0, cex.lab=1.0, pch=1,
+     xlab="", ylab="Speed (1000s of km/s)", fg="gray")
+rect(1915,295.5,1980, 304, col="lightgray", border=NA)
+with(cvalues, points(speed ~ Year, pch=16, cex=1.0))
+obj <- lm(speed ~ Year, data=cvalues)
+abline(obj)
+mtext("A: All measurements", side=3, line=0.75, cex=1.15, at=1630, adj=0)
+subdata <- subset(cvalues, Year>=1926)
+ylim <- with(subdata, range(c(speed-error, speed+error), na.rm=TRUE))
+plot(speed ~ Year, data=subdata, ylim=ylim, pch=0, cex.lab=1.15,
+     xlab="", ylab="", fg="gray")
+obj <- lm(speed ~ Year, data=subdata)
+abline(obj)
+obj3 <- lm(speed ~ poly(Year,2), data=subdata, weights=error^-2)
+obj4 <- lm(speed ~ 1, data=subdata, weights=error^-2)
+lines(subdata$Year, fitted(obj3), lty=2)
+lines(subdata$Year, fitted(obj4), col='gray', lwd=4)
+mtext("B: From 1926, with confidence bands", side=3, line=0.75, at=1920, adj=0, cex=1.15)
+with(subdata, segments(Year, speed - error, Year, speed +
+     error))
+with(subdata, segments(Year - 1.25, speed - error, Year +
+     1.25, speed - error))
+with(subdata, segments(Year - 1.25, speed + error, Year +
+     1.25, speed + error))
+```
+
+For the measurements from 1862 onward, estimates of accuracy
+are available.  Until 1950, each new estimate lay outside the
+bounds for the previous estimate, indicating that these
+were underestimates.
+Even if one were to accept Setterfield's manipulation of the data, 
+it makes no sense at all to fit either lines such as are shown, or
+curves, to data values which have such very different
+accuracies.  
+
+Even if one were to accept Setterfield's manipulation of the data, 
+it makes no sense at all to fit either lines such as are shown, or
+curves, to data values which have such very different
+accuracies as those shown in the graphs.  For the 
+measurements from 1862 onwards, estimates of accuracy are
+available.  Until 1950, each new estimate lay outside the
+bounds for the previous estimate, indicating that these
+were underestimates.
+
+## Global mean temperature trends
+
+```{r cap20}
+cap20 <- "Anomalies (differences) in hundredths of a degree centigrade
+from global average temperatures over 1951-1980, plotted against year.
+The gray curve shows, for each year, the average anomaly up to that
+point in time.  The last year in which this lay below the gray line
+was 1962."
+```
+  
+```{r climate, fig.width=6.25, fig.asp=0.7, out.width="80%", fig.pos='H', fig.cap=cap20}
+## ---- loti-smooth --------
+load('data/loti.RData')
+anomaly <- loti[, "J.D"]
+num <- seq(along = anomaly)
+AVtodate <- cumsum(anomaly)/num
+yr <- loti$Year
+anomTxt <- "Difference from baseline"
+yl = substitute(txt * " (0.01" * degree * "C)",
+                  list(txt=anomTxt))
+plot(yr, anomaly, xlab = "Year", ylab = as.expression(yl), fg="gray")
+mtext(side=3, line=0.75,
+      "Global temperature differences from 1951-1980 global average")
+lines(AVtodate ~ yr, col = "gray", lwd = 2)
+lastLessYr <- max(yr[anomaly < AVtodate])
+lastLessy <- loti[as.character(lastLessYr), "J.D"]
+yarrow <- lastLessy - c(4, 0.75) * strheight("O")
+arrows(lastLessYr, yarrow[1], lastLessYr, yarrow[2],
+       col = "gray", lwd = 2)
+```
+
+Figure \@ref(fig:climate) plots global 
+[air and sea surface temperature anomaly data](http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.GISSTEMP/.Global/.LOTI/)
+against year. Anomalies, in hundredths of a degree centigrade, are
+differences from the 1951-1980 global average. The grey curve plots
+the average anomaly up to that point in time. 
+
+Observe that 1964 was the last year in which the global 
+temperature fell below the average to that time.
+For the 52 subsequent years (from 1965 to 2016 inclusive),
+the global average was above the average up to that date.  Under
+the (false) assumption that global temperature is varying
+randomly (and therefore independently) about a common mean,
+the probability of this happening is 2$^{-40}$ = 9.1
+$\times$ 10$^{-13}$.  A variation of this argument came
+from a speaker on the Australian ABC Science Show on April
+3 2011. 
+
+Under any model that accounts for what are now
+fairly well understood patterns of correlation over time,
+the probability, while very small, is not that small!
+Arguments that overstate the case for what is now a
+well-established pattern of change are unhelpful
+
+It is likewise nonsensical to fit a line to the cherry-picked
+years 1998-2008, where the trend was relatively flat.
