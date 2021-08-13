@@ -638,7 +638,7 @@ from the thick gray horizontal line."
 ```
 
 ```{r plot-c-data, fig.width=7.5, fig.height=3.0, fig.show='hold', fig.pos='H', fig.cap=cap19}
-opar <- par(mar=c(3.1,4.1,2.1, 0.6), mgp=c(2.0, .5,0), fig=c(0,0.48,0,1))
+opar <- par(mar=c(3.1,4.1,2.1, 0.6), mgp=c(2.0, .5,0), fig=c(0,0.51,0,1))
 plot(speed ~ Year, data=cvalues, cex=1.0, cex.lab=1.0, pch=1,
      xlab="", ylab="Speed (1000s of km/s)", fg="gray")
 rect(1915,295.5,1980, 304, col="lightgray", border=NA)
@@ -648,7 +648,7 @@ abline(obj)
 mtext("A: All measurements", side=3, line=0.75, cex=1.15, at=1630, adj=0)
 subdata <- subset(cvalues, Year>=1926)
 ylim <- with(subdata, range(c(speed-error, speed+error), na.rm=TRUE))
-par(fig=c(0.52,1,0,1), new=TRUE)
+par(fig=c(0.49,1,0,1), new=TRUE)
 plot(speed ~ Year, data=subdata, ylim=ylim, pch=0, cex.lab=1.15,
      xlab="", ylab="", fg="gray")
 obj <- lm(speed ~ Year, data=subdata)
