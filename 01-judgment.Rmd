@@ -237,7 +237,7 @@ not a person has the disease.
 Nisbett comments that most people, including nurses and doctors,
 interpret such evidence wrongly [@nisbett, pp.129-130].
 
-## Do you understand risk {-}
+### Do you understand risk {-}
 
 See the 2-minute test 
 {"Do you understand risk?"](http://www.riskliteracy.org/)^[http://www.riskliteracy.org/]
