@@ -17,7 +17,7 @@ of assessments as new evidence emerges is a major challenge.
 
 Resources that will be noted are
 
-* [Harding Center for Risk Literacy](https://www.hardingcenter.de/en)^[<https://www.hardingcenter.de/en>]
+* [Harding Center for Risk Literacy](https://www.hardingcenter.de/en)
 * The [Cochrane Center](<https://www.cochrane.org/>)
 * [Winton Centre for Risk and Evidence  Communication](<https://wintoncentre.maths.cam.ac.uk/>)
 
@@ -26,33 +26,44 @@ Resources that will be noted are
 
 ### The Harding Center for Risk Literacy {-} 
 
-There is extensive informative content on the [Harding Center for Risk Literacy site](https://www.hardingcenter.de/en)^[<https://www.hardingcenter.de/en>] site.  Note, in particular:
+There is extensive informative content on the [Harding Center for Risk Literacy site](https://www.hardingcenter.de/en)^[<https://www.hardingcenter.de/en>] site.  Note in particular
 
-* [Team](https://www.hardingcenter.de/en/team)^[<https://www.hardingcenter.de/en/team>]
-* [Medical Fact Boxes](https://www.hardingcenter.de/en/transfer-and-impact/fact-boxes)
-* [Publications](https://www.hardingcenter.de/en/the-harding-center/publications/scientific-publications)
-* [In the Media](https://www.hardingcenter.de/en/harding-center/media)
+* Medical Fact Boxes.  Look under **Transfer and Impact | Fact Boxes**
+* Covid-19. Look under **Transfer and Impact | Corona pandemic**
+* Consumer Empowerment. **Transfer and Impact | Consumer Empowerment**
+* Risk and Evidence Communication. Look under **Research | Risk and Evidence Communication**
+* VisRisk - Visualization and Communication of Complex Evidence in Risk Assessment. Look under **Research | VisRisk**
+* Horizon2020 Project FORECEE (on balancing female cancer risk against
+the risk arising from false-positive alarms and overdiagnosis).
+ Look under **Research | FORECEE Project**
+* Drone Risks Project. Look under **Research | Drone Risks Project**
+* Publications.  Look under **The Harding Center | Publications**
+* In the Media. Look under  **The Harding Center | In the Media**
+
 
 ### Harding Center Medical Fact Boxes {-}
 
-Medical fact boxes^[<https://www.hardingcenter.de/en/projects-and-collaborations/fact-boxes>] provide visual and tabular summaries of the current 
+Medical fact boxes^[<https://www.hardingcenter.de/en/transfer-and-impact/fact-boxes>]^[<https://www.hardingcenter.de/en/transfer-and-impact/fact-boxes>] provide visual and tabular summaries of the current 
 "best" evidence, from randomized controlled trials.  The comparison 
 may be with a placebo, or with an alternative that is known to be
 effective. Detailed references are given.  Where available, reliance 
-is on Cochrane studies.  Some of the available fact boxes are:
+is on Cochrane studies.  Available fact boxes, as of August 2021, are:
 
-* [Early cancer detection: breast, ovarian, prostate, colon, cervix](https://www.hardingcenter.de/en/projects-and-collaborations/fact-boxes/early-detection-cancer)
-* [Cardiovascular Diseases](https://www.hardingcenter.de/en/projects-and-collaborations/fact-boxes/cardiovascular-diseases)
-* [Vaccines](https://www.hardingcenter.de/en/projects-and-collaborations/fact-boxes/vaccines)
-* [Low back pain](https://www.hardingcenter.de/en/projects-and-collaborations/fact-boxes/imaging-tests-low-back-pain)
-* [Osteoarthritis of the knee](https://www.hardingcenter.de/en/projects-and-collaborations/fact-boxes/osteoarthritis-knee)
-* [Dietary Supplements - Selenium](https://www.hardingcenter.de/en/projects-and-collaborations/fact-boxes/dietary-supplements)
-    
+* Vaccines
+* General health checks
+* Dietary Supplements - Selenium
+* Low back pain
+* Antibiotics
+* Early detection of cancer: breast, colon, prostate
+* Cardiovascular Diseases
+* Osteoarthritis of the knee
+* Tonsil surgery
 
-Note also
+See also a risk literacy quiz that is aimed at aimed at medical 
+students and professionals
 
-* [information material on SARS-CoV-2 and Covid-19](https://www.hardingcenter.de/en/transfer-and-impact/what-you-should-know-about-sars-cov-2-and-covid-19)^[https://www.hardingcenter.de/en/transfer-and-impact/what-you-should-know-about-sars-cov-2-and-covid-19]
-* [Are you risk literate? --- Risk quiz](https://docs.google.com/forms/d/e/1FAIpQLSfw3Pe5a_g6lALY7ad3Aq7fBu2Sro4uteUKqvvvCARICxOQ9g/viewform?usp=sf_link)^[https://docs.google.com/forms/d/e/1FAIpQLSfw3Pe5a_g6lALY7ad3Aq7fBu2Sro4uteUKqvvvCARICxOQ9g/viewform?usp=sf_link]
+* [Are you risk literate? --- Risk quiz ](https://www.hardingcenter.de/sites/default/files/2020-01/harding_schnelltest_us_1809067_1215.pdf)^[https://www.hardingcenter.de/sites/default/files/2020-01/harding_schnelltest_us_1809067_1215.pdf]
+    + On the development of the quiz, see @cokely2012measuring
 
 ### The Cochrane Center^[<https://www.cochrane.org/>] {-}
 
@@ -62,6 +73,8 @@ meta-analyses, looking for the balance of evidence across all relevant
 studies.
 
 ### Winton Centre for Risk and Evidence  Communication^[<https://wintoncentre.maths.cam.ac.uk/>] {-}
+
+See also
 [US Consumer health information site]^[<https://medlineplus.gov/>]  
 
 ## PSA Screening for Prostate Cancer, & more

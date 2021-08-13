@@ -20,45 +20,41 @@ thickened
 simultaneously on widely separated colors that are close
 together on the same graph.
 
-
 ## Varying time intervals --- show rates, not counts
 
-A graph that was essentially the black segmented line in Figure
-\@ref(fig:Nobel) appeared in @national1975science 
+A graph that was essentially the solid segmented solid line in 
+Figure \@ref(fig:Nobel) appeared in @national1975science 
 "Science Indicators, 1974". The segmented line gives
 a highly misleading impression for the four years 1971-1974, as
 opposed to earlier points, where numbers are totals over decades.
 It joins up a final point that is a different measure from earlier
 points.  
 
-A proper comparison between the number of Nobel prizes
-in the earlier decades and the number in the four-year
-period 1971-1974 adjusts for the length of time (ten years
-versus four years) to which the count relates.  The blue
-dots, and the axis on the right, fairly represent change
-over time.
+The gray dots, and the axis on the right, show rates per year,
+thus comparing like with like.
 
 ```{r cap2, echo=FALSE}
-cap2 <- "The black line shows numbers of US Nobel prizes, for given time intervals.
-The blue dots show average number per year, as indicated by the axis on the right."
+cap2 <- "The black line shows numbers of US Nobel prizes, for given time intervals. The gray dots. with the right axis label, show average per year."
 ```
 
 ```{r Nobel, fig.width=6.5, fig.asp=0.575, fig.show="hold", out.width="80%", fig.pos='H', fig.cap=cap2}
 par(mar=c(4.1,3.1,2.1,3.1),mgp=c(2.25,0.5,0))
 n2 <- c(1,1,4,12,15,29,27,11)
 n1 <- c(1,1,4,12,15,29,27,39)
-plot(1:8, n2, xaxt="n", xlab="", ylim=range(n1),
+plot(1:8, n2, xaxt="n", xlab="", ylim=range(n1), lwd=2,
      ylab="Number of Nobel prizes", type="l", fg='gray')
-axis(1, at=1:8, labels=paste0(seq(from=1901, to=1971, by=10),"-"), cex.axis=0.9, gap.axis=0.15)
+axis(1, at=1:8, labels=paste0(seq(from=1901, to=1971, by=10),"-"), 
+     cex.axis=0.9, gap.axis=0.15, col="gray")
 axis(1, at=1:8, labels=paste0(c(seq(from=1910, to=1970, by=10),1974)),
-     line=0.8, lty=0, cex.axis=0.9)
-axis(1, at=1:7, labels=FALSE)
+     line=0.8, lty=0, cex.axis=0.9, col="gray")
+axis(1, at=1:7, labels=FALSE, col="gray")
 mtext(side=3, line=0.5, at=0.5, "Total prizes (black line)", adj=0, cex=1.25)
-mtext(side=3, line=0.5, at=8.5, "Average prizes per year (blue dots)", col='blue', adj=1, cex=1.25)
-points(1:8, n1, lwd=8, col=adjustcolor('blue', alpha=0.5), pch=1)
-lines(7:8, tail(n1,2), lty=2,lwd=2, col=adjustcolor('blue', alpha=0.5))
-axis(4, at=(0:4)*10, labels=paste(0:4), col.ticks=adjustcolor('blue', alpha=0.5), col.axis='blue')
-mtext(side=4, line=1.8, "Nobel prizes per year", col='blue')
+mtext(side=3, line=0.5, at=8.5, "Nobel prizes per year (gray dots)", col='gray60', adj=1, cex=1.25)
+points(1:8, n1, lwd=8, col="gray", pch=1)
+lines(7:8, tail(n1,2), lty=2,lwd=2, col="gray")
+axis(4, at=(0:4)*10, labels=paste(0:4), 
+     col.ticks="gray", col='gray')
+mtext(side=4, line=1.8, "Nobel prizes per year", col='gray60')
 ```
 
 The same principle applies for intervals of measures
@@ -74,15 +70,18 @@ obvious in Panel A is very obvious in Panel B"
 
 ```{r Banking, fig.width=8, fig.height=3.5, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap1}
 suppressPackageStartupMessages(library(latticeExtra))
-gph1 <- xyplot(sin((1:50)*0.92) ~ I((1:50)*0.92), xlab="", ylab="",
-               aspect="xy",
-       main=list("A: Pattern is hidden to view", 
-                 x=0.1, y=-0.5, just='left', font=1))
-gph2 <- xyplot(sin((1:50)*0.92) ~ I((1:50)*0.92), xlab="", ylab="",
-       main=list("B: Pattern is now obvious", 
-                 x=0.1, y=-0.5, just='left', font=1))
-print(gph1, position=c(0,0,0.52,1), more=TRUE)
-print(gph2, position=c(0.48,0,1,1))
+gph1 <- xyplot(sin((1:30)*0.92) ~ I((1:30)*0.92), xlab="", ylab="",
+ ##      main=list("A: Pattern is hidden to view", 
+##                 x=0.1, y=-0.5, just='left', font=1),
+scales=list(y=list(at=c(-1,0,1))))
+gph2 <- xyplot(sin((1:30)*0.92) ~ I((1:30)*0.92), aspect='xy', 
+               xlab="", ylab="", ylim=c(-9,9),
+##               main=list("B: Pattern is now obvious", 
+##                 x=0.1, y=-0.5, just='left', font=1)
+scales=list(y=list(at=seq(from=-8,to=8,by=2)))
+)
+update(c("A: Pattern is hidden to view"=gph1,
+"B: Pattern is now obvious"=gph2, y.same=FALSE), between=list(x=0.5,y=0))
 ```
 
 Patterns of change on the horizontal scale that it is
@@ -111,7 +110,7 @@ Animals <- MASS::Animals
 gph1 <- xyplot(brain ~ body, data=Animals,
         xlab="Body weight (k)", ylab="Brain weight (g)", 
        main=list("A: Scales show weights", x=0.1, y=-0.5, just='left', font=1))
-print(gph1, position=c(0,0,0.52,1), more=TRUE)
+print(gph1, position=c(0,0,0.525,1), more=TRUE)
 labs <- c('Asian elephant','African elephant','Human','Dipliodocus',
           'Triceratops','Brachiosaurus','Mouse')
 atx <- c(.1,1,10,100,1000,10000,100000)
@@ -126,7 +125,7 @@ scales=list(log='e', x=list(at=atx,labels=paste(atx)),
   latticeExtra::layer(data=Animlabs, 
     panel.text(log(body),log(brain)+c(-0.1,-0.12,0,0.2,0.15,0,0), 
                cex=0.75, labels=rownames(Animlabs), pos=c(c(rep(2,5),4,2))))
-print(gph2, position=c(0.48,0,1,1))
+print(gph2, position=c(0.475,0,1,1))
 ```
 
 Often, when measurement data span a large range (e.g., a change
@@ -162,7 +161,7 @@ gph1 <- xyplot(Time ~ Distance, type=c('p','r'), data=track,
  latticeExtra::layer(panel.axis(side='top', at=log(c(.2,2,20)), 
  labels=c('200m',"2km",'20km'), text.col="gray50", line.col='gray50',line.lty=2,
  half=FALSE, rot=0))
-print(gph1, position=c(0,0,0.52,1), more=TRUE)
+print(gph1, position=c(0,0,0.5,1), more=TRUE)
 track.res <-residuals(lm(log(Time)~log(Distance), data=track))
 gph2 <- xyplot(track.res ~ Distance, type=c('p','r'), data=track,
        scales=list(x=list(log='e', at=atx,labels=paste(atx))),
@@ -171,7 +170,7 @@ gph2 <- xyplot(track.res ~ Distance, type=c('p','r'), data=track,
  latticeExtra::layer(panel.axis(side='top', at=log(c(.2,2,20)), 
  labels=c('200m',"2km",'20km'), text.col="gray50", line.col='gray50',line.lty=2,
  half=FALSE, rot=0))
-print(gph2, position=c(0.48,0,1,1))
+print(gph2, position=c(0.5,0,1,1))
 ```
 
 Notice, in Panel A, the use of scales for which which equal distances on 

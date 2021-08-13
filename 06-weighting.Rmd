@@ -253,7 +253,7 @@ cap9 <- "Data are pain reduction scores. Subgroup numbers, shown
 
 ```{r painkiller, fig.cap=cap9, fig.width=7, fig.asp=0.4, eval=TRUE}
 library(lattice)
-parset <- simpleTheme(cex=1.35, pch=16,
+parset <- simpleTheme(cex=1.35, pch=16:17,
                       col=c("darkblue","turquoise"))
 gabalong <- data.frame(values=unlist(DAAG::gaba["30",])[-1],
                        sex=rep(c("male", "female", "ALL"), rep(2,3)),
