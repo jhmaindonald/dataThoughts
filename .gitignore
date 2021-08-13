@@ -6,3 +6,4 @@ _bookdown_files
 _book/*.md
 dataSense-book.rds
 rsconnect
+_working.Rmd
