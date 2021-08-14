@@ -198,7 +198,7 @@ in their work.  Among other issues, their insistence on treating
 each data point for each country as an independent piece of 
 evidence makes no sense.  The smooth curve fitted in Figure
 \@ref(fig:debt2gdp12) may be regarded as an average over the
-ten countries, but (as the next graph will show)  huge country
+ten countries, but (as the next graph will show)  with huge country
 to country variation.
 
 ```{r cap3, echo=FALSE}

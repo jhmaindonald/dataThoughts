@@ -43,7 +43,7 @@ the risk arising from false-positive alarms and overdiagnosis).
 
 ### Harding Center Medical Fact Boxes {-}
 
-Medical fact boxes^[<https://www.hardingcenter.de/en/transfer-and-impact/fact-boxes>]^[<https://www.hardingcenter.de/en/transfer-and-impact/fact-boxes>] provide visual and tabular summaries of the current 
+[Medical fact boxes](https://www.hardingcenter.de/en/transfer-and-impact/fact-boxes)^[<https://www.hardingcenter.de/en/transfer-and-impact/fact-boxes>] provide visual and tabular summaries of the current 
 "best" evidence, from randomized controlled trials.  The comparison 
 may be with a placebo, or with an alternative that is known to be
 effective. Detailed references are given.  Where available, reliance 
@@ -59,11 +59,11 @@ is on Cochrane studies.  Available fact boxes, as of August 2021, are:
 * Osteoarthritis of the knee
 * Tonsil surgery
 
-See also a risk literacy quiz that is aimed at aimed at medical 
-students and professionals
-
-* [Are you risk literate? --- Risk quiz ](https://www.hardingcenter.de/sites/default/files/2020-01/harding_schnelltest_us_1809067_1215.pdf)^[https://www.hardingcenter.de/sites/default/files/2020-01/harding_schnelltest_us_1809067_1215.pdf]
-    + On the development of the quiz, see @cokely2012measuring
+Scroll down the home page (<https://www.hardingcenter.de/en>) to find the
+headings **Risk Literate** (with a link to a risk quiz), and 
+**Quick Risk Test** (with a link to a test that is targeted at medical 
+students and medical professionals.  On the development of this latter 
+test, see @cokely2012measuring.
 
 ### The Cochrane Center^[<https://www.cochrane.org/>] {-}
 

@@ -208,7 +208,7 @@ The multipliers for the `Distance` values that are plotted are,
 starting at the bottom, 2, 4, 5, and 10."
 ```
 
-```{r lnscales, fig.width=4.5, fig.height=3.75, out.width="48%", fig.show="hold", fig.pos="H", fig.cap=cap5, echo=FALSE, fig.align='center'}
+```{r lnscales, fig.width=5.7, fig.height=3.75, out.width="60%", fig.show="hold", fig.pos="H", fig.cap=cap5, echo=FALSE, fig.align='center'}
 atx <- c(.1,.3,1,3,10,30,100)
 track <- subset(DAAG::worldRecords, roadORtrack=='track')
 rx <- range(track$Distance)
@@ -228,8 +228,8 @@ axis(2, at=c(0,3,6,9), lwd=0, lwd.ticks=0,
 
 ## Helpful web links are: 
 
-* Good & bad graphs (Murrell, lecture notes)^[<https://www.stat.auckland.ac.nz/~ihaka/120/Lectures/lecture03.pdf>]
-* A short tour of bad graphs (Schwartz)^[<www.stat.sfu.ca/~cschwarz/Stat-650/Notes/PDF/ChapterBadgraphs.pdf>]
-* Misleading graphs^[<www.statisticshowto.com/misleading-graphs/>]
-    + Color choices^[<www.stonesc.com/pubs/Expert%20Color%20Choices.pdf>]
-    + Color Brewer^[<www.statisticshowto.com/misleading-graphs/>]
+* Good & bad graphs (Murrell, lecture notes)^[https://www.stat.auckland.ac.nz/~ihaka/120/Lectures/lecture03.pdf]
+* A short tour of bad graphs (Schwartz)^[www.stat.sfu.ca/~cschwarz/Stat-650/Notes/PDF/ChapterBadgraphs.pdf]
+* Misleading graphs^[www.statisticshowto.com/misleading-graphs/]
+    + Color choices^[www.stonesc.com/pubs/Expert%20Color%20Choices.pdf]
+    + Color Brewer^[www.statisticshowto.com/misleading-graphs/]

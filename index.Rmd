@@ -76,20 +76,23 @@ in professional life.
     +  Recognize and avoid the mental traps to which humans are prone.
 2. Graphs can reveal surprises. They can also be drawn 
 so that they deceive.  Take care! 
+    + Choice of one or both scales such that equal relative
+    changes mark out equal distances on the scale may show 
+    patterns that are not otherwise obvious.
 3. From hindsight to insight --- it is easy to be deceived.
     + If a sportsperson is at the top of their form, the only 
 way to go is down. If at the bottom, the only way is up.
     + This is true also for success in business.
     + Chance, as well as form, obviously plays a part.
-4a. What is the cause?  What should we blame, or praise?
-    + What causes cholera – bad air or bad water? 
-    + Does drinking coffee help or harm health? 
-4b. Randomized trials, if done rigorously, are a gold standard.
+4. Medicine and health provides a good context into which to study
+a number of important issues. What causes cholera – bad air or bad water? 
+ Does drinking coffee help or harm health? 
+    + Randomized trials, if done rigorously, are a gold standard.
     + Participants must closely reflect the population to which
 results will be applied.
     + Think carefully about the outcome measure.  Thus, is it
     "cancers" found?  Or is it "deaths" within a stated timeframe.
-4c. Population studies, where adjustments are needed 
+    + Population studies, where adjustments are needed 
 to account for prior differences between the two (or more)
 groups, more readily mislead.
 5. Mistakes that arise from statistical misunderstandings
@@ -100,11 +103,11 @@ can have serious consequences.
 A notable example is the Yule-Simpson paradox, which arises 
 because we have naively added numbers in ways that give more 
 weight to some combinations of effects than to others. 
-7a. What direction does the correlation go? 
-7b. Tall fathers are likely to have tall sons, but shorter than themselves. 
-What is hard to grasp is that the effect goes on both directions.
+7. What direction does the correlation go? 
+    + Tall fathers are likely to have tall sons, but shorter than themselves. 
+    + What is hard to grasp is that the effect goes on both directions.
 Tall sons are likely to have tall fathers, but shorter than themselves.
-This phenomenon, known as "regression to the mean", 
+The phenomenon known as "regression to the mean", 
 goes in both directions.
 8. Careful checks are needed when the attempt is made to use
 observational data to establish causation.

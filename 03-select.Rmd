@@ -102,7 +102,7 @@ The net effect was a gross over-estimate of average wages.
 
 ## The uneasy path from hindsight to insight
 
-There is a mix of selection and survivor bias arise when data 
+There is a mix of selection and survivor bias when data 
 from the past are used as a guide to the future, with no 
 allowance for the source/target difference.  The target about 
 which we wish to make judgments lies in the future, while the 
