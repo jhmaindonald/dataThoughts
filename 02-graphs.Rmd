@@ -198,7 +198,7 @@ again.
 Figure \@ref(fig:lnscales) shows different "equal physical distance
 along the scale" labels that might be used for the relative
 `Distance` scale in Figure \@ref(fig:resid)} in Subsection 
-\@ref{track}.  The physical distances along the scale are the 
+\@ref(track).  The physical distances along the scale are the 
 logarithms of the `Distance` values. 
 
 ```{r cap5, echo=FALSE}
@@ -214,13 +214,14 @@ track <- subset(DAAG::worldRecords, roadORtrack=='track')
 rx <- range(track$Distance)
 atx10 <- 10^seq(from = floor(log10(rx[1])), to=ceiling(log10(rx[2])))
 atx2 <- 2^seq(from = floor(log(rx[1],base=2)), to=ceiling(log(rx[2],base=2)))
+lab2 <- gsub('0.','.',paste(atx2), fixed=T)
 atx4 <- 4^seq(from = floor(log(rx[1],base=4)), to=ceiling(log(rx[2],base=4)))
 atx5 <- 5^seq(from = floor(log(rx[1],base=5)), to=ceiling(log(rx[2],base=5)))
 plot(log(rx), c(0,9), type='n', mgp=c(0,0,0), axes=FALSE, xlab='', ylab='')
 axis(1, at=log(atx10), labels=paste(atx10), pos=9)
 axis(1, at=log(atx5), labels=paste(atx5), pos=6)
 axis(1, at=log(atx4), labels=paste(atx4), pos=3)
-axis(1, at=log(atx2), labels=paste(atx2), pos=0)
+axis(1, at=log(atx2), labels=lab2, pos=0, gap.axis=0.1)
 axis(2, at=c(0,3,6,9), lwd=0, lwd.ticks=0,
      labels=expression('' %*% 2,'' %*% 4,'' %*% 5,'' %*% 10), las=1)
 ```
@@ -228,8 +229,6 @@ axis(2, at=c(0,3,6,9), lwd=0, lwd.ticks=0,
 
 ## Helpful web links are: 
 
-* Good & bad graphs (Murrell, lecture notes)^[https://www.stat.auckland.ac.nz/~ihaka/120/Lectures/lecture03.pdf]
-* A short tour of bad graphs (Schwartz)^[www.stat.sfu.ca/~cschwarz/Stat-650/Notes/PDF/ChapterBadgraphs.pdf]
-* Misleading graphs^[www.statisticshowto.com/misleading-graphs/]
-    + Color choices^[www.stonesc.com/pubs/Expert%20Color%20Choices.pdf]
-    + Color Brewer^[www.statisticshowto.com/misleading-graphs/]
+* Good & bad graphs (Ihaka, lecture notes)^[https://www.stat.auckland.ac.nz/~ihaka/120/Lectures/lecture03.pdf]
+* Misleading graphs^[https://www.statisticshowto.com/misleading-graphs/]
+* Color Brewer^[https://colorbrewer2.org/]
