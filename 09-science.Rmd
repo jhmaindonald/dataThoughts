@@ -39,12 +39,29 @@ the critique that authors provide to the work of their fellow
 authors will commonly ensure that what is submitted for peer
 review is soundly based.  
 
-For experimental studies that are
-designed to stand on their own, the past decade has seen the
+For experimental studies that are designed to stand on 
+their own, the past decade has seen the
 emergence of worrying evidence that a large amount of
 published work is, when put to the test, not replicable.
 Current scientific publication processes do not, in general, 
 handle experimentally based claims well.  
+
+More generally, uncritical and faulty statistical analyses, 
+such as have been documented earlier in this book, are a 
+cause for concern. Too often, model fitting becomes a ritual,
+without the use of standard types of diagnostic checks that
+would have demonstrated that the model was faulty.  
+@stark2018cargo comment:
+
+> The mechanical, ritualistic application of statistics is contributing to a crisis in science. Education, software and peer review have encouraged poor practice–and it is time for statisticians to fight back.
+. . .
+The problem is one of cargo-cult statistics - the ritualistic miming of
+statistics rather than conscientious practice. This has become the norm 
+in many disciplines, reinforced and abetted by statistical education, 
+statistical software, and editorial policies. 
+
+It is not just statisticians who should be fighting back, but all 
+scientists who care about the public credibility of scientific processes.
 
 ## What results can be trusted?
 
@@ -298,7 +315,7 @@ has been fitted for results in social psychology.  Notice
 that, for social psychology, it is only for an original 
 effect size greater than 0.4 that one starts to see a 
 positive correlation between the effect sizes for replicate 
-and original.  
+and original. 
 
 ## Truths that special interests find inconvenient
 

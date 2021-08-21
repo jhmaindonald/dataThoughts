@@ -1,4 +1,4 @@
-# Mistakes (and worse) that matter
+# Matters of consequence
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.5,fig.height=5.5)
@@ -21,7 +21,7 @@ It emerged that
 * Funding came from a group of lawyers who were interested
     in possible personal injury lawsuits
 * From 9 children said to have regressive autism   
-    + Only 1 had been diagnosed; 3 had no autism  
+    + Only 1 had been diagnosed; 3 had no autism
     + 5 had developmental problems before the vaccine
 
 Wakefield's 1998 claims were widely reported
@@ -34,7 +34,7 @@ Wakefield was found guilty by the General Medical Council of serious professiona
 Following the initial claims in 1998, multiple large epidemiological studies failed to find any link between MMR and autism.
 
 Fact boxes on the Harding site summarize evidence of the 
-effectiveness of the [MMR vaccine](https://www.hardingcenter.de/de/search/node?keys=mmr)^[https://www.hardingcenter.de/de/search/node?keys=mmr>]
+effectiveness of the [MMR vaccine](https://www.hardingcenter.de/de/search/node?keys=mmr)^[https://www.hardingcenter.de/de/search/node?keys=mmr]
 
 ## Sally Clark's disturbing cot death story 
 
@@ -47,14 +47,18 @@ highlighted ways in which the UK legal system needed to take
 on board issues that affect the use of medical evidence ---
 issues of a type that can be important in medical research.
 
-Meadow argued that "unless proved otherwise, one cot death is tragic,
-two is suspicious and three is murder." 
+Paediatrician Sir Roy Meadow had argued in his 1997 book
+**ABC of Child Abuse** that "unless proved otherwise, 
+one cot death is tragic, two is suspicious and three is murder." 
 Was this an example of "Too hard! Try something easier, and wrong!"
 Or was it the triumph of assumed "knowledge" over hard evidence?
 
-Following the "cot death" of the second of Sally Clark's two children,
-Meadow gave evidence at her trial in 1999, and appeal 
-in 2000. Sally Clark was finally acquitted in 2003.
+Meadow's role as an expert witness for the prosecution in several 
+trials played a crucial part in wrongful convictions for murder.
+The case that attracted greatest attention is that of Sally Clarke,
+both of whose children were "cot death" victims.  Following the 
+death of the second child, Meadow gave evidence at her 1999 trial, 
+and appeal in 2000. Sally Clark was finally acquitted in 2003.
 
 * Meadow gave 1 in 8,500 as cot death rate in affluent non-smoking families
     + Squared 8,500 to get odds of 73,000,000:1 against for two deaths.
@@ -71,7 +75,8 @@ in 2000. Sally Clark was finally acquitted in 2003.
 * 2003: It emerged that 2nd death was from bacterial infection  
     + In a second appeal, Sally Clark was freed.
 * 2005: Meadow was struck from medical register
-    + 2006: reinstated by appeal court --- misconduct fell short of "serious"!
+    + 2006: reinstated by appeal court --- misconduct fell short 
+    of "serious"!
 
 Meadow was in effect assuming, without evidence, the
 absence of family-specific genetic or social factors that
@@ -99,6 +104,24 @@ compared.  Anyone who plans to work as a criminal lawyer
 ought to understand this crucial point.  In a
 large population, there will from time to time be two deaths
 from natural causes in the one family.
+
+A small number of appeals were subsequently launched against
+other convictions where evidence of the same type had been
+presented, most of them successful.  A further consequence
+was that the law was changed such that no person could be 
+convicted on the basis of expert testimony alone. 
+
+ The @watkins2000conviction article **Conviction by mathematical 
+ error?: Doctors and lawyers should get probability theory right** 
+ provided a trenchant critique of the perils of allowing 
+ non-statisticians to present unsound statistical arguments, with 
+ no effective challenge.  
+ 
+ > Guidelines for using probability theory in criminal cases are urgently needed. The basic principles are not difficult to understand, and judges could be trained to recognise and rule out the kind of misunderstanding that arose in this case.
+
+They are perhaps more difficult than Watkins allowed.  Watkins
+somewhat over-states his case.  Watkins was at the time 
+Director of Public Health for Stockport. 
 
 ## The Reinhoff and Rogoff saga
 

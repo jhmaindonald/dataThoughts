@@ -4,6 +4,7 @@
 _publish.R
 _bookdown_files
 _book/*.md
+_book/work
 dataSense-book.rds
 rsconnect
 _working.Rmd
