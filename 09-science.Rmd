@@ -207,7 +207,9 @@ Ioannidis paper include:
 check on separate test image. 
 Another 14%, unclear ...
     + @r8_kriegeskorte_simmons_bellgowan_baker_2009
-   
+
+\enlargethispage{12pt}
+  
 The psychological science community is further advanced in
 addressing these issues that many other communities, with 
 The Center for Open Science (COS) taking a strong lead in 
@@ -215,112 +217,118 @@ studies designed to document the extent of the issues.
 
 Other Center for Open Science (COS) Projects have been:
 
+* The Reproducibility: Psychology project.  This replicated
+100 studies, from 100 journals in cognitive and social
+psychology.
+    + In order to keep the graph simple, Figure 
+    \@ref(fig:effect-size) limits attention to the
+    subset that relate to social psychology.
+    * @osc_EstRep2015
 * Many Labs --- reproduce 13 classical psych studies
-    + Of  13 studies --- 10: successful, 1: weakly, 2: no!
+    + Of  13 studies --- 10: successful, 1: weakly, 2: no! 
     + Plots show scatter across the 36 participating teams 
     + @r7_klein_others_2014
 * Cancer Studies --- 50 "most impactful" from 2010-2012
     + @r5_kaiser_2015
+
+Figure \@ref(fig:effect-size) compares the effect size for
+the replicate with the effect  size for the original, for
+the 54 social psychology studies included in the
+Reproducibility: Psychology project.  The journals that
+are represented are Psychological Science (PS), 
+and Journal of Personality and Social Psychology (JPSP), 
+The effect size is a measure of the average difference found,
+divided by an estimate of variability for the individual
+results.
+
+```{r cap10, echo=FALSE}
+cap10 <- "Psychology reproducibility project --- Effect sizes are
+compared between the replication and the initial study, for the 
+54 social psychology studies included in the Reproducibility:
+Psychology project"
+```
+
+```{r effect-size, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5.5, fig.height=5.5, fig.pos='H', out.width="60%", fig.cap=cap10}
+# ```{r psych, fig.width=7, fig.height=4.75, warning=FALSE, message=FALSE, out.width="90%", fig.align="center", fig.show="hold", echo=FALSE, fig.pos='H'}
+library(latticeExtra)
+library(mgcv)
+load("data/social_df.RData")
+parset <- simpleTheme(pch=c(c(3,5)), cex=1.5,
+                col=trellis.par.get()$superpose.symbol$col[c(4,7)])
+gph <- xyplot(T_r..R. ~ T_r..O., data=social_df, groups=Journal,
+     xlab = list("Effect size r (original)", cex=1.25), alpha=0.75,
+     ylab = list("Effect size r (replication)", cex=1.25),
+     xlim = c(-.2, 1), ylim = c(-.3, 1),
+     xaxs="i", yaxs="i", aspect = 1,
+     auto.key=list(text=levels(social_df$Journal),
+                   points=TRUE, space="right"
+                   ),
+     scales=list(cex=1.0, tck=0.5),
+     par.settings=parset,
+     main=list("Open Science Collaboration, Social Science",font=1, y=0)
+)
+RO.gam <- gam(T_r..R. ~ s(T_r..O.),
+              family=scat, data=social_df)
+social_df[, c('fit','se')] <- predict(RO.gam, se=TRUE)
+social_df <- within(social_df, {lower=fit-se
+                  upper=fit+se})
+col2=trellis.par.get()$superpose.symbol$col[2]
+gph+latticeExtra::layer(data=social_df,
+          llines(T_r..O., fit, col=col2, type='l'),
+          llines(T_r..O., lower, col=col2, lty=2, type='l'),
+          llines(T_r..O., upper, col=col2, lty=2, type='l'),
+        panel.abline(h=0, col="gray"),
+        panel.abline(v=0, col="gray"),
+        panel.abline(a=0, b=1, col="gray"))
+```
+
+The effect size is smaller for the replication in 47 out of 
+the 54 studies.  A smooth curve, with confidence interval, 
+has been fitted.  It is only for an original effect size 
+greater than 0.4 that one starts to see a positive correlation 
+between the effect sizes for the replicate and that for the
+original. 
+
+### Other replication studies {-}
 
 Details from other relevant studies are given in the
 recent book @ritchie2020science "Science fictions: Exposing 
 fraud, bias, negligence and hype in science."
 Problems arise, primarily, in areas where relatively small 
 groups of scientists, with similar training and skills, work
-independently.  The critiques have limited relevance to
-areas where the nature of the work forces collaboration
-between scientists with diverse skills, widely across
-different research groups.
+independently.  
+
+The critiques have limited relevance to areas where the nature 
+of the work forces collaboration between scientists with 
+diverse skills, widely across different research groups.
+Where all data and code used in modelling are out in the open 
+for all to see and evaluate, and research requires co-operation 
+internationally across multiple areas of expertise, ill-founded 
+or exaggerated claims are unlikely to survive long. Differences
+in the extent to which the nature of the work force co-operation
+go a long way to explaining the large variation that is evident
+in standards for published work.
+
+Experimental results that have not been independently 
+replicated should be treated as provisional, awaiting 
+confirmation.  Replication provides an indispensable 
+check on all the processes involved.  If there are gaps 
+or inaccuracies in the report and/or supplementary 
+material that make it impossible to replicate work, 
+this soon becomes obvious. Another research group, 
+especially one that has developed expertise in 
+checking over the work of others, will not usually 
+repeat the same mistakes. 
 
 The peer review process does at least impose some minimal
-checks on what is published. In some cases, issues may
-be identified subsequent to publication.  Replication
-studies will in some cases provide clues on the reliance 
-that can be placed on previously published results in the 
-relevant area of research.  The case is at least better
-than for claims made by those who promote "alternative
-medicines", nowadays often on the internet, offering 
-"evidence" that is largely anecdotal.
-
-### The Reproducibility: Psychology project {-}
-
-```{r cap10, echo=FALSE}
-cap10 <- "Psychology reproducibility project --- Effect sizes are
-compared between the replication and the initial study."
-```
-
-```{r effect-size, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7.5, fig.height=7.5, fig.pos='H', out.width="70%", fig.cap=cap10}
-# if(!exists('MASTER'))
-# MASTER <- read.csv("~/_Tasks/repPsychSci/rpp_data.csv")[1:167, ]
-# colnames(MASTER)[1] <- "ID" # Change first column name to ID to be able to load .csv file
-# useHere <- !is.na(MASTER$T_r..O.) & !is.na(MASTER$T_r..R.)
-# rpp_df <- MASTER[useHere, c('Journal..O.','Discipline..O.', 'Power..R.','T_r..O.','T_r..R.')]
-# rpp_df <- droplevels(rpp_df)
-# ord <- order(rpp_df$T_r..O.)
-# rpp_df <- rpp_df[ord,]
-# rpp_df$Power <- as.numeric(as.character(rpp_df$Power))
-# names(rpp_df)[1:3] <- c('Journal','Discipline', 'Power')
-load("data/rpp_df.RData")
-library(mgcv, quietly=TRUE)
-library(latticeExtra, quietly=TRUE)
-gph <- xyplot(T_r..R. ~ T_r..O., data=rpp_df, groups=Discipline,
-     xlab = list("Effect size r (original)", cex=1.25), alpha=0.75,
-     ylab = list("Effect size r (replication)", cex=1.25),
-     xlim = c(-.2, 1), ylim = c(-.3, 1),
-     xaxs="i", yaxs="i", aspect = 1, 
-     auto.key=list(text=c(levels(rpp_df$Discipline),levels(rpp_df$Journal)),
-                   points=TRUE, space="right"
-                   ),
-     scales=list(cex=1.0, tck=0.5),
-     par.settings=simpleTheme(pch=c(16,16,c(3,5,4)), cex=1.5,
-                              col=c(trellis.par.get()$superpose.symbol$col[1:3], rep("black",2))),
-     main=list("Psychology: Open Science Collaboration Results",font=1)
-)
-gph2 <- xyplot(T_r..R. ~ T_r..O., data=rpp_df, groups=Journal,
-     xlim = c(-.2, 1), ylim = c(-.3, 1),
-     xaxs="i", yaxs="i", 
-     par.settings=simpleTheme(pch=c(3,5,4), col="white", lwd=2, cex=1.25)
-)
-# Fitted curve
-RO.gam <- gam(T_r..R. ~ Discipline+s(T_r..O., by=Discipline), 
-              family=scat, data=rpp_df)
-rpp_df[, c('fit','se')] <- predict(RO.gam, se=TRUE)
-rpp_df <- within(rpp_df, {lower=fit-se
-                  upper=fit+se})
-gph+as.layer(gph2)+
-  layer(data=subset(rpp_df, Discipline=="Social"), 
-          col2 <- trellis.par.get()$superpose.symbol$col[2],
-          llines(T_r..O., fit, col=col2),
-          llines(T_r..O., lower, col=col2, lty=2),
-          llines(T_r..O., upper, col=col2, lty=2),
-        panel.abline(h=0, col="gray"),
-        panel.abline(v=0, col="gray"),
-        panel.abline(a=0, b=1, col="gray"))
-```
-
-Figure \@ref(fig:effect-size) summarizes evidence from
-the Reproducibility: Psychology project [@r1_osc_EstRep2015].
-The effect size is the difference between the two means that
-are to be compared, divided by the pooled standard deviation
-for the two groups.
-
-* It chose 100 studies (3 journals, 2008)
-* There was one replicate only of each study
-* Of the 97 original studies that claimed to find a real effect,
-this was replicated in 35 cases only.
-
-Notice that the effect size is almost always smaller for
-the replication.  A smooth curve, with confidence interval,
-has been fitted for results in social psychology.  Notice 
-that, for social psychology, it is only for an original 
-effect size greater than 0.4 that one starts to see a 
-positive correlation between the effect sizes for replicate 
-and original. 
+checks on what is published. In some cases, issues 
+may be identified subsequent to publication.  The case is 
+at least better than for claims made by those who promote 
+"alternative medicines", nowadays often on the internet, 
+offering "evidence" that is largely anecdotal. 
 
 ## Truths that special interests find inconvenient
 
-Standards for published work show huge variation across
-different areas of science.
 The evidence that human induced greenhouse gas emissions 
 are driving global warming has for the past two decades 
 or more been overwhelming.  Fierce criticism of any weakness

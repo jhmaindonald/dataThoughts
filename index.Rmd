@@ -1,6 +1,6 @@
 --- 
 title: 'The Skeptical Data Analyst'
-subtitle: "Look before leaping --- examples that inform and educate"
+subtitle: "Think again --- examples that inform and educate"
 author: "John Maindonald"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

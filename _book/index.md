@@ -1,8 +1,8 @@
 --- 
 title: 'The Skeptical Data Analyst'
-subtitle: "Look before leaping --- examples that inform and educate"
+subtitle: "Think again --- examples that inform and educate"
 author: "John Maindonald"
-date: "2021-08-21"
+date: "2021-08-25"
 site: bookdown::bookdown_site
 documentclass: book
 classoption: b5paper
