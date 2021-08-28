@@ -37,21 +37,26 @@ processes as of two types --- System 1 which jumps rapidly to
 make a judgment, and System 2 which takes time for careful 
 consideration.
 
+Human mental quirks make it useful to think of System 1 and System 2 
+as agents.  Stories about active agents who have personalities, habits, 
+and abilities readily take root in our minds. They are in this sense
+"fictions"!  They provide a model that is helpful in accounting for 
+the way that humans make judgments.
+
 * System 1 responds quickly to immediate dangers, but is prey to
-    priming (suggestive language), framing (response to a choice
-    depends on how it is presented), affect (feeling or emotion),
-    memory illusions, illusions of truth, ...
-    + "... associative memory, the core of System 1, attempts to give a coherent
-account of what is going on in our world in any instant"  
-    + System 1 may answer an easier question in place of a harder.
+    priming (suggestive language), framing (response depends on how 
+    a choice is presented), affect (feeling or emotion),
+    memory illusions, illusions of truth, . . .
+    + ". . . associative memory, the core of System 1, attempts to give a coherent
+account of what is going on in our world in any instant"
 * System 2 is the process involved when, before making a decision,
 we think carefully through the issues involved.
-    + Invoke System 2, when time allows, for decisions that matter. 
+    + We invoke System 2, when time allows, for decisions that are judged to matter. 
 
 System 1 Features are
 
-* It may substitute an easier question
-* It responds to priming, framing, affect, memory illusions,
+* It may answer an easier question in place of a harder.
+* It responds to irrelevancies --- priming, framing, affect, memory illusions,
     illusions of truth, ...
 * It has little understanding of logic and statistics
 * It cannot be turned off
@@ -60,34 +65,31 @@ System 1 Features are
 System 2 features are
 
 * It keeps you polite when angry, alert when driving at night
-* In its world, gorillas do not cross basket-ball courts ...
+* In its world, gorillas do not cross basket-ball courts ...^[See http://theinvisiblegorilla.com/gorilla_experiment.html]
 * There are some vital tasks that only System 2 can perform
 * Problems that put 1 & 2 in conflict may require large
     mental effort & self-control to overcome the impulses and
     intuitions of System 1
     
-Further comments are
+Healthy living is a compromise
 
-* Untrained humans are poor intuitive statisticians.
-     + Judgments about statistical issues may require us to think
-     about more than one, even many, things at once.
-     + Too often, we jump to conclusions, without careful assessment.
-     + Or, we may not be equipped to make an informed and carefully
-     thought through decision.
 * System 1 and System 2 are both amenable to training
     + A well-trained System 2 is the key to a better System 1.  
 * Healthy living is a compromise
      + Recognize situations where mistakes are likely
      + Aim to avoid significant mistakes when the stakes are high
-* Kahneman describes System 1 and System 2 as "fictions"! I prefer
-to describe them as providing a model that is helpful in 
-accounting for the way that humans make judgments.
-    + Human mental quirks make it useful to think of these as agents.
-    + Stories about active agents who have personalities, habits, and 
-abilities readily take root in our minds
 * Ascribing calculation to System 2 is shorthand for ...
     + "This requires mental effort. Do not do when driving!"
-    + Pupils will be dilated, and heart rate elevated.  
+    + Pupils will be dilated, and heart rate elevated. 
+
+Untrained humans are poor intuitive statisticians, in ways that
+will be explored in later chapters.
+
+* Judgments about statistical issues may require us to think
+     about more than one, even many, things at once.
+* Too often, we jump to conclusions, without careful assessment.
+* We may not be equipped to make an informed and carefully
+     thought through decision.
 
 ## The Intuition of Professionals
 

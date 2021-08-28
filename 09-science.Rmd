@@ -187,7 +187,7 @@ standards such as are set out in @roberts2021common.  One may
 hope that one result of this work will be to shift the research
 and publication focus accordingly.
 
-## Laboratory studies --- what do we find?
+## Laboratory studies --- what do we find? {#sec:lab}
 
 In the past several years, there has been a steady accumulation
 of evidence that relates to the claim, in @r19_ioannidis_2005,

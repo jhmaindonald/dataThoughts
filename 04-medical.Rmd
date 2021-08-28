@@ -18,15 +18,15 @@ of assessments as new evidence emerges is a major challenge.
 Resources that will be noted are
 
 * [Harding Center for Risk Literacy](https://www.hardingcenter.de/en)
-* The [Cochrane Center](<https://www.cochrane.org/>)
-* [Winton Centre for Risk and Evidence  Communication](<https://wintoncentre.maths.cam.ac.uk/>)
+* The [Cochrane Center](https://www.cochrane.org/)
+* [Winton Centre for Risk and Evidence  Communication](https://wintoncentre.maths.cam.ac.uk/)
 
 [Note also the US Consumer health information site](<https://medlineplus.gov/>)
 
 
 ### The Harding Center for Risk Literacy {-} 
 
-There is extensive informative content on the [Harding Center for Risk Literacy site](https://www.hardingcenter.de/en)^[<https://www.hardingcenter.de/en>] site.  Note in particular
+There is extensive informative content on the [Harding Center for Risk Literacy site.](https://www.hardingcenter.de/en)^[<https://www.hardingcenter.de/en>]  Note in particular
 
 * Medical Fact Boxes.  Look under **Transfer and Impact | Fact Boxes**
 * Covid-19. Look under **Transfer and Impact | Corona pandemic**
@@ -59,7 +59,7 @@ is on Cochrane studies.  Available fact boxes, as of August 2021, are:
 * Osteoarthritis of the knee
 * Tonsil surgery
 
-Scroll down the home page (<https://www.hardingcenter.de/en>) to find the
+Scroll down the home page^[<https://www.hardingcenter.de/en>] to find the
 headings **Risk Literate** (with a link to a risk quiz), and 
 **Quick Risk Test** (with a link to a test that is targeted at medical 
 students and medical professionals.  On the development of this latter 
@@ -141,6 +141,34 @@ There may be elements of both these types of studies.
 
 ### Randomized Controlled Trials --- the gold standard? {-}
 
+For simplicity, it will be assumed that there are two alternatives
+to be compared, in what is known as a two-armed trial. In medical 
+trials the two arms may be a treatment and a placebo, with the 
+placebo (something harmless that has no effect) made to look as 
+similar as possible to the treatment. 
+
+An important distinction is between pre-clinical trials, often
+with animals such as mice, and clinical trials with human
+subjects.  Pre-clinical trials are likely to be conducted
+with a small number of mice or other animals, and are intended
+to check whether a drug or other treatment warrants further
+investigation. Evidence will be presented in Section \@ref(sec:lab)
+that suggests that these trials are commonly not achieving their
+intended purpose.
+
+Clinical trials typically are conducted in three phases. 
+Phase I applies the treatment to a small number of subjects 
+and checks that the treatment appears safe.
+Phase II, perhaps with several hundred subjects, looks for
+evidence of an effect, and how this might relate to dose level.
+Phase III trials are conducted with large numbers of subjects,
+typically spread over multiple treatment centres, and are 
+designed to check whether the treatment is effective, what
+side effects there may be, and whether there are issues with
+particular subgroups.
+
+Important issues are
+
 * Use a random mechanism to assign to assign to treatment as
     against control --- in a medical screening study to
     "screen" or "not screen"
@@ -151,10 +179,16 @@ There may be elements of both these types of studies.
     + Minor departures that may, e.g., allow unconscious bias
     in the way that results from the different groups of participants
     are measured, can invalidate results.
+    + In clinical trials an ideal, not always possible, is the double
+    blind trial where neither the individual nor the clinician 
+    involved knows which drug (or other treatment)
+    the individual has received.
 * Results apply, strictly, to those who meet the trial entry criteria
     + This may limit relevance to the general population
 
 Especially in medical trials, think carefully about the outcome measure.
+It is not enough to show that a screening program will pick up otherwise 
+undiagnosed cancers.
 
 * In a screening trial, e.g., for prostate cancer, there are
 risks both for those who test positive, and for
@@ -170,9 +204,6 @@ a smaller or larger element of risk.
     + Some slow growing cancers may be better left untreated, 
     rather than exposing the patient to a treatment that may itself 
     do serious damage. 
-* Thus, think carefully about the choice of outcome measure. It is not
-enough to show that a screening program will pick up otherwise 
-undiagnosed cancers.
 
 For a helpful animated summary of some of the key issues, see:  
 <https://www.youtube.com/watch?v=Wy7qpJeozec>
@@ -209,7 +240,8 @@ be used for improving library user experience.
 
 * Adjust prunes to look like apples (is it possible?)
 * Can one ever be sure that the adjustments do the job?
-* Potential for biases is greater than for RCTs
+* Potential for biases is greater than for randomized controlled
+trials.
 
 Where a treatment is compared with a control group, the
 idea is to use a regression type approach to adjust for
@@ -223,6 +255,16 @@ While their effectiveness for this purpose may be doubted,
 they can be used to provide insightful graphs that check
 the extent to which the groups are broadly comparable on
 the variables and/or factors used to adjust for differences.
+
+The generally negative view of observational studies that
+is presented in @soni2019comparison (studies in oncology) 
+contrasts with the more positive view offered in
+@anglemyer2014healthcare (health care), for observational 
+studies that have been conducted with high methodological 
+rigour.  The strongest evidence comes, as with the link
+between smoking and lung cancer, from multiple studies,
+with different likely biases, that all point strongly in 
+the same direction.
 
 ### Issues for all types of study {-} 
 
@@ -290,7 +332,7 @@ both, and thus were at high risk of developing a peanut
 allergy, by the LEAPS study reported in @du2015randomized.
 
 As noted, the LEAPS study was limited to infants who at four 
-months had either severe eczema or food allergy or both.  
+months had either severe eczema or food allergy or both.
 Infants were stratified into two groups following a skin-prick 
 test, with each group then randomized between those exposed 
 to peanut extract, and those not exposed.
