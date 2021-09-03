@@ -82,6 +82,8 @@
 \usepackage[small]{titlesec} % or medium, or tiny
 \usepackage{booktabs}
 \usepackage{amsthm}
+\usepackage{makeidx}
+\makeindex
 \makeatletter
 \def\thm@space@setup{%
   \thm@preskip=8pt plus 2pt minus 4pt
@@ -136,7 +138,7 @@
 \makeatother
 \subtitle{Think again --- examples that inform and educate}
 \author{John Maindonald}
-\date{2021-08-28}
+\date{2021-09-02}
 
 \begin{document}
 \maketitle
@@ -313,21 +315,15 @@ in professional life.
     Uninformed critique is common. Watch for the
     tricks that are used in the attempt to discredit established
     scientific results that detractors find inconvenient.
-  \end{itemize}
-\item
-  Publication processes, widely across many areas of science,
-  urgently require to be updated.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    They work well where the nature of the work requires input
-    and critique widely from across different disciplinary
-    perspectives.
   \item
     When presented with scientific (or any) claims, ask/check
     whether claims have been carefully critiqued. For laboratory
     studies, have results been replicated?
+  \item
+    Publication processes can work well where the nature of the
+    work requires input and critique widely from across different
+    disciplinary perspectives, and where data and code are made
+    available for checking.
   \end{itemize}
 \end{enumerate}
 
@@ -2362,12 +2358,13 @@ epistatic.
 
 When two variables show a relationship, they are said to be
 correlated. Regression and correlation offer alternative,
-and complementary, perspectives on the relationship.
-
-Yule-Simpson type effects, discussed in Section \ref{sec:yule1}
-{[}``Explaining the Yule-Simpson Paradox''{]}, are important in a
-regression context also. Nonsense correlations that arise
-where the third variable is time provide simple examples.
+and complementary, perspectives on the relationship.\footnote{The
+  discussion will avoid the technicalities of alternative
+  ways to measure correlation.}
+Nonsense correlations that arise where the third variable is
+time provide simple examples.\footnote{Yule-Simpson type effects,
+  discussed in Section \ref{sec:yule1}, are important in a
+  regression context also.}
 
 \hypertarget{correlation-is-not-causation}{%
 \section{Correlation is not causation}\label{correlation-is-not-causation}}
@@ -2375,6 +2372,36 @@ where the third variable is time provide simple examples.
 Variable A may cause variable B. Or variable B may cause
 variable A. Or both A and B may be caused (or driven) by
 a third variable C.
+
+The following are examples where causation likely goes in the other
+direction, or where a third variable is likely to be involved.
+Such examples help highlight how correlation can and cannot
+reasonably be interpreted.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Children of parents who try to control eating are more likely
+  to be overweight.
+\item
+  Countries with higher IQs have higher average wealth measures.
+\item
+  Ice cream consumption \& polio were closely correlated in the 1950s.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Summer was when the virus thrived.
+  \end{itemize}
+\end{enumerate}
+
+Cases where the third variable is
+time, as in Figure \ref{fig:socAnti}, are a fruitful source
+of examples of spurious correlations.\footnote{Figure \ref{fig:socAnti}
+  is one of many such examples that are available from\\
+  \url{http://www.tylervigen.com/spurious-correlations}.}
+Is there a third factor, or is this just a chance relationship?
 
 \begin{figure}
 
@@ -2389,64 +2416,29 @@ of change from year to year.
 }\label{fig:socAnti}
 \end{figure}
 
-The following are examples where causation likely goes in the other
-direction, or where a third variable is likely to be involved
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Children of parents who try to control eating are more likely
-  to be overweight.
-\item
-  Countries with higher IQs have higher average wealth measures.
-\item
-  People who smoke marijuana are more likely to later use cocaine.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Pre-disposition to experimenting with drugs is a common factor.
-    The evidence on whether anything more is involved is unclear.
-  \end{itemize}
-\item
-  Ice cream consumption \& polio were closely correlated in the 1950s.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Summer was when the virus thrived.
-  \end{itemize}
-\end{enumerate}
-
-Such examples help highlight how correlation can and
-cannot reasonably be used. Cases where the third variable is
-time, as in Figure \ref{fig:socAnti}, are a fruitful source
-of examples of spurious correlations.\footnote{Figure \ref{fig:socAnti}
-  is one of many such examples that are available from\\
-  \url{http://www.tylervigen.com/spurious-correlations}.}
-Is there a third factor, or is this just a chance relationship?
-Other examples are:
-
-\begin{itemize}
-\tightlist
-\item
-  Over 1997 to 2009, US Sociology PhDs awarded correlated strongly
-  with worldwide non-commercial space launches.
-\item
-  Over 1999 to 2009, the age of Miss America correlated strongly
-  with murders by steam, hot vapours and hot objects.
-\end{itemize}
+Another example is that, over 1997 to 2009, US Sociology PhDs awarded
+correlated strongly with worldwide non-commercial space launches.
 
 \hypertarget{regression-to-the-mean}{%
 \section{Regression to the mean}\label{regression-to-the-mean}}
 
 Tall fathers are likely to have tall sons, but shorter than themselves.
 Tall sons are likely to have tall fathers, but shorter than themselves.
-The data shown in Figure \ref{fig:pearson} are from Karl Pearson.
-See \texttt{?HistData::PearsonLee}.
+The data shown in Figure \ref{fig:pearson} are from \protect\hyperlink{ref-pearson1903laws}{Pearson and Lee} (\protect\hyperlink{ref-pearson1903laws}{1903}).
+The correlation between son's height and father's height is
+0.5.\footnote{Kahneman argues, perhaps too simplistically that as height is
+  mainly due to genetic factors, and fathers share half of their genes
+  with their sons, this is to be expected.}
 
-\begin{figure}
+Notice that the points that are plotted show a a symmetrical oval shaped
+scatter about the mean (shown with a large solid dot in Panel A). This
+type~of scatter is, strictly, required for uses of the correlation that
+will now be discussed.
+
+Consider a father whose height is 72 inches, which is the 95th percentile
+of heights for fathers. What is a best guess for the height of a son?
+
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{07-regress_files/figure-latex/pearson-1} 
 
@@ -2455,77 +2447,44 @@ See \texttt{?HistData::PearsonLee}.
 \caption{Tall fathers are likely to have tall sons, but shorter than themselves. 
 Tall sons are likely to have tall fathers, but shorter than themselves.}\label{fig:pearson}
 \end{figure}
-\enlargethispage{27pt}
-
-Kahneman argues, perhaps too simplistically:
 
 \begin{itemize}
 \tightlist
 \item
-  Height is mainly due to genetic factors
+  If the correlation between father's height and son's height were 0,
+  the best guess would be the mean for son's, i.e., 68.7 inches
 \item
-  Sons share half their genes with their fathers
+  If the correlation were 1, the son's height would be the
+  95th percentile of heights for sons, i.e., 73.3 inches.
 \item
-  Hence, correlation between sons' \& fathers' heights \(\simeq\) 0.5
+  But, as the correlation is 0.5, the expected height is
+  68.7 + 0.5\(\times\)(73.3-68.7) = 71.0 inches, i.e., start at
+  the mean and move 0.5 of the distance up to the 95th percentile.
+\end{itemize}
+
+Now consider a son whose height is 73.3 inches (the 95th percentile for
+sons):
+
+\begin{itemize}
+\tightlist
+\item
+  The best estimate of the father's~height is 67.7 +
+  0.5\(\times\)(73.3-67.7)=2.8 inches, i.e., start at the mean
+  for fathers and move 0.5 of the distance up to the 95th percentile.
 \end{itemize}
 
 Galton's 1886 data, which predates Pearson's data, shows a 0.46
 correlation between child height and the average of the parent
 height.
 
-\hypertarget{regression-to-the-mean-in-a-variety-of-contexts}{%
-\section{Regression to the mean in a variety of contexts}\label{regression-to-the-mean-in-a-variety-of-contexts}}
+\hypertarget{nba-player-points-correlations-decline-over-time}{%
+\section{NBA player points --- correlations decline over time}\label{nba-player-points-correlations-decline-over-time}}
 
-\enlargethispage{21pt}
-
-\hypertarget{decathlon-scores-between-event-correlations}{%
-\subsection*{Decathlon scores --- between event correlations}\label{decathlon-scores-between-event-correlations}}
-\addcontentsline{toc}{subsection}{Decathlon scores --- between event correlations}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.9\linewidth]{07-regress_files/figure-latex/all10-1} 
-
-}
-
-\caption{Between event correlations for top performances in the 
-decathlon in 2006.  Points that are plotted, and correlations, are 
-for points awarded.}\label{fig:all10}
-\end{figure}
-
-Figure \ref{fig:all10} shows between event correlations for top
-performances (6800 points and over) in the decathlon in
-2006.\footnote{Data for the twenty-one year period after new rules were
-  introduced in 1985 are available in the R package \texttt{GDAdata} with
-  the name \texttt{Decathlon}. See also the Estonian website
-  \url{http://www.decathlon2000.com/}}
-
-\hypertarget{total-profit-to-total-income-ratio-by-industry-class}{%
-\subsection*{Total profit to total income ratio, by industry class}\label{total-profit-to-total-income-ratio-by-industry-class}}
-\addcontentsline{toc}{subsection}{Total profit to total income ratio, by industry class}
-
-Data are from the Statistics NZ Business Performance
-Benchmarker\footnote{\url{https://shinyapps.stats.govt.nz/bpb/}}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.9\linewidth]{07-regress_files/figure-latex/expend-1} 
-
-}
-
-\caption{Total profit to total income ratio, by industry class --- correlation between 2015 value and 2013 value.}\label{fig:expend}
-\end{figure}
-
-Not shown are 4 points where the 2015 ratio was less than -0.3.\\
-(Olive growing, Petroleum exploration, Stevedoring Services.)
-Notice that the scatter of points does not show the regular
-elliptical shape of scatter that underpin common ways in which
-(``linear'') correlations rely. There are alternative
-correlation measures that may be preferred in such instances.
-
-\hypertarget{nba-player-total-points-correlations-decline-over-time}{%
-\subsection*{NBA player total points --- correlations decline over time}\label{nba-player-total-points-correlations-decline-over-time}}
-\addcontentsline{toc}{subsection}{NBA player total points --- correlations decline over time}
+In Figure \ref{fig:NBA}, Panel A shows total points for
+2016-2017 versus 1 year earlier, for players who competed
+in both seasons. The correlation is 0.83. Panel B is
+for 2016-2017 versus 5 years earlier, with the correlation
+now reducing to 0.41.
 
 \begin{figure}[H]
 
@@ -2533,53 +2492,42 @@ correlation measures that may be preferred in such instances.
 
 }
 
-\caption{As time progresses, correlation decreases, and regression to the mean increases.}\label{fig:NBA}
+\caption{As time progresses, correlation decreases, and regression to the mean increases.  For Panel A, the correlation is 0.83, while in Panel B it is 0.41.}\label{fig:NBA}
 \end{figure}
 
-\hypertarget{the-sports-illustrated-cover-jinx}{%
-\subsection*{The Sports Illustrated cover ``jinx''}\label{the-sports-illustrated-cover-jinx}}
-\addcontentsline{toc}{subsection}{The Sports Illustrated cover ``jinx''}
-
-The 21 January 2002 issue of Sports Illustrated featured an
-{[}article on the so-called The Sports Illustrated cover jinx{]}
-(\url{https://vault.si.com/vault/2002/01/21/that-old-black-magic-millions-of-superstitious-readersand-many-athletesbelieve-that-an-appearance-on-sports-illustrateds-cover-is-the-kiss-of-death-but-is-there-really-such-a-thing-as-the-si-jinx})\footnote{\url{https://vault.si.com/vault/2002/01/21/that-old-black-magic-millions-of-superstitious-readersand-many-athletesbelieve-that-an-appearance-on-sports-illustrateds-cover-is-the-kiss-of-death-but-is-there-really-such-a-thing-as-the-si-jinx}}
-After examining covers that had appeared from 1954 to 2001, they found that
-
-\begin{quote}
-Of the 2,456 covers SI had run, 913 featured a person who, or team that,
-suffered some verifiable misfortune that conformed to our definition--a Jinx
-rate of 37.2\%.
-\end{quote}
-
-\href{https://en.wikipedia.org/wiki/Sports_Illustrated_cover_jinx}{Wikepedia}
-has very detailed comments on the phenomenon. Especially in contact sports,
-athletes who do exceptionally well will have been pushing their bodies to the
-limit, with a high risk of injury.
-
-\begin{quote}
-Most athletes that seemed to suffer the jinx most typically
-suffered because of an injury to their body, or some other bad
-luck following their appearance.
-\end{quote}
-
-Athletes appear on the cover of a magazine such as ``Sports Illustrated''
-when they are performing unusually well, both relative to their fellow
-athletes, and relative to their own earlier performances. They are
-likely to be approaching their peak, and/or to have experienced an
-unusual run of luck. Where chance effects are the main driver,
-their success is likely to be temporary, quickly dropping back to close
-to or below their longer term average. Some of those who feature will
-be at their peak, and will on that account soon drop back.
-
-The Wikipedia article notes a number of athletes who went on to do
-exceptionally well following appearance on the cover. Standouts
-were the basketballer Michael Jordan (50 covers)~and Muhammad Ali
-(40 covers). These were outstanding athletes that consistently
-outperformed others.
+The scatter of points increases as values increase, on both axes.
+Calculations of the type given in the previous section, based on
+the usual correlation measure, while giving more approximate results,
+are adequate for present purposes.
 
 \hypertarget{secrists-the-triumph-of-mediocrity-in-business}{%
-\subsection*{Secrist's ``The Triumph of Mediocrity in Business''}\label{secrists-the-triumph-of-mediocrity-in-business}}
-\addcontentsline{toc}{subsection}{Secrist's ``The Triumph of Mediocrity in Business''}
+\section{Secrist's ``The Triumph of Mediocrity in Business''}\label{secrists-the-triumph-of-mediocrity-in-business}}
+
+Horace Secrist's 1933 book The Triumph of Mediocrity in Business"
+was based on annual data for 1920 to 1930. Secrist took 73 different
+industries, in each case examined the ratios
+
+\begin{quote}
+Profits:sales; Profits:assets; Expenses:sales; Expenses:assets
+\end{quote}
+
+For each industry in 1920: he then split firms into 4 quartiles: top 25\%,
+2nd highest 25\%, 2nd lowest 25\%, lowest 25\%.
+
+\begin{itemize}
+\tightlist
+\item
+  Took average for each statistic, for each quartile, for each year.
+\item
+  Surprise, surprise, the best went, on average, down \ldots{}
+\end{itemize}
+
+\begin{quote}
+Complete freedom to enter trade and the continuance of competition
+mean the perpetuation of mediocrity. \ldots{} neither superiority or
+inferiority will tend to persist. Rather, mediocrity tends to become
+the rule.
+\end{quote}
 
 \begin{figure}[H]
 
@@ -2587,39 +2535,18 @@ outperformed others.
 
 }
 
-\caption{Simulations based on correlations for Secrist's data --- 
-               showing how regression to the mean goes in both directions.
-               Secrist did not look at what Panel B has to say.}\label{fig:sim}
+\caption{Secrist's data showed a correlation of 0.5 between
+time intervals five years apart.  Panel A uses shows means of simulations,
+starting with the four performance quartiles in 1920 and looking ahead.
+Panel B starts with the equivalent quartiles in 1930, and looks back.}\label{fig:sim}
 \end{figure}
 
-Horace Secrist's 1933 book was based on annual data for 1920 to 1930:
-
-\begin{itemize}
-\tightlist
-\item
-  73 different industries; examine ratios
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Profits:sales; Profits:assets; Expenses:sales; Expenses:assets
-  \end{itemize}
-\item
-  For each industry in 1920: split firms into 4 quartiles: top 25\%, \ldots{}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Took average for each statistic, for each quartile, for each year.
-  \item
-    Surprise, surprise, the best went, on average, down \ldots{}
-  \end{itemize}
-\end{itemize}
-
-``Complete freedom to enter trade and the continuance of competition
-mean the perpetuation of mediocrity. \ldots{} neither superiority or
-inferiority will tend to persist. Rather, mediocrity tends to become
-the rule.''
+Secrist was seeing regression to the mean. Figure \ref{fig:sim}
+makes the point that if one takes the four quartiles in 1930 and looks
+back to 1920, in each case there is a regression back to the mean.
+Given a correlation of 0.7 between time intervals five years apart,
+The absolute difference from the mean moves from 8 to 0.7\(\times 8 (= 5.6) to 0.7\)\times 5.6 (= 3.92), whether one moves
+forward in time, or back in time.
 
 \hypertarget{do-old-fallacies-ever-die}{%
 \subsection*{``Do old fallacies ever die?''}\label{do-old-fallacies-ever-die}}
@@ -2645,43 +2572,57 @@ half-century that had quoted Secrist approvingly or repeated his error.
   \protect\hyperlink{ref-wainerRegress}{Wainer} (\protect\hyperlink{ref-wainerRegress}{2000}) cites other examples.
 \end{itemize}
 
-\hypertarget{moderating-subjective-assessments}{%
-\section{Moderating subjective assessments}\label{moderating-subjective-assessments}}
+Figure \ref{fig:selected} shows between event correlations for
+top performances (6800 points and over) for six of the events
+in the decathlon in
+2006.\footnote{Data for the twenty-one year period after new rules were
+  introduced in 1985 are available in the R package \texttt{GDAdata} with
+  the name \texttt{Decathlon}. See also the Estonian website
+  \url{http://www.decathlon2000.com/}} Observe that the correlation
+of javelin with high jump is 0.032, so that performance in one
+of these sports gives no useful indication of the performance
+that might be expected in the other.
+
+The correlation between shot put distances and long jump distances
+is shown as a more encouraging 0.29. If we find that an athlete has
+achieved a distance of 14.9 meters in the shot put, which is at
+the 93\(^{th}\) percentile across athletes as a whole (7\% did better),
+a best estimate for the long jump can then be obtained thus:
 
 \begin{itemize}
 \tightlist
 \item
-  Estimate average
+  A 14.9 meter put is at the 93\(^{th}\) centile (7\% will do better)
 \item
-  Make assessment, based on what evidence seems to suggest
+  The long jump mean is 6.97, with the 93\% mark = 7.47
 
   \begin{itemize}
   \tightlist
   \item
-    Assessment is based on current measure
+    The difference from the mean is 7.47-6.97 = 0.5
   \end{itemize}
 \item
-  Estimate correlation between current and predicted measure.
-\item
-  The correlation determines the fraction of the distance
-  to move from the average to the assessment.
+  The estimate for the long jump is then 6.97+0.29 \(\times\) 0.5 = 7.12
+  ```
 \end{itemize}
 
-e.g., Correlation of shotput with long jump is close to 0.4
+\begin{figure}[H]
 
-\begin{itemize}
-\tightlist
-\item
-  14.9 meter put is at the 93nd centile (7\% will do better)
-\item
-  Long jump mean = 6.97; 92\% mark 7.47 (difference=0.5)
-\item
-  Estimate long jump result as 6.97+0.4 \(\times\) 0.5 = 7.17
-\end{itemize}
+{\centering \includegraphics[width=0.6\linewidth]{07-regress_files/figure-latex/selected-1} 
 
-\hypertarget{forecasting-sales}{%
-\subsection*{Forecasting sales}\label{forecasting-sales}}
-\addcontentsline{toc}{subsection}{Forecasting sales}
+}
+
+\caption{Between event correlations for top performances in six
+of the ten decathlon events in 2006.  Points that are plotted,
+and correlations, are for times or distances achieved.}\label{fig:selected}
+\end{figure}
+
+\hypertarget{moderating-predictive-assessments}{%
+\section{Moderating predictive assessments}\label{moderating-predictive-assessments}}
+
+\hypertarget{moderating-sales-estimates}{%
+\subsection*{Moderating sales estimates}\label{moderating-sales-estimates}}
+\addcontentsline{toc}{subsection}{Moderating sales estimates}
 
 You are the sales forecaster for a department store chain.
 All stores are similar in size and merchandise offered,
@@ -2706,9 +2647,9 @@ MEAN & 20 & 22 \\
 
 Assuming that year to year correlation is around 0.4,
 what is a reasonable estimate for sales in each of the
-stores in 2021. The mean sales amount in 2021 is predicted to be 22,000,000 dollars?
-With a correlation of 0.4, the predicted sales for the individual stores are
-obtained thus:
+stores in 2021. The mean sales amount in 2021 is predicted
+to be 22,000,000 dollars? With a correlation of 0.4, the
+predicted sales for the individual stores are obtained thus:
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
@@ -2723,8 +2664,8 @@ MEAN & 20 & 0 & 22 & 22 \\
 \bottomrule
 \end{longtable}
 
-\hypertarget{some-further-comments-on-regression-to-the-mean}{%
-\section{Some further comments on regression to the mean}\label{some-further-comments-on-regression-to-the-mean}}
+In the real world of 2020 and 2021, the Covid-19 pandemic makes all such
+predictions hazardous!
 
 \hypertarget{choosing-from-job-applicants}{%
 \subsection*{Choosing from job applicants}\label{choosing-from-job-applicants}}
@@ -2808,8 +2749,8 @@ clear and easy answers. The discussion on
 
 Where there are several explanatory variables, and the aim is
 to determine the manner in which they may be driving predictions,
-matters get much~more complicated. Thus, in a comparison
-between two groups (in the example that follows, midwife led
+matters get~more complicated. Thus, in a comparison between
+two groups (e..g., in Section \ref{sec:maternity}, midwife led
 versus medical led neonatal care) one variable or factor may
 be of particular interest, while other variables are used to
 adjust for differences between the two groups that are at
@@ -2824,8 +2765,8 @@ should be ignored.
 
 Little that has been published since \protect\hyperlink{ref-RosBook}{Rosenbaum} (\protect\hyperlink{ref-RosBook}{2002}) clarifies greatly the
 advice that can be given for practical data analysis, beyond what
-Rosenbaum has to say. Note, however, that \protect\hyperlink{ref-pearl2018book}{Pearl and Mackenzie} (\protect\hyperlink{ref-pearl2018book}{2018}) would
-dispute this assessment. Pearl and his co-author do a good job of
+Rosenbaum has to say. \protect\hyperlink{ref-pearl2018book}{Pearl and Mackenzie} (\protect\hyperlink{ref-pearl2018book}{2018}) (``The Book of Why'') offers an
+interesting assessment. Pearl and his co-author do a good job of
 highlighting important issues that should be addressed in order to
 make causality judgments, at the same time overplaying what their
 methodology can in general achieve. If strictly implemented,
@@ -2837,7 +2778,7 @@ that finally led to the conclusion that smoking causes lung cancer.
 \hypertarget{time-per-unit-distance-for-hillraces}{%
 \section{Time per unit distance for hillraces}\label{time-per-unit-distance-for-hillraces}}
 
-The \texttt{DAAG:nihills} dataset has record times for 23 Northern Ireland
+Consider now a dataset that has record times for 23 Northern Ireland
 Mountain Running Association hillraces, as given in the 2007
 calendar. In the models fitted and graphs shown that follow,
 the distance measure is \texttt{Dist} (distance converted to kilometers),
@@ -3076,12 +3017,12 @@ Similar issues, arising from failures to ensure proper drainage systems,
 were repeated, from the 1840s and 1850s through until~the end of the century,
 in New Zealand cities.\footnote{See Christine Dann: `Sewage, water and waste - Stinking cities,' Te Ara - the Encyclopedia of New Zealand, (8 June 2017) \url{https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool}}
 
-\hypertarget{are-there-missing-explanatory-factors}{%
-\section{Are there missing explanatory factors?}\label{are-there-missing-explanatory-factors}}
+\hypertarget{sec:maternity}{%
+\section{Are there missing explanatory factors?}\label{sec:maternity}}
 
-The (\protect\hyperlink{ref-wernham_EtAl_2016}{Wernham et al. 2016}) study used data from 244,047 singleton term
-deliveries that occurred between 2008 and 2012 to make the claim
-that midwife led care, as opposed to medical led care, gave a
+The (\protect\hyperlink{ref-wernham_EtAl_2016}{Wernham et al. 2016}) study used data from 244,047 singleton
+term deliveries that occurred between 2008 and 2012 to make the
+claim that midwife led care, as opposed to medical led care, gave a
 greater risk of adverse fetal and neonatal outcomes. Notably, the
 claim was that midwife led care resulted in a lower Apgar score
 (a measure of infant health immediately after birth) and a greater
@@ -3487,7 +3428,7 @@ what would better be treated as preliminary results --- a first
 stab at an answer. Publication of experimental results should not
 be a once-for-all event, but a staged process that moves from
 ``this looks promising'' to ``has been independently replicated,''
-and to post=publication critique.
+and to post-publication critique.
 
 Publication does not of itself validate scientific claims,
 Rather, as stated in \protect\hyperlink{ref-popper_1963}{Popper} (\protect\hyperlink{ref-popper_1963}{1963})
@@ -3573,10 +3514,15 @@ detailed requirements, designed to check whether the algorithms used
 had been shown to~be effective for~use in clinical practice. Among
 other deficiencies, 48 did not complete any external validation, and
 55 had a high risk of bias with respect to at least one of
-participants, predictors, outcomes and analysis. In an account
-of the results that appeared in New Scientist, \protect\hyperlink{ref-roberts2021machine}{Roberts} (\protect\hyperlink{ref-roberts2021machine}{2021})
-comments that, relative
-to persisting to develop a model that will survive a rigorous
+participants, predictors, outcomes and analysis. A significant number
+of systems were~trained on X-rays from adults with covid-19 and
+children without, so~that they were likely to detect whether the
+X-ray was from adult or child, rather than whether the person had
+Covid-19.
+
+In an account of the results that appeared in New Scientist,
+\protect\hyperlink{ref-roberts2021AIcovid19}{Roberts} (\protect\hyperlink{ref-roberts2021AIcovid19}{2021}) comments that, relative to persisting to
+develop a model that will survive a rigorous
 checking process and~might be used in practice, ``it is far easier
 to~develop~a model with poor rigour and {[}apparent{]} excellent
 performance and publish this.'' This is a damning indictment of
@@ -3584,8 +3530,8 @@ the way that large parts of the research and publication process
 currently work. The public good would~be much better served
 by a process that encourages researchers to persist until it
 has been demonstrated that researchers have a model that meets
-standards such as are set out in \protect\hyperlink{ref-roberts2021common}{Roberts et al.} (\protect\hyperlink{ref-roberts2021common}{2021}). One may
-hope that one result of this work will be to shift the research
+standards such as are set out in (\protect\hyperlink{ref-roberts2021common}{2021}). One may
+hope that one result of this review will be to shift the research
 and publication focus accordingly.
 
 \hypertarget{sec:lab}{%
@@ -3633,7 +3579,82 @@ Ioannidis paper include:
   \end{itemize}
 \end{itemize}
 
-\enlargethispage{12pt}
+Issues that \protect\hyperlink{ref-r2_begley_2013}{Begley} (\protect\hyperlink{ref-r2_begley_2013}{2013}) notes are important both across
+the pre-clinical studies such as are his concern, and for
+clinical studies such as have been used, and are being used,
+the check the effectiveness and side effects of Covid-19
+vaccines. Begley comments that the flaws many of the
+flaws that he identified ``were identified and expunged from
+clinical studies decades ago.'' They include
+
+\begin{itemize}
+\tightlist
+\item
+  Were experiments blinded?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Was recording of all results done by another investigator
+    who did not know what treatment had been applied?
+  \end{itemize}
+\item
+  Were basic counts, measurements, and tests such as are done
+  using Western blotting (used to detect specific proteins in a
+  mixture) repeated?
+\item
+  Were all results presented?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    One concern is that when images are shown (e.g., of Western
+    blot gels), images may be cropped in ways that more clearly
+    identify the protein than is really the case.
+  \end{itemize}
+\item
+  Were results shown for crucial control experiments?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Readers should be provided with evidence that there was
+    unlikely to be any bias in the comparison of treatment
+    with control.
+  \end{itemize}
+\item
+  Were reagents validated?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Reagents must be shown to be fit for purpose, with results
+    shown from analyses that validate their use.
+  \end{itemize}
+\item
+  Were statistical tests appropriate?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Begley comments on common analysis flaws.
+  \end{itemize}
+\end{itemize}
+
+Begley comments
+
+\begin{quote}
+What is also remarkable is that many of these flaws were
+identified and expunged from clinical stud- ies decades ago.
+In such studies it is now the gold standard to blind investigators,
+include concurrent controls, rigorously apply statistical tests
+and analyse all patients --- we cannot exclude patients because
+we do not like their outcomes.
+\end{quote}
+
+\hypertarget{positive-developments-in-the-psychology-community}{%
+\subsection*{Positive developments in the psychology community}\label{positive-developments-in-the-psychology-community}}
+\addcontentsline{toc}{subsection}{Positive developments in the psychology community}
 
 The psychological science community is further advanced in
 addressing these issues that many other communities, with
@@ -3685,10 +3706,7 @@ the replicate with the effect size for the original, for
 the 54 social psychology studies included in the
 Reproducibility: Psychology project. The journals that
 are represented are Psychological Science (PS),
-and Journal of Personality and Social Psychology (JPSP),
-The effect size is a measure of the average difference found,
-divided by an estimate of variability for the individual
-results.
+and Journal of Personality and Social Psychology (JPSP).
 
 \begin{figure}[H]
 
@@ -3702,8 +3720,10 @@ compared between the replication and the initial study, for the
 Psychology project}\label{fig:effect-size}
 \end{figure}
 
-The effect size is smaller for the replication in 47 out of
-the 54 studies. A smooth curve, with confidence interval,
+The effect size is a measure of the average difference found,
+divided by an estimate of variability for the individual
+results. The effect size is smaller for the replication in 47
+out of the 54 studies. A smooth curve, with confidence interval,
 has been fitted. It is only for an original effect size
 greater than 0.4 that one starts to see a positive correlation
 between the effect sizes for the replicate and that for the
@@ -3747,7 +3767,15 @@ checks on what is published. In some cases, issues
 may be identified subsequent to publication. The case is
 at least better than for claims made by those who promote
 ``alternative medicines,'' nowadays often on the internet,
-offering ``evidence'' that is largely anecdotal.
+offering ``evidence'' that is anecdotal.
+
+In the areas of science to which these studies relate,
+it is then clear that published claims that have not
+been replicated are as likely as not to be false. As
+\protect\hyperlink{ref-r2_begley_2013}{Begley} (\protect\hyperlink{ref-r2_begley_2013}{2013}) notes, however, there are clues that
+can allow a discerning to make a judgement on the
+credibility that should be given to claims that are
+made.
 
 \hypertarget{truths-that-special-interests-find-inconvenient}{%
 \section{Truths that special interests find inconvenient}\label{truths-that-special-interests-find-inconvenient}}
@@ -3884,7 +3912,7 @@ that we take ever time we cross a busy road.
 
 The headings, and some of commentary, are adapted from an article by
 Associate Professor Hassan Vally from La Trobe University,
-\href{https://theconversation.com/5-ways-to-spot-if-someone-is-trying-to-mislead-you-when-it-comes-to-science-138814?utm_medium=email\&utm_campaign=Latest\%20from\%20The\%20Conversation\%20for\%20March\%209\%202021\%20-\%201883318379\&utm_content=Latest\%20from\%20The\%20Conversation\%20for\%20March\%209\%202021\%20-\%201883318379+CID_6009c8d7af2a01f376a88d0491598cfa\&utm_source=campaign_monitor\&utm_term=5\%20ways\%20to\%20spot\%20if\%20someone\%20is\%20trying\%20to\%20mislead\%20you\%20when\%20it\%20comes\%20to\%20science}{that appeared in \emph{The Conversation}}\footnote{\url{https://theconversation.com/5-ways-to-spot-if-someone-is-trying-to-mislead-you-when-it-comes-to-science-138814?utm_medium=email\&utm_campaign=Latest\%20from\%20The\%20Conversation\%20for\%20March\%209\%202021\%20-\%201883318379\&utm_content=Latest\%20from\%20The\%20Conversation\%20for\%20March\%209\%202021\%20-\%201883318379+CID_6009c8d7af2a01f376a88d0491598cfa\&utm_source=campaign_monitor\&utm_term=5\%20ways\%20to\%20spot\%20if\%20someone\%20is\%20trying\%20to\%20mislead\%20you\%20when\%20it\%20comes\%20to\%20science}}
+\href{https://theconversation.com/5-ways-to-spot-if-someone-is-trying-to-mislead-you-when-it-comes-to-science-138814?utm_medium=email\&utm_campaign=Latest\%20from\%20The\%20Conversation\%20for\%20March\%209\%202021\%20-\%201883318379\&utm_content=Latest\%20from\%20The\%20Conversation\%20for\%20March\%209\%202021\%20-\%201883318379+CID_6009c8d7af2a01f376a88d0491598cfa\&utm_source=campaign_monitor\&utm_term=5\%20ways\%20to\%20spot\%20if\%20someone\%20is\%20trying\%20to\%20mislead\%20you\%20when\%20it\%20comes\%20to\%20science}{that appeared in \emph{The Conversation} for March 9 2021.}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4178,6 +4206,9 @@ OSC. 2015. {``Estimating the Reproducibility of Psychological Science.''} \emph{
 \leavevmode\hypertarget{ref-pearl2018book}{}%
 Pearl, Judea, and Dana Mackenzie. 2018. \emph{The Book of Why: The New Science of Cause and Effect}. Basic Books.
 
+\leavevmode\hypertarget{ref-pearson1903laws}{}%
+Pearson, Karl, and Alice Lee. 1903. {``On the Laws of Inheritance in Man: I. Inheritance of Physical Characters.''} \emph{Biometrika} 2 (4): 357--462.
+
 \leavevmode\hypertarget{ref-popper_1963}{}%
 Popper, Karl Raimund. 1963. {``Science: Problems, Aims, Responsibilities.''} \emph{Federation of American Societies for Experimental Biology} 22: 961--72.
 
@@ -4193,11 +4224,11 @@ Reinhart, Carmen M, and Kenneth S Rogoff. 2010. {``Growth in a Time of Debt.''} 
 \leavevmode\hypertarget{ref-ritchie2020science}{}%
 Ritchie, Stuart. 2020. \emph{Science Fictions: Exposing Fraud, Bias, Negligence and Hype in Science}. Random House.
 
-\leavevmode\hypertarget{ref-roberts2021machine}{}%
-Roberts, Michael. 2021. {``Machine Churning.''} Elsevier.
+\leavevmode\hypertarget{ref-roberts2021AIcovid19}{}%
+Roberts, Michael. 2021. {``Artificial Intelligence Has Been of Little Use for Diagnosing Covid-19.''} New Scientist, 22 May 2021.
 
 \leavevmode\hypertarget{ref-roberts2021common}{}%
-Roberts, Michael, Derek Driggs, Matthew Thorpe, Julian Gilbey, Michael Yeung, Stephan Ursprung, Angelica I Aviles-Rivero, et al. 2021. {``Common Pitfalls and Recommendations for Using Machine Learning to Detect and Prognosticate for COVID-19 Using Chest Radiographs and CT Scans.''} \emph{Nature Machine Intelligence} 3 (3): 199--217.
+Roberts, Michael, Derek Driggs, Matthew Thorpe, Julian Gilbey, Michael Yeung, Stephan Ursprung, Angelica I Aviles-Rivero, et al. 2021. {``Common Pitfalls and Recommendations for Using Machine Learning to Detect and Prognosticate for COVID-19 Using Chest Radiographs and CT Scans.''} \emph{Nature Machine Intelligence}, no. 3335: 199--217.
 
 \leavevmode\hypertarget{ref-RosBook}{}%
 Rosenbaum, P R. 2002. \emph{Observational Studies}. 2nd ed. Springer.
@@ -4249,18 +4280,132 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
 
 \end{CSLReferences}
 
-\hypertarget{about-the-author}{%
-\chapter*{About the Author}\label{about-the-author}}
-\addcontentsline{toc}{chapter}{About the Author}
+\newpage
 
-For the major part of his career, John Maindonald worked with other
+\begin{theindex}
+
+  \item algorithmic methods, 63
+  \item analysis issues
+    \subitem assumptions, 7, 33, 68
+    \subitem source/target differences, 17, 55
+  \item aspirin, 29
+
+  \indexspace
+
+  \item bias
+    \subitem convenience samples, 15
+    \subitem hindsight, 17
+    \subitem selection and survivor, 15, 17, 18, 26, 73
+  \item business success, 17
+
+  \indexspace
+
+  \item chloroquine or hydrochloroquine
+    \subitem use with Covid-19, 37, 72
+  \item cholera deaths in London, 1849, 58--60
+  \item cholera deaths in London, 1854, 59--61
+  \item climate science, 72, 79
+    \subitem Richard Muller's study, 79
+  \item Covid-19
+    \subitem detection from chest images, 74, 75
+
+  \indexspace
+
+  \item designed experiment, 71, 76
+
+  \indexspace
+
+  \item economic growth, 34--36
+  \item email spam, 63
+
+  \indexspace
+
+  \item graph
+    \subitem time vs distance, 12, 49, 52, 56, 57
+    \subitem US Nobel prizes, 10
+  \item graphs
+    \subitem general principles, 9
+    \subitem relative change scales, 11--13, 58, 65, 66
+
+  \indexspace
+
+  \item human judgement
+    \subitem system 1 \& system 2, 32
+  \item hurricane death data, 65
+
+  \indexspace
+
+  \item malaria drugs
+    \subitem use with Covid-19, 37, 72
+  \item maternity care
+    \subitem midwife vs medical led, 56, 62
+  \item medical trials, screening
+    \subitem breast cancer, 22
+    \subitem prostate cancer screening, 4, 21, 24
+  \item missing bullet holes, 18
+
+  \indexspace
+
+  \item random sample, 15, 55
+  \item randomized controlled trials
+    \subitem A/B testing vs HiPPO decisions, 24
+    \subitem as the gold standard, 23
+  \item regression
+    \subitem observational data, 55
+  \item regression to the mean, 18, 42, 50, 51, 54, 57, 58
+    \subitem fathers and sons, 48, 49
+    \subitem NBA player total points, 49
+    \subitem Secrist's 'Triumph of Mediocrity', 51
+  \item replication, 6, 74, 77, 78
+  \item risk assessment
+    \subitem sources of advice, 4, 7, 20, 23, 27, 29, 37, 75, 81
+
+  \indexspace
+
+  \item Sally Clark's disturbing cot death saga, 32, 33
+  \item science
+    \subitem Big Pharma, 80
+    \subitem false or unverified claims, 6, 21, 75, 78
+    \subitem funding and reward processes, 72, 78, 79, 82
+    \subitem results that special interests find inconvenient, 79, 80
+  \item sources of advice
+    \subitem Cochrane Center, 19--21
+    \subitem fact boxes, 20, 64
+    \subitem Harding Center, 7, 19--22
+
+  \indexspace
+
+  \item table of frequencies
+    \subitem adding across tables (Simpson's paradox), 40
+  \item tree-based methods
+    \subitem random forests (randomForest), 64
+
+  \indexspace
+
+  \item university admission rates
+    \subitem UCB in 1973, 41, 42
+
+  \indexspace
+
+  \item Wakefield MMR scandal, 31
+
+\end{theindex}
+
+\thispagestyle{empty}
+
+\hypertarget{author}{%
+\section*{About the author}\label{author}}
+\addcontentsline{toc}{section}{About the author}
+
+For the major part of his career, John Maindonald has worked with other
 researchers as a quantitative problem solver.
-He has held positions at Victoria University of Wellington, in DSIR, in HortResearch Crown Research Institute (now Plant and Food), and at The Australian National University (ANU). He joined the then newly formed ANU Centre for Bioinformation Science in 2001, formally retiring in 2005.
+He has held positions at Victoria University of Wellington, in DSIR, in HortResearch Crown Research Institute (now Plant and Food), and at The Australian National University (ANU).
+He joined the then newly formed ANU Centre for Bioinformation Science in 2001, formally retiring in 2005.
 Between 1983 and 1996, and occasionally after 1996, he reviewed the statistical content of numerous papers that appeared in DSIR (later, Royal Society) journals, notably the New Zealand Journal of Agricultural Research and the New Zealand Journal of Crop and Horticultural Research.
 
 Between 2003 and 2015, he fronted 35 short courses (one week, or less)
 across different parts of Australia that demonstrated the use of the open source R data analysis and graphics system for data analysis purposes.
-He is the author of a book on Statistical Computation, and the senior author of ``Data Analysis and Graphics Using R --- An Example-Based Approach'' (Maindonald and Braun 2010). This has sold more than 11,000 copies over
-the three editions.
+He is the author of a book on Statistical Computation, and the senior author of ``Data Analysis and Graphics Using R --- An Example-Based Approach'' (Maindonald and Braun, 2010).
+This has sold more than 11,000 copies over the three editions.
 
 \end{document}

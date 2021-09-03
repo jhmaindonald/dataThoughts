@@ -33,6 +33,7 @@ predC <- log(100)+c(2*log(predict(rcd2.gam)),NA, rep(log(USdeadpop1yr[86,'relcov
 pred <- log(100)+c(2*log(predict(rd2.gam)),NA, rep(log(USdeadpop1yr[86,'reldead']),2))
 atx <- seq(from=0, to=80, by=10)
 library(lattice)
+trellis.par.set(theme)
 gph <- xyplot(predC+pred~I(c(0:84,NA,88,92)), type='l',
        xlab="Age", ylab="Deaths per 100",
        scales=list(y=list(at=log(ylab),labels=paste(ylab)),

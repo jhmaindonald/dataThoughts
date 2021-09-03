@@ -6,18 +6,38 @@ knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.
 
 When two variables show a relationship, they are said to be
 correlated.  Regression and correlation offer alternative,
-and complementary, perspectives on the relationship.
-
-Yule-Simpson type effects, discussed in Section \@ref(sec:yule1)
-["Explaining the Yule-Simpson Paradox"], are important in a 
-regression context also.  Nonsense correlations that arise 
-where the third variable is time provide simple examples.
+and complementary, perspectives on the relationship.^[The 
+discussion will avoid the technicalities of alternative
+ways to measure correlation.]
+Nonsense correlations that arise where the third variable is 
+time provide simple examples.^[Yule-Simpson type effects, 
+discussed in Section \@ref(sec:yule1), are important in a 
+regression context also.]
 
 ## Correlation is not causation
 
 Variable A may cause variable B.  Or variable B may cause
 variable A.  Or  both A and B may be caused (or driven) by
 a third variable C.  
+
+The following are examples where causation likely goes in the other
+direction, or where a third variable is likely to be involved.
+Such examples help highlight how correlation can and cannot 
+reasonably be interpreted. 
+
+1. Children of parents who try to control eating are more likely 
+to be overweight.
+2. Countries with higher IQs have higher average wealth measures.
+3. Ice cream consumption & polio were closely correlated in the 1950s.
+    + Summer was when the virus thrived.
+
+Cases where the third variable is 
+time, as in Figure \@ref(fig:socAnti), are a fruitful source
+of examples of spurious correlations.^[Figure \@ref(fig:socAnti)
+is one of many such examples that are available from  
+<http://www.tylervigen.com/spurious-correlations>.]
+Is there a third factor, or is this just a chance relationship?
+
 
 ```{r cap11}
 cap11 <- "Sociology PhDs awarded (from US National Science 
@@ -29,6 +49,7 @@ of change from year to year.
 
 ```{r socAnti, fig.width=7.75, fig.asp=0.375, fig.show='hold', out.width="100%", fig.cap=cap11}
 suppressPackageStartupMessages(library(latticeExtra))
+trellis.par.set(theme)
 phdDeaths <- data.frame(Year = 1999:2009,
 Doctorates = c(572,617,566,547,597,580,536,579,576,601,664),
 Deaths = c(17,39,39,27,44,46,29,42,47,52,78)
@@ -58,45 +79,34 @@ print(gph2, position=c(0.64,0,1,1)
       )
 ```
 
-The following are examples where causation likely goes in the other
-direction, or where a third variable is likely to be involved
 
-1. Children of parents who try to control eating are more likely 
-to be overweight.
-2. Countries with higher IQs have higher average wealth measures.
-3. People who smoke marijuana are more likely to later use cocaine.
-    + Pre-disposition to experimenting with drugs is a common factor.
-    The evidence on whether anything more is involved is unclear.
-4. Ice cream consumption & polio were closely correlated in the 1950s.
-    + Summer was when the virus thrived.
-
-Such examples help highlight how correlation can and
-cannot reasonably be used. Cases where the third variable is 
-time, as in Figure \@ref(fig:socAnti), are a fruitful source
-of examples of spurious correlations.^[Figure \@ref(fig:socAnti)
-is one of many such examples that are available from  
-<http://www.tylervigen.com/spurious-correlations>.]
-Is there a third factor, or is this just a chance relationship?
-Other examples are:
-
-* Over 1997 to 2009, US Sociology PhDs awarded correlated strongly
-with worldwide non-commercial space launches.
-* Over 1999 to 2009, the age of Miss America correlated strongly
-with murders by steam, hot vapours and hot objects.
+Another example is that, over 1997 to 2009, US Sociology PhDs awarded 
+correlated strongly with worldwide non-commercial space launches.
 
 ## Regression to the mean
 
 Tall fathers are likely to have tall sons, but shorter than themselves. 
 Tall sons are likely to have tall fathers, but shorter than themselves.
-The data shown in Figure \@ref(fig:pearson) are from Karl Pearson.
-See `?HistData::PearsonLee`.
+The data shown in Figure \@ref(fig:pearson) are from @pearson1903laws.
+The correlation between son's height and father's height is 
+0.5.^[Kahneman argues, perhaps too simplistically that as height is 
+mainly due to genetic factors, and fathers share half of their genes
+with their sons, this is to be expected.]
+
+Notice that the points that are plotted show a a symmetrical oval shaped
+scatter about the mean (shown with a large solid dot in Panel A).  This
+type of scatter is, strictly, required for uses of the correlation that 
+will now be discussed. 
+
+Consider a father whose height is 72 inches, which is the 95th percentile
+of heights for fathers. What is a best guess for the height of a son?
 
 ```{r cap12}
 cap12 <- "Tall fathers are likely to have tall sons, but shorter than themselves. 
 Tall sons are likely to have tall fathers, but shorter than themselves."
 ```
 
-```{r pearson, fig.height=3.75, fig.width=8.5,out.width="100%", fig.show="hold", fig.cap=cap12}
+```{r pearson, fig.height=3.15, fig.width=7.5, fig.pos='H', out.width="100%", fig.show="hold", fig.cap=cap12}
 opar <- par(mar=c(3.1,3.1,2.1, 1.1), mgp=c(2.0, .5,0), fig=c(0,0.48,0,1))
 ptCol <- adjustcolor('black', alpha=0.4)
 load('Data/Pearson.RData')
@@ -120,7 +130,7 @@ pcSon <- round(100*with(Pearson, sum(Son<pred95)/nrow(Pearson)))
 mtext(side=3, line=0.05, "95th percentile", col=2, at=pc95)
 mtext(side=4, line=0.05, paste0(pcSon,"th percentile"), col=2, at=pred95, 
       adj=0.5, srt=90)
-mtext(side=3, line=1.0, "Son's height, given father's height (red lines)",
+mtext(side=3, line=1.0, "Son's ht, given father's ht (red lines)",
       adj=0, at=56)
 par(fig=c(0.52,1,0,1), new=TRUE)
 plot(Pearson[,1:2], col=ptCol, fg="gray")
@@ -137,39 +147,179 @@ abline(v=predF95, col="purple", lty=2, lwd=2)
 abline(v=pc95, col=adjustcolor('red',alpha=0.4))
 abline(h=pred95, col=adjustcolor('red',alpha=0.4))
 pcF <- round(100*with(Pearson, sum(Father<=predF95)/nrow(Pearson)))
-mtext(side=3, line=1.0, "Father's height, given son's height (purple lines)",
+mtext(side=3, line=1.0, "Father's ht, given son's ht (purple lines)",
       adj=0, at=56)
 mtext(side=3, line=0.05, paste0(pcF,"th percentile"), col="purple", at=predF95)
 mtext(side=4, line=0.05, paste0("95th percentile"), col="purple", at=son95, srt=90)
 par(opar)
 ```
-\enlargethispage{27pt}
 
-Kahneman argues, perhaps too simplistically: 
+* If the correlation between father's height and son's height were 0, 
+the best guess would be the mean for son's, i.e., 68.7 inches
+* If the correlation were 1, the son's height would be the
+95th percentile of heights for sons, i.e., 73.3 inches.
+* But, as the correlation is 0.5, the expected height is 
+68.7 + 0.5$\times$(73.3-68.7) = 71.0 inches, i.e., start at
+the mean and move 0.5 of the distance up to the 95th percentile.
 
-* Height is mainly due to genetic factors
-* Sons share half their genes with their fathers
-* Hence, correlation between sons' & fathers' heights $\simeq$ 0.5
+Now consider a son whose height is 73.3 inches (the 95th percentile for 
+sons):
+
+* The best estimate of the father's height is 67.7 +
+0.5$\times$(73.3-67.7)=2.8 inches,  i.e., start at the mean
+for fathers and move 0.5 of the distance up to the 95th percentile.
 
 Galton's 1886 data, which predates Pearson's data, shows a 0.46
 correlation between child height and the average of the parent
 height.
 
-## Regression to the mean in a variety of contexts
+## NBA player points --- correlations decline over time
 
-\enlargethispage{21pt}
+In Figure \@ref(fig:NBA), Panel A shows total points for 
+2016-2017 versus 1 year earlier, for players who competed
+in both seasons.  The correlation is 0.83. Panel B is
+for 2016-2017 versus 5 years earlier, with the correlation 
+now reducing to 0.41. 
 
-### Decathlon scores --- between event correlations {-}
+```{r cap12.5}
+cap12.5 <- "As time progresses, correlation decreases, and regression to the mean increases.  For Panel A, the correlation is 0.83, while in Panel B it is 0.41."
+```
 
-```{r cap13}
-cap13 <- "Between event correlations for top performances in the 
-decathlon in 2006.  Points that are plotted, and correlations, are 
-for points awarded."
+```{r NBA, out.width="100%", fig.width=7.5, fig.height=3.5, fig.show="hold", fig.pos="H", fig.cap=cap12.5}
+load("data/NBAplayer.RData")
+m1516 <- with(NBAplayer, match(z15$Name,z16$Name,nomatch=0))
+df1617 <- with(NBAplayer, data.frame(p1516=z15$TotalPoints[m1516>0], p1617=z16$TotalPoints[m1516]))
+# cor(df1617)  # 0.83
+gph1 <- xyplot(p1617~p1516, data=df1617, 
+     xlab="Total points, 2015-2016", 
+     ylab="Total points, 2016-2017", type=c("p","r"),
+     main=list("A: 2016-2017 vs 2015-2016", font=1, y=0))
+m1116 <- with(NBAplayer, match(z11$Name,z16$Name,nomatch=0))
+df1116 <- with(NBAplayer, data.frame(p1112=z11$TotalPoints[m1116>0], p1617=z16$TotalPoints[m1116]))
+# cor(df1116) ## 0.41
+gph2 <- xyplot(p1617~p1112, data=df1116, 
+     xlab="Total points, 2010-2011", 
+     ylab="Total points, 2016-2017", type=c("p","r"),  
+     main=list("B: 2016-2017 vs 2010-2011",font=1, y=0))
+print(gph1, position=c(0,0,0.51,1), more=TRUE)
+print(gph2, position=c(0.49,0,1,1))
+```
+The scatter of points increases as values increase, on both axes.
+Calculations of the type given in the previous section, based on 
+the usual correlation measure, while giving more approximate results,
+are adequate for present purposes.
+
+## Secrist's "The Triumph of Mediocrity in Business"
+
+Horace Secrist's 1933 book The Triumph of Mediocrity in Business" 
+was based on annual data for 1920 to 1930.  Secrist took 73 different
+industries, in each case examined the ratios
+
+> Profits:sales; Profits:assets; Expenses:sales; Expenses:assets
+
+For each industry in 1920: he then split firms into 4 quartiles: top 25%, 
+2nd highest 25%, 2nd lowest 25%, lowest 25%.
+
+* Took average for each statistic, for each quartile, for each year.
+* Surprise, surprise, the best went, on average, down ...
+
+> Complete freedom to enter trade and the continuance of competition
+mean the perpetuation of mediocrity.  ...  neither superiority or
+inferiority will tend to persist. Rather, mediocrity tends to become
+the rule.
+
+```{r cap15}
+cap15 <- "Secrist's data showed a correlation of 0.5 between
+time intervals five years apart.  Panel A uses shows means of simulations,
+starting with the four performance quartiles in 1920 and looking ahead.
+Panel B starts with the equivalent quartiles in 1930, and looks back."
+```
+
+```{r sim, out.width="105%", fig.width=7.5, fig.asp=0.4, fig.cap=cap15, fig.pos='H'}
+opar <- par(mfrow=c(1,2), mgp=c(2,0.5,0), mar=c(3.1,3.1,2.1,1.1))
+set.seed(29)
+x1 <- rnorm(1000, mean=34, sd=5)
+x2 <- 0.7*x1 + rnorm(1000, mean=.3*34, sd=5*sqrt(1-.49))
+x3 <- 0.7*x2 + rnorm(1000, mean=.3*34, sd=5*sqrt(1-.49))
+## print(round(c(sd(x1),sd(x2),sd(x3)),2))
+## print(round(c(range(x1),range(x2),range(x3)),2))
+xx <- data.frame(x1=x1,x2=x2,x3=x3)
+xx <- xx[order(xx[,1]),]
+qxx <- sapply(xx, function(x)c(mean(x[1:250]), mean(x[251:500]),
+ mean(x[501:750]),mean(x[751:1000])))
+plot(c(1920,1925,1930),qxx[4,], xlab="", ylab="Profit:Sales", 
+     ylim=c(26.6,40.7), fg="gray", type="n") 
+for(i in 1:4){
+lines(c(1920,1925,1930),qxx[i,], ylab="Profit", fg="gray", type="b", pch=16) 
+}
+text(rep(1920,4), qxx[,1], c("Lowest 25% in 1920","2nd Lowest 25% in 1920",
+                             "2nd highest 25% in 1920", "Highest 25% in 1920"),
+     pos=4, col=adjustcolor("blue",alpha=0.5))  
+xx2 <- xx[order(xx[,3]),]
+qxx2 <- sapply(xx2, function(x)c(mean(x[1:250]), mean(x[251:500]),
+ mean(x[501:750]),mean(x[751:1000])))
+mtext(side=3, line=0.75, "A: Forwards from 1920", adj=0, at=1918)
+plot(c(1920,1925,1930),qxx[4,], xlab="", ylab="Profit:Sales", 
+     ylim=c(26.6,40.7), fg="gray", type="n") 
+for(i in 1:4){
+lines(c(1920,1925,1930),qxx2[i,], ylab="Profit", fg="gray", type="b", pch=16) 
+}
+text(rep(1930,4), qxx2[,3], c("Lowest 25% in 1930","2nd Lowest 25% in 1930",
+                             "2nd highest 25% in 1930", "Highest 25% in 1930"),
+     pos=2, col=adjustcolor("blue",alpha=0.5))  
+mtext(side=3, line=0.75, "B: Looking back from 1930",  adj=0, at=1918)
+par(opar)
+```
+Secrist was seeing regression to the mean. Figure \@ref(fig:sim)
+makes the point that if one takes the four quartiles in 1930 and looks 
+back to 1920, in each case there is a regression back to the mean.
+Given a correlation of 0.7 between time intervals five years apart,
+The absolute difference from the mean moves from 8 to 0.7$\times 8 
+(= `r 0.7*8`) to 0.7$\times 5.6 (= `r 0.7*5.6`), whether one moves
+forward in time, or back in time.
+
+### "Do old fallacies ever die?" {-}
+
+@smith-sd gives references to work by prominent economists in the past
+half-century that had quoted Secrist approvingly or repeated his error.
+
+* 1970: "The book [by Secrist] contains an elaborate statistical
+demonstration that, over a period of time, initially high-performing ..."
+* 1980s investment textbook: "Ultimately, economic forces will force
+the convergence of the profitability and growth rates of different firms."
+This was backed up with a 1980/1966 Secrist type comparison.
+* 2000: (Journal article) "... profitability is mean-reverting within
+as well as across industries.  Other firms eventually mimic products
+and technologies that produce above normal profitability ..."
+* @wainerRegress cites other examples.
+
+
+Figure \@ref(fig:selected) shows between event correlations for
+top performances (6800 points and over) for six of the events
+in the decathlon in
+2006.^[Data for the twenty-one year period after new rules were
+introduced in 1985 are available in the R package `GDAdata` with
+the name `Decathlon`.  See also the Estonian website
+<http://www.decathlon2000.com/>]  Observe that the correlation
+of javelin with high jump is 0.032, so that performance in one
+of these sports gives no useful indication of the performance
+that might be expected in the other.
+
+The correlation between shot put distances and long jump distances
+is shown as a more encouraging 0.29.  If we find that an athlete has
+achieved a distance of 14.9 meters in the shot put, which is at
+the 93$^{th}$ percentile across athletes as a whole (7% did better),
+a best estimate for the long jump can then be obtained thus:
+
+* A 14.9 meter put is at the 93$^{th}$ centile (7% will do better)
+* The long jump mean is 6.97, with the 93% mark = 7.47
+    + The difference from the mean is 7.47-6.97 = 0.5
+* The estimate for the long jump is then 6.97+0.29 $\times$ 0.5 = 7.12
 ```
 
 ```{r Decath2006}
 Decath2006 <- subset(GDAdata::Decathlon,yearEvent==2006)
-## Check difference of rank from Pearson correlations 
+## Check difference of rank from Pearson correlations
 ## corP <- cor(Decath2006[,(15:24)[ord]])
 ## corS <- cor(Decath2006[,(15:24)[ord]],method="spearman")
 ## round(corP-corS,2)
@@ -180,11 +330,11 @@ suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(GGally))
 ```
 
-```{r gg, message=FALSE, results='hide', fig.pos='H', eval=TRUE, cache=TRUE}
+```{r gg, message=FALSE, results='hide', warning=FALSE, message=FALSE, fig.pos='H', eval=TRUE, cache=TRUE}
 my_fn <- function(data, mapping, pts=list(), smt=list(), ...){
-              ggplot(data = data, mapping = mapping, ...) + 
+              ggplot(data = data, mapping = mapping, ...) +
                          do.call(geom_point, pts) +
-                         do.call(geom_smooth, smt) 
+                         do.call(geom_smooth, smt)
 }
 my_custom_cor <- function(data, mapping, color = I("grey50"), sizeRange = c(1, 5), ...) {
 
@@ -206,254 +356,59 @@ my_custom_cor <- function(data, mapping, color = I("grey50"), sizeRange = c(1, 5
 
   # plot the cor value
   ggally_text(
-    label = as.character(rt), 
+    label = as.character(rt),
     mapping = aes(),
-    xP = 0.5, yP = 0.5, 
+    xP = 0.5, yP = 0.5,
     size = I(percent_of_range(cex * abs(r), sizeRange)),
     color = color,
     ...
-  )  + 
+  )  +
     # remove all the background stuff and wrap it with a dashed line
-    theme_classic() + 
+    theme_classic() +
     theme(
       panel.background = element_rect(
-        color = color, 
+        color = color,
         linetype = "longdash"
-      ), 
-      axis.line = element_blank(), 
-      axis.ticks = element_blank(), 
-      axis.text.y = element_blank(), 
+      ),
+      axis.line = element_blank(),
+      axis.ticks = element_blank(),
+      axis.text.y = element_blank(),
       axis.text.x = element_blank()
     )
 }
 ```
 
-```{r all10, fig.width=10, fig.asp=0.9, out.width="90%", fig.pos='H', results="hide", message=FALSE, fig.cap=cap13}
-ord <- dput(corrplot::corrMatOrder(cor(Decath2006[,15:24])))
-pointsNam <- names(Decath2006)[(4:13)[ord]]
-ggpairs(Decath2006[,(15:24)[ord]], 
-        lower = list(continuous = 
-                       wrap(my_fn,
-                            pts=list(size=0.25, colour=adjustcolor("black", alpha=0.4)), 
-                            smt=list(method="loess",
-                                     size=0.5, colour="red"))),
-        axisLabels="none", columnLabels=pointsNam,
-        upper=list(continuous=wrap(my_custom_cor, sizeRange=c(3,5))))
+```{r cap13, echo=FALSE}
+cap13 <- "Between event correlations for top performances in six
+of the ten decathlon events in 2006.  Points that are plotted,
+and correlations, are for times or distances achieved."
 ```
 
-
-```{r selected, fig.width=5, fig.asp=0.85, results='hide', warning=FALSE, message=FALSE, fig.pos='H', out.width="80%", eval=FALSE}
-colnam <- c("Javelin", "Discus", "Shotput", "Polevault", "Highjump","Longjump")
-ncols <- match(colnam, names(Decath2006))
+```{r selected, fig.width=5.5, fig.asp=0.85, results='hide', warning=FALSE, message=FALSE, fig.pos='H', out.width="60%", eval=TRUE, fig.cap=cap13}
+colnam <- c("Polevault", "Javelin", "Discus", "Shotput", "Highjump", "Longjump")
+ncols <- match(colnam, names(Decath2006))  #  c(11L, 12L, 10L, 6L, 7L, 5L)
 ggpairs(Decath2006[, ncols],
-        lower = list(continuous = 
+        lower = list(continuous =
                        wrap(my_fn,
-                            pts=list(size=0.25, colour=adjustcolor("black", alpha=0.4)), 
+                            pts=list(size=0.25, colour=adjustcolor("black", alpha=0.4)),
                             smt=list(method="gam", se=F, size=0.5, colour="red"))),
         columnLabels=colnam,
         upper=list(continuous=wrap(my_custom_cor, sizeRange=c(3,5))))
 ```
 
-Figure \@ref(fig:all10) shows between event correlations for top
-performances (6800 points and over) in the decathlon in 
-2006.^[Data for the twenty-one year period after new rules were 
-introduced in 1985 are available in the R package `GDAdata` with 
-the name `Decathlon`.  See also the Estonian website 
-<http://www.decathlon2000.com/>]
-
-
-### Total profit to total income ratio, by industry class {-}
-
-Data are from the Statistics NZ Business Performance 
-Benchmarker^[<https://shinyapps.stats.govt.nz/bpb/>]
-
-```{r cap14}
-cap14 <- paste("Total profit to total income ratio, by industry class ---",
-"correlation between 2015 value and 2013 value.")
+```{r misc, eval=FALSE, echo=FALSE}
+Decath2006 <- subset(GDAdata::Decathlon,yearEvent==2006)
+ecdf(Decath2006[,6])(14.9)
+## 0.9300292
+longjMean <- mean(Decath2006[,5])
+longjMean+(quantile(Decath2006[,5],.93)-longjMean)*0.29
+## 6.97+0.29*(7.47-6.97)
+## 7.115
 ```
 
-```{r expend, warning=FALSE, fig.align="center", fig.asp=0.95, out.width="90%", fig.pos='H',  fig.cap=cap14}
-load('data/FinAllInd.RData')
-opar <- par(mar=c(4.1,4.6,4.1,3.1))
-expend <- subset(FinAllInd, subset=Variable=="Expenditure")
-profit <- subset(FinAllInd, subset=Variable=="Profit")
-income <- subset(FinAllInd, subset=Variable=="Income")
-assets <- subset(FinAllInd, subset=Variable=="Assets")
-employ <- subset(FinAllInd, subset=Variable=="Employee Count")
-# expend[,6] <- as.numeric(expend[[6]])
-# expend[,7] <- as.numeric(expend[[7]])
-# expend[,8] <- as.numeric(expend[[8]])
-plot(I(profit[[9]]/income[[9]])~I(profit[[11]]/income[[11]]), 
-     pch=16, cex=1.25, xlab="2013 ratio", ylab="2015 ratio",
-     cex.lab=1.55, col=adjustcolor('purple',alpha=0.5), fg="gray",
-     xlim=c(-0.15,0.475), ylim=c(-0.125, 0.41))
-mtext(side=3, line=0.5, "Total profit to total income ratio")
-par(xpd=TRUE)
-rt <- c(31,37,167, 330, 385, 441, 458)
-left <- c(10, 15, 35, 57, 76,122,157,175, 164, 196, 253, 274, 292,341,362, 384,430)
-halfblack <- adjustcolor('black', alpha=0.4)
-df <- data.frame(ratio15=I(profit[[9]]/income[[9]]), ratio13=I(profit[[11]]/income[[11]]),
-                 indclass=profit[["Industry_class"]])
-with(df[rt,], text(ratio15~ratio13,col=halfblack,labels=indclass,pos=2, cex=0.75))
-with(df[left,], text(ratio15~ratio13,col=halfblack,labels=indclass,pos=4, cex=0.75))
-par(opar)
-```
+## Moderating predictive assessments
 
-Not shown are 4 points where the 2015 ratio was less than -0.3.  
-(Olive growing, Petroleum exploration, Stevedoring Services.)
-Notice that the scatter of points does not show the regular 
-elliptical shape of scatter that underpin common ways in which 
-("linear") correlations rely.  There are alternative 
-correlation measures that may be preferred in such instances.
-
-### NBA player total points --- correlations decline over time {-}
-
-```{r cap12.5}
-cap12.5 <- "As time progresses, correlation decreases, and regression to the mean increases."
-```
-
-```{r NBA, out.width="100%", fig.width=8, fig.height=3.75, fig.show="hold", fig.pos="H", fig.cap=cap12.5}
-load("data/NBAplayer.RData")
-m1516 <- with(NBAplayer, match(z15$Name,z16$Name,nomatch=0))
-df <- with(NBAplayer, data.frame(p1516=z15$TotalPoints[m1516>0], p1617=z16$TotalPoints[m1516]))
-gph1 <- xyplot(p1617~p1516, data=df, 
-     xlab="Total points, 2015-2016", 
-     ylab="Total points, 2016-2017", type=c("p","r"),
-     main=list("A: 2016-2017 vs 2015-2016", font=1, y=0))
-m1116 <- with(NBAplayer, match(z11$Name,z16$Name,nomatch=0))
-df <- with(NBAplayer, data.frame(p1112=z11$TotalPoints[m1116>0], p1617=z16$TotalPoints[m1116]))
-gph2 <- xyplot(p1617~p1112, data=df, 
-     xlab="Total points, 2010-2011", 
-     ylab="Total points, 2016-2017", type=c("p","r"),  
-     main=list("B: 2016-2017 vs 2010-2011",font=1, y=0))
-print(gph1, position=c(0,0,0.51,1), more=TRUE)
-print(gph2, position=c(0.49,0,1,1))
-```
-
-
-### The Sports Illustrated cover "jinx" {-}
-
-The 21 January 2002 issue of Sports Illustrated featured an 
-[article on the so-called The Sports Illustrated cover jinx]
-(https://vault.si.com/vault/2002/01/21/that-old-black-magic-millions-of-superstitious-readersand-many-athletesbelieve-that-an-appearance-on-sports-illustrateds-cover-is-the-kiss-of-death-but-is-there-really-such-a-thing-as-the-si-jinx)^[<https://vault.si.com/vault/2002/01/21/that-old-black-magic-millions-of-superstitious-readersand-many-athletesbelieve-that-an-appearance-on-sports-illustrateds-cover-is-the-kiss-of-death-but-is-there-really-such-a-thing-as-the-si-jinx>]
-After examining covers that had appeared from 1954 to 2001, they found that
-
-> Of the 2,456 covers SI had run, 913 featured a person who, or team that, 
-suffered some verifiable misfortune that conformed to our definition--a Jinx
-rate of 37.2%.
-
-[Wikepedia](https://en.wikipedia.org/wiki/Sports_Illustrated_cover_jinx "2021-03-24")
-has very detailed comments on the phenomenon.  Especially in contact sports,
-athletes who do exceptionally well will have been pushing their bodies to the
-limit, with a high risk of injury.
-
-> Most athletes that seemed to suffer the jinx most typically 
-suffered because of an injury to their body, or some other bad 
-luck following their appearance.
-
-Athletes appear on the cover of a magazine such as "Sports Illustrated"
-when they are performing unusually well, both relative to their fellow 
-athletes, and relative to their own earlier performances.  They are
-likely to be approaching their peak, and/or to have experienced an
-unusual run of luck.  Where chance effects are the main driver,
-their success is likely to be temporary, quickly dropping back to close 
-to or below their longer term average.  Some of those who feature will
-be at their peak, and will on that account soon drop back.
-
-The Wikipedia article notes a number of athletes who went on to do
-exceptionally well following appearance on the cover.  Standouts 
-were the basketballer Michael Jordan (50 covers) and Muhammad Ali 
-(40 covers). These were outstanding athletes that consistently
-outperformed others.
-
-### Secrist's "The Triumph of Mediocrity in Business" {-}
-
-```{r cap15}
-cap15 <- paste("Simulations based on correlations for Secrist's data --- 
-               showing how regression to the mean goes in both directions.
-               Secrist did not look at what Panel B has to say.")
-```
-
-```{r sim, out.width="105%", fig.width=7.5, fig.asp=0.4, fig.cap=cap15, fig.pos='H'}
-opar <- par(mfrow=c(1,2), mgp=c(2,0.5,0), mar=c(3.1,3.1,2.1,1.1))
-set.seed(29)
-x1 <- rnorm(1000, mean=34, sd=5)
-x2 <- 0.7*x1 + rnorm(1000, mean=.3*34, sd=5*sqrt(1-.49))
-x3 <- 0.7*x2 + rnorm(1000, mean=.3*34, sd=5*sqrt(1-.49))
-## print(round(c(sd(x1),sd(x2),sd(x3)),2))
-## print(round(c(range(x1),range(x2),range(x3)),2))
-xx <- data.frame(x1=x1,x2=x2,x3=x3)
-xx <- xx[order(xx[,1]),]
-qxx <- sapply(xx, function(x)c(mean(x[1:250]), mean(x[251:500]),
- mean(x[501:750]),mean(x[751:1000])))
-plot(c(1920,1925,1930),qxx[4,], xlab="", ylab="Profit", 
-     ylim=c(26.6,40.7), fg="gray", type="n") 
-for(i in 1:4){
-lines(c(1920,1925,1930),qxx[i,], ylab="Profit", fg="gray", type="b", pch=16) 
-}
-text(rep(1920,4), qxx[,1], c("Lowest 25% in 1920","2nd Lowest 25% in 1920",
-                             "2nd highest 25% in 1920", "Highest 25% in 1920"),
-     pos=4, col=adjustcolor("blue",alpha=0.5))  
-xx2 <- xx[order(xx[,3]),]
-qxx2 <- sapply(xx2, function(x)c(mean(x[1:250]), mean(x[251:500]),
- mean(x[501:750]),mean(x[751:1000])))
-mtext(side=3, line=0.75, "A: Forwards from 1920", adj=0, at=1918)
-plot(c(1920,1925,1930),qxx[4,], xlab="", ylab="Profit", 
-     ylim=c(26.6,40.7), fg="gray", type="n") 
-for(i in 1:4){
-lines(c(1920,1925,1930),qxx2[i,], ylab="Profit", fg="gray", type="b", pch=16) 
-}
-text(rep(1930,4), qxx2[,3], c("Lowest 25% in 1930","2nd Lowest 25% in 1930",
-                             "2nd highest 25% in 1930", "Highest 25% in 1930"),
-     pos=2, col=adjustcolor("blue",alpha=0.5))  
-mtext(side=3, line=0.75, "B: Looking back from 1930",  adj=0, at=1918)
-par(opar)
-```
-
-Horace Secrist's 1933 book was based on annual data for 1920 to 1930:
-
-* 73 different industries; examine ratios
-    + Profits:sales; Profits:assets; Expenses:sales; Expenses:assets
-* For each industry in 1920: split firms into 4 quartiles: top 25%, ...
-    + Took average for each statistic, for each quartile, for each year.
-    + Surprise, surprise, the best went, on average, down ...
-
-"Complete freedom to enter trade and the continuance of competition
-mean the perpetuation of mediocrity.  ...  neither superiority or
-inferiority will tend to persist. Rather, mediocrity tends to become
-the rule."
-
-### "Do old fallacies ever die?" {-}
-
-@smith-sd gives references to work by prominent economists in the past
-half-century that had quoted Secrist approvingly or repeated his error.
-
-* 1970: "The book [by Secrist] contains an elaborate statistical
-demonstration that, over a period of time, initially high-performing ..."
-* 1980s investment textbook: "Ultimately, economic forces will force
-the convergence of the profitability and growth rates of different firms."
-This was backed up with a 1980/1966 Secrist type comparison.
-* 2000: (Journal article) "... profitability is mean-reverting within
-as well as across industries.  Other firms eventually mimic products
-and technologies that produce above normal profitability ..."
-* @wainerRegress cites other examples.  
-
-## Moderating subjective assessments
-
-* Estimate average
-* Make assessment, based on what evidence seems to suggest
-    + Assessment is based on current measure
-* Estimate correlation between current and predicted measure.
-* The correlation determines the fraction of the distance
-to move from the average to the assessment.
-
-e.g., Correlation of shotput with long jump is close to 0.4
-
-* 14.9 meter put is at the 93nd centile (7% will do better)
-* Long jump mean = 6.97; 92% mark  7.47 (difference=0.5)
-* Estimate long jump result as 6.97+0.4 $\times$ 0.5 = 7.17
-
-### Forecasting sales {-}
+### Moderating sales estimates {-}
 
 You are the sales forecaster for a department store chain.
 All stores are similar in size and merchandise offered,
@@ -473,9 +428,9 @@ MEAN  | 20 | 22
 
 Assuming that year to year correlation is around 0.4,
 what is a reasonable estimate for sales in each of the
-stores in 2021.  The mean sales amount in 2021 is predicted to be 22,000,000 dollars?
-With a correlation of 0.4, the predicted sales for the individual stores are
-obtained thus:
+stores in 2021.  The mean sales amount in 2021 is predicted 
+to be 22,000,000 dollars?  With a correlation of 0.4, the 
+predicted sales for the individual stores are obtained thus:
 
 Store | 2020 | Subtract 20 | Xply by 0.4, add to 22 | Predicted sales
 ----- | ---- | ---- | ---- | ----
@@ -485,8 +440,8 @@ Store | 2020 | Subtract 20 | Xply by 0.4, add to 22 | Predicted sales
 4 | 29 | +9  | 29+3.6 | 32.6
 MEAN  | 20 | 0 | 22   | 22
 
-
-## Some further comments on regression to the mean
+In the real world of 2020 and 2021, the Covid-19 pandemic makes all such
+predictions hazardous!  
 
 ### Choosing from job applicants {-}
 

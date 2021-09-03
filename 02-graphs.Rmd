@@ -70,6 +70,7 @@ obvious in Panel A is very obvious in Panel B"
 
 ```{r Banking, fig.width=8, fig.height=3.5, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap1}
 suppressPackageStartupMessages(library(latticeExtra))
+trellis.par.set(theme)
 gph1 <- xyplot(sin((1:30)*0.92) ~ I((1:30)*0.92), xlab="", ylab="",
  ##      main=list("A: Pattern is hidden to view", 
 ##                 x=0.1, y=-0.5, just='left', font=1),

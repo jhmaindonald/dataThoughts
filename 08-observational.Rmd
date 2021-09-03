@@ -36,8 +36,8 @@ clear and easy answers.  The discussion on
 
 Where there are several explanatory variables, and the aim is
 to determine the manner in which they may be driving predictions,
-matters get much more complicated.  Thus, in a comparison
-between two groups (in the example that follows, midwife led
+matters get more complicated.  Thus, in a comparison between 
+two groups (e..g., in Section \@ref(sec:maternity), midwife led
 versus medical led neonatal care) one variable or factor may
 be of particular interest, while other variables are used to
 adjust for differences between the two groups that are at
@@ -52,8 +52,8 @@ should be ignored.
 
 Little that has been published since @RosBook clarifies greatly the
 advice that can be given for practical data analysis, beyond what
-Rosenbaum has to say.  Note, however, that @pearl2018book would 
-dispute this assessment.  Pearl and his co-author do a good job of 
+Rosenbaum has to say.  @pearl2018book ("The Book of Why") offers an
+interesting assessment. Pearl and his co-author do a good job of 
 highlighting important issues that should be addressed in order to
 make causality judgments, at the same time overplaying what their 
 methodology can in general achieve.  If strictly implemented,
@@ -64,7 +64,7 @@ that finally led to the conclusion that smoking causes lung cancer.
 
 ## Time per unit distance for hillraces
 
-The `DAAG:nihills` dataset has record times for 23 Northern Ireland 
+Consider now a dataset that has record times for 23 Northern Ireland 
 Mountain Running Association hillraces, as given in the 2007
 calendar.  In the models fitted and graphs shown that follow,
 the distance measure is `Dist` (distance converted to kilometers), 
@@ -297,11 +297,11 @@ Similar issues, arising from failures to ensure proper drainage systems,
 were repeated, from the 1840s and 1850s through until the end of the century,
 in New Zealand cities.^[See Christine Dann: 'Sewage, water and waste - Stinking cities', Te Ara - the Encyclopedia of New Zealand, (8 June 2017) https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool]
 
-## Are there missing explanatory factors?
+## Are there missing explanatory factors? {#sec:maternity}
 
-The [@wernham_EtAl_2016] study used data from 244,047 singleton term 
-deliveries that occurred between 2008 and 2012 to make the claim
-that midwife led care, as opposed to medical led care, gave a
+The [@wernham_EtAl_2016] study used data from 244,047 singleton 
+term deliveries that occurred between 2008 and 2012 to make the
+claim that midwife led care, as opposed to medical led care, gave a
 greater risk of adverse fetal and neonatal outcomes.  Notably, the
 claim was that midwife led care resulted in a lower Apgar score
 (a measure of infant health immediately after birth) and a greater
@@ -488,6 +488,7 @@ while the\ $x$-axis uses a scale of equal dollar damage costs."
 hurricNamed <- within(DAAG::hurricNamed, lnNDAM2014<-log(NDAM2014))
 suppressPackageStartupMessages(library(latticeExtra, quietly=TRUE))
 suppressPackageStartupMessages(library(mgcv))
+trellis.par.set(theme)
 library(MASS)
 ytxt <- c(1,3,10, 30, 100, 300, 1000)
 funy <- function(y)log(y+1)

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>What Do the Data Say? — Traps to Avoid</title>
-  <meta name="description" content="What Do the Data Say? — Traps to Avoid" />
+  <title>The Skeptical Data Analyst</title>
+  <meta name="description" content="The Skeptical Data Analyst" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="What Do the Data Say? — Traps to Avoid" />
+  <meta property="og:title" content="The Skeptical Data Analyst" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="What Do the Data Say? — Traps to Avoid" />
+  <meta name="twitter:title" content="The Skeptical Data Analyst" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="John Maindonald" />
 
 
-<meta name="date" content="2021-08-12" />
+<meta name="date" content="2021-09-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -109,6 +109,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path=""><a href="#a-simple-and-arguably-trick-example"><i class="fa fa-check"></i>A simple (and, arguably, trick) example</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#even-careful-critics-sometimes-get-it-wrong"><i class="fa fa-check"></i>Even careful critics sometimes get it wrong</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#think-again-a-very-simple-example"><i class="fa fa-check"></i>Think again — a very simple example</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#a-test-to-check-understanding-of-risk"><i class="fa fa-check"></i>A test to check understanding of risk</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path=""><a href="#misbehaving-humans"><i class="fa fa-check"></i><b>1.5</b> Misbehaving humans!</a></li>
 <li class="chapter" data-level="1.6" data-path=""><a href="#negotiating-life-in-an-uncertain-world"><i class="fa fa-check"></i><b>1.6</b> Negotiating Life in an Uncertain World</a></li>
@@ -147,25 +148,27 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path=""><a href="#the-cochrane-center"><i class="fa fa-check"></i>The Cochrane Center</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#winton-centre-for-risk-and-evidence-communication"><i class="fa fa-check"></i>Winton Centre for Risk and Evidence Communication</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path=""><a href="#psa-screening-for-prostate-cancer-more"><i class="fa fa-check"></i><b>4.2</b> PSA Screening for Prostate Cancer, &amp; more</a>
+<li class="chapter" data-level="4.2" data-path=""><a href="#screening-for-cancer-randomized-trials"><i class="fa fa-check"></i><b>4.2</b> Screening for cancer — randomized trials</a>
 <ul>
+<li class="chapter" data-level="" data-path=""><a href="#psa-screening-for-prostate-cancer-more"><i class="fa fa-check"></i>PSA Screening for Prostate Cancer, &amp; more</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#breast-cancer-screening-a-contested-area"><i class="fa fa-check"></i>Breast cancer screening — a contested area</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path=""><a href="#ss:rct"><i class="fa fa-check"></i><b>4.3</b> Randomized Controlled Trials (RCTs) versus Population Studies</a>
+<li class="chapter" data-level="4.3" data-path=""><a href="#ss:rct"><i class="fa fa-check"></i><b>4.3</b> Randomized Controlled Trials vs other study types</a>
 <ul>
 <li class="chapter" data-level="" data-path=""><a href="#randomized-controlled-trials-the-gold-standard"><i class="fa fa-check"></i>Randomized Controlled Trials — the gold standard?</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#a-note-in-passing-hippo-decisions-vs-ab-testing"><i class="fa fa-check"></i>A note in passing: HiPPO decisions vs A/B testing</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#population-studies-groups-must-be-broadly-comparable"><i class="fa fa-check"></i>Population studies — groups must be broadly comparable</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#issues-for-all-types-of-study"><i class="fa fa-check"></i>Issues for all types of study</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path=""><a href="#avoid-or-expose-infants-to-peanuts"><i class="fa fa-check"></i><b>4.4</b> Avoid, or expose infants to peanuts?</a></li>
-<li class="chapter" data-level="4.5" data-path=""><a href="#false-positives"><i class="fa fa-check"></i><b>4.5</b> False Positives</a>
+<li class="chapter" data-level="4.4" data-path=""><a href="#hierarchies-of-evidence"><i class="fa fa-check"></i><b>4.4</b> Hierarchies of evidence</a></li>
+<li class="chapter" data-level="4.5" data-path=""><a href="#avoid-or-expose-infants-to-peanuts"><i class="fa fa-check"></i><b>4.5</b> Avoid, or expose infants to peanuts?</a></li>
+<li class="chapter" data-level="4.6" data-path=""><a href="#false-positives"><i class="fa fa-check"></i><b>4.6</b> False Positives</a>
 <ul>
 <li class="chapter" data-level="" data-path=""><a href="#the-aspirin-story-randomized-trials"><i class="fa fa-check"></i>The Aspirin story (randomized trials)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path=""><a href="#the-effectiveness-of-surgery"><i class="fa fa-check"></i><b>4.6</b> The effectiveness of surgery</a></li>
+<li class="chapter" data-level="4.7" data-path=""><a href="#the-effectiveness-of-surgery"><i class="fa fa-check"></i><b>4.7</b> The effectiveness of surgery</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path=""><a href="#mistakes-and-worse-that-matter"><i class="fa fa-check"></i><b>5</b> Mistakes (and worse) that matter</a>
+<li class="chapter" data-level="5" data-path=""><a href="#matters-of-consequence"><i class="fa fa-check"></i><b>5</b> Matters of consequence</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path=""><a href="#the-mmr-vaccine-scandal"><i class="fa fa-check"></i><b>5.1</b> [The MMR vaccine scandal](</a></li>
 <li class="chapter" data-level="5.2" data-path=""><a href="#sally-clarks-disturbing-cot-death-story"><i class="fa fa-check"></i><b>5.2</b> Sally Clark’s disturbing cot death story</a></li>
@@ -200,23 +203,16 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path=""><a href="#sec:reg"><i class="fa fa-check"></i><b>7</b> Regression and Correlation</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path=""><a href="#what-direction-does-the-correlation-go"><i class="fa fa-check"></i><b>7.1</b> What direction does the correlation go?</a></li>
+<li class="chapter" data-level="7.1" data-path=""><a href="#correlation-is-not-causation"><i class="fa fa-check"></i><b>7.1</b> Correlation is not causation</a></li>
 <li class="chapter" data-level="7.2" data-path=""><a href="#regression-to-the-mean"><i class="fa fa-check"></i><b>7.2</b> Regression to the mean</a></li>
-<li class="chapter" data-level="7.3" data-path=""><a href="#regression-to-the-mean-in-a-variety-of-contexts"><i class="fa fa-check"></i><b>7.3</b> Regression to the mean in a variety of contexts</a>
+<li class="chapter" data-level="7.3" data-path=""><a href="#nba-player-points-correlations-decline-over-time"><i class="fa fa-check"></i><b>7.3</b> NBA player points — correlations decline over time</a></li>
+<li class="chapter" data-level="7.4" data-path=""><a href="#secrists-the-triumph-of-mediocrity-in-business"><i class="fa fa-check"></i><b>7.4</b> Secrist’s “The Triumph of Mediocrity in Business”</a>
 <ul>
-<li class="chapter" data-level="" data-path=""><a href="#decathlon-scores-between-event-correlations"><i class="fa fa-check"></i>Decathlon scores — between event correlations</a></li>
-<li class="chapter" data-level="" data-path=""><a href="#total-profit-to-total-income-ratio-by-industry-class"><i class="fa fa-check"></i>Total profit to total income ratio, by industry class</a></li>
-<li class="chapter" data-level="" data-path=""><a href="#nba-player-total-points-correlations-decline-over-time"><i class="fa fa-check"></i>NBA player total points — correlations decline over time</a></li>
-<li class="chapter" data-level="" data-path=""><a href="#the-sports-illustrated-cover-jinx"><i class="fa fa-check"></i>The Sports Illustrated cover “jinx”</a></li>
-<li class="chapter" data-level="" data-path=""><a href="#secrists-the-triumph-of-mediocrity-in-business"><i class="fa fa-check"></i>Secrist’s “The Triumph of Mediocrity in Business”</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#do-old-fallacies-ever-die"><i class="fa fa-check"></i>“Do old fallacies ever die?”</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path=""><a href="#moderating-subjective-assessments"><i class="fa fa-check"></i><b>7.4</b> Moderating subjective assessments</a>
+<li class="chapter" data-level="7.5" data-path=""><a href="#moderating-predictive-assessments"><i class="fa fa-check"></i><b>7.5</b> Moderating predictive assessments</a>
 <ul>
-<li class="chapter" data-level="" data-path=""><a href="#forecasting-sales"><i class="fa fa-check"></i>Forecasting sales</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path=""><a href="#some-further-comments-on-regression-to-the-mean"><i class="fa fa-check"></i><b>7.5</b> Some further comments on regression to the mean</a>
-<ul>
+<li class="chapter" data-level="" data-path=""><a href="#moderating-sales-estimates"><i class="fa fa-check"></i>Moderating sales estimates</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#choosing-from-job-applicants"><i class="fa fa-check"></i>Choosing from job applicants</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#kahnemans-comments-on-regression-to-the-mean"><i class="fa fa-check"></i>Kahneman’s comments on regression to the mean</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#regression-to-the-mean-in-verse"><i class="fa fa-check"></i>Regression to the mean in verse</a></li>
@@ -233,7 +229,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path=""><a href="#lambeth-versus-southwark-vauxhall"><i class="fa fa-check"></i>Lambeth versus Southwark &amp; Vauxhall</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#use-water-from-the-brewery-and-stay-healthy"><i class="fa fa-check"></i>Use water from the brewery, and stay healthy!</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path=""><a href="#are-there-missing-explanatory-factors"><i class="fa fa-check"></i><b>8.5</b> Are there missing explanatory factors?</a></li>
+<li class="chapter" data-level="8.5" data-path=""><a href="#sec:maternity"><i class="fa fa-check"></i><b>8.5</b> Are there missing explanatory factors?</a></li>
 <li class="chapter" data-level="8.6" data-path=""><a href="#the-uses-and-traps-of-algorithmic-methods"><i class="fa fa-check"></i><b>8.6</b> The uses and traps of “algorithmic” methods</a>
 <ul>
 <li class="chapter" data-level="" data-path=""><a href="#from-trees-to-forests"><i class="fa fa-check"></i>From trees to forests</a></li>
@@ -254,9 +250,10 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="9.2" data-path=""><a href="#the-case-of-eysenck-and-his-collaborators"><i class="fa fa-check"></i><b>9.2</b> The case of Eysenck and his collaborators</a></li>
 <li class="chapter" data-level="9.3" data-path=""><a href="#detection-of-covid-19-from-chest-images"><i class="fa fa-check"></i><b>9.3</b> Detection of Covid-19 from chest images</a></li>
-<li class="chapter" data-level="9.4" data-path=""><a href="#laboratory-studies-what-do-we-find"><i class="fa fa-check"></i><b>9.4</b> Laboratory studies — what do we find?</a>
+<li class="chapter" data-level="9.4" data-path=""><a href="#sec:lab"><i class="fa fa-check"></i><b>9.4</b> Laboratory studies — what do we find?</a>
 <ul>
-<li class="chapter" data-level="" data-path=""><a href="#the-reproducibility-psychology-project"><i class="fa fa-check"></i>The Reproducibility: Psychology project</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#positive-developments-in-the-psychology-community"><i class="fa fa-check"></i>Positive developments in the psychology community</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#other-replication-studies"><i class="fa fa-check"></i>Other replication studies</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path=""><a href="#truths-that-special-interests-find-inconvenient"><i class="fa fa-check"></i><b>9.5</b> Truths that special interests find inconvenient</a>
 <ul>
@@ -272,7 +269,152 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path=""><a href="#further-reading-books-videos-and-websites"><i class="fa fa-check"></i>Further reading — books, videos, and websites</a></li>
 <li class="chapter" data-level="" data-path=""><a href="#references"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="" data-path=""><a href="#about-the-author"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#preface-1"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path=""><a href="#system-1-and-system-2-further-comments-1"><i class="fa fa-check"></i><b>10.1</b> System 1 and System 2 — further comments</a></li>
+<li class="chapter" data-level="10.2" data-path=""><a href="#the-intuition-of-professionals-1"><i class="fa fa-check"></i><b>10.2</b> The Intuition of Professionals</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#obstacles-to-effective-judgment-1"><i class="fa fa-check"></i>Obstacles to effective judgment</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path=""><a href="#a-demand-for-discipline-careful-thought-1"><i class="fa fa-check"></i><b>10.3</b> A demand for discipline &amp; careful thought</a></li>
+<li class="chapter" data-level="10.4" data-path=""><a href="#further-examples-1"><i class="fa fa-check"></i><b>10.4</b> Further examples</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#a-simple-and-arguably-trick-example-1"><i class="fa fa-check"></i>A simple (and, arguably, trick) example</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#even-careful-critics-sometimes-get-it-wrong-1"><i class="fa fa-check"></i>Even careful critics sometimes get it wrong</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#think-again-a-very-simple-example-1"><i class="fa fa-check"></i>Think again — a very simple example</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#a-test-to-check-understanding-of-risk-1"><i class="fa fa-check"></i>A test to check understanding of risk</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path=""><a href="#misbehaving-humans-1"><i class="fa fa-check"></i><b>10.5</b> Misbehaving humans!</a></li>
+<li class="chapter" data-level="10.6" data-path=""><a href="#negotiating-life-in-an-uncertain-world-1"><i class="fa fa-check"></i><b>10.6</b> Negotiating Life in an Uncertain World</a></li>
+<li class="chapter" data-level="10.7" data-path=""><a href="#general-principles-1"><i class="fa fa-check"></i><b>10.7</b> General principles</a></li>
+<li class="chapter" data-level="10.8" data-path=""><a href="#varying-time-intervals-show-rates-not-counts-1"><i class="fa fa-check"></i><b>10.8</b> Varying time intervals — show rates, not counts</a></li>
+<li class="chapter" data-level="10.9" data-path=""><a href="#banking-the-importance-of-aspect-ratio-1"><i class="fa fa-check"></i><b>10.9</b> Banking — the importance of aspect ratio</a></li>
+<li class="chapter" data-level="10.10" data-path=""><a href="#scales-that-show-changes-by-equal-factors-1"><i class="fa fa-check"></i><b>10.10</b> Scales that show changes by equal factors</a></li>
+<li class="chapter" data-level="10.11" data-path=""><a href="#track"><i class="fa fa-check"></i><b>10.11</b> Different graphs serve different purposes</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#relative-distance-scales-1"><i class="fa fa-check"></i>Relative distance scales</a></li>
+</ul></li>
+<li class="chapter" data-level="10.12" data-path=""><a href="#helpful-web-links-are-1"><i class="fa fa-check"></i><b>10.12</b> Helpful web links are:</a></li>
+<li class="chapter" data-level="10.13" data-path=""><a href="#the-hazards-of-convenience-samples-1"><i class="fa fa-check"></i><b>10.13</b> The hazards of convenience samples</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#convenience-samples-sometimes-have-a-story-to-tell-1"><i class="fa fa-check"></i>Convenience samples sometimes have a story to tell</a></li>
+</ul></li>
+<li class="chapter" data-level="10.14" data-path=""><a href="#uk-cotton-worker-wages-in-the-1880s-1"><i class="fa fa-check"></i><b>10.14</b> UK cotton worker wages in the 1880s</a></li>
+<li class="chapter" data-level="10.15" data-path=""><a href="#the-uneasy-path-from-hindsight-to-insight-1"><i class="fa fa-check"></i><b>10.15</b> The uneasy path from hindsight to insight</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#tales-of-standout-past-success-1"><i class="fa fa-check"></i>Tales of standout past success</a></li>
+</ul></li>
+<li class="chapter" data-level="10.16" data-path=""><a href="#ss:wald"><i class="fa fa-check"></i><b>10.16</b> The message in the missing bullet holes</a></li>
+<li class="chapter" data-level="10.17" data-path=""><a href="#useful-sources-of-advice-and-information-1"><i class="fa fa-check"></i><b>10.17</b> Useful sources of advice and information</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#the-harding-center-for-risk-literacy-1"><i class="fa fa-check"></i>The Harding Center for Risk Literacy</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#harding-center-medical-fact-boxes-1"><i class="fa fa-check"></i>Harding Center Medical Fact Boxes</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#the-cochrane-center-1"><i class="fa fa-check"></i>The Cochrane Center</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#winton-centre-for-risk-and-evidence-communication-1"><i class="fa fa-check"></i>Winton Centre for Risk and Evidence Communication</a></li>
+</ul></li>
+<li class="chapter" data-level="10.18" data-path=""><a href="#screening-for-cancer-randomized-trials-1"><i class="fa fa-check"></i><b>10.18</b> Screening for cancer — randomized trials</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#psa-screening-for-prostate-cancer-more-1"><i class="fa fa-check"></i>PSA Screening for Prostate Cancer, &amp; more</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#breast-cancer-screening-a-contested-area-1"><i class="fa fa-check"></i>Breast cancer screening — a contested area</a></li>
+</ul></li>
+<li class="chapter" data-level="10.19" data-path=""><a href="#ss:rct"><i class="fa fa-check"></i><b>10.19</b> Randomized Controlled Trials vs other study types</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#randomized-controlled-trials-the-gold-standard-1"><i class="fa fa-check"></i>Randomized Controlled Trials — the gold standard?</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#a-note-in-passing-hippo-decisions-vs-ab-testing-1"><i class="fa fa-check"></i>A note in passing: HiPPO decisions vs A/B testing</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#population-studies-groups-must-be-broadly-comparable-1"><i class="fa fa-check"></i>Population studies — groups must be broadly comparable</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#issues-for-all-types-of-study-1"><i class="fa fa-check"></i>Issues for all types of study</a></li>
+</ul></li>
+<li class="chapter" data-level="10.20" data-path=""><a href="#hierarchies-of-evidence-1"><i class="fa fa-check"></i><b>10.20</b> Hierarchies of evidence</a></li>
+<li class="chapter" data-level="10.21" data-path=""><a href="#avoid-or-expose-infants-to-peanuts-1"><i class="fa fa-check"></i><b>10.21</b> Avoid, or expose infants to peanuts?</a></li>
+<li class="chapter" data-level="10.22" data-path=""><a href="#false-positives-1"><i class="fa fa-check"></i><b>10.22</b> False Positives</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#the-aspirin-story-randomized-trials-1"><i class="fa fa-check"></i>The Aspirin story (randomized trials)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.23" data-path=""><a href="#the-effectiveness-of-surgery-1"><i class="fa fa-check"></i><b>10.23</b> The effectiveness of surgery</a></li>
+<li class="chapter" data-level="10.24" data-path=""><a href="#the-mmr-vaccine-scandal-1"><i class="fa fa-check"></i><b>10.24</b> [The MMR vaccine scandal](</a></li>
+<li class="chapter" data-level="10.25" data-path=""><a href="#sally-clarks-disturbing-cot-death-story-1"><i class="fa fa-check"></i><b>10.25</b> Sally Clark’s disturbing cot death story</a></li>
+<li class="chapter" data-level="10.26" data-path=""><a href="#the-reinhoff-and-rogoff-saga-1"><i class="fa fa-check"></i><b>10.26</b> The Reinhoff and Rogoff saga</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#is-there-a-pattern-across-countries-1"><i class="fa fa-check"></i>Is there a pattern across countries?</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#there-are-further-serious-issues-of-interpretation-1"><i class="fa fa-check"></i>There are further serious issues of interpretation</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#parting-comments-1"><i class="fa fa-check"></i>Parting comments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.27" data-path=""><a href="#sec:lancet"><i class="fa fa-check"></i><b>10.27</b> What do malaria drugs do to Covid-19 patients?</a></li>
+<li class="chapter" data-level="10.28" data-path=""><a href="#a-simplistic-use-of-publicly-available-data-1"><i class="fa fa-check"></i><b>10.28</b> A simplistic use of publicly available data</a></li>
+<li class="chapter" data-level="10.29" data-path=""><a href="#covid-19-deaths-comparing-countries-1"><i class="fa fa-check"></i><b>10.29</b> Covid-19 deaths — comparing countries</a></li>
+<li class="chapter" data-level="10.30" data-path=""><a href="#a-paradox-of-human-intuition-1"><i class="fa fa-check"></i><b>10.30</b> A paradox of human intuition</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#ucb-admissions-data-another-perspective-1"><i class="fa fa-check"></i>UCB Admissions Data – Another perspective</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#a-note-on-lords-paradox-1"><i class="fa fa-check"></i>A note on Lord’s paradox</a></li>
+</ul></li>
+<li class="chapter" data-level="10.31" data-path=""><a href="#further-examples-of-the-same-type-1"><i class="fa fa-check"></i><b>10.31</b> Further examples of the same type</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#does-baclofen-help-in-reducing-pain-1"><i class="fa fa-check"></i>Does Baclofen help in reducing pain?</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#web-page-revenue-per-click-1"><i class="fa fa-check"></i>Web page revenue per click</a></li>
+</ul></li>
+<li class="chapter" data-level="10.32" data-path=""><a href="#cricket-bowling-averages-1"><i class="fa fa-check"></i><b>10.32</b> Cricket Bowling Averages</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#runs-r-wickets-w-and-runs-per-wicket-1"><i class="fa fa-check"></i>Runs (R), wickets (W) and runs per wicket ({})</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#fair-comparison-compare-runs-per-wicket-1"><i class="fa fa-check"></i>Fair comparison: Compare runs per wicket ({})</a></li>
+</ul></li>
+<li class="chapter" data-level="10.33" data-path=""><a href="#epistatic-effects-on-genetic-studies-1"><i class="fa fa-check"></i><b>10.33</b> Epistatic effects on genetic studies</a></li>
+<li class="chapter" data-level="10.34" data-path=""><a href="#correlation-is-not-causation-1"><i class="fa fa-check"></i><b>10.34</b> Correlation is not causation</a></li>
+<li class="chapter" data-level="10.35" data-path=""><a href="#regression-to-the-mean-1"><i class="fa fa-check"></i><b>10.35</b> Regression to the mean</a></li>
+<li class="chapter" data-level="10.36" data-path=""><a href="#nba-player-points-correlations-decline-over-time-1"><i class="fa fa-check"></i><b>10.36</b> NBA player points — correlations decline over time</a></li>
+<li class="chapter" data-level="10.37" data-path=""><a href="#secrists-the-triumph-of-mediocrity-in-business-1"><i class="fa fa-check"></i><b>10.37</b> Secrist’s “The Triumph of Mediocrity in Business”</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#do-old-fallacies-ever-die-1"><i class="fa fa-check"></i>“Do old fallacies ever die?”</a></li>
+</ul></li>
+<li class="chapter" data-level="10.38" data-path=""><a href="#moderating-predictive-assessments-1"><i class="fa fa-check"></i><b>10.38</b> Moderating predictive assessments</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#moderating-sales-estimates-1"><i class="fa fa-check"></i>Moderating sales estimates</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#choosing-from-job-applicants-1"><i class="fa fa-check"></i>Choosing from job applicants</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#kahnemans-comments-on-regression-to-the-mean-1"><i class="fa fa-check"></i>Kahneman’s comments on regression to the mean</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#regression-to-the-mean-in-verse-1"><i class="fa fa-check"></i>Regression to the mean in verse</a></li>
+</ul></li>
+<li class="chapter" data-level="10.39" data-path=""><a href="#we-have-a-prediction.-what-are-the-drivers-1"><i class="fa fa-check"></i><b>10.39</b> We have a prediction. What are the drivers?</a></li>
+<li class="chapter" data-level="10.40" data-path=""><a href="#time-per-unit-distance-for-hillraces-1"><i class="fa fa-check"></i><b>10.40</b> Time per unit distance for hillraces</a></li>
+<li class="chapter" data-level="10.41" data-path=""><a href="#by-air-or-by-water-1849-cholera-deaths-1"><i class="fa fa-check"></i><b>10.41</b> By air, or by water — 1849 cholera deaths</a></li>
+<li class="chapter" data-level="10.42" data-path=""><a href="#john-snow-documents-a-natural-experiment-1"><i class="fa fa-check"></i><b>10.42</b> John Snow documents a natural experiment</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#the-1854-epidemic-a-natural-experiment-1"><i class="fa fa-check"></i>The 1854 epidemic — a natural experiment</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#lambeth-versus-southwark-vauxhall-1"><i class="fa fa-check"></i>Lambeth versus Southwark &amp; Vauxhall</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#use-water-from-the-brewery-and-stay-healthy-1"><i class="fa fa-check"></i>Use water from the brewery, and stay healthy!</a></li>
+</ul></li>
+<li class="chapter" data-level="10.43" data-path=""><a href="#sec:maternity"><i class="fa fa-check"></i><b>10.43</b> Are there missing explanatory factors?</a></li>
+<li class="chapter" data-level="10.44" data-path=""><a href="#the-uses-and-traps-of-algorithmic-methods-1"><i class="fa fa-check"></i><b>10.44</b> The uses and traps of “algorithmic” methods</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#from-trees-to-forests-1"><i class="fa fa-check"></i>From trees to forests</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#it-helps-to-know-the-how-and-why-of-the-algorithms-used-1"><i class="fa fa-check"></i>It helps to know the how and why of the algorithms used</a></li>
+</ul></li>
+<li class="chapter" data-level="10.45" data-path=""><a href="#examples-that-illustrate-other-traps-1"><i class="fa fa-check"></i><b>10.45</b> Examples that illustrate other traps</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#are-herricanes-more-dangerous-than-himmicanes-1"><i class="fa fa-check"></i>Are herricanes more dangerous than himmicanes?</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#historical-speed-of-light-estimates-is-there-a-pattern-1"><i class="fa fa-check"></i>Historical speed of light estimates — is there a pattern?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.46" data-path=""><a href="#global-mean-temperature-trends-1"><i class="fa fa-check"></i><b>10.46</b> Global mean temperature trends</a></li>
+<li class="chapter" data-level="10.47" data-path=""><a href="#what-results-can-be-trusted-1"><i class="fa fa-check"></i><b>10.47</b> What results can be trusted?</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#sources-of-failure-1"><i class="fa fa-check"></i>Sources of failure</a></li>
+</ul></li>
+<li class="chapter" data-level="10.48" data-path=""><a href="#the-case-of-eysenck-and-his-collaborators-1"><i class="fa fa-check"></i><b>10.48</b> The case of Eysenck and his collaborators</a></li>
+<li class="chapter" data-level="10.49" data-path=""><a href="#detection-of-covid-19-from-chest-images-1"><i class="fa fa-check"></i><b>10.49</b> Detection of Covid-19 from chest images</a></li>
+<li class="chapter" data-level="10.50" data-path=""><a href="#sec:lab"><i class="fa fa-check"></i><b>10.50</b> Laboratory studies — what do we find?</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#positive-developments-in-the-psychology-community-1"><i class="fa fa-check"></i>Positive developments in the psychology community</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#other-replication-studies-1"><i class="fa fa-check"></i>Other replication studies</a></li>
+</ul></li>
+<li class="chapter" data-level="10.51" data-path=""><a href="#truths-that-special-interests-find-inconvenient-1"><i class="fa fa-check"></i><b>10.51</b> Truths that special interests find inconvenient</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#styles-of-argument-1"><i class="fa fa-check"></i>Styles of argument</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#big-pharma-inconvenient-data-1"><i class="fa fa-check"></i>Big Pharma — inconvenient data</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#what-can-one-trust-1"><i class="fa fa-check"></i>What can one trust?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.52" data-path=""><a href="#tricks-used-to-dismiss-established-results-1"><i class="fa fa-check"></i><b>10.52</b> Tricks used to dismiss established results</a></li>
+<li><a href="#hurricanes">1. The <span class="citation"><span>Jung et al.</span> (<span>2014</span>)</span> US hurricane data</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#author"><i class="fa fa-check"></i>About the author</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#author"><i class="fa fa-check"></i>About the author</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -285,7 +427,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">What Do the Data Say? — Traps to Avoid</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Skeptical Data Analyst</a>
           </h1>
         </div>
 
@@ -294,10 +436,10 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">What Do the Data Say? — Traps to Avoid</h1>
-<h2 class="subtitle"><em>Examples that inform and educate</em></h2>
+<h1 class="title">The Skeptical Data Analyst</h1>
+<h2 class="subtitle"><em>Think again — examples that inform and educate</em></h2>
 <p class="author"><em>John Maindonald</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-08-12</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2021-09-02</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -329,6 +471,9 @@ div.csl-indent {
 </div>
 <div id="think-again-a-very-simple-example" class="section level3 unnumbered">
 <h3>Think again — a very simple example</h3>
+</div>
+<div id="a-test-to-check-understanding-of-risk" class="section level3 unnumbered">
+<h3>A test to check understanding of risk</h3>
 </div>
 </div>
 <div id="misbehaving-humans" class="section level2" number="1.5">
@@ -406,14 +551,17 @@ div.csl-indent {
 <h3>Winton Centre for Risk and Evidence Communication<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h3>
 </div>
 </div>
-<div id="psa-screening-for-prostate-cancer-more" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> PSA Screening for Prostate Cancer, &amp; more</h2>
+<div id="screening-for-cancer-randomized-trials" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Screening for cancer — randomized trials</h2>
+<div id="psa-screening-for-prostate-cancer-more" class="section level3 unnumbered">
+<h3>PSA Screening for Prostate Cancer, &amp; more</h3>
+</div>
 <div id="breast-cancer-screening-a-contested-area" class="section level3 unnumbered">
 <h3>Breast cancer screening — a contested area</h3>
 </div>
 </div>
 <div id="ss:rct" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Randomized Controlled Trials (RCTs) versus Population Studies</h2>
+<h2><span class="header-section-number">4.3</span> Randomized Controlled Trials vs other study types</h2>
 <div id="randomized-controlled-trials-the-gold-standard" class="section level3 unnumbered">
 <h3>Randomized Controlled Trials — the gold standard?</h3>
 </div>
@@ -427,22 +575,25 @@ div.csl-indent {
 <h3>Issues for all types of study</h3>
 </div>
 </div>
-<div id="avoid-or-expose-infants-to-peanuts" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Avoid, or expose infants to peanuts?</h2>
+<div id="hierarchies-of-evidence" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Hierarchies of evidence</h2>
 </div>
-<div id="false-positives" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> False Positives</h2>
+<div id="avoid-or-expose-infants-to-peanuts" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Avoid, or expose infants to peanuts?</h2>
+</div>
+<div id="false-positives" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> False Positives</h2>
 <div id="the-aspirin-story-randomized-trials" class="section level3 unnumbered">
 <h3>The Aspirin story (randomized trials)</h3>
 </div>
 </div>
-<div id="the-effectiveness-of-surgery" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> The effectiveness of surgery</h2>
+<div id="the-effectiveness-of-surgery" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> The effectiveness of surgery</h2>
 
 </div>
 </div>
-<div id="mistakes-and-worse-that-matter" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Mistakes (and worse) that matter</h1>
+<div id="matters-of-consequence" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Matters of consequence</h1>
 <p>Placeholder</p>
 <div id="the-mmr-vaccine-scandal" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> [The MMR vaccine scandal](</h2>
@@ -511,41 +662,26 @@ div.csl-indent {
 <div id="sec:reg" class="section level1" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Regression and Correlation</h1>
 <p>Placeholder</p>
-<div id="what-direction-does-the-correlation-go" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> What direction does the correlation go?</h2>
+<div id="correlation-is-not-causation" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Correlation is not causation</h2>
 </div>
 <div id="regression-to-the-mean" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Regression to the mean</h2>
 </div>
-<div id="regression-to-the-mean-in-a-variety-of-contexts" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Regression to the mean in a variety of contexts</h2>
-<div id="decathlon-scores-between-event-correlations" class="section level3 unnumbered">
-<h3>Decathlon scores — between event correlations</h3>
+<div id="nba-player-points-correlations-decline-over-time" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> NBA player points — correlations decline over time</h2>
 </div>
-<div id="total-profit-to-total-income-ratio-by-industry-class" class="section level3 unnumbered">
-<h3>Total profit to total income ratio, by industry class</h3>
-</div>
-<div id="nba-player-total-points-correlations-decline-over-time" class="section level3 unnumbered">
-<h3>NBA player total points — correlations decline over time</h3>
-</div>
-<div id="the-sports-illustrated-cover-jinx" class="section level3 unnumbered">
-<h3>The Sports Illustrated cover “jinx”</h3>
-</div>
-<div id="secrists-the-triumph-of-mediocrity-in-business" class="section level3 unnumbered">
-<h3>Secrist’s “The Triumph of Mediocrity in Business”</h3>
-</div>
+<div id="secrists-the-triumph-of-mediocrity-in-business" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Secrist’s “The Triumph of Mediocrity in Business”</h2>
 <div id="do-old-fallacies-ever-die" class="section level3 unnumbered">
 <h3>“Do old fallacies ever die?”</h3>
 </div>
 </div>
-<div id="moderating-subjective-assessments" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Moderating subjective assessments</h2>
-<div id="forecasting-sales" class="section level3 unnumbered">
-<h3>Forecasting sales</h3>
+<div id="moderating-predictive-assessments" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Moderating predictive assessments</h2>
+<div id="moderating-sales-estimates" class="section level3 unnumbered">
+<h3>Moderating sales estimates</h3>
 </div>
-</div>
-<div id="some-further-comments-on-regression-to-the-mean" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Some further comments on regression to the mean</h2>
 <div id="choosing-from-job-applicants" class="section level3 unnumbered">
 <h3>Choosing from job applicants</h3>
 </div>
@@ -560,504 +696,51 @@ div.csl-indent {
 </div>
 <div id="the-uses-and-limits-of-observational-data" class="section level1" number="8">
 <h1><span class="header-section-number">Chapter 8</span> The uses and limits of observational data</h1>
-<p>At least in principle, it is relatively straightforward to use
-regression type methods to make predictions for a set of new
-data that have been sampled in the same way. What is hard for
-observational data, harder than is commonly acknowledged,
-is to give the model coefficients a causal interpretation.
-For this, it is necessary to have a clear understanding of the
-processes involved.</p>
-<ul>
-<li>There will be several, perhaps a very large number,
-of explanatory variables, and an outcome variable.</li>
-<li>The aim is to find a model that will make predictions for new data.</li>
-<li>Note the predictive/descriptive distinction.
-<ul>
-<li>Note the “in sample/out of sample” distinction.</li>
-<li>But is the “new” a random sample of the old population?<br />
-(Is the ‘target’ a random sample of the ‘source?’)</li>
-</ul></li>
-</ul>
-<p>There are insightful comments at:<br />
-<a href="https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/" class="uri">https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/</a></p>
+<p>Placeholder</p>
 <div id="we-have-a-prediction.-what-are-the-drivers" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> We have a prediction. What are the drivers?</h2>
-<p>The issues that arise for observational studies do not in general have
-clear and easy answers. The discussion on
-<a href="https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/">Andrew Gelman’s blog</a><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> canvasses some of the more important issues. There are no simple answers!</p>
-<p>Where there are several explanatory variables, and the aim is
-to determine the manner in which they may be driving predictions,
-matters get much more complicated. Thus, in a comparison
-between two groups (in the example that follows, midwife led
-versus medical led neonatal care) one variable or factor may
-be of particular interest, while other variables are used to
-adjust for differences between the two groups that are at
-most a secondary focus of interest. Variables that are of
-secondary interest are commonly referred to as covariates.
-Regression coefficients can be misleading guides to what is
-driving predictions if one or more of the relevant covariates
-is not available or is not properly accounted for. A paradox
-of the Yule-Simpson type, sometimes referred to as Laird’s
-paradox, has the same potential to deceive, a potential that
-should be ignored.</p>
-<p>Little that has been published since <span class="citation"><a href="#ref-RosBook" role="doc-biblioref">Rosenbaum</a> (<a href="#ref-RosBook" role="doc-biblioref">2002</a>)</span> clarifies greatly the
-advice that can be given for practical data analysis, beyond what
-Rosenbaum has to say. Note, however, that <span class="citation"><a href="#ref-pearl2018book" role="doc-biblioref">Pearl and Mackenzie</a> (<a href="#ref-pearl2018book" role="doc-biblioref">2018</a>)</span> would
-dispute this assessment. Pearl and his co-author do a good job of
-highlighting important issues that should be addressed in order to
-make causality judgments, at the same time overplaying what their
-methodology can in general achieve. If strictly implemented,
-the standards are so high that they severely limit what they can
-in practice achieve. Causality diagrams have a central role.
-There is a detailed, and insightful, discussion of the history
-that finally led to the conclusion that smoking causes lung cancer.</p>
 </div>
 <div id="time-per-unit-distance-for-hillraces" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Time per unit distance for hillraces</h2>
-<p>The <code>DAAG:nihills</code> dataset has record times for 23 Northern Ireland
-Mountain Running Association hillraces, as given in the 2007
-calendar. In the models fitted and graphs shown that follow,
-the distance measure is <code>Dist</code> (distance converted to kilometers),
-the climb measure is <code>Climb</code> (vertical distance between lowest
-and highest point, in meters), and the time measure is <code>Time</code>
-(in minutes).</p>
-<p>How does time per unit distance (<code>timePerKm</code>) vary with distance.
-We will fit two equations, both with <span class="math inline">\(y\)</span> = <code>timePerKm</code>.</p>
-<p>Figure <a href="#fig:resid"><strong>??</strong></a>A gives a visual represention of the
-way that <code>timePerKm</code> depends on <code>log(Dist)</code>, when <code>log(Climb)</code>
-is held at its mean value. Use of <code>log(Dist)</code> rather than
-<code>Dist</code> means that we are looking at the effect of relative,
-rather than absolute changes. Thus, distance on the <span class="math inline">\(x\)</span>-axis
-from 2 to 4 (km) is the same as the distance from 4 to 8, or
-from 8 to 16, or from 16 to 32. The equation that is plotted
-is<br />
-<code>timePerKm</code> = 8.45 -1.6 <span class="math inline">\(\times\)</span> <code>log(Dist)</code></p>
-<p>Figure <a href="#fig:resid"><strong>??</strong></a>B gives a visual represention of the
-way that <code>timePerKm</code> depends on <code>log(Dist)</code>, when <code>log(Climb/Dist)</code>
-is held at its mean value. The equation that is plotted
-is<br />
-<code>timePerKm</code> = 3.33 + 0.84 <span class="math inline">\(\times\)</span> <code>log(Climb/Dist)</code></p>
-<div class="figure" style="text-align: center"><span id="fig:partial"></span>
-<img src="08-observational_files/figure-html/partial-1.png" alt="Variation in time per unit distance with distance.  Panel A
-shows the pattern of change when `log(Climb)` is held constant at its 
-mean value, while Panel B shows the pattern of change when 
-`log(Climb/Dist)` is held constant at its mean value." width="100%" />
-<p class="caption">
-Figure 8.1: Variation in time per unit distance with distance. Panel A
-shows the pattern of change when <code>log(Climb)</code> is held constant at its
-mean value, while Panel B shows the pattern of change when
-<code>log(Climb/Dist)</code> is held constant at its mean value.
-</p>
-</div>
-<p>In Panel A, time per kilometer decreases quite sharply as distance
-increases. This happens because the ratio of <code>Climb</code> to <code>Dist</code>
-decreases if <code>Climb</code> is held constant while <code>Dist</code> increases,
-i.e., longer distance races involve gentler ascents and descents.</p>
-<p>Panel B shows what happens when <code>Climb/Dist</code> is held
-constant, i.e., we are comparing races with the same ratio of
-<code>Climb</code> to <code>Dist</code>. As expected, time per kilometer does then
-decrease as distance increases.</p>
-<p>The point of this example is to emphasize that the regression
-coefficients may differ greatly depending on what adjustments
-are made for other variables. This is important for attaching
-meaning to a coefficient.</p>
 </div>
 <div id="by-air-or-by-water-1849-cholera-deaths" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> By air, or by water — 1849 cholera deaths</h2>
-<p>Farr, who worked as statistician in the UK Registrar General’s 
-office, collected data on deaths from cholera in London in the
-1849 epidemic. The prevailing theory at the time was that 
-miasma, or bad air created from rotting matter, was responsible
-for transmitting diseases.
-Farr classified districts into three groups thus, according
-to the source of the water for most of the householders:<br />
-1) Thames between Battersea Bridge and Waterloo Bridge, coded
-as <code>Battersea</code>;<br />
-2) New River/Rivers Lea and Ravensbourne (sources away from
-the Thames), coded as <code>NewRiver</code>;<br />
-3) Thames between Kew and Hammersmith, i.e., further up the
-Thames than the first group, where the water was less polluted
-by sewage, coded as <code>Kew</code>.</p>
-<p>Figure <a href="#fig:Farr">8.2</a> summarizes results from a regression analysis
-that used Farr’s data</p>
-<div class="figure" style="text-align: center"><span id="fig:Farr"></span>
-<img src="08-observational_files/figure-html/Farr-1.png" alt="Each panel shows, in turn, the estimated contribution
-of a term in the model relative to the mean contribution from other 
-model terms. Changes in deaths are on a `log` scale, so that an 
-increase by one unit multiplies the odds of death by close to 2.7, 
-around an overall mean of just over six per 1000.
-" width="100%" />
-<p class="caption">
-Figure 8.2: Each panel shows, in turn, the estimated contribution
-of a term in the model relative to the mean contribution from other
-model terms. Changes in deaths are on a <code>log</code> scale, so that an
-increase by one unit multiplies the odds of death by close to 2.7,
-around an overall mean of just over six per 1000.
-</p>
-</div>
-<p>None of the terms stands out as substantially more important
-than any other. Higher rates for the poor, where crowded
-conditions would commonly make it difficult to maintain hygiene,
-were to be expected.</p>
-<p><span class="citation"><a href="#ref-snow1849mode" role="doc-biblioref">Snow</a> (<a href="#ref-snow1849mode" role="doc-biblioref">1855</a>)</span> argued that those living
-close to the Thames, and especially in the South, were
-more likely to be getting their water from or via sources
-that were likely to be contaminated with human excreta. The
-piping of water up to higher ground gave contaminants
-more time to settle, with less chance of exposure to human
-excreta. He gave examples that he had observed directly,
-where the likely means of transmission of the infection
-appeared to be via a water source, or from poor hygiene.</p>
-<p>Farr gave Snow’s arguments some credibility, but discussed
-ways that the air might be the main source of transmission
-of an organism responsible for the disease, which multiplied
-in a process akin to fermentation that was presumed to take
-place in putrefying matter.</p>
-<p>A context has to be provided in which to interpret the data
-and the regression results. While Snow had a better understanding
-of the contextual information, it was not comprehensive
-enough to persuade other medical specialists. Data from the
-1854 epidemic, where it was possible to compare deaths supplied
-from a company that continued to get its supply from lower
-highly polluted Thames water with that from the company that
-had moved its supply higher up to less polluted water, seems
-in retrospect to clinch the issue. The perspective brought by
-germ theory would come later, with the work of Pasteur in the
-late 1850s and Koch in the 1880s.</p>
 </div>
 <div id="john-snow-documents-a-natural-experiment" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> John Snow documents a natural experiment</h2>
-<p>Events that led up to the 1849 cholera deaths and that followed,
-were<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
-<ul>
-<li>6,500 died from cholera in London in 1832
-<ul>
-<li>Medical opinion blamed “miasma,” or noxious air<br />
-(Stink from rotting garbage, faeces, &amp; pollution in Thames)</li>
-<li>Poor areas had more cholera – worst smell, sanitation<br />
-(But, also, people were older, houses poorly heated, …)</li>
-</ul></li>
-<li>Cesspits – night-soil periodically taken away</li>
-<li>1842:<a href="https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london">Edwin Chadwick, in The Sanitary Conditions of the Labouring Population (1842)</a><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
-showed a direct link between poor living conditions, disease and life expectancy
-<ul>
-<li>Like others who accepted the “miasma” theory of disease, Chadwick did
-not understand that cholera, along with some other major diseases, were water-borne.</li>
-</ul></li>
-<li>1848: the Nuisances Removal and Diseases Prevention Act (Gazette issue 20637) was passed with the aim of stopping the 1848-9 epidemic. The suggestion was to
-effectively dump the contents of cesspools and raw
-sewage pits into the Thames, which was London’s main source of drinking water. This only served to exacerbate the problem.</li>
-<li>1848-49 epidemic followed shortly after the cesspits were banned
-<ul>
-<li>Both water companies — Lambeth, and Southwark and Vauxhall,
-were taking water from the same polluted source.</li>
-<li>Death rates were high for both companies</li>
-</ul></li>
-<li>1850: Arthur Hassall’s careful microbiological study:
-<ul>
-<li>“… a portion of the inhabitants are made to consume<br />
-… a portion of their own excrement, and … to pay<br />
-for the privilege” <span class="citation">(<a href="#ref-hassall1850memoir" role="doc-biblioref">Hassall 1850</a>)</span></li>
-</ul></li>
-</ul>
 <div id="the-1854-epidemic-a-natural-experiment" class="section level3 unnumbered">
 <h3>The 1854 epidemic — a natural experiment</h3>
-<p>The 1852 act required water supply companies to move water intake
-upriver by 1855. By the time of the 1854 epidemic, Lambeth had
-moved the intake 22 miles upriver, where the water was not
-contaminated by London sewage. The Southwark and Vauxhall intake
-was unchanged until 1855. Data on the distribution of cholera in
-the 1854 epidemic then allowed Snow to test the claims made in his
-1849 study.</p>
 </div>
 <div id="lambeth-versus-southwark-vauxhall" class="section level3 unnumbered">
 <h3>Lambeth versus Southwark &amp; Vauxhall</h3>
-<p>“The experiment, too, was on the grandest scale. No fewer than 300,000 people …, from gentlefolks down to the very poor, were divided into two groups without their choice, and, in most cases, without their knowledge; one group being supplied with water containing the sewage of London, and, amongst it, whatever might have come from the cholera patients, the other group having water quite free from such impurity.”</p>
 </div>
 <div id="use-water-from-the-brewery-and-stay-healthy" class="section level3 unnumbered">
 <h3>Use water from the brewery, and stay healthy!</h3>
-<p>Snow noted that “Within 250 yards of the spot where Cambridge Street joins Broad
-Street there were upwards of 500 fatal attacks of cholera in 10 days….”
-By contrast, none of the employees of a local Soho brewery developed cholera.</p>
-<div class="figure" style="text-align: center"><span id="fig:pump"></span>
-<img src="08-observational_files/figure-html/pump-1.png" alt="Deaths (red dots) and pump locations.  Polygons that surround
-each pump enclose the locations for which that is the nearest pump." width="60%" />
-<p class="caption">
-Figure 8.3: Deaths (red dots) and pump locations. Polygons that surround
-each pump enclose the locations for which that is the nearest pump.
-</p>
-</div>
-<p>The reason, he judged, was that they drank water from the brewery (which had a
-different source from the Broad St pump) or just drank beer alone.<br />
-<span class="citation"><a href="#ref-coleman2019causality" role="doc-biblioref">Coleman</a> (<a href="#ref-coleman2019causality" role="doc-biblioref">2019</a>)</span> gives detailed comments on Snow’s work.
-It took a further ten years for the medical establishment to begin to accept
-Snow’s conclusions.</p>
-<p>Similar issues, arising from failures to ensure proper drainage systems,
-were repeated, from the 1840s and 1850s through until the end of the century,
-in New Zealand cities.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
 </div>
 </div>
-<div id="are-there-missing-explanatory-factors" class="section level2" number="8.5">
+<div id="sec:maternity" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> Are there missing explanatory factors?</h2>
-<p>The <span class="citation">(<a href="#ref-wernham_EtAl_2016" role="doc-biblioref">Wernham et al. 2016</a>)</span> study used data from 244,047 singleton term
-deliveries that occurred between 2008 and 2012 to make the claim
-that midwife led care, as opposed to medical led care, gave a
-greater risk of adverse fetal and neonatal outcomes. Notably, the
-claim was that midwife led care resulted in a lower Apgar score
-(a measure of infant health immediately after birth) and a greater
-risk of the imprecisely defined diagnosis of birth asphyxia.</p>
-<p>This study was then the basis for exaggerated claims in an article
-in the October 8-14 2016 issue of the NZ Listener
-<span class="citation">(<a href="#ref-chisholm_2016" role="doc-biblioref">Chisholm 2016</a> <span>“Birth Control”</span>)</span>. Contrary to what was
-claimed, the research did not
-“lob a grenade into the historically war-torn territory of
-New Zealand’s maternity care.”
-Even less did its results warrant the melodramatic claims of
-“Alarming maternity research” and “Revolution gone wrong” that
-appeared on the Listener’s front cover.</p>
-<p>A major issue with the analysis is that it relies on using the NZ
-Deprivation Index<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
-to adjust for socioeconomic differences. This provides a deprivation
-score for meshblocks, each of around 60–110 people. It estimates the
-relative socioeconomic deprivation of an area, and does not directly
-relate to individuals. Deprived areas will often include some
-individuals with high socioeconomic status. Caesarean section, as a
-delivery type, may well have been more accessible for those of
-higher socioeconomic status. For National Women’s in Auckland,
-the elective Caesarean rate at term over 2006-2015 for doctor-led
-care was 32.8%, as against 7.4% for self employed midwives
-<span class="citation">(<a href="#ref-farquhar2016letter" role="doc-biblioref">Farquhar, McCowan, and Fleming 2016</a>)</span>. Effects from fetal alcohol syndrome were
-not accounted for, nor were direct effects from substance abuse.
-According to NZ Ministry of Health information, international data
-indicates that fetal alcohol syndrome may affect as many as 3% of
-births.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
-<p>Studies that are similarly relatively carefully done,
-but naive in the weight placed on the regression results,
-are embarrassingly common. There are analysis tools, and
-associated graphs, that the authors of the study could
-and should have used to shed light on the likely
-effectiveness of the adjustments made for differences
-between the two groups, other than whether the delivery
-was midwife led or medical led.</p>
 </div>
 <div id="the-uses-and-traps-of-algorithmic-methods" class="section level2" number="8.6">
 <h2><span class="header-section-number">8.6</span> The uses and traps of “algorithmic” methods</h2>
-<p>Decision tree approaches offer a way to use data that includes
-both spam and legitimate email messages to screen out spam as
-new messages appear. In practical use, such datasets have to
-be continually updated, as spammers change their strategies.</p>
-<p>For illustrative purposes, we will work
-with a dataset that is long past its “use by” date.
-Figure <a href="#fig:seeSpam">8.4</a> shows the distributions of values of
-what were judged relevant variables.</p>
-<div class="figure" style="text-align: center"><span id="fig:seeSpam"></span>
-<img src="08-observational_files/figure-html/seeSpam-1.png" alt="Boxplots, showing distribution of variable values
-               in data used to predict email spam" width="624" />
-<p class="caption">
-Figure 8.4: Boxplots, showing distribution of variable values
-in data used to predict email spam
-</p>
-</div>
-<p>Figure <a href="#fig:spam">8.5</a> shows a decision tree that has been derived
-for the spam data. This would be too inaccurate for practical use,
-but it is easy to see how it might be used, and is useful as a lead
-in to discussing random forests.</p>
-<div class="figure" style="text-align: center"><span id="fig:spam"></span>
-<img src="08-observational_files/figure-html/spam-1.png" alt="Decision tree for spam data. If the condition is satisfied, take
-               the branch to the left.  Otherwise, take the branch to the right." width="48%" /><img src="08-observational_files/figure-html/spam-2.png" alt="Decision tree for spam data. If the condition is satisfied, take
-               the branch to the left.  Otherwise, take the branch to the right." width="48%" />
-<p class="caption">
-Figure 8.5: Decision tree for spam data. If the condition is satisfied, take
-the branch to the left. Otherwise, take the branch to the right.
-</p>
-</div>
 <div id="from-trees-to-forests" class="section level3 unnumbered">
 <h3>From trees to forests</h3>
-<p>“Random forests” improve on decision trees by using samples from
-the data to create a forest (a “random forest”) of trees, then
-voting between the trees. A downside is that “Random forests”
-and similar methods operate largely as black boxes.</p>
-<ul>
-<li>Random forest type methods may work well when the way that
-explanatory factors conspire to give an output is unclear.</li>
-<li>What works, but one does not know why, may be effective for
-present circumstances.</li>
-<li>This can be both a trap and a virtue. Thus, for detecting spam:
-<ul>
-<li>When it fails, we will likely have few clues why!</li>
-<li>This may, for a short time, impede spammers!</li>
-</ul></li>
-<li>Spammers are anyway continually refining their strategies
-<ul>
-<li>Spam detectors must be responsive to new challenges</li>
-</ul></li>
-<li>Automated systems that can be easily gamed abound. They are a
-menace!</li>
-</ul>
 </div>
 <div id="it-helps-to-know-the-how-and-why-of-the-algorithms-used" class="section level3 unnumbered">
 <h3>It helps to know the how and why of the algorithms used</h3>
-<p>Cathy O’Neill: “… it’s not enough to just know how to run a black box
-algorithm. You actually need to know how and why it works, so that when
-it does’nt work, you can adjust.”</p>
 </div>
 </div>
 <div id="examples-that-illustrate-other-traps" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Examples that illustrate other traps</h2>
 <div id="are-herricanes-more-dangerous-than-himmicanes" class="section level3 unnumbered">
 <h3>Are herricanes more dangerous than himmicanes?</h3>
-<div class="figure" style="text-align: center"><span id="fig:hurricanes1"></span>
-<img src="08-observational_files/figure-html/hurricanes1-1.png" alt="Deaths versus damage estimate in US dollars. The red (for female) 
-and blue (for male) dashed lines are close equivalents of Jung at al's fit
-to the data. The $y$-axis uses a scale of equal relative numbers of deaths, 
-while the $x$-axis uses a scale of equal dollar damage costs." width="85%" />
-<p class="caption">
-Figure 8.6: Deaths versus damage estimate in US dollars. The red (for female)
-and blue (for male) dashed lines are close equivalents of Jung at al’s fit
-to the data. The <span class="math inline">\(y\)</span>-axis uses a scale of equal relative numbers of deaths,
-while the <span class="math inline">\(x\)</span>-axis uses a scale of equal dollar damage costs.
-</p>
-</div>
-<p>The United States National Hurricane Center began formally naming
-hurricanes in 1950, a task now under control of the
-World Meteorological Organization. Female names were used for
-Atlantic hurricanes from 1953 to 1978, with a mix of male and
-female names used from 1979 onwards.</p>
-<p>Authors of a paper titled “Female hurricanes are deadlier than male
-hurricanes” <span class="citation">(<a href="#ref-jung2014female" role="doc-biblioref">Jung et al. 2014</a>)</span> compared death rates from named
-Atlantic hurricanes with female names with death rates for those
-given male names, for 94 Atlantic hurricanes that made
-landfall in the United States during 1950-2012. The suggestion was
-that authorities took the risk from hurricanes with female names
-less seriously. The paper attracted wide interest on the blogosphere,
-with female hurricanes jokingly called herricanes and males called
-himmicanes.</p>
-<p>The separate dotted lines in Figure <a href="#fig:hurricanes1">8.6</a>, red for
-female and blue for male, are a close equivalent to the authors’ fit
-to the data. Notice the use of a relative (numbers of deaths) scale
-on the <span class="math inline">\(y\)</span>-axis, and a dollar scale on the <span class="math inline">\(x\)</span>-axis.
-Why did the authors not use, at least as a starting point, the same
-relative scale on both axes, as in Figure <a href="#fig:hurricanes2">8.7</a>?
-An unfortunate consequence of the use of a linear dollar scale
-on the <span class="math inline">\(x\)</span>-axis is that the slopes of the lines are strongly
-influenced by the final four points at the upper end of the scale.</p>
-<div class="figure" style="text-align: center"><span id="fig:hurricanes2"></span>
-<img src="08-observational_files/figure-html/hurricanes2-1.png" alt="Deaths versus damage estimate in US dollars, with logarithmic scales
-               on both axes. Separate fitted lines for male and female
-               hurricanes cannot be distinguished. Jung et al used a 
-               logarithmic scale on the vertical axis only, which on
-               this graph leads to the dashed curves." width="85%" />
-<p class="caption">
-Figure 8.7: Deaths versus damage estimate in US dollars, with logarithmic scales
-on both axes. Separate fitted lines for male and female
-hurricanes cannot be distinguished. Jung et al used a
-logarithmic scale on the vertical axis only, which on
-this graph leads to the dashed curves.
-</p>
-</div>
-<p>As well as using a relative scale on the <span class="math inline">\(x\)</span>-axis, Figure
-<a href="#fig:hurricanes2">8.7</a> has used a methodology that allows the
-data to determine the form of the response. Deaths do on
-average increase more at a higher rate than the damage measure,
-but not at the rate suggested by the dashed curves, and there
-is now no evident difference between the two curves.</p>
-<p>Figures <a href="#fig:hurricanes1">8.6</a> and <a href="#fig:hurricanes2">8.7</a>
-include data for the hurricanes <code>Audrey</code> (in 1957) and Katrina
-(in 2005), which Jung et al omitted as outliers.
-Other differences between the Jung et al analysis, and the
-analyses reflected in Figures <a href="#fig:hurricanes1">8.6</a> and
-<a href="#fig:hurricanes2">8.7</a> are documented in Note 1</p>
 </div>
 <div id="historical-speed-of-light-estimates-is-there-a-pattern" class="section level3 unnumbered">
 <h3>Historical speed of light estimates — is there a pattern?</h3>
-<div class="figure" style="text-align: center"><span id="fig:plot-c-data"></span>
-<img src="08-observational_files/figure-html/plot-c-data-1.png" alt="Successive speed of light estimates.
-Error estimates are available for the 1855 and later
-measurments.  Panel B limits attention to measurements
-made in 1926 and later. The line 
-was fitted with no adjustment for the very different error
-estimates.  The dashed curve, which incorporates
-such adjustments, is statistically indistinguishable
-from the thick gray horizontal line." width="720" />
-<p class="caption">
-Figure 8.8: Successive speed of light estimates.
-Error estimates are available for the 1855 and later
-measurments. Panel B limits attention to measurements
-made in 1926 and later. The line
-was fitted with no adjustment for the very different error
-estimates. The dashed curve, which incorporates
-such adjustments, is statistically indistinguishable
-from the thick gray horizontal line.
-</p>
-</div>
-<p>Creationist Barry Setterfield has argued that a reduction over time
-in the speed of light has led the passage of time to slow down,
-relative to the remote past, so that the universe is thousands
-rather than billions of years old. His arguments rely on
-making various adjustments to figures obtained historically,
-selecting what he regarded as the most reliable data, and
-then fitting a curve. He tells a story that is very different
-from that of Panel A of Figure <a href="#fig:plot-c-data">8.8</a>.</p>
-<p>For the measurements from 1862 onward, estimates of accuracy
-are available. Until 1950, each new estimate lay outside the
-bounds for the previous estimate, indicating that these
-were underestimates.
-Even if one were to accept Setterfield’s manipulation of the data,
-it makes no sense at all to fit either lines such as are shown, or
-curves, to data values which have such very different
-accuracies.</p>
-<p>The right panel is limited to the points from 1926 and on,
-marked off with the gray background on the left panel.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
-<p>Even if one were to accept Setterfield’s manipulation of the data,
-it makes no sense at all to fit either lines such as are shown, or
-curves, to data values which have such very different
-accuracies as those shown in the graphs. For the
-measurements from 1862 onwards, estimates of accuracy are
-available. Until 1950, each new estimate lay outside the
-bounds for the previous estimate, indicating that these
-were underestimates.</p>
-<p>The right panel is limited to the points from 1926 and on,
-marked off with the gray background on the left panel.</p>
 </div>
 </div>
 <div id="global-mean-temperature-trends" class="section level2" number="8.8">
 <h2><span class="header-section-number">8.8</span> Global mean temperature trends</h2>
-<div class="figure" style="text-align: center"><span id="fig:climate"></span>
-<img src="08-observational_files/figure-html/climate-1.png" alt="Anomalies (differences) in hundredths of a degree centigrade
-from global average temperatures over 1951-1980, plotted against year.
-The gray curve shows, for each year, the average anomaly up to that
-point in time.  The last year in which this lay below the gray line
-was 1962." width="80%" />
-<p class="caption">
-Figure 8.9: Anomalies (differences) in hundredths of a degree centigrade
-from global average temperatures over 1951-1980, plotted against year.
-The gray curve shows, for each year, the average anomaly up to that
-point in time. The last year in which this lay below the gray line
-was 1962.
-</p>
-</div>
-<p>Figure <a href="#fig:climate">8.9</a> plots global
-<a href="http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.GISSTEMP/.Global/.LOTI/">air and sea surface temperature anomaly data</a>
-against year. Anomalies, in hundredths of a degree centigrade, are
-differences from the 1951-1980 global average. The grey curve plots
-the average anomaly up to that point in time.</p>
-<p>Observe that 1964 was the last year in which the global
-temperature fell below the average to that time.
-For the 52 subsequent years (from 1965 to 2016 inclusive),
-the global average was above the average up to that date. Under
-the (false) assumption that global temperature is varying
-randomly (and therefore independently) about a common mean,
-the probability of this happening is 2<span class="math inline">\(^{-40}\)</span> = 9.1
-<span class="math inline">\(\times\)</span> 10<span class="math inline">\(^{-13}\)</span>. A variation of this argument came
-from a speaker on the Australian ABC Science Show on April
-3 2011.</p>
-<p>Under any model that accounts for what are now
-fairly well understood patterns of correlation over time,
-the probability, while very small, is not that small!
-Arguments that overstate the case for what is now a
-well-established pattern of change are unhelpful</p>
-<p>It is likewise nonsensical to fit a line to the cherry-picked
-years 1998-2008, where the trend was relatively flat.</p>
 
 </div>
 </div>
@@ -1076,10 +759,13 @@ years 1998-2008, where the trend was relatively flat.</p>
 <div id="detection-of-covid-19-from-chest-images" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Detection of Covid-19 from chest images</h2>
 </div>
-<div id="laboratory-studies-what-do-we-find" class="section level2" number="9.4">
+<div id="sec:lab" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Laboratory studies — what do we find?</h2>
-<div id="the-reproducibility-psychology-project" class="section level3 unnumbered">
-<h3>The Reproducibility: Psychology project</h3>
+<div id="positive-developments-in-the-psychology-community" class="section level3 unnumbered">
+<h3>Positive developments in the psychology community</h3>
+</div>
+<div id="other-replication-studies" class="section level3 unnumbered">
+<h3>Other replication studies</h3>
 </div>
 </div>
 <div id="truths-that-special-interests-find-inconvenient" class="section level2" number="9.5">
@@ -1113,16 +799,16 @@ years 1998-2008, where the trend was relatively flat.</p>
 <ul>
 <li><span class="citation"><a href="#ref-kahneman_2013" role="doc-biblioref">Kahneman</a> (<a href="#ref-kahneman_2013" role="doc-biblioref">2013</a>)</span> . Thinking, fast and slow.
 <ul>
-<li><a href="https://www.youtube.com/watch?v=PirFrDVRBo4" title="Interview">Interview with Kahneman</a><a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></li>
-<li><a href="https://www.youtube.com/watch?v=uqXVAo7dVRU&amp;t=28s">A brief animated overview of some key points</a><a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></li>
+<li><a href="https://www.youtube.com/watch?v=PirFrDVRBo4" title="Interview">Interview with Kahneman</a><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></li>
+<li><a href="https://www.youtube.com/watch?v=uqXVAo7dVRU&amp;t=28s">A brief animated overview of some key points</a><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></li>
 </ul></li>
 <li><span class="citation"><a href="#ref-smith-sd" role="doc-biblioref">Smith</a> (<a href="#ref-smith-sd" role="doc-biblioref">2014</a>)</span> . Standard Deviations: Flawed Assumptions, Tortured Data, and Other Ways to Lie with Statistics
 <ul>
-<li><a href="http://www.garysmithn.com/standard-deviations.html">Brian Lehrer interview with Smith</a><a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></li>
+<li><a href="http://www.garysmithn.com/standard-deviations.html">Brian Lehrer interview with Smith</a><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></li>
 </ul></li>
 <li><span class="citation"><a href="#ref-ellenberg_2015" role="doc-biblioref">Ellenberg</a> (<a href="#ref-ellenberg_2015" role="doc-biblioref">2015</a>)</span> . How not to be wrong.
 <ul>
-<li><a href="http://www.thelavinagency.com/news/new-videos-jordan-ellenberg-runs-the-numbers">There are links to several Ellenberg video clips</a><a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a></li>
+<li><a href="http://www.thelavinagency.com/news/new-videos-jordan-ellenberg-runs-the-numbers">There are links to several Ellenberg video clips</a><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></li>
 </ul></li>
 <li><span class="citation"><a href="#ref-levitin_2016" role="doc-biblioref">Levitin</a> (<a href="#ref-levitin_2016" role="doc-biblioref">2016</a>)</span> . A field guide to lies and statistics.</li>
 <li><span class="citation"><a href="#ref-nisbett" role="doc-biblioref">Nisbett</a> (<a href="#ref-nisbett" role="doc-biblioref">2016</a>)</span> . Tools for smart thinking.</li>
@@ -1130,7 +816,7 @@ years 1998-2008, where the trend was relatively flat.</p>
 graphics and visualization.</li>
 <li><span class="citation"><a href="#ref-ritchie2020science" role="doc-biblioref">Ritchie</a> (<a href="#ref-ritchie2020science" role="doc-biblioref">2020</a>)</span> . Science fictions: Exposing fraud, bias,
 negligence and hype in science.</li>
-<li><a href="http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics">BBC links to helpful web resources</a><a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></li>
+<li><a href="http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics">BBC links to helpful web resources</a><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></li>
 </ul>
 
 </div>
@@ -1140,20 +826,8 @@ negligence and hype in science.</li>
 <div id="ref-cairo_2013" class="csl-entry">
 Cairo, Alberto. 2013. <em>The Functional Art: An Introduction to Information Graphics and Vizualisation</em>. 1st ed. New Riders.
 </div>
-<div id="ref-chisholm_2016" class="csl-entry">
-Chisholm, Donna. 2016. <span>“Birth Control.”</span> <em>The NZ Listener, October 8 - 14</em>, 18–24.
-</div>
-<div id="ref-coleman2019causality" class="csl-entry">
-Coleman, Thomas. 2019. <span>“Causality in the Time of Cholera: John <span>S</span>now as a Prototype for Causal Inference.”</span> <em>Available at SSRN 3262234</em>.
-</div>
 <div id="ref-ellenberg_2015" class="csl-entry">
 Ellenberg, Jordan. 2015. <em>How Not to Be Wrong</em>. 1st ed. Penguin Books.
-</div>
-<div id="ref-farquhar2016letter" class="csl-entry">
-Farquhar, Cynthia, Lesley McCowan, and S Fleming. 2016. <span>“Letter to the Editor of PloSMedicine.”</span>
-</div>
-<div id="ref-hassall1850memoir" class="csl-entry">
-Hassall, Arthur Hill. 1850. <span>“Memoir ON THE ORGANIC ANALYSIS OR MICROSCOPIC EXAMINATION OF WATER: Supplied to the Inhabitants of London and the Suburban Districts.”</span> <em>The Lancet</em> 55 (1382): 230–35.
 </div>
 <div id="ref-jung2014female" class="csl-entry">
 Jung, Kiju, Sharon Shavitt, Madhu Viswanathan, and Joseph M Hilbe. 2014. <span>“Female Hurricanes Are Deadlier Than Male Hurricanes.”</span> <em>Proceedings of the National Academy of Sciences</em> 111 (24): 8782–87. <a href="http://www.pnas.org/cgi/doi/10.1073/pnas.1402786111">http://www.pnas.org/cgi/doi/10.1073/pnas.1402786111</a>.
@@ -1167,41 +841,335 @@ Levitin, Daniel J. 2016. <em>A Field Guide to Lies and Statistics</em>. 1st ed. 
 <div id="ref-nisbett" class="csl-entry">
 Nisbett, Richard E. 2016. <em>Mindware. Tools for Smart Thinking.</em> 1st ed. Penguin Books.
 </div>
-<div id="ref-pearl2018book" class="csl-entry">
-Pearl, Judea, and Dana Mackenzie. 2018. <em>The Book of Why: The New Science of Cause and Effect</em>. Basic Books.
-</div>
 <div id="ref-ritchie2020science" class="csl-entry">
 Ritchie, Stuart. 2020. <em>Science Fictions: Exposing Fraud, Bias, Negligence and Hype in Science</em>. Random House.
-</div>
-<div id="ref-RosBook" class="csl-entry">
-Rosenbaum, P R. 2002. <em>Observational Studies</em>. 2nd ed. Springer.
 </div>
 <div id="ref-smith-sd" class="csl-entry">
 Smith, G. 2014. <em>Standard Deviations: Flawed Assumptions, Tortured Data, and Other Ways to Lie with Statistics</em>. Duckworth Overlook.
 </div>
-<div id="ref-snow1849mode" class="csl-entry">
-Snow, John. 1855. <span>“On the Mode of Communication of Cholera.”</span> John Churchill.
 </div>
-<div id="ref-wernham_EtAl_2016" class="csl-entry">
-Wernham, Ellie, Jason Gurney, James Stanley, Lis Ellison-Loschmann, and Diana Sarfati. 2016. <span>“A Comparison of Midwife-Led and Medical-Led Models of Care and Their Relationship to Adverse Fetal and Neonatal Outcomes: A Retrospective Cohort Study in New Zealand.”</span> <em>PLOS Medicine</em> 13 (9): e1002134. <a href="https://doi.org/10.1371/journal.pmed.1002134">https://doi.org/10.1371/journal.pmed.1002134</a>.
+<div style="page-break-after: always;"></div>
+
+</div>
+<div id="preface-1" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>Placeholder</p>
+<div id="system-1-and-system-2-further-comments-1" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> System 1 and System 2 — further comments</h2>
+</div>
+<div id="the-intuition-of-professionals-1" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> The Intuition of Professionals</h2>
+<div id="obstacles-to-effective-judgment-1" class="section level3 unnumbered">
+<h3>Obstacles to effective judgment</h3>
 </div>
 </div>
+<div id="a-demand-for-discipline-careful-thought-1" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> A demand for discipline &amp; careful thought</h2>
 </div>
-<div id="about-the-author" class="section level1 unnumbered">
-<h1>About the Author</h1>
-<!-- # About the Author {#author .unnumbered}
-Following a first in Mathematics at what was then Auckland University College, and several teaching and lecturing positions,  -->
-<p>For the major part of his career, John Maindonald worked with other
+<div id="further-examples-1" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Further examples</h2>
+<div id="a-simple-and-arguably-trick-example-1" class="section level3 unnumbered">
+<h3>A simple (and, arguably, trick) example</h3>
+</div>
+<div id="even-careful-critics-sometimes-get-it-wrong-1" class="section level3 unnumbered">
+<h3>Even careful critics sometimes get it wrong</h3>
+</div>
+<div id="think-again-a-very-simple-example-1" class="section level3 unnumbered">
+<h3>Think again — a very simple example</h3>
+</div>
+<div id="a-test-to-check-understanding-of-risk-1" class="section level3 unnumbered">
+<h3>A test to check understanding of risk</h3>
+</div>
+</div>
+<div id="misbehaving-humans-1" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Misbehaving humans!</h2>
+</div>
+<div id="negotiating-life-in-an-uncertain-world-1" class="section level2" number="10.6">
+<h2><span class="header-section-number">10.6</span> Negotiating Life in an Uncertain World<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></h2>
+</div>
+<div id="general-principles-1" class="section level2" number="10.7">
+<h2><span class="header-section-number">10.7</span> General principles</h2>
+</div>
+<div id="varying-time-intervals-show-rates-not-counts-1" class="section level2" number="10.8">
+<h2><span class="header-section-number">10.8</span> Varying time intervals — show rates, not counts</h2>
+</div>
+<div id="banking-the-importance-of-aspect-ratio-1" class="section level2" number="10.9">
+<h2><span class="header-section-number">10.9</span> Banking — the importance of aspect ratio</h2>
+</div>
+<div id="scales-that-show-changes-by-equal-factors-1" class="section level2" number="10.10">
+<h2><span class="header-section-number">10.10</span> Scales that show changes by equal factors</h2>
+</div>
+<div id="track" class="section level2" number="10.11">
+<h2><span class="header-section-number">10.11</span> Different graphs serve different purposes</h2>
+<div id="relative-distance-scales-1" class="section level3 unnumbered">
+<h3>Relative distance scales</h3>
+</div>
+</div>
+<div id="helpful-web-links-are-1" class="section level2" number="10.12">
+<h2><span class="header-section-number">10.12</span> Helpful web links are:</h2>
+</div>
+<div id="the-hazards-of-convenience-samples-1" class="section level2" number="10.13">
+<h2><span class="header-section-number">10.13</span> The hazards of convenience samples</h2>
+<div id="convenience-samples-sometimes-have-a-story-to-tell-1" class="section level3 unnumbered">
+<h3>Convenience samples sometimes have a story to tell</h3>
+</div>
+</div>
+<div id="uk-cotton-worker-wages-in-the-1880s-1" class="section level2" number="10.14">
+<h2><span class="header-section-number">10.14</span> UK cotton worker wages in the 1880s</h2>
+</div>
+<div id="the-uneasy-path-from-hindsight-to-insight-1" class="section level2" number="10.15">
+<h2><span class="header-section-number">10.15</span> The uneasy path from hindsight to insight</h2>
+<div id="tales-of-standout-past-success-1" class="section level3 unnumbered">
+<h3>Tales of standout past success</h3>
+</div>
+</div>
+<div id="ss:wald" class="section level2" number="10.16">
+<h2><span class="header-section-number">10.16</span> The message in the missing bullet holes</h2>
+</div>
+<div id="useful-sources-of-advice-and-information-1" class="section level2" number="10.17">
+<h2><span class="header-section-number">10.17</span> Useful sources of advice and information</h2>
+<div id="the-harding-center-for-risk-literacy-1" class="section level3 unnumbered">
+<h3>The Harding Center for Risk Literacy</h3>
+</div>
+<div id="harding-center-medical-fact-boxes-1" class="section level3 unnumbered">
+<h3>Harding Center Medical Fact Boxes</h3>
+</div>
+<div id="the-cochrane-center-1" class="section level3 unnumbered">
+<h3>The Cochrane Center<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></h3>
+</div>
+<div id="winton-centre-for-risk-and-evidence-communication-1" class="section level3 unnumbered">
+<h3>Winton Centre for Risk and Evidence Communication<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></h3>
+</div>
+</div>
+<div id="screening-for-cancer-randomized-trials-1" class="section level2" number="10.18">
+<h2><span class="header-section-number">10.18</span> Screening for cancer — randomized trials</h2>
+<div id="psa-screening-for-prostate-cancer-more-1" class="section level3 unnumbered">
+<h3>PSA Screening for Prostate Cancer, &amp; more</h3>
+</div>
+<div id="breast-cancer-screening-a-contested-area-1" class="section level3 unnumbered">
+<h3>Breast cancer screening — a contested area</h3>
+</div>
+</div>
+<div id="ss:rct" class="section level2" number="10.19">
+<h2><span class="header-section-number">10.19</span> Randomized Controlled Trials vs other study types</h2>
+<div id="randomized-controlled-trials-the-gold-standard-1" class="section level3 unnumbered">
+<h3>Randomized Controlled Trials — the gold standard?</h3>
+</div>
+<div id="a-note-in-passing-hippo-decisions-vs-ab-testing-1" class="section level3 unnumbered">
+<h3>A note in passing: HiPPO decisions vs A/B testing</h3>
+</div>
+<div id="population-studies-groups-must-be-broadly-comparable-1" class="section level3 unnumbered">
+<h3>Population studies — groups must be broadly comparable</h3>
+</div>
+<div id="issues-for-all-types-of-study-1" class="section level3 unnumbered">
+<h3>Issues for all types of study</h3>
+</div>
+</div>
+<div id="hierarchies-of-evidence-1" class="section level2" number="10.20">
+<h2><span class="header-section-number">10.20</span> Hierarchies of evidence</h2>
+</div>
+<div id="avoid-or-expose-infants-to-peanuts-1" class="section level2" number="10.21">
+<h2><span class="header-section-number">10.21</span> Avoid, or expose infants to peanuts?</h2>
+</div>
+<div id="false-positives-1" class="section level2" number="10.22">
+<h2><span class="header-section-number">10.22</span> False Positives</h2>
+<div id="the-aspirin-story-randomized-trials-1" class="section level3 unnumbered">
+<h3>The Aspirin story (randomized trials)</h3>
+</div>
+</div>
+<div id="the-effectiveness-of-surgery-1" class="section level2" number="10.23">
+<h2><span class="header-section-number">10.23</span> The effectiveness of surgery</h2>
+</div>
+<div id="the-mmr-vaccine-scandal-1" class="section level2" number="10.24">
+<h2><span class="header-section-number">10.24</span> [The MMR vaccine scandal](</h2>
+</div>
+<div id="sally-clarks-disturbing-cot-death-story-1" class="section level2" number="10.25">
+<h2><span class="header-section-number">10.25</span> Sally Clark’s disturbing cot death story</h2>
+</div>
+<div id="the-reinhoff-and-rogoff-saga-1" class="section level2" number="10.26">
+<h2><span class="header-section-number">10.26</span> The Reinhoff and Rogoff saga</h2>
+<div id="is-there-a-pattern-across-countries-1" class="section level3 unnumbered">
+<h3>Is there a pattern across countries?</h3>
+</div>
+<div id="there-are-further-serious-issues-of-interpretation-1" class="section level3 unnumbered">
+<h3>There are further serious issues of interpretation</h3>
+</div>
+<div id="parting-comments-1" class="section level3 unnumbered">
+<h3>Parting comments</h3>
+</div>
+</div>
+<div id="sec:lancet" class="section level2" number="10.27">
+<h2><span class="header-section-number">10.27</span> What do malaria drugs do to Covid-19 patients?<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></h2>
+</div>
+<div id="a-simplistic-use-of-publicly-available-data-1" class="section level2" number="10.28">
+<h2><span class="header-section-number">10.28</span> A simplistic use of publicly available data</h2>
+</div>
+<div id="covid-19-deaths-comparing-countries-1" class="section level2" number="10.29">
+<h2><span class="header-section-number">10.29</span> Covid-19 deaths — comparing countries</h2>
+</div>
+<div id="a-paradox-of-human-intuition-1" class="section level2" number="10.30">
+<h2><span class="header-section-number">10.30</span> A paradox of human intuition</h2>
+<div id="ucb-admissions-data-another-perspective-1" class="section level3 unnumbered">
+<h3>UCB Admissions Data – Another perspective</h3>
+</div>
+<div id="a-note-on-lords-paradox-1" class="section level3 unnumbered">
+<h3>A note on Lord’s paradox</h3>
+</div>
+</div>
+<div id="further-examples-of-the-same-type-1" class="section level2" number="10.31">
+<h2><span class="header-section-number">10.31</span> Further examples of the same type</h2>
+<div id="does-baclofen-help-in-reducing-pain-1" class="section level3 unnumbered">
+<h3>Does Baclofen help in reducing pain?</h3>
+</div>
+<div id="web-page-revenue-per-click-1" class="section level3 unnumbered">
+<h3>Web page revenue per click</h3>
+</div>
+</div>
+<div id="cricket-bowling-averages-1" class="section level2" number="10.32">
+<h2><span class="header-section-number">10.32</span> Cricket Bowling Averages</h2>
+<div id="runs-r-wickets-w-and-runs-per-wicket-1" class="section level3 unnumbered">
+<h3>Runs (R), wickets (W) and runs per wicket ({})</h3>
+</div>
+<div id="fair-comparison-compare-runs-per-wicket-1" class="section level3 unnumbered">
+<h3>Fair comparison: Compare runs per wicket ({})</h3>
+</div>
+</div>
+<div id="epistatic-effects-on-genetic-studies-1" class="section level2" number="10.33">
+<h2><span class="header-section-number">10.33</span> Epistatic effects on genetic studies</h2>
+</div>
+<div id="correlation-is-not-causation-1" class="section level2" number="10.34">
+<h2><span class="header-section-number">10.34</span> Correlation is not causation</h2>
+</div>
+<div id="regression-to-the-mean-1" class="section level2" number="10.35">
+<h2><span class="header-section-number">10.35</span> Regression to the mean</h2>
+</div>
+<div id="nba-player-points-correlations-decline-over-time-1" class="section level2" number="10.36">
+<h2><span class="header-section-number">10.36</span> NBA player points — correlations decline over time</h2>
+</div>
+<div id="secrists-the-triumph-of-mediocrity-in-business-1" class="section level2" number="10.37">
+<h2><span class="header-section-number">10.37</span> Secrist’s “The Triumph of Mediocrity in Business”</h2>
+<div id="do-old-fallacies-ever-die-1" class="section level3 unnumbered">
+<h3>“Do old fallacies ever die?”</h3>
+</div>
+</div>
+<div id="moderating-predictive-assessments-1" class="section level2" number="10.38">
+<h2><span class="header-section-number">10.38</span> Moderating predictive assessments</h2>
+<div id="moderating-sales-estimates-1" class="section level3 unnumbered">
+<h3>Moderating sales estimates</h3>
+</div>
+<div id="choosing-from-job-applicants-1" class="section level3 unnumbered">
+<h3>Choosing from job applicants</h3>
+</div>
+<div id="kahnemans-comments-on-regression-to-the-mean-1" class="section level3 unnumbered">
+<h3>Kahneman’s comments on regression to the mean</h3>
+</div>
+<div id="regression-to-the-mean-in-verse-1" class="section level3 unnumbered">
+<h3>Regression to the mean in verse</h3>
+</div>
+</div>
+<div id="we-have-a-prediction.-what-are-the-drivers-1" class="section level2" number="10.39">
+<h2><span class="header-section-number">10.39</span> We have a prediction. What are the drivers?</h2>
+</div>
+<div id="time-per-unit-distance-for-hillraces-1" class="section level2" number="10.40">
+<h2><span class="header-section-number">10.40</span> Time per unit distance for hillraces</h2>
+</div>
+<div id="by-air-or-by-water-1849-cholera-deaths-1" class="section level2" number="10.41">
+<h2><span class="header-section-number">10.41</span> By air, or by water — 1849 cholera deaths</h2>
+</div>
+<div id="john-snow-documents-a-natural-experiment-1" class="section level2" number="10.42">
+<h2><span class="header-section-number">10.42</span> John Snow documents a natural experiment</h2>
+<div id="the-1854-epidemic-a-natural-experiment-1" class="section level3 unnumbered">
+<h3>The 1854 epidemic — a natural experiment</h3>
+</div>
+<div id="lambeth-versus-southwark-vauxhall-1" class="section level3 unnumbered">
+<h3>Lambeth versus Southwark &amp; Vauxhall</h3>
+</div>
+<div id="use-water-from-the-brewery-and-stay-healthy-1" class="section level3 unnumbered">
+<h3>Use water from the brewery, and stay healthy!</h3>
+</div>
+</div>
+<div id="sec:maternity" class="section level2" number="10.43">
+<h2><span class="header-section-number">10.43</span> Are there missing explanatory factors?</h2>
+</div>
+<div id="the-uses-and-traps-of-algorithmic-methods-1" class="section level2" number="10.44">
+<h2><span class="header-section-number">10.44</span> The uses and traps of “algorithmic” methods</h2>
+<div id="from-trees-to-forests-1" class="section level3 unnumbered">
+<h3>From trees to forests</h3>
+</div>
+<div id="it-helps-to-know-the-how-and-why-of-the-algorithms-used-1" class="section level3 unnumbered">
+<h3>It helps to know the how and why of the algorithms used</h3>
+</div>
+</div>
+<div id="examples-that-illustrate-other-traps-1" class="section level2" number="10.45">
+<h2><span class="header-section-number">10.45</span> Examples that illustrate other traps</h2>
+<div id="are-herricanes-more-dangerous-than-himmicanes-1" class="section level3 unnumbered">
+<h3>Are herricanes more dangerous than himmicanes?</h3>
+</div>
+<div id="historical-speed-of-light-estimates-is-there-a-pattern-1" class="section level3 unnumbered">
+<h3>Historical speed of light estimates — is there a pattern?</h3>
+</div>
+</div>
+<div id="global-mean-temperature-trends-1" class="section level2" number="10.46">
+<h2><span class="header-section-number">10.46</span> Global mean temperature trends</h2>
+</div>
+<div id="what-results-can-be-trusted-1" class="section level2" number="10.47">
+<h2><span class="header-section-number">10.47</span> What results can be trusted?</h2>
+<div id="sources-of-failure-1" class="section level3 unnumbered">
+<h3>Sources of failure</h3>
+</div>
+</div>
+<div id="the-case-of-eysenck-and-his-collaborators-1" class="section level2" number="10.48">
+<h2><span class="header-section-number">10.48</span> The case of Eysenck and his collaborators</h2>
+</div>
+<div id="detection-of-covid-19-from-chest-images-1" class="section level2" number="10.49">
+<h2><span class="header-section-number">10.49</span> Detection of Covid-19 from chest images</h2>
+</div>
+<div id="sec:lab" class="section level2" number="10.50">
+<h2><span class="header-section-number">10.50</span> Laboratory studies — what do we find?</h2>
+<div id="positive-developments-in-the-psychology-community-1" class="section level3 unnumbered">
+<h3>Positive developments in the psychology community</h3>
+</div>
+<div id="other-replication-studies-1" class="section level3 unnumbered">
+<h3>Other replication studies</h3>
+</div>
+</div>
+<div id="truths-that-special-interests-find-inconvenient-1" class="section level2" number="10.51">
+<h2><span class="header-section-number">10.51</span> Truths that special interests find inconvenient</h2>
+<div id="styles-of-argument-1" class="section level3 unnumbered">
+<h3>Styles of argument</h3>
+</div>
+<div id="big-pharma-inconvenient-data-1" class="section level3 unnumbered">
+<h3>Big Pharma — inconvenient data</h3>
+</div>
+<div id="what-can-one-trust-1" class="section level3 unnumbered">
+<h3>What can one trust?</h3>
+</div>
+</div>
+<div id="tricks-used-to-dismiss-established-results-1" class="section level2" number="10.52">
+<h2><span class="header-section-number">10.52</span> Tricks used to dismiss established results</h2>
+</div>
+<div id="hurricanes" class="section level2 unnumbered">
+<h2>1. The <span class="citation"><a href="#ref-jung2014female" role="doc-biblioref">Jung et al.</a> (<a href="#ref-jung2014female" role="doc-biblioref">2014</a>)</span> US hurricane data</h2>
+</div>
+<div id="author" class="section level2 unnumbered">
+<h2>About the author</h2>
+
+</div>
+<div id="author" class="section level2 unnumbered">
+<h2>About the author</h2>
+<p>For the major part of his career, John Maindonald has worked with other
 researchers as a quantitative problem solver.
-He has held positions at Victoria University of Wellington, in DSIR, in HortResearch Crown Research Institute (now Plant and Food), and at The Australian National University (ANU). He joined the then newly formed ANU Centre for Bioinformation Science in 2001, formally retiring in 2005.
+He has held positions at Victoria University of Wellington, in DSIR, in HortResearch Crown Research Institute (now Plant and Food), and at The Australian National University (ANU).
+He joined the then newly formed ANU Centre for Bioinformation Science in 2001, formally retiring in 2005.
 <!-- Since formal retirement in 2005, he has been a visiting fellow in the ANU Mathematical Sciences Institute. -->
 Between 1983 and 1996, and occasionally after 1996, he reviewed the statistical content of numerous papers that appeared in DSIR (later, Royal Society) journals, notably the New Zealand Journal of Agricultural Research and the New Zealand Journal of Crop and Horticultural Research.</p>
 <p>Between 2003 and 2015, he fronted 35 short courses (one week, or less)
 across different parts of Australia that demonstrated the use of the open source R data analysis and graphics system for data analysis purposes.
 <!-- These were conducted at the request of, or under the auspices of, a variety of Australian and other academic, research, and government organizations. -->
-He is the author of a book on Statistical Computation, and the senior author of “Data Analysis and Graphics Using R — An Example-Based Approach” (Maindonald and Braun 2010). This has sold more than 11,000 copies over
-the three editions.</p>
+He is the author of a book on Statistical Computation, and the senior author of “Data Analysis and Graphics Using R — An Example-Based Approach” (Maindonald and Braun, 2010).
+This has sold more than 11,000 copies over the three editions.</p>
 
+</div>
 </div>
 <div class="footnotes">
 <hr />
@@ -1210,20 +1178,15 @@ the three editions.</p>
 <li id="fn2"><p><a href="https://www.cochrane.org/" class="uri">https://www.cochrane.org/</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p><a href="https://wintoncentre.maths.cam.ac.uk/" class="uri">https://wintoncentre.maths.cam.ac.uk/</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Lancet, May 2020, <a href="https://bit.ly/3xqncMt" class="uri">https://bit.ly/3xqncMt</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p><a href="https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/" class="uri">https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/</a><a href="#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>See <em>Cholera epidemics in Victorian London</em><a href="https://www.thegazette.co.uk/all-notices/content/100519" class="uri">https://www.thegazette.co.uk/all-notices/content/100519</a><a href="#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p><a href="https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london" class="uri">https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london</a><a href="#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>See Christine Dann: ‘Sewage, water and waste - Stinking cities,’ Te Ara - the Encyclopedia of New Zealand, (8 June 2017) <a href="https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool" class="uri">https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool</a><a href="#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>
-<a href="https://www.health.govt.nz/publication/nzdep2013-index-deprivation" class="uri">https://www.health.govt.nz/publication/nzdep2013-index-deprivation</a><a href="#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p><a href="https://www.health.govt.nz/our-work/diseases-and-conditions/fetal-alcohol-spectrum-disorder" class="uri">https://www.health.govt.nz/our-work/diseases-and-conditions/fetal-alcohol-spectrum-disorder</a><a href="#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>
-Data are from <a href="https://en.wikipedia.org/wiki/Speed_of_light" class="uri">https://en.wikipedia.org/wiki/Speed_of_light</a><a href="#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p><a href="https://www.youtube.com/watch?v=PirFrDVRBo4" class="uri">https://www.youtube.com/watch?v=PirFrDVRBo4</a><a href="#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p><a href="https://www.youtube.com/watch?v=uqXVAo7dVRU&amp;t=28s" class="uri">https://www.youtube.com/watch?v=uqXVAo7dVRU&amp;t=28s</a><a href="#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p><a href="http://www.garysmithn.com/standard-deviations.html" class="uri">http://www.garysmithn.com/standard-deviations.html</a><a href="#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p><a href="http://www.thelavinagency.com/news/new-videos-jordan-ellenberg-runs-the-numbers" class="uri">http://www.thelavinagency.com/news/new-videos-jordan-ellenberg-runs-the-numbers</a><a href="#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p><a href="http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics" class="uri">http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics</a><a href="#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://www.youtube.com/watch?v=PirFrDVRBo4" class="uri">https://www.youtube.com/watch?v=PirFrDVRBo4</a><a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://www.youtube.com/watch?v=uqXVAo7dVRU&amp;t=28s" class="uri">https://www.youtube.com/watch?v=uqXVAo7dVRU&amp;t=28s</a><a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p><a href="http://www.garysmithn.com/standard-deviations.html" class="uri">http://www.garysmithn.com/standard-deviations.html</a><a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p><a href="http://www.thelavinagency.com/news/new-videos-jordan-ellenberg-runs-the-numbers" class="uri">http://www.thelavinagency.com/news/new-videos-jordan-ellenberg-runs-the-numbers</a><a href="#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p><a href="http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics" class="uri">http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics</a><a href="#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>These questions came originally from the Harding Center web site <a href="https://www.hardingcenter.de/en" class="uri">https://www.hardingcenter.de/en</a>.<a href="#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p><a href="https://www.cochrane.org/" class="uri">https://www.cochrane.org/</a><a href="#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p><a href="https://wintoncentre.maths.cam.ac.uk/" class="uri">https://wintoncentre.maths.cam.ac.uk/</a><a href="#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Lancet, May 2020, <a href="https://bit.ly/3xqncMt" class="uri">https://bit.ly/3xqncMt</a><a href="#fnref13" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1283,20 +1246,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

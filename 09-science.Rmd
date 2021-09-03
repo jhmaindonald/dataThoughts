@@ -94,7 +94,7 @@ what would better be treated as preliminary results --- a first
 stab at an answer.  Publication of experimental results should not 
 be a once-for-all event, but a staged process that moves from 
 “this looks promising” to “has been independently replicated”, 
-and to post=publication critique.
+and to post-publication critique.
 
 Publication does not of itself validate scientific claims,
 Rather, as stated in @popper_1963
@@ -172,10 +172,15 @@ detailed requirements, designed to check whether the algorithms used
 had been shown to be effective for use in clinical practice.  Among
 other deficiencies, 48 did not complete any external validation, and 
 55 had a high risk of bias with respect to at least one of 
-participants, predictors, outcomes and analysis. In an account
-of the results that appeared in New Scientist, @roberts2021machine 
-comments that, relative
-to persisting to develop a model that will survive a rigorous 
+participants, predictors, outcomes and analysis. A significant number
+of systems were trained on X-rays from adults with covid-19 and
+children without, so that they were likely to detect whether the
+X-ray was from adult or child, rather than whether the person had
+Covid-19.
+
+In an account of the results that appeared in New Scientist, 
+@roberts2021AIcovid19 comments that, relative to persisting to 
+develop a model that will survive a rigorous 
 checking process and might be used in practice, "it is far easier
 to develop a model with poor rigour and [apparent] excellent
 performance and publish this."  This is a damning indictment of
@@ -183,8 +188,8 @@ the way that large parts of the research and publication process
 currently work.  The public good would be much better served
 by a process that encourages researchers to persist until it
 has been demonstrated that researchers have a model that meets
-standards such as are set out in @roberts2021common.  One may
-hope that one result of this work will be to shift the research
+standards such as are set out in -@roberts2021common.  One may
+hope that one result of this review will be to shift the research
 and publication focus accordingly.
 
 ## Laboratory studies --- what do we find? {#sec:lab}
@@ -208,7 +213,44 @@ check on separate test image.
 Another 14%, unclear ...
     + @r8_kriegeskorte_simmons_bellgowan_baker_2009
 
-\enlargethispage{12pt}
+Issues that @r2_begley_2013 notes are important both across
+the pre-clinical studies such as are his concern, and for
+clinical studies such as have been used, and are being used,
+the check the effectiveness and side effects of Covid-19
+vaccines.  Begley comments that the flaws many of the
+flaws that he identified "were identified and expunged from 
+clinical studies decades ago”.  They include
+
+* Were experiments blinded?
+    + Was recording of all results done by another investigator
+    who did not know what treatment had been applied?
+* Were basic counts, measurements, and tests such as are done
+using Western blotting (used to detect specific proteins in a
+mixture) repeated?
+* Were all results presented?
+    + One concern is that when images are shown (e.g., of Western
+    blot gels), images may be cropped in ways that more clearly
+    identify the protein than is really the case.
+* Were results shown for crucial control experiments?
+    + Readers should be provided with evidence that there was
+    unlikely to be any bias in the comparison of treatment
+    with control.
+* Were reagents validated?
+   + Reagents must be shown to be fit for purpose, with results
+   shown from analyses that validate their use.
+* Were statistical tests appropriate?
+  + Begley comments on common analysis flaws.
+
+Begley comments
+
+> What is also remarkable is that many of these flaws were 
+identified and expunged from clinical stud- ies decades ago. 
+In such studies it is now the gold standard to blind investigators, 
+include concurrent controls, rigorously apply statistical tests 
+and analyse all patients --- we cannot exclude patients because 
+we do not like their outcomes.
+
+### Positive developments in the psychology community {-}
   
 The psychological science community is further advanced in
 addressing these issues that many other communities, with 
@@ -236,10 +278,7 @@ the replicate with the effect  size for the original, for
 the 54 social psychology studies included in the
 Reproducibility: Psychology project.  The journals that
 are represented are Psychological Science (PS), 
-and Journal of Personality and Social Psychology (JPSP), 
-The effect size is a measure of the average difference found,
-divided by an estimate of variability for the individual
-results.
+and Journal of Personality and Social Psychology (JPSP).
 
 ```{r cap10, echo=FALSE}
 cap10 <- "Psychology reproducibility project --- Effect sizes are
@@ -251,6 +290,7 @@ Psychology project"
 ```{r effect-size, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5.5, fig.height=5.5, fig.pos='H', out.width="60%", fig.cap=cap10}
 # ```{r psych, fig.width=7, fig.height=4.75, warning=FALSE, message=FALSE, out.width="90%", fig.align="center", fig.show="hold", echo=FALSE, fig.pos='H'}
 library(latticeExtra)
+trellis.par.set(theme)
 library(mgcv)
 load("data/social_df.RData")
 parset <- simpleTheme(pch=c(c(3,5)), cex=1.5,
@@ -265,7 +305,7 @@ gph <- xyplot(T_r..R. ~ T_r..O., data=social_df, groups=Journal,
                    ),
      scales=list(cex=1.0, tck=0.5),
      par.settings=parset,
-     main=list("Open Science Collaboration, Social Science",font=1, y=0)
+     main=list("Reproducibility: Psychology, Social Science",font=1, y=0)
 )
 RO.gam <- gam(T_r..R. ~ s(T_r..O.),
               family=scat, data=social_df)
@@ -281,9 +321,10 @@ gph+latticeExtra::layer(data=social_df,
         panel.abline(v=0, col="gray"),
         panel.abline(a=0, b=1, col="gray"))
 ```
-
-The effect size is smaller for the replication in 47 out of 
-the 54 studies.  A smooth curve, with confidence interval, 
+The effect size is a measure of the average difference found,
+divided by an estimate of variability for the individual
+results.  The effect size is smaller for the replication in 47 
+out of the 54 studies.  A smooth curve, with confidence interval, 
 has been fitted.  It is only for an original effect size 
 greater than 0.4 that one starts to see a positive correlation 
 between the effect sizes for the replicate and that for the
@@ -325,7 +366,15 @@ checks on what is published. In some cases, issues
 may be identified subsequent to publication.  The case is 
 at least better than for claims made by those who promote 
 "alternative medicines", nowadays often on the internet, 
-offering "evidence" that is largely anecdotal. 
+offering "evidence" that is anecdotal. 
+
+In the areas of science to which these studies relate,
+it is then clear that published claims that have not
+been replicated are as likely as not to be false. As 
+@r2_begley_2013 notes, however, there are clues that
+can allow a discerning to make a judgement on the
+credibility that should be given to claims that are
+made.
 
 ## Truths that special interests find inconvenient
 
@@ -454,7 +503,7 @@ that we take ever time we cross a busy road.
 
 The headings, and some of commentary, are adapted from an article by 
 Associate Professor Hassan Vally from La Trobe University, 
-[that appeared in _The Conversation_](https://theconversation.com/5-ways-to-spot-if-someone-is-trying-to-mislead-you-when-it-comes-to-science-138814?utm_medium=email&utm_campaign=Latest%20from%20The%20Conversation%20for%20March%209%202021%20-%201883318379&utm_content=Latest%20from%20The%20Conversation%20for%20March%209%202021%20-%201883318379+CID_6009c8d7af2a01f376a88d0491598cfa&utm_source=campaign_monitor&utm_term=5%20ways%20to%20spot%20if%20someone%20is%20trying%20to%20mislead%20you%20when%20it%20comes%20to%20science)^[<https://theconversation.com/5-ways-to-spot-if-someone-is-trying-to-mislead-you-when-it-comes-to-science-138814?utm_medium=email&utm_campaign=Latest%20from%20The%20Conversation%20for%20March%209%202021%20-%201883318379&utm_content=Latest%20from%20The%20Conversation%20for%20March%209%202021%20-%201883318379+CID_6009c8d7af2a01f376a88d0491598cfa&utm_source=campaign_monitor&utm_term=5%20ways%20to%20spot%20if%20someone%20is%20trying%20to%20mislead%20you%20when%20it%20comes%20to%20science>]
+[that appeared in _The Conversation_ for March 9 2021.](https://theconversation.com/5-ways-to-spot-if-someone-is-trying-to-mislead-you-when-it-comes-to-science-138814?utm_medium=email&utm_campaign=Latest%20from%20The%20Conversation%20for%20March%209%202021%20-%201883318379&utm_content=Latest%20from%20The%20Conversation%20for%20March%209%202021%20-%201883318379+CID_6009c8d7af2a01f376a88d0491598cfa&utm_source=campaign_monitor&utm_term=5%20ways%20to%20spot%20if%20someone%20is%20trying%20to%20mislead%20you%20when%20it%20comes%20to%20science)
 
 1. "The ‘us versus them’ narrative"  
 The powers that be are trying to deceive us."  Ask who is

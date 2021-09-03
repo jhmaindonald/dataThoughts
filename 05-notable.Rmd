@@ -233,6 +233,7 @@ is to hold up."
 
 ```{r debt2gdp-3, echo=FALSE, fig.width=7.0, fig.height=3.5, warning=FALSE, error=FALSE, fig.pos="H", fig.cap=cap3}
   if(!require(lattice, quietly=TRUE))stop("Lattice package must be available.")
+trellis.par.set(theme)
 RR10 <- droplevels(subset(RR, Country%in%colnames(av4n)))
 fit.gam <- gam(dRGDP~s(debtgdp, bs='cr', k=4, by=Country), 
                family=scat, data=RR10)

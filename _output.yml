@@ -14,6 +14,7 @@ bookdown::gitbook:
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
+    # after_body: dataSense-book.ind
     in_header: preamble.tex
   toc_depth: 2
   latex_engine: xelatex

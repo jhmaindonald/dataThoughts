@@ -2,7 +2,7 @@
 title: 'The Skeptical Data Analyst'
 subtitle: "Think again --- examples that inform and educate"
 author: "John Maindonald"
-date: "2021-08-28"
+date: "2021-09-02"
 site: bookdown::bookdown_site
 documentclass: book
 classoption: b5paper
@@ -121,14 +121,13 @@ established results has itself to survive the same informed critique.
     + Uninformed critique is common.  Watch for the 
 tricks that are used in the attempt to discredit established
 scientific results that detractors find inconvenient.
-10. Publication processes, widely across many areas of science,
-urgently require to be updated.
-    + They work well where the nature of the work requires input
-    and critique widely from across different disciplinary 
-    perspectives.
     + When presented with scientific (or any) claims, ask/check
     whether claims have been carefully critiqued.  For laboratory
     studies, have results been replicated?
+    + Publication processes can work well where the nature of the 
+    work requires input and critique widely from across different 
+    disciplinary perspectives, and where data and code are made
+    available for checking.
 
 
 
