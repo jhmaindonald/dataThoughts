@@ -8,7 +8,10 @@ When two variables show a relationship, they are said to be
 correlated.  Regression and correlation offer alternative,
 and complementary, perspectives on the relationship.^[The 
 discussion will avoid the technicalities of alternative
-ways to measure correlation.]
+ways to measure correlation.  The particular correlation 
+measure that is used in the examples that follow is
+the product-moment or Pearson correlation, which relates
+directly to linear (straight line) regression.]
 Nonsense correlations that arise where the third variable is 
 time provide simple examples.^[Yule-Simpson type effects, 
 discussed in Section \@ref(sec:yule1), are important in a 
@@ -37,7 +40,6 @@ of examples of spurious correlations.^[Figure \@ref(fig:socAnti)
 is one of many such examples that are available from  
 <http://www.tylervigen.com/spurious-correlations>.]
 Is there a third factor, or is this just a chance relationship?
-
 
 ```{r cap11}
 cap11 <- "Sociology PhDs awarded (from US National Science 
@@ -80,8 +82,11 @@ print(gph2, position=c(0.64,0,1,1)
 ```
 
 
-Another example is that, over 1997 to 2009, US Sociology PhDs awarded 
-correlated strongly with worldwide non-commercial space launches.
+Another example is that, over 1997 to 2009, US Sociology PhDs
+awarded correlated strongly with worldwide non-commercial 
+space launches.  These correlations would seem to be the
+result of chance.  Look at enough variable pairs, and such
+correlatiosn will sometimes appear.
 
 ## Regression to the mean
 
@@ -93,13 +98,14 @@ The correlation between son's height and father's height is
 mainly due to genetic factors, and fathers share half of their genes
 with their sons, this is to be expected.]
 
-Notice that the points that are plotted show a a symmetrical oval shaped
-scatter about the mean (shown with a large solid dot in Panel A).  This
-type of scatter is, strictly, required for uses of the correlation that 
-will now be discussed. 
+Notice that the points that are plotted show a a symmetrical 
+oval shaped scatter about the mean (shown with a large solid 
+dot in Panel A).  Thistype of scatter is, strictly, required 
+for uses of the correlation that will now be discussed. 
 
-Consider a father whose height is 72 inches, which is the 95th percentile
-of heights for fathers. What is a best guess for the height of a son?
+Consider a father whose height is 72 inches, which is the 
+95th percentile of heights for fathers. What is a best guess 
+for the height of a son?
 
 ```{r cap12}
 cap12 <- "Tall fathers are likely to have tall sons, but shorter than themselves. 
@@ -286,36 +292,16 @@ half-century that had quoted Secrist approvingly or repeated his error.
 * 1970: "The book [by Secrist] contains an elaborate statistical
 demonstration that, over a period of time, initially high-performing ..."
 * 1980s investment textbook: "Ultimately, economic forces will force
-the convergence of the profitability and growth rates of different firms."
-This was backed up with a 1980/1966 Secrist type comparison.
-* 2000: (Journal article) "... profitability is mean-reverting within
-as well as across industries.  Other firms eventually mimic products
-and technologies that produce above normal profitability ..."
+the convergence of the profitability and growth rates of 
+different firms." This was backed up with a 1980/1966 
+Secrist type comparison.
+* 2000: (Journal article) "... profitability is mean-reverting
+within as well as across industries.  Other firms eventually 
+mimic products and technologies that produce above normal
+profitability ..."
 * @wainerRegress cites other examples.
 
-
-Figure \@ref(fig:selected) shows between event correlations for
-top performances (6800 points and over) for six of the events
-in the decathlon in
-2006.^[Data for the twenty-one year period after new rules were
-introduced in 1985 are available in the R package `GDAdata` with
-the name `Decathlon`.  See also the Estonian website
-<http://www.decathlon2000.com/>]  Observe that the correlation
-of javelin with high jump is 0.032, so that performance in one
-of these sports gives no useful indication of the performance
-that might be expected in the other.
-
-The correlation between shot put distances and long jump distances
-is shown as a more encouraging 0.29.  If we find that an athlete has
-achieved a distance of 14.9 meters in the shot put, which is at
-the 93$^{th}$ percentile across athletes as a whole (7% did better),
-a best estimate for the long jump can then be obtained thus:
-
-* A 14.9 meter put is at the 93$^{th}$ centile (7% will do better)
-* The long jump mean is 6.97, with the 93% mark = 7.47
-    + The difference from the mean is 7.47-6.97 = 0.5
-* The estimate for the long jump is then 6.97+0.29 $\times$ 0.5 = 7.12
-```
+### Decathlon performances in 2006 {-} 
 
 ```{r Decath2006}
 Decath2006 <- subset(GDAdata::Decathlon,yearEvent==2006)
@@ -384,7 +370,7 @@ of the ten decathlon events in 2006.  Points that are plotted,
 and correlations, are for times or distances achieved."
 ```
 
-```{r selected, fig.width=5.5, fig.asp=0.85, results='hide', warning=FALSE, message=FALSE, fig.pos='H', out.width="60%", eval=TRUE, fig.cap=cap13}
+```{r selected, fig.width=5.5, fig.asp=0.85, results='hide', warning=FALSE, message=FALSE, fig.pos='H', out.width="68%", eval=TRUE, fig.cap=cap13}
 colnam <- c("Polevault", "Javelin", "Discus", "Shotput", "Highjump", "Longjump")
 ncols <- match(colnam, names(Decath2006))  #  c(11L, 12L, 10L, 6L, 7L, 5L)
 ggpairs(Decath2006[, ncols],
@@ -404,6 +390,30 @@ longjMean <- mean(Decath2006[,5])
 longjMean+(quantile(Decath2006[,5],.93)-longjMean)*0.29
 ## 6.97+0.29*(7.47-6.97)
 ## 7.115
+```
+
+Figure \@ref(fig:selected) shows between event correlations for
+top performances (6800 points and over) for six of the events
+in the decathlon in
+2006.^[Data for the twenty-one year period after new rules were
+introduced in 1985 are available in the R package `GDAdata` with
+the name `Decathlon`.  See also the Estonian website
+<http://www.decathlon2000.com/>]  Observe that the correlation
+of javelin with high jump is 0.032, so that performance in one
+of these sports gives no useful indication of the performance
+that might be expected in the other.
+
+The correlation between shot put distances and long jump distances
+is shown as a more informative 0.29.  If we find that an athlete
+has achieved a distance of 14.9 meters in the shot put, which is 
+at the 93$^{th}$ percentile across athletes as a whole 
+(7% did better), a best estimate for the long jump can be 
+obtained thus:
+
+* A 14.9 meter put is at the 93$^{th}$ centile (7% will do better)
+* The long jump mean is 6.97, with the 93% mark = 7.47
+    + The difference from the mean is 7.47-6.97 = 0.5
+* The estimate for the long jump is then 6.97+0.29 $\times$ 0.5 = 7.12
 ```
 
 ## Moderating predictive assessments

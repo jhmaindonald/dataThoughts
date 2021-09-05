@@ -13,12 +13,11 @@ Jung et al's approach was, instead, to examine whether numbers of
 deaths varied with the "femaleness" of name, as judged by students 
 in 2014.  
 
-As a check on how the association of a name with one or other sex
-may have changed with time, Table \@ref(tab:changetab) uses
-US social security administration data to examine names where 
-the difference over years from 1950 to 2012 between the 
-maximum proportion of females and the minimum was 0.08 or more.
-
+As a check on how the popularity of a name for each of females 
+and males may have changed with time, Table \@ref(tab:changetab)
+uses US social security administration data to show numbers for
+names where the range of variation over 1950 to 2012 in the 
+relative number of females was 0.08 or more.
 
 ```{r cap1, echo=FALSE}
 cap1 <- "The minimum and maximum value of the relative proportion
@@ -46,12 +45,12 @@ library(kableExtra)
 kable(stats, digits=2, caption=cap1) %>% 
   row_spec(3, bold=TRUE) %>% kable_styling(font_size=10)
 ```
-Frequencies for other names, as well as staying relatively
-constant, were in all years within 0.07 of either 0 (i.e.,
-mostly judged female) or 1.0 (i.e., mostly judged male).
+In other cases, relative number of females were always
+either in the range 0 to 0.07 (i.e., mostly female), or
+in the range 0.93 to 1 (i.e., mostly female).
 
 Figure \@ref(fig:plotchanges) shows how the numbers of
-either sex changed over time, for the first six of the
+each sex changed over time, for the first six of the
 names in Table \@ref(tab:changetab).
 
 ```{r cap2, echo=FALSE}
@@ -59,12 +58,12 @@ suppressPackageStartupMessages(library(latticeExtra))
 trellis.par.set(theme)
 cap2 <- "Change in numbers of names given to males and females
 over the years 1950 to 2012, for the six names where the 
-maximum difference in relative frequency was 0.1 or more.
+maximum difference in relative frequency was more than 0.1.
 The maximum change is shown against each name."
 ```
 
 
-```{r plotchanges, echo=FALSE, eval=TRUE, fig.width=6, fig.height=3.75, out.width="90%", fig.cap=cap2, fig.align='center'}
+```{r plotchanges, echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=3.6, out.width="90%", fig.cap=cap2, fig.align='center'}
 lookat <- subset(mfsub, name%in%c('Charley','Cleo',
                                'Fran','Sandy','Erin','Inez'))
 lookat$name <- factor(lookat$name)
@@ -72,16 +71,16 @@ dnam <- round(abs(d[c('Charley','Cleo','Fran','Sandy','Erin','Inez')]),2)
 levels(lookat$name) <- paste0(levels(lookat$name), ": ",dnam)
 atx <- c(10,100,1000, 10000)
 xyplot(nm+nf~year|name, data=lookat,  xlab="Year", 
-       ylab="Number of babies", par.settings=simpleTheme(pch=c(3,2)), 
+       ylab="Number of babies", par.settings=simpleTheme(pch=c(3,2), cex=0.8), 
        auto.key=list(text=c("Males","Females"),columns=2),
        scales=list(y=list(log='e', at=atx, labels=paste(atx)))) +
   latticeExtra::layer(panel.axis('left', at=atx*sqrt(10), labels=F, tck=0.5))
 ```
 
-The names where the assessment of femaleness is of greatest concern,
-as differing substantially from 0 or 1, are those (especially Charley,
-Cleo and Fran) where the judgment of parents at the time is likely to
-quite different from that for students in 2014. 
+The names where the choices of parents at the time are likely to
+most different from that for students in 2014 are those where
+there has been greatest change over time (i.e., especially, 
+Charley, Cleo and Fran).
 
 \enlargethispage{21pt}
 
@@ -90,17 +89,16 @@ Other differences from the analyses on which Figures
 are
 
 * As the primary measure of the risk posed by the hurricanes, the 
-authors used a 2013 US\$ estimate of damage that could have been 
-expected from a comparable hurricane in 2013.  Figure 
+authors used a 2013 US\$ estimate of damage, intended for
+insurance purposes, for a comparable hurricane in 2013.  Figure 
 \@ref(fig:hurricanes1) uses what is surely the more relevant
 measure, namely `NDAM2014` --- this converts the estimate of
-damage caused at the time to 2014 US\$.^[The damage measure that
-Jung et al used was by contrast designed for, and suited to, use 
-for 2013 insurance purposes. This change makes no difference of
-consequence to the graph or to the conclusions reached.] 
+damage caused at the time to 2014 US\$.^[Fortuitously, this 
+change makes no difference of consequence to the graph or to 
+the conclusions reached.] 
 * Jung et al allowed for minor effects from barometric pressure 
-at landfall, and interactions. Again, these were of no 
-consequence for the conclusions reached.
+at landfall, and interactions. Again, these do not affect 
+the conclusions reached.
 
 ```{r missed, echo=FALSE, eval=FALSE}
 missed <- DAAG::hurricNamed$Name[z==0]

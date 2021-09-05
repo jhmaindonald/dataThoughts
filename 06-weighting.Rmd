@@ -98,6 +98,43 @@ data operate with respect to two or more
 factors.^[The website <https://www.youtube.com/watch?v=ZDinnCwP3dg> 
 has an animated video that provides a short overview of the paradox]
 
+As of August 15, Israeli data showed that 214 of those hospitalized
+with severe Covid-19 were fully vaccinated, while 301 were not.  The
+explanation is simple: older people are both more likely to be
+vaccinated and more likely to have severe responses.  Taking
+account first of the much higher numbers vaccinated than 
+unvaccinated, percentages of severe cases are:
+
+| Unvaccinated | Fully vaccinated
+---- | ----- | ---- | ----
+Number | 1,302,912 | 5,634,634 
+Severe cases | 214 (16.4%) | 301 (5.3%)
+
+This, because it has not taken account of the effect of age,
+underestimates the effectiveness of vaccination.  A fairer
+picture is:
+
+| Unvaccinated | Fully vaccinated
+---- | ----- | ---- | ----
+Number <50 | 1,116,834 | 3,501,118
+Severe cases | 43 (3.9%) | 11 (0.3%)
+---- | ---- | ----
+Number >50 | 186,078 | 2,133,518
+Severe cases | 171 (91.9%) | 290 (13.6%)
+
+The numbers of severe cases are much higher
+for the over 50s than for the under 50s ---
+a ratio of 5.0 (=214/430 for the unvaccinated, and 27.4 (=301/11)
+for the fully vaccinated.  The effect is to weight the 
+all ages percentages of severe cases towards the number
+for the over 50s.  
+
+Misleadingly, the all ages percentage goes down from 91.9% to 
+an overall 16.4% for the unvaccinated, and down from 13.6% to 
+an overall 5.3% for the fully vaccinated.  This is an example
+of the Yule-Simpson paradox at work.^[See <https://bit.ly/3h1mwXQ> for further commentary.]
+
+## University admissions data (Berkeley)
 
 University of California Berkeley (UCB) 
 1973 admissions data for the six largest departments, 

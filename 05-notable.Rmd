@@ -111,9 +111,9 @@ presented, most of them successful.  A further consequence
 was that the law was changed such that no person could be 
 convicted on the basis of expert testimony alone. 
 
- The @watkins2000conviction article **Conviction by mathematical 
- error?: Doctors and lawyers should get probability theory right** 
- provided a trenchant critique of the perils of allowing 
+ The @watkins2000conviction article "Conviction by mathematical 
+ error?: Doctors and lawyers should get probability theory right"
+ provides a trenchant critique of the perils of allowing 
  non-statisticians to present unsound statistical arguments, with 
  no effective challenge.  
  
@@ -133,7 +133,7 @@ has been widely quoted in support of economic austerity programs
 internationally.  There was a huge stir, in the media and on the
 blogosphere, when graduate student Herndon found and published 
 details of coding and other errors in the results that RR had
-presented.
+presented.^[<http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf>] 
 
 ```{r cap1and2, echo=FALSE}
 cap3 <- "Dashed horizintal lines show means by Debt/GDP category, 
@@ -205,11 +205,10 @@ print(m1+annotation_custom(tableGrob(leg, theme=tt),
                            ymin=10.0, ymax=28))
 ```
 
-As well as coding errors, 
-[Herndon](http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf)^[<http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf>] identified selective exclusion of available data, 
-and unconventional weighting of summary statistics.  There was a 
-failure to acknowledge that the relationship studied has varied 
-substantially by country and over time.   Half of the 20 countries
+As well as coding errors, identified selective exclusion of 
+available data, and unconventional weighting of summary statistics.
+There was no acknowledgement that the relationship studied has varied 
+substantially by country and over time. Half of the 20 countries
 had missing data for 5 or more of the years, with the largest
 number missing in the years 1946 to 1949.
 
@@ -221,8 +220,8 @@ in their work.  Among other issues, their insistence on treating
 each data point for each country as an independent piece of 
 evidence makes no sense.  The smooth curve fitted in Figure
 \@ref(fig:debt2gdp12) may be regarded as an average over the
-ten countries, but (as the next graph will show)  with huge country
-to country variation.
+ten countries, but as Figure \@ref(fig:debt2gdp-3) shows, with 
+huge country to country variation.
 
 ```{r cap3, echo=FALSE}
 cap3 <- "Smooths have been fitted for each of the 10 countries
@@ -344,7 +343,7 @@ temporal effects, site effects, dose used).
 
 The study claimed to be based on data from 96,032 
 hospitalized COVID-19 patients from six continents, of which 66%
-were from North Ammerica.  Very soon after it appeared, the article 
+were from North America.  Very soon after it appeared, the article 
 attracted critical attention, with a number of critics joining 
 together to submit the letter @watson2020open to Lancet.
 

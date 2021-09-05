@@ -132,6 +132,11 @@ on which the Fact Boxes are based have changed the balance of risk.
 
 Both cases require justification.
 
+An important Harding Center study that is in progress is the
+FORCEE project [@wegwarth2018european]:
+
+> Against this background, the Horizon2020 research project “Female cancer prediction using cervical omics to individualise screening and prevention” (FORECEE) has taken on the task of developing a test that could determine the risk of developing four cancers that are specific to women. The test will look for molecular changes in cells that predict a woman’s individual risk of developing breast, cervical, womb, and ovarian cancer. This could make it possible to identify women with a high risk of these cancers, and to spare women with a low risk from unnecessary screening and the anxiety of false alarms.
+
 ## Randomized Controlled Trials vs other study types {#ss:rct}
 
 Two types of study are widely used in medical and other contexts ---

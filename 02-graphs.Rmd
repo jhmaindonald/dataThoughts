@@ -132,22 +132,27 @@ print(gph2, position=c(0.475,0,1,1))
 Often, when measurement data span a large range (e.g., a change
 from smallest to largest by a factor of 100 to 1 or more),
 it is a relative amount scale that is appropriate.^[Technically,
-such scales are known as logarithmic scales.]
+such scales are known as logarithmic, as opposed to straight
+line or linear, scales. For this purpose, all one needs to know 
+about taking logarithms is that it gives such relative distance 
+scales.]
 
 ## Different graphs serve different purposes {#track}
 
-The line in Figure \@ref(fig:resid)A shows the broad overall pattern, while
-Figure \@ref(fig:resid)B shows how that pattern needs to be tweaked to more
-closely reflect the data.
+The line in Figure \@ref(fig:resid)A shows the broad overall
+pattern, while Figure \@ref(fig:resid)B shows how that pattern
+needs to be tweaked to more closely reflect the data.
 
 ```{r cap6, echo=FALSE}
-cap6 <- "Panel A plots world record Time (as of 2006, in minutes) against Distance
-(in kilometers), for field races.  On both the `x` and `y` axes, the scale
-is one on which equal distances on the scale correspond to equal
-relative changes.  Panel B plots deviations from the fitted line, otherwise
-known as residuals, against Distance. The deviations are approximate relative
-differences from the line.  Thus a 0.05 difference is a difference that amounts
-to 5\\% of the time predicted by the line."
+cap6 <- "Panel A plots world record Time (as of 2006, in minutes)
+against Distance (in kilometers), for field races.  On both the
+`x` and `y` axes, the scale is one on which equal distances on 
+the scale correspond to equal relative changes.  Panel B plots
+deviations from the fitted line in the `y` direction, otherwise
+known as residuals, against Distance. The deviations are
+approximate relative differences from the line.  Thus a 0.05
+difference is a difference that amounts to 5\\% of the time
+predicted by the line."
 ```
 
 ```{r resid, fig.width=8, fig.height=3.25, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap6}
@@ -174,33 +179,35 @@ gph2 <- xyplot(track.res ~ Distance, type=c('p','r'), data=track,
 print(gph2, position=c(0.5,0,1,1))
 ```
 
-Notice, in Panel A, the use of scales for which which equal distances on 
-the scale correspond to equal relative changes.  This is achieved by
-specifying a logarithmic scale.  
+Notice, in Panel A, the use of scales for which which equal
+distances on the scale correspond to equal relative changes.
+This is achieved by specifying logarithmic scales, on both
+axes.  There is a loglinear, i.e., straight line on
+logarithmic scales, relationship.
 
-In Figure \@ref(fig:resid), the line looks to be a good fit.  The range
-of times is however large, from just under 10 seconds to close to 11.5  hours.
-All except the largest difference from the fitted line are a less than 7%
-change, and are not at all obvious in Panel A.  There is a very clear pattern
-of systematic differences in Panel B that reflects differences in human 
-physiology, very likely between the athletes who excel at the different
-distances.
+In Figure \@ref(fig:resid), the line looks to be a good fit.
+The range of times is however large, from just under 10 seconds
+to close to 11.5 hours.  All except the largest difference from
+the fitted line are a less than 7% change, and are not at all
+obvious in Panel A.  There is a very clear pattern of systematic
+differences in Panel B that reflects differences in human
+physiology, very likely between the athletes who excel at the
+different distances.
 
-The line can be interpreting as implying a 13% increase in the time 
-per unit distance for every unit increase in the distance.  The units 
-may for example be units of 100 meters, or kilometers.  Panel B
-indicates that the pattern of increase moves down to a local minimum
-at around 200 meters, up to a local maximum at around 1 kilometer, down
-again to a local minimum at around 20 kilometers, and then steadily up
-again.
+The line can be interpreting as implying a 13% increase in the
+time per unit distance for every unit increase in the distance.
+The units may for example be units of 100 meters, or kilometers.
+Panel B indicates that the pattern of increase moves down to a
+local minimum at around 200 meters, up to a local maximum at
+around 1 kilometer, down again to a local minimum at around 20
+kilometers, and then steadily up again.
 
 ### Relative distance scales {-}
 
-Figure \@ref(fig:lnscales) shows different "equal physical distance
-along the scale" labels that might be used for the relative
-`Distance` scale in Figure \@ref(fig:resid)} in Subsection 
-\@ref(track).  The physical distances along the scale are the 
-logarithms of the `Distance` values. 
+Figure \@ref(fig:lnscales) shows different "equal physical
+distance along the scale" labels that might be used for the
+relative `Distance` scale in Figure \@ref(fig:resid)} in
+Subsection \@ref(track).  
 
 ```{r cap5, echo=FALSE}
 cap5 <- "Different labelings, all with tick marks at the same

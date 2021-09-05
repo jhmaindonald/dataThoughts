@@ -138,7 +138,7 @@
 \makeatother
 \subtitle{Think again --- examples that inform and educate}
 \author{John Maindonald}
-\date{2021-09-02}
+\date{2021-09-05}
 
 \begin{document}
 \maketitle
@@ -876,14 +876,17 @@ show changes by the same factor.}\label{fig:animals}
 Often, when measurement data span a large range (e.g., a change
 from smallest to largest by a factor of 100 to 1 or more),
 it is a relative amount scale that is appropriate.\footnote{Technically,
-  such scales are known as logarithmic scales.}
+  such scales are known as logarithmic,~as opposed to straight
+  line or linear, scales. For this purpose, all one needs to know
+  about taking logarithms is that it gives such relative distance
+  scales.}
 
 \hypertarget{track}{%
 \section{Different graphs serve different purposes}\label{track}}
 
-The line in Figure \ref{fig:resid}A shows the broad overall pattern, while
-Figure \ref{fig:resid}B shows how that pattern needs to be tweaked to more
-closely reflect the data.
+The line in Figure \ref{fig:resid}A shows the broad overall
+pattern, while Figure \ref{fig:resid}B shows how that pattern
+needs to be tweaked to more closely reflect the data.
 
 \begin{figure}[H]
 
@@ -891,44 +894,48 @@ closely reflect the data.
 
 }
 
-\caption{Panel A plots world record Time (as of 2006, in minutes) against Distance
-(in kilometers), for field races.  On both the `x` and `y` axes, the scale
-is one on which equal distances on the scale correspond to equal
-relative changes.  Panel B plots deviations from the fitted line, otherwise
-known as residuals, against Distance. The deviations are approximate relative
-differences from the line.  Thus a 0.05 difference is a difference that amounts
-to 5\% of the time predicted by the line.}\label{fig:resid}
+\caption{Panel A plots world record Time (as of 2006, in minutes)
+against Distance (in kilometers), for field races.  On both the
+`x` and `y` axes, the scale is one on which equal distances on 
+the scale correspond to equal relative changes.  Panel B plots
+deviations from the fitted line in the `y` direction, otherwise
+known as residuals, against Distance. The deviations are
+approximate relative differences from the line.  Thus a 0.05
+difference is a difference that amounts to 5\% of the time
+predicted by the line.}\label{fig:resid}
 \end{figure}
 
-Notice, in Panel A, the use of scales for which which equal distances on
-the scale correspond to equal relative changes. This is achieved by
-specifying a logarithmic scale.
+Notice, in Panel A, the use of scales for which which equal
+distances on the scale correspond to equal relative changes.
+This is achieved by specifying logarithmic scales, on both
+axes. There is a loglinear, i.e., straight line on
+logarithmic scales, relationship.
 
-In Figure \ref{fig:resid}, the line looks to be a good fit. The range
-of times is however large, from just under 10 seconds to close to 11.5 hours.
-All except the largest difference from the fitted line are a less than 7\%
-change, and are not at all obvious in Panel A. There is a very clear pattern
-of systematic differences in Panel B that reflects differences in human
-physiology, very likely between the athletes who excel at the different
-distances.
+In Figure \ref{fig:resid}, the line looks to be a good fit.
+The range of times is however large, from just under 10 seconds
+to close to 11.5 hours. All except the largest difference from
+the fitted line are a less than 7\% change, and are not at all
+obvious in Panel A. There is a very clear pattern of systematic
+differences in Panel B that reflects differences in human
+physiology, very likely between the athletes who excel at the
+different distances.
 
-The line can be interpreting as implying a 13\% increase in the time
-per unit distance for every unit increase in the distance. The units
-may for example be units of 100 meters, or kilometers. Panel B
-indicates that the pattern of increase moves down to a local minimum
-at around 200 meters, up to a local maximum at around 1 kilometer, down
-again to a local minimum at around 20 kilometers, and then steadily up
-again.
+The line can be interpreting as implying a 13\% increase in the
+time per unit distance for every unit increase in the distance.
+The units may for example be units of 100 meters, or kilometers.
+Panel B indicates that the pattern of increase moves down to a
+local minimum at around 200 meters, up to a local maximum at
+around 1 kilometer, down again to a local minimum at around 20
+kilometers, and then steadily up again.
 
 \hypertarget{relative-distance-scales}{%
 \subsection*{Relative distance scales}\label{relative-distance-scales}}
 \addcontentsline{toc}{subsection}{Relative distance scales}
 
-Figure \ref{fig:lnscales} shows different ``equal physical distance
-along the scale'' labels that might be used for the relative
-\texttt{Distance} scale in Figure \ref{fig:resid}\} in Subsection
-\ref{track}. The physical distances along the scale are the
-logarithms of the \texttt{Distance} values.
+Figure \ref{fig:lnscales} shows different ``equal physical
+distance along the scale'' labels that might be used for the
+relative \texttt{Distance} scale in Figure \ref{fig:resid}\} in
+Subsection \ref{track}.
 
 \begin{figure}[H]
 
@@ -1301,6 +1308,13 @@ however? It might be argued that
 \end{itemize}
 
 Both cases require justification.
+
+An important Harding Center study that is in progress is the
+FORCEE project (\protect\hyperlink{ref-wegwarth2018european}{Wegwarth et al. 2018}):
+
+\begin{quote}
+Against this background, the Horizon2020 research project ``Female cancer prediction using cervical omics to individualise screening and prevention'' (FORECEE) has taken on the task of developing a test that could determine the risk of developing four cancers that are specific to women. The test will look for molecular changes in cells that predict a woman's individual risk of developing breast, cervical, womb, and ovarian cancer. This could make it possible to identify women with a high risk of these cancers, and to spare women with a low risk from unnecessary screening and the anxiety of false alarms.
+\end{quote}
 
 \hypertarget{ss:rct}{%
 \section{Randomized Controlled Trials vs other study types}\label{ss:rct}}
@@ -1865,9 +1879,9 @@ presented, most of them successful. A further consequence
 was that the law was changed such that no person could be
 convicted on the basis of expert testimony alone.
 
-The \protect\hyperlink{ref-watkins2000conviction}{Watkins} (\protect\hyperlink{ref-watkins2000conviction}{2000}) article \textbf{Conviction by mathematical
-error?: Doctors and lawyers should get probability theory right}
-provided a trenchant critique of the perils of allowing
+The \protect\hyperlink{ref-watkins2000conviction}{Watkins} (\protect\hyperlink{ref-watkins2000conviction}{2000}) article ``Conviction by mathematical
+error?: Doctors and lawyers should get probability theory right''
+provides a trenchant critique of the perils of allowing
 non-statisticians to present unsound statistical arguments, with
 no effective challenge.
 
@@ -1890,7 +1904,7 @@ has been widely quoted in support of economic austerity programs
 internationally. There was a huge stir, in the media and on the
 blogosphere, when graduate student Herndon found and published
 details of coding and other errors in the results that RR had
-presented.
+presented.\footnote{\url{http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf}}
 
 \begin{figure}[H]
 
@@ -1905,10 +1919,9 @@ RR's mean (dots) for > 90\% Debt/GDP was from 10 only of the 20.
 The smooth gray curve treats points as independent.}\label{fig:debt2gdp12}
 \end{figure}
 
-As well as coding errors,
-\href{http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf}{Herndon}\footnote{\url{http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf}} identified selective exclusion of available data,
-and unconventional weighting of summary statistics. There was a
-failure to acknowledge that the relationship studied has varied
+As well as coding errors, identified selective exclusion of
+available data, and unconventional weighting of summary statistics.
+There was no acknowledgement that the relationship studied has varied
 substantially by country and over time. Half of the 20 countries
 had missing data for 5 or more of the years, with the largest
 number missing in the years 1946 to 1949.
@@ -1921,8 +1934,8 @@ in their work. Among other issues, their insistence on treating
 each data point for each country as an independent piece of
 evidence makes no sense. The smooth curve fitted in Figure
 \ref{fig:debt2gdp12} may be regarded as an average over the
-ten countries, but (as the next graph will show) with huge country
-to~country~variation.
+ten countries, but as Figure \ref{fig:debt2gdp-3} shows, with
+huge country to~country~variation.
 
 \begin{figure}[H]
 
@@ -1997,7 +2010,7 @@ temporal effects, site effects, dose used).
 
 The study claimed to~be based on data from 96,032
 hospitalized COVID-19 patients from six continents, of which 66\%
-were from North Ammerica. Very soon after it appeared, the article
+were from North America. Very soon after it appeared, the article
 attracted critical attention, with a number of critics joining
 together to submit the letter \protect\hyperlink{ref-watson2020open}{Watson et al.} (\protect\hyperlink{ref-watson2020open}{2020}) to Lancet.
 
@@ -2114,6 +2127,55 @@ arises when weighting effects that are present in the
 data operate with respect to two or more
 factors.\footnote{The website \url{https://www.youtube.com/watch?v=ZDinnCwP3dg}
   has an animated video that provides a short overview of the paradox}
+
+As of August 15, Israeli data showed that 214 of those hospitalized
+with severe Covid-19 were fully vaccinated, while 301 were not. The
+explanation is simple: older~people are both more likely to be
+vaccinated and more likely to have severe responses. Taking
+account first of the much higher numbers vaccinated than
+unvaccinated, percentages of severe cases are:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Unvaccinated & Fully vaccinated & & \\
+\midrule
+\endhead
+Number & 1,302,912 & 5,634,634 & \\
+Severe cases & 214 (16.4\%) & 301 (5.3\%) & \\
+\bottomrule
+\end{longtable}
+
+This, because it has not taken account of the effect of age,
+underestimates the effectiveness of vaccination. A fairer
+picture is:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Unvaccinated & Fully vaccinated & & \\
+\midrule
+\endhead
+Number \textless50 & 1,116,834 & 3,501,118 & \\
+Severe cases & 43 (3.9\%) & 11 (0.3\%) & \\
+---- & ---- & ---- & \\
+Number \textgreater50 & 186,078 & 2,133,518 & \\
+Severe cases & 171 (91.9\%) & 290 (13.6\%) & \\
+\bottomrule
+\end{longtable}
+
+The numbers of severe cases are much higher
+for the over 50s than for the under 50s ---
+a ratio of 5.0 (=214/430 for the unvaccinated, and 27.4 (=301/11)
+for the fully vaccinated. The effect is to weight the
+all ages percentages of severe cases towards the number
+for the over 50s.
+
+Misleadingly, the all ages percentage goes down from 91.9\% to
+an overall 16.4\% for the unvaccinated, and down from 13.6\% to
+an overall 5.3\% for the fully vaccinated. This is an example
+of the Yule-Simpson paradox at work.\footnote{See \url{https://bit.ly/3h1mwXQ} for further commentary.}
+
+\hypertarget{university-admissions-data-berkeley}{%
+\section{University admissions data (Berkeley)}\label{university-admissions-data-berkeley}}
 
 University of California Berkeley (UCB)
 1973 admissions data for the six largest departments,
@@ -2360,7 +2422,10 @@ When two variables show a relationship, they are said to be
 correlated. Regression and correlation offer alternative,
 and complementary, perspectives on the relationship.\footnote{The
   discussion will avoid the technicalities of alternative
-  ways to measure correlation.}
+  ways to measure correlation. The particular correlation
+  measure that is used in the examples that follow is
+  the product-moment or Pearson correlation, which relates
+  directly to linear (straight line) regression.}
 Nonsense correlations that arise where the third variable is
 time provide simple examples.\footnote{Yule-Simpson type effects,
   discussed in Section \ref{sec:yule1}, are important in a
@@ -2416,8 +2481,11 @@ of change from year to year.
 }\label{fig:socAnti}
 \end{figure}
 
-Another example is that, over 1997 to 2009, US Sociology PhDs awarded
-correlated strongly with worldwide non-commercial space launches.
+Another example is that, over 1997 to 2009, US Sociology PhDs
+awarded correlated strongly with worldwide non-commercial
+space launches. These correlations would seem to be the
+result of chance. Look at enough variable pairs, and such
+correlatiosn will sometimes appear.
 
 \hypertarget{regression-to-the-mean}{%
 \section{Regression to the mean}\label{regression-to-the-mean}}
@@ -2430,13 +2498,14 @@ The correlation between son's height and father's height is
   mainly due to genetic factors, and fathers share half of their genes
   with their sons, this is to be expected.}
 
-Notice that the points that are plotted show a a symmetrical oval shaped
-scatter about the mean (shown with a large solid dot in Panel A). This
-type~of scatter is, strictly, required for uses of the correlation that
-will now be discussed.
+Notice that the points that are plotted show a a symmetrical
+oval shaped scatter about the mean (shown with a large solid
+dot in Panel A). Thistype~of scatter is, strictly, required
+for uses of the correlation that will now be discussed.
 
-Consider a father whose height is 72 inches, which is the 95th percentile
-of heights for fathers. What is a best guess for the height of a son?
+Consider a father whose height is 72 inches, which is the
+95th percentile of heights for fathers. What is a best guess
+for the height of a son?
 
 \begin{figure}[H]
 
@@ -2562,15 +2631,32 @@ half-century that had quoted Secrist approvingly or repeated his error.
   demonstration that, over a period of time, initially high-performing \ldots{}''
 \item
   1980s investment textbook: ``Ultimately, economic forces will force
-  the convergence of the profitability and growth rates of different firms.''
-  This was backed up with a 1980/1966 Secrist type comparison.
+  the convergence of the profitability and growth rates of
+  different firms.'' This was backed up with a 1980/1966
+  Secrist type comparison.
 \item
-  2000: (Journal article) ``\ldots{} profitability is mean-reverting within
-  as well as across industries. Other firms eventually mimic products
-  and technologies that produce above normal profitability \ldots{}''
+  2000: (Journal article) ``\ldots{} profitability is mean-reverting
+  within as well as across industries. Other firms eventually
+  mimic products and technologies that produce above normal
+  profitability \ldots{}''
 \item
   \protect\hyperlink{ref-wainerRegress}{Wainer} (\protect\hyperlink{ref-wainerRegress}{2000}) cites other examples.
 \end{itemize}
+
+\hypertarget{decathlon-performances-in-2006}{%
+\subsection*{Decathlon performances in 2006}\label{decathlon-performances-in-2006}}
+\addcontentsline{toc}{subsection}{Decathlon performances in 2006}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.68\linewidth]{07-regress_files/figure-latex/selected-1} 
+
+}
+
+\caption{Between event correlations for top performances in six
+of the ten decathlon events in 2006.  Points that are plotted,
+and correlations, are for times or distances achieved.}\label{fig:selected}
+\end{figure}
 
 Figure \ref{fig:selected} shows between event correlations for
 top performances (6800 points and over) for six of the events
@@ -2584,10 +2670,11 @@ of these sports gives no useful indication of the performance
 that might be expected in the other.
 
 The correlation between shot put distances and long jump distances
-is shown as a more encouraging 0.29. If we find that an athlete has
-achieved a distance of 14.9 meters in the shot put, which is at
-the 93\(^{th}\) percentile across athletes as a whole (7\% did better),
-a best estimate for the long jump can then be obtained thus:
+is shown as a more informative 0.29. If we find that an athlete
+has achieved a distance of 14.9 meters in the shot put, which is
+at the 93\(^{th}\) percentile across athletes as a whole
+(7\% did better), a best estimate for the long jump can be
+obtained thus:
 
 \begin{itemize}
 \tightlist
@@ -2605,17 +2692,6 @@ a best estimate for the long jump can then be obtained thus:
   The estimate for the long jump is then 6.97+0.29 \(\times\) 0.5 = 7.12
   ```
 \end{itemize}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.6\linewidth]{07-regress_files/figure-latex/selected-1} 
-
-}
-
-\caption{Between event correlations for top performances in six
-of the ten decathlon events in 2006.  Points that are plotted,
-and correlations, are for times or distances achieved.}\label{fig:selected}
-\end{figure}
 
 \hypertarget{moderating-predictive-assessments}{%
 \section{Moderating predictive assessments}\label{moderating-predictive-assessments}}
@@ -2799,7 +2875,7 @@ from 8 to 16, or from 16 to 32. The equation that is plotted
 is\\
 \texttt{timePerKm} = 8.45 -1.6 \(\times\) \texttt{log(Dist)}
 
-Figure \ref{fig:resid}B gives a visual represention of the
+Figure \ref{fig:resid}B gives a visual representation of the
 way that \texttt{timePerKm} depends on \texttt{log(Dist)}, when \texttt{log(Climb/Dist)}
 is held at its mean value. The equation that is plotted
 is\\
@@ -3967,11 +4043,11 @@ Jung et al's approach was, instead, to examine whether numbers of
 deaths varied with the ``femaleness'' of name, as judged by students
 in 2014.
 
-As a check on how the association of a name with one or other sex
-may have changed with time, Table \ref{tab:changetab} uses
-US social security administration data to examine names where
-the difference over years from 1950 to 2012 between the
-maximum proportion of females and the minimum was 0.08 or more.
+As a check on how the popularity of a name for each of females
+and males may have changed with time, Table \ref{tab:changetab}
+uses US social security administration data to show numbers for
+names where the range of variation over 1950 to 2012 in the
+relative number of females was 0.08 or more.
 
 \begin{table}
 
@@ -3993,12 +4069,12 @@ Maximum & 1 & 0.87 & 0.94 & 0.95 & 0.99 & 1.00 & 0.98 & 0.08\\
 \end{tabular}
 \end{table}
 
-Frequencies for other names, as well as staying relatively
-constant, were in all years within 0.07 of either 0 (i.e.,
-mostly judged female) or 1.0 (i.e., mostly judged male).
+In other cases, relative number of females were always
+either in the range 0 to 0.07 (i.e., mostly female), or
+in the range 0.93 to 1 (i.e., mostly female).
 
 Figure \ref{fig:plotchanges} shows how the numbers of
-either sex changed over time, for the first six of the
+each sex changed over time, for the first six of the
 names in Table \ref{tab:changetab}.
 
 \begin{figure}
@@ -4009,14 +4085,14 @@ names in Table \ref{tab:changetab}.
 
 \caption{Change in numbers of names given to males and females
 over the years 1950 to 2012, for the six names where the 
-maximum difference in relative frequency was 0.1 or more.
+maximum difference in relative frequency was more than 0.1.
 The maximum change is shown against each name.}\label{fig:plotchanges}
 \end{figure}
 
-The names where the assessment of femaleness is of greatest concern,
-as differing substantially from 0 or 1, are those (especially Charley,
-Cleo and Fran) where the judgment of parents at the time is likely to
-quite different from that for students in 2014.
+The names where the choices of parents at the time are likely to
+most different from that for students in 2014 are those where
+there has been greatest change over time (i.e., especially,
+Charley, Cleo and Fran).
 
 \enlargethispage{21pt}
 
@@ -4028,18 +4104,17 @@ are
 \tightlist
 \item
   As the primary measure of the risk posed by the hurricanes, the
-  authors used a 2013 US\$ estimate of damage that could have been
-  expected from a comparable hurricane in 2013. Figure
+  authors used a 2013 US\$ estimate of damage, intended for
+  insurance purposes, for a comparable hurricane in 2013. Figure
   \ref{fig:hurricanes1} uses what is surely the~more relevant
   measure, namely \texttt{NDAM2014} --- this converts the estimate of
-  damage caused at the time to 2014 US\$.\footnote{The damage measure that
-    Jung et al used was by contrast designed for, and suited to, use
-    for 2013 insurance purposes. This change makes no difference of
-    consequence to the graph or to the conclusions reached.}
+  damage caused at the time to 2014 US\$.\footnote{Fortuitously, this
+    change makes no difference of consequence to the graph or to
+    the conclusions reached.}
 \item
   Jung et al allowed for minor effects from barometric pressure
-  at landfall, and interactions. Again, these were of no
-  consequence for the conclusions reached.
+  at landfall, and interactions. Again, these do not affect
+  the conclusions reached.
 \end{itemize}
 
 \backmatter
@@ -4272,6 +4347,9 @@ Watkins, Stephen J. 2000. {``Conviction by Mathematical Error?: Doctors and Lawy
 \leavevmode\hypertarget{ref-watson2020open}{}%
 Watson, J, A Adler, A Agweyu, and others. 2020. {``Open Letter to MR Mehra, SS Desai, f Ruschitzka, and AN Patel, Authors of {`Hydroxychloroquine or Chloroquine with or Without a Macrolide for Treatment of COVID-19: A Multinational Registry Analysis'}.''} \emph{Lancet}, 31180--86.
 
+\leavevmode\hypertarget{ref-wegwarth2018european}{}%
+Wegwarth, Odette, Martin Widschwendter, David Cibula, Karin Sundström, Rosalba Portuesi, Ines Lein, and Felix G Rebitschek. 2018. {``What Do European Women Know about Their Female Cancer Risks and Cancer Screening? A Cross-Sectional Online Intervention Survey in Five European Countries.''} \emph{BMJ Open} 8 (12): e023789.
+
 \leavevmode\hypertarget{ref-wernham_EtAl_2016}{}%
 Wernham, Ellie, Jason Gurney, James Stanley, Lis Ellison-Loschmann, and Diana Sarfati. 2016. {``A Comparison of Midwife-Led and Medical-Led Models of Care and Their Relationship to Adverse Fetal and Neonatal Outcomes: A Retrospective Cohort Study in New Zealand.''} \emph{PLOS Medicine} 13 (9): e1002134. \url{https://doi.org/10.1371/journal.pmed.1002134}.
 
@@ -4284,7 +4362,8 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
 
 \begin{theindex}
 
-  \item algorithmic methods, 63
+  \item algorithmic methods (\textit{see also} machine learning), 
+        63, 64
   \item analysis issues
     \subitem assumptions, 7, 33, 68
     \subitem source/target differences, 17, 55
@@ -4292,9 +4371,9 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
 
   \indexspace
 
+  \item behavioural economics, 7
   \item bias
     \subitem convenience samples, 15
-    \subitem hindsight, 17
     \subitem selection and survivor, 15, 17, 18, 26, 73
   \item business success, 17
 
@@ -4302,12 +4381,14 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
 
   \item chloroquine or hydrochloroquine
     \subitem use with Covid-19, 37, 72
-  \item cholera deaths in London, 1849, 58--60
-  \item cholera deaths in London, 1854, 59--61
-  \item climate science, 72, 79
+  \item cholera deaths in London
+    \subitem 1849, 58--60
+    \subitem 1854, 59--61
+  \item climate science, 72, 79, 80
     \subitem Richard Muller's study, 79
   \item Covid-19
     \subitem detection from chest images, 74, 75
+    \subitem unvaccinated vs vaccinated, 41
 
   \indexspace
 
@@ -4320,12 +4401,31 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
 
   \indexspace
 
+  \item false positives, 24, 28, 29
+
+  \indexspace
+
   \item graph
-    \subitem time vs distance, 12, 49, 52, 56, 57
+    \subitem choice of aspect ratio, 10, 11
+    \subitem debt vs debt to GDP ratio, 34--36
+    \subitem decathlon performances in 2006, 52
+    \subitem email spam, distribution of values, 63
+    \subitem father vs son heights, 48, 49
+    \subitem global temperature trends, 68, 79
+    \subitem John Snow's 1854 cholera map, 61
+    \subitem London 1849 cholera deaths, 58
+    \subitem naming trends over time, 83, 84
+    \subitem NBA player points, 50
+    \subitem relative change (logarithmic) scale, 11--13, 58, 65, 66
+    \subitem replicate vs original effect size, 77
+    \subitem Secrist and regression to mean, 50, 51
+    \subitem time vs distance, 12, 52, 56, 57
+    \subitem UCB admissions data, 41
+    \subitem UK cotton worker wages, 1886, 16
+    \subitem US Covid-19 deaths, by age, 39
     \subitem US Nobel prizes, 10
   \item graphs
     \subitem general principles, 9
-    \subitem relative change scales, 11--13, 58, 65, 66
 
   \indexspace
 
@@ -4335,43 +4435,57 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
 
   \indexspace
 
+  \item machine learning
+    \subitem detection of Covid-19 from chest images, 74, 75
   \item malaria drugs
     \subitem use with Covid-19, 37, 72
   \item maternity care
     \subitem midwife vs medical led, 56, 62
+  \item medical trials, 27, 28
   \item medical trials, screening
-    \subitem breast cancer, 22
-    \subitem prostate cancer screening, 4, 21, 24
+    \subitem breast cancer, 22, 23
+    \subitem prostate cancer, 4, 21, 24
   \item missing bullet holes, 18
+  \item MMR (measles,mumps,rubella) scandal, 31
+
+  \indexspace
+
+  \item NBA player points, correlation declines over time, 50
 
   \indexspace
 
   \item random sample, 15, 55
   \item randomized controlled trials
-    \subitem A/B testing vs HiPPO decisions, 24
+    \subitem A/B testing vs HiPPO decisions, 25
     \subitem as the gold standard, 23
+    \subitem protocol, 28
   \item regression
+    \subitem loglinear, 12
     \subitem observational data, 55
-  \item regression to the mean, 18, 42, 50, 51, 54, 57, 58
+  \item regression predictions
+    \subitem drivers, 55--57
+  \item regression to the mean, 18, 43, 50, 51, 54, 57, 58
     \subitem fathers and sons, 48, 49
-    \subitem NBA player total points, 49
-    \subitem Secrist's 'Triumph of Mediocrity', 51
+    \subitem NBA player total points, 50
+    \subitem Secrist's 'Triumph of Mediocrity', 52
   \item replication, 6, 74, 77, 78
   \item risk assessment
-    \subitem sources of advice, 4, 7, 20, 23, 27, 29, 37, 75, 81
+    \subitem sources of advice, 4, 7, 20, 23, 24, 27, 29, 30, 37, 75, 
+        81
 
   \indexspace
 
   \item Sally Clark's disturbing cot death saga, 32, 33
   \item science
     \subitem Big Pharma, 80
-    \subitem false or unverified claims, 6, 21, 75, 78
-    \subitem funding and reward processes, 72, 78, 79, 82
+    \subitem false or unverified claims, 6, 21, 23, 75, 78
+    \subitem funding and reward processes, 72, 78, 80, 82
     \subitem results that special interests find inconvenient, 79, 80
+  \item Secrist and regression to mean, 50, 51
   \item sources of advice
     \subitem Cochrane Center, 19--21
     \subitem fact boxes, 20, 64
-    \subitem Harding Center, 7, 19--22
+    \subitem Harding Center, 7, 19--23
 
   \indexspace
 
@@ -4383,11 +4497,7 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
   \indexspace
 
   \item university admission rates
-    \subitem UCB in 1973, 41, 42
-
-  \indexspace
-
-  \item Wakefield MMR scandal, 31
+    \subitem UCB in 1973, 42, 43
 
 \end{theindex}
 
