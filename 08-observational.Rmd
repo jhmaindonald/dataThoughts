@@ -99,7 +99,7 @@ from 8 to 16, or from 16 to 32.  The equation that is plotted
 is  
 `timePerKm` = `r round(constCl,2)` `r round(bcl[2],2)` $\times$ `log(Dist)`  
 
-Figure \@ref(fig:resid)B gives a visual represention of the
+Figure \@ref(fig:resid)B gives a visual representation of the
 way that `timePerKm` depends on `log(Dist)`, when `log(Climb/Dist)`
 is held at its mean value. The equation that is plotted
 is  
