@@ -62,6 +62,27 @@ in practice achieve. Causality diagrams have a central role.
 There is a detailed, and insightful, discussion of the history 
 that finally led to the conclusion that smoking causes lung cancer.
 
+<!-- Pregnant mum's obesity linked to heightened bowel cancer risk in her adult offspring -->
+<!-- https://medicalxpress.com/news/2021-08-pregnant-mum-obesity-linked-heightened.html -->
+
+## Does maternal obesity increase the risk of colorectal cancer?
+
+Results from a study reported in @Murphygutjnl-2021-325001 suggest
+that maternal obesity (≥30 kg/m2) did increase the risk of 
+colorectal cancer (CRC), by a factor of 2.51.^[95% 
+error bounds, as they are termed, run from 1.05 to 6.02,
+so that the 2.51 risk factor is not very clearly distinguished 
+from 1.]  The authors are careful to acknowledge that, as an
+observational study, it could not establish cause, and that
+factors such as diet and microbiome might explain the
+association.  Nonetheless, they argue that "in utero events 
+are important risk factors for CRC and may contribute to 
+increasing incidence rates in younger adults."
+
+Although a large study (18,751 live births), the total 
+number of offspring diagnosed with colorectal cancer was 68.
+
+
 ## Time per unit distance for hillraces
 
 Consider now a dataset that has record times for 23 Northern Ireland 
