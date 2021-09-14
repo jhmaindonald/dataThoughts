@@ -150,7 +150,7 @@ For simplicity, it will be assumed that there are two alternatives
 to be compared, in what is known as a two-armed trial. In medical 
 trials the two arms may be a treatment and a placebo, with the 
 placebo (something harmless that has no effect) made to look as 
-similar as possible to the treatment. 
+similar as possible to the treatment.^[For a helpful animated summary of some of the key issues, see: <https://www.youtube.com/watch?v=Wy7qpJeozec>]
 
 An important distinction is between pre-clinical trials, often
 with animals such as mice, and clinical trials with human
@@ -158,8 +158,9 @@ subjects.  Pre-clinical trials are likely to be conducted
 with a small number of mice or other animals, and are intended
 to check whether a drug or other treatment warrants further
 investigation. Evidence will be presented in Section \@ref(sec:lab)
-that suggests that these trials are commonly not achieving their
-intended purpose.
+that suggests that these trials are commonly not doing a good
+job at achieving their intended purpose. Greater attention is
+needed to the rigor that is required for clinical trials.
 
 Clinical trials typically are conducted in three phases. 
 Phase I applies the treatment to a small number of subjects 
@@ -209,9 +210,6 @@ a smaller or larger element of risk.
     + Some slow growing cancers may be better left untreated, 
     rather than exposing the patient to a treatment that may itself 
     do serious damage. 
-
-For a helpful animated summary of some of the key issues, see:  
-<https://www.youtube.com/watch?v=Wy7qpJeozec>
 
 ### A note in passing: HiPPO decisions vs A/B testing {-}
 
@@ -269,7 +267,8 @@ studies that have been conducted with high methodological
 rigour.  The strongest evidence comes, as with the link
 between smoking and lung cancer, from multiple studies,
 with different likely biases, that all point strongly in 
-the same direction.
+the same direction.^[Note the comments on Lord's paradox
+in Section \@ref{sec:Y-S}.]
 
 ### Issues for all types of study {-} 
 
@@ -411,11 +410,12 @@ the syndrome.
 | Fatal heart attacks | 18 | 5
 | Non-fatal heart attacks | 171 | 99
 
-Later work: Benefits are limited to those with previous symptoms  
-2009 study: Major bleeding episodes, requiring admission to hospital:  
-were 20 (1.2%) in the placebo group; 34 (2%) in aspirin group^[<https://www.theguardian.com/society/2009/aug/31/aspirin-british-heart-foundation>]
+Later work indicated that overall benefits are limited to those 
+with previous symptoms.  A 2009 study found major bleeding episodes, 
+requiring admission to hospital, were 20 (1.2%) in the placebo group,
+and 34 (2%) in the aspirin group^[<https://www.theguardian.com/society/2009/aug/31/aspirin-british-heart-foundation>]  It is important that all adverse effects are documented.
 
-For a summary of current evidence, see <http://mayocl.in/1cBM0ze>
+For a summary of current evidence, see @barbarawi2019aspirin.
 
 ## The effectiveness of surgery
 

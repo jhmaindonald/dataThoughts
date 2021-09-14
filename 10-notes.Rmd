@@ -112,3 +112,33 @@ stats <- round(rbind(ran[,ord[1:8]],d[ord[1:8]]),2)
 x <- knitr::kable(stats)
 ```
 
+## 2. $^*$What does a $p$-value tell the experimenter? {#pval .unnumbered}
+
+What follows introduces technicalities that have been avoided in the
+preceding chapters. 
+
+Consider an experiment that compares a treatment with a control.
+A $p$-value measures the probability that a value as small as
+that observed, or smaller, would occur by chance if there really
+was no difference in effect between treatment and control.
+(The assumption of no difference is termed the NULL hypothesis.)
+The probability of 0.05, or 1 in 20 applies in the case where
+a threshold of 0.05 has been set in advance --- all values
+under that threshold are lumped together without distinction.
+
+Issues for understanding what a $p$-values tells you are:
+
+* It does not tell you what happens if there is a difference.
+    + In particular, it does not tell you the probability that 
+    there really is a difference.
+* Finding $p \leq 0.05$ is all very well.  What one really 
+needs to know is that there is an alternative that is
+substantially more likely.
+* $p = 0.05$, or close to 0.05, is at the upper end of the range
+of $p$-values that occur with a probability of 0.05.  Treating
+$p = 0.05$ as an event that occurs with probability 0.05 under
+the NULL greatly exaggerates the evidence that it provides 
+against the NULL.
+    + In fact, under the NULL, all values between 0 and 1 are
+    equally likely!
+

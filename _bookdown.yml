@@ -2,7 +2,7 @@ book_filename: "dataSense-book"
 language:
   ui:
     chapter_name: "Chapter "
-new_session: yes
+new_session: true
 rmd_files: ["index.Rmd","01-judgment.Rmd","02-graphs.Rmd","03-select.Rmd",
 "04-medical.Rmd","05-notable.Rmd","06-weighting.Rmd","07-regress.Rmd",
 "08-observational.Rmd","09-science.Rmd","10-notes.Rmd","11-toRead.Rmd",

@@ -25,8 +25,24 @@ what is in question is
 * or the results of an experiment 
    + e.g., showing that plants grow better when compost is 
    added to a nutrient deficient soil
-* or a theory 
-    + e.g., Newton's law of gravity
+* or a theory, such as Newton's law of gravity or laws of motion.
+    + A theory is a model that is designed to describe natural
+    phenomena.  A theory in conceptual, relying on entities
+    such as electrons and waves that lie outside of normal
+  human experience, where a law is a mathematical description 
+  of observable phenomena.
+* Large parts of science, and scientific applications, rely on 
+models that in turn build on scientific theories/laws.
+    + Epidemiological models have been crucial to informing
+    New Zealand's response to the Covid-19 pandemic.
+* Climate models are an example of very complex models. These
+rely on
+    + The basic laws of physics, fluid motion, and chemistry
+    + Knowledge of the way that atmosphere, oceans, land 
+    surface, ice, and solar radiation interact to change 
+    climate.
+    + Computer simulation to build in the effects of areas
+    of uncertainty.
     
 Measurements and experimental results must be replicable 
 --- i.e., another experimenter must be able to repeat the 
@@ -37,14 +53,14 @@ In areas where results depend on the sharing of data and
 skills between different scientists and groups of scientists,
 the critique that authors provide to the work of their fellow
 authors will commonly ensure that what is submitted for peer
-review is soundly based.  
+review is soundly based.
 
 For experimental studies that are designed to stand on 
-their own, the past decade has seen the
-emergence of worrying evidence that a large amount of
-published work is, when put to the test, not replicable.
-Current scientific publication processes do not, in general, 
-handle experimentally based claims well.  
+their own, the past decade has seen the emergence of 
+concerning evidence that a large amount of published 
+work is, when put to the test, not replicable. The 
+steps needed to implement change are well understood.
+The slow pace of reform is disappointing.
 
 More generally, uncritical and faulty statistical analyses, 
 such as have been documented earlier in this book, are a 
@@ -99,7 +115,12 @@ and to post-publication critique.
 Publication does not of itself validate scientific claims,
 Rather, as stated in @popper_1963
 
-> Observations or experiments can be accepted as supporting a theory (or a hypothesis, or a scientific assertion) only if these observations or experiments are severe tests of the theory – or in other words, only if they result from serious attempts to refute the theory. 
+> Observations or experiments can be accepted as supporting a theory (or a hypothesis, or a scientific assertion) only if these observations or experiments are severe tests of the theory – or in other words, only if they result from serious attempts to refute the theory.
+
+The demand that experimental results are shown to be replicable is
+central to effective scientific processes. As @fisher_1937 wrote 
+
+> No isolated experiment, however significant in itself, can suffice for the experimental demonstration of any natural phenomenon . . . In order to assert that a natural phenomenon is experimentally demonstrable we need, not an isolated record, but a reliable method of procedure.
 
 ### Sources of failure {-}
 
@@ -109,8 +130,8 @@ large numbers of papers that were retracted on account of
 fraud.  How were they able to get away with publishing so
 many papers, usually with fraudulent data, before the 
 first identification of fraud that led to a checking of all
-their work?  @ritchie2020science (pp67-68) cites, as an 
-extreme example, the case of a Japanese anesthesiologist 
+their work?  Ritchie [-@ritchie2020science, pp.67-68)] cites, 
+as an extreme example, the case of a Japanese anesthesiologist
 with 183 retracted papers.
 
 More common are mistakes in data collection, unacknowledged 
@@ -125,12 +146,11 @@ there appears to be an effect of interest, choice of the
 outcome variable and/or analysis approach that most nearly
 gives the result that is wanted, and so on. In analysis of
 data from experiments where two treatments are compared,
-the common use of the arbitrary $p <= 0.05$ criterion 
-(see the next subsection) as a cutoff for deciding what 
-will be published has the inevitable effect of selecting out, 
-in contexts where there was no difference of consequence
-one in twenty of such results for publication.  This adds
-to other selection effects.
+the common use of the arbitrary $p \leq 0.05$ 
+criterion as a cutoff for deciding what will be published
+has the inevitable effect of selecting out for publication
+one in twenty (or more) results where there was no difference 
+of consequence.^[Note 2 `r if (knitr:::is_latex_output()) ' (p. \\pageref{pval})'` in the notes at the end of the book makes relatively technical comments on common misunderstandings that affect the use of $p$-values.]
 
 ## The case of Eysenck and his collaborators
 
@@ -155,7 +175,7 @@ personality and cardiovascular disease.^[See further @CraigEtAl.]
 In a book published two years before his death, Eysenck made
 comments that provide an intriguing insight into his thinking.
 
-> Scientists have extremely high motivation to succeed in discovering the truth; their finest and most original discoveries are rejected by the vulgar mediocrities filling the ranks of orthodoxy. .. . . The figures don’t quite fit, so why not fudge them a little bit to confound the infidels and unbelievers? Usually the genius is right, of course, and we may in retrospect excuse his childish games, but clearly this cannot be regarded as a licence for non-geniuses to foist their absurd beliefs on us. [-@eysenck1995genius, p.197]
+> Scientists have extremely high motivation to succeed in discovering the truth; their finest and most original discoveries are rejected by the vulgar mediocrities filling the ranks of orthodoxy. .. . . The figures don’t quite fit, so why not fudge them a little bit to confound the infidels and unbelievers? Usually the genius is right, of course, and we may in retrospect excuse his childish games, but clearly this cannot be regarded as a licence for non-geniuses to foist their absurd beliefs on us. [@eysenck1995genius, p.197]
 
 Eysenck was alluding to claims that Newton had manipulated data, and 
 suggesting that it was excusable for other "geniuses" to do the same.
@@ -188,9 +208,9 @@ the way that large parts of the research and publication process
 currently work.  The public good would be much better served
 by a process that encourages researchers to persist until it
 has been demonstrated that researchers have a model that meets
-standards such as are set out in -@roberts2021common.  One may
-hope that one result of this review will be to shift the research
-and publication focus accordingly.
+standards such as are set out in Roberts [-@roberts2021common].  
+One may hope that one result of this review will be to shift 
+the research and publication focus accordingly.
 
 ## Laboratory studies --- what do we find? {#sec:lab}
 
@@ -244,7 +264,7 @@ mixture) repeated?
 Begley comments
 
 > What is also remarkable is that many of these flaws were 
-identified and expunged from clinical stud- ies decades ago. 
+identified and expunged from clinical studies decades ago. 
 In such studies it is now the gold standard to blind investigators, 
 include concurrent controls, rigorously apply statistical tests 
 and analyse all patients --- we cannot exclude patients because 
@@ -257,7 +277,7 @@ addressing these issues that many other communities, with
 The Center for Open Science (COS) taking a strong lead in 
 studies designed to document the extent of the issues.
 
-Other Center for Open Science (COS) Projects have been:
+Other Center for Open Science (COS) Projects have included
 
 * The Reproducibility: Psychology project.  This replicated
 100 studies, from 100 journals in cognitive and social
@@ -272,19 +292,30 @@ psychology.
     + @r7_klein_others_2014
 * Cancer Studies --- 50 "most impactful" from 2010-2012
     + @r5_kaiser_2015
+* Details from other relevant studies are given in the
+recent book @ritchie2020science "Science fictions: Exposing 
+fraud, bias, negligence and hype in science."
+    
+In the areas of science to which these studies relate,
+it is then clear that published claims that have not
+been replicated are as likely as not to be false. As 
+@r2_begley_2013 notes, however, there are clues that
+can allow a discerning to make a judgement on the
+credibility that should be given to claims that are
+made.
 
-Figure \@ref(fig:effect-size) compares the effect size for
-the replicate with the effect  size for the original, for
-the 54 social psychology studies included in the
-Reproducibility: Psychology project.  The journals that
-are represented are Psychological Science (PS), 
-and Journal of Personality and Social Psychology (JPSP).
+Figure \@ref(fig:effect-size) compares the effect size
+for the replicate with the effect  size for the original, 
+for the 54 social psychology studies included in the
+Reproducibility: Psychology project.
 
 ```{r cap10, echo=FALSE}
-cap10 <- "Psychology reproducibility project --- Effect sizes are
+cap10 <- "Psychology reproducibility project. Effect sizes are
 compared between the replication and the initial study, for the 
 54 social psychology studies included in the Reproducibility:
-Psychology project"
+Psychology project. The journals that are represented are 
+Psychological Science (PS), and Journal of Personality and 
+Social Psychology (JPSP)"
 ```
 
 ```{r effect-size, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5.5, fig.height=5.5, fig.pos='H', out.width="60%", fig.cap=cap10}
@@ -332,13 +363,6 @@ original.
 
 ### Other replication studies {-}
 
-Details from other relevant studies are given in the
-recent book @ritchie2020science "Science fictions: Exposing 
-fraud, bias, negligence and hype in science."
-Problems arise, primarily, in areas where relatively small 
-groups of scientists, with similar training and skills, work
-independently.  
-
 The critiques have limited relevance to areas where the nature 
 of the work forces collaboration between scientists with 
 diverse skills, widely across different research groups.
@@ -368,14 +392,6 @@ at least better than for claims made by those who promote
 "alternative medicines", nowadays often on the internet, 
 offering "evidence" that is anecdotal. 
 
-In the areas of science to which these studies relate,
-it is then clear that published claims that have not
-been replicated are as likely as not to be false. As 
-@r2_begley_2013 notes, however, there are clues that
-can allow a discerning to make a judgement on the
-credibility that should be given to claims that are
-made.
-
 ## Truths that special interests find inconvenient
 
 The evidence that human induced greenhouse gas emissions 
@@ -387,54 +403,57 @@ unusually high standards.
 
 ### Styles of argument {-}
 
-The tobacco industry has made extensive use of "the science is not settled" 
-arguments in its efforts to dismiss the evidence that smoking causes lung cancer.
-The same PR firms, and the same researchers used to support these efforts
-were later used in the attempt to undermine climate science.^[https://www.scientificamerican.com/article/tobacco-and-oil-industries-used-same-researchers-to-sway-public1/>]  
-The goal has been to raise doubt, create confusion, and undermine the 
-science.
+The tobacco industry has made extensive use of "the science is
+not settled" arguments in its efforts to dismiss the evidence
+that smoking causes lung cancer.  The same PR firms, and the same
+researchers used to support these efforts were later used in the
+attempt to undermine climate
+science.^[https://www.scientificamerican.com/article/tobacco-and-oil-industries-used-same-researchers-to-sway-public1/>]
+The goal has been to raise doubt, create confusion, and undermine
+the science.
 
-In spite of the support that has been available from the fossil fuel
-industry for research that is critical of mainstream climate science
-research, no substantially different alternative account has emerged, 
-and no climate change models have emerged that give results that are 
-widely different from the consensus. An interesting case is that of
-Richard Muller’s Berkeley Earth Surface Temperature Study (BEST),
-with a large part of the funding coming from the right-wing billionaire 
-Charles Koch,  known for funding climate skeptic groups such as the 
-Heartland Institute.
+In spite of the support that has been available from the fossil
+fuel industry for research that is critical of mainstream climate
+science research, no substantially different alternative account
+has emerged, and no climate change models have emerged that give
+results that differ widely from the consensus. Richard Muller’s 
+Berkeley Earth Surface Temperature Study (BEST) is interesting
+because Richard Muller had been known for his climate skepticism, 
+in part based on legitimate scientific concerns. A large part of 
+the funding came from the right-wing billionaire Charles Koch,
+known for funding climate skeptic groups such as the Heartland
+Institute.
 
-Richard Muller had been known for his skepticism, in part supported
-by legitimate scientific concerns.  He made headlines when he announced 
-his acceptance of what climate scientists had already been saying 
-for more than 15 years previous. 
+Muller made headlines when he announced his acceptance of what 
+climate scientists had been saying for more than 15 years previous: 
+
 > After years of denying global warming, physicist Richard Muller now says "global warming is real and humans are almost entirely the cause."^[https://courses.seas.harvard.edu/climate/eli/Courses/global-change-debates/Sources/Hockeystick-global-temperature/more/Richard-Muller/Muller-is-a-believer-Hallelujah.pdf>]
 
-The broad sweep of work in climate science is, because it has survived
-informed critique, and because of the diversity of contributing skills
-and data, unusually secure.  Details, especially as they affect what may 
-happen in individual countries, are subject to continual revision.
+The broad sweep of work in climate science is, because it has
+survived informed critique, and because of the diversity of
+contributing skills and data, unusually secure.  Details,
+especially as they affect what may happen in individual
+countries, are subject to continual revision.
 
-A particular issue is the role of the greenhouse gases,  and of their 
-interactions with water vapour.  Much larger than their direct effect
-is the contribution that comes from their warming of the air in which 
+A particular issue is the role of the greenhouse gases,  and of 
+their interactions with water vapour.  Their direct effect is 
+greatly magnified by the consequent warming of the air in which 
 water vapour is present, allowing it to retain more vapour and trap 
 more heat).  A standard denialist trump card has been to claim the 
-authority of scientists who have standing in their own areas for the 
-claim that the contribution of greenhouse gases is inconsequential 
+authority of scientists who have standing in their own areas for 
+the claim that the contribution of greenhouse gases is small 
 relative to that of water 
 vapour.^[See <https://west.web.unc.edu/climate-change/> and
 <>]
 The scientists involved are among a number who have fossil fuel 
-industry links, and have been willing to allow themselves to be 
-used as advocates for an industry that sees action on climate 
-change as a threat.^[<https://insideclimatenews.org/news/12032015/leaked-email-reveals-whos-who-list-climate-denialists-merchants-of-doubt-oreskes-fred-singer-marc-morano-steve-milloy>]
+industry links, and have allowed themselves to be used as 
+advocates for an industry that sees action on climate change 
+as a threat.^[<https://insideclimatenews.org/news/12032015/leaked-email-reveals-whos-who-list-climate-denialists-merchants-of-doubt-oreskes-fred-singer-marc-morano-steve-milloy>]
 
 ### Big Pharma --- inconvenient data {-}
 
 Between 1999 and 2019, opioid deaths in the United States increased
-by a factor of six, to almost 50,000.  
-
+by a factor of six, to almost 50,000.
 A large contributor has been the increased use of prescription
 opioids. Purdue Pharma stands out for its aggressive marketing of 
 oxycodone, sold under the brand name OxyContin, arguing that 
@@ -497,7 +516,10 @@ Pfizer, Astrazena and Moderna vaccines have had, in
 addition to their testing in clinical trials,
 extraordinary levels of testing in clinical practice,
 with risks that are small relative to the small risk
-that we take ever time we cross a busy road.
+that we take ever time we cross a busy road.  The
+trials, and the use of these vaccines in clinical
+practice, have been unusual in the levels of scrutiny
+that they have attracted from experts worldwide.
  
 ## Tricks used to dismiss established results
 
@@ -509,26 +531,28 @@ Associate Professor Hassan Vally from La Trobe University,
 The powers that be are trying to deceive us."  Ask who is
 making real attempt to deceive --- commercial interest groups,
 peddlers of quack treatments, influence peddlers, . . .
-2. ‘I’m not a scientist, but…’
+2. ‘I’m not a scientist, but…’  
 Meaning perhaps: "I’m not a scientist, but that does not stop me
 making an authoritative pronouncement that flies in the face of
-established results."
-Or: “I know what the science says, but I’m keeping an open mind”.  
-Politicians are among the most frequent offenders.
+established results." Or: “I know what the science says, but 
+I’m keeping an open mind”. Politicians are among the most 
+frequent offenders.
 3. Reference to ‘the science not being settled’  
-There are of course times when the science is not settled, and when this is 
-the case, one can expect scientists to openly argue different points of view
-based on the evidence available.  Or, what has come to be accepted wisdom
-may turn out to be wrong or in need of substantial revision.  But challenges
-to the accepted wisdom have to be carefully argued, and themselves survive
-informed critique.
+There are of course times when the science is not settled, 
+and when this is  the case, one can expect scientists to 
+openly argue different points of view based on the evidence 
+available.  Or, what has come to be accepted wisdom
+may turn out to be wrong or in need of substantial 
+revision.  But challenges to the accepted wisdom have to be 
+carefully argued, and themselves survive informed critique.
 4. Overly simplistic explanations  
-Oversimplifications and generalizations are central to many anti-science 
-arguments.  Science is often messy, complex and full of nuance. The truth 
-can be harder to explain, and can sometimes sound less plausible, than a 
-simple but incorrect explanation.  Use of simplistic statistical arguments
-is common, e.g., fit a line to the cherry-picked years 1998-2008, ignoring
-year to year correlation as well as influences that operate over longer time 
+Oversimplifications and generalizations are central to many
+anti-science arguments.  Science is often messy, complex and full
+of nuance. The truth can be harder to explain, and can sometimes
+sound less plausible, than a simple but incorrect explanation.
+Use of simplistic statistical arguments is common, e.g., fit a
+line to the cherry-picked years 1998-2008, ignoring year to year
+correlation as well as influences that operate over longer time
 periods.
 5. Cherry-picking  
 One is not entitled to choose one study over another just because it aligns

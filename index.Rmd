@@ -31,38 +31,56 @@ knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.
 The questions that data and data analysis may be able to answer can 
 often be stated simply. This may encourage the layperson to believe 
 that the answers are similarly simple. Often, they are not. Be 
-prepared for unexpected subtleties. Data have a context.  That context 
-has to be understood and to feed into the way that the data are used,
-if meaningful conclusions are to be drawn.  This booklets aims to
-identify some of the issues that arise in making sense of data, 
-and to document common misunderstandings.
+prepared for unexpected subtleties. Data have a context.  That 
+context has to be understood and to feed into the way that the data 
+are used, if meaningful conclusions are to be drawn.  This book 
+aims to identify some of the issues that arise in making sense of 
+data, and to document common misunderstandings.
 
-Taking our cue from Kahneman's book "Thinking Fast and Slow"^[@kahneman_2013]
+Humans are programmed, by inheritance and by conditioning, to
+respond quickly to signs of immediate danger.  Too often, we
+respond quickly and without careful thought in situations that
+call for a carefully reasoned response.  Or, we may not have
+the skills needed for a carefully reasoned judgment.  Taking
+our cue from Kahneman's book "Thinking Fast and Slow"^[@kahneman_2013]
 it is helpful to think about the psychology involved when 
 humans make judgments into two types, which Kahneman calls System 1 
 (jumping quickly to a conclusion) and System 2 (pondering). 
 These are a useful starting point in identifying the common traps
 to which humans are prone.  Those who know and understand the traps
-will, hopefully, be better placed to avoid them.
+are better placed to avoid them.
 
-Scientific processes work best when claims made by one individual
-or group attract widespread interest and critique from a wider group 
-who understand the work well enough to provide informed and incisive 
-criticism. In areas where the nature of the work requires
-cooperation between scientists with a wide range of skills, and
-where data is shared, such critique happens before papers are 
-submitted for refereeing, with the refereeing process providing
-supplementary checks.
+This present booklet avoids detailed discussion of methodology,
+instead focusing on what Kahneman calls "educating gossip", with
+examples taken from the media and from the scientific literature.
+Examples are chosen for the insight that they may provide, both
+those that show effective critical processes at work, and those
+that do not.
 
-Where scientists work as individuals or in small groups with
-limited outside checks, the refereeing processes that have been
-common to date are limited in what they can do. Concerns about 
-reproducibility, especially in wet laboratory biology and in psychology, 
-have in the past decade attracted extensive attention in the pages of
-Nature, Science, the Economist, psychology journals, and elsewhere.
-Publication needs to become a staged process, that moves from
-"this is worth a second look" to "has been independently replicated"
-to "established result".
+When they function well, scientific processes work to avoid the
+traps that will be discussed.  They fail often enough that
+examples of failure are not too hard to find.  In some cases,
+the critique that matters happens after papers are published.
+
+In areas where the nature of the work requires cooperation between 
+scientists with a wide range of skills, and where data is shared, 
+those involved in the research provide a check on each other.
+Papers may be sent for comment to other researchers, or posted on 
+the net for comment, prior to formal submission for publication.
+This allows informed and incisive criticism, with the refereeing 
+process providing supplementary checks.
+
+Cases where scientific processes have clearly failed are
+commonest where scientists work as individuals or in small groups
+with limited outside checks, the refereeing processes that have
+been common to date are limited in what they can do. Concerns
+about reproducibility, especially in wet laboratory biology and
+in psychology, have in the past decade attracted extensive
+attention in the pages of Nature, Science, the Economist,
+psychology journals, and elsewhere.  Among other needed changes,
+publication needs to become a staged process that moves from 
+"this is worth a second look" to "has been independently 
+replicated" to "established result".
 
 This booklet has as its intended audience, as well as practising 
 researchers, informed laypeople with an interest in science and 
@@ -138,4 +156,6 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'MASS', 'mgcv', 
   'GDAdata','corrplot','latticeExtra','DAAG','xtable'
 ), 'packages.bib')
+if(!file.exists("book-index.ind"))
+  system("cp '_book/work/book-index.ind' 'book-index.ind'")
 ```

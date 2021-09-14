@@ -21,18 +21,16 @@ processes involved.
 of explanatory variables, and an outcome variable.
 * The aim is to find a model that will make predictions for new data.
 * Note the predictive/descriptive distinction.  
-    + Note the "in sample/out of sample" distinction.
+* Note the "in sample/out of sample" distinction.
     + But is the "new" a random sample of the old population?  
     (Is the 'target' a random sample of the 'source'?)  
-
-There are insightful comments at:  
-<https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/>
 
 ## We have a prediction. What are the drivers?
 
 The issues that arise for observational studies do not in general have 
 clear and easy answers.  The discussion on 
-[Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/)^[https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/] canvasses some of the more important issues. There are no simple answers!
+[Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/)^[https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/] canvasses some of the more important issues. There are no simple
+answers!^[See also <https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/>]
 
 Where there are several explanatory variables, and the aim is
 to determine the manner in which they may be driving predictions,
@@ -65,23 +63,27 @@ that finally led to the conclusion that smoking causes lung cancer.
 <!-- Pregnant mum's obesity linked to heightened bowel cancer risk in her adult offspring -->
 <!-- https://medicalxpress.com/news/2021-08-pregnant-mum-obesity-linked-heightened.html -->
 
-## Does maternal obesity increase the risk of colorectal cancer?
+## Maternal obesity, and risk of colorectal cancer
 
 Results from a study reported in @Murphygutjnl-2021-325001 suggest
 that maternal obesity (≥30 kg/m2) did increase the risk of 
 colorectal cancer (CRC), by a factor of 2.51.^[95% 
 error bounds, as they are termed, run from 1.05 to 6.02,
 so that the 2.51 risk factor is not very clearly distinguished 
-from 1.]  The authors are careful to acknowledge that, as an
-observational study, it could not establish cause, and that
-factors such as diet and microbiome might explain the
-association.  Nonetheless, they argue that "in utero events 
-are important risk factors for CRC and may contribute to 
-increasing incidence rates in younger adults."
+from 1.]  The authors argue that "in utero events are important 
+risk factors for CRC and may contribute to increasing incidence 
+rates in younger adults".  They are at the same time careful to 
+acknowledge that, as an observational study, it could not 
+establish cause, and that factors such as diet and microbiome 
+might explain the association.  The eating habits of mothers 
+must surely have a large effect on what children eat, both when
+young and later in life.  To what extent might this explain
+the association.
 
-Although a large study (18,751 live births), the total 
-number of offspring diagnosed with colorectal cancer was 68.
-
+Obesity is a risk factor for a variety of diseases. Is it 
+obesity that is directly the risk?  Or is it dietary and
+other factors that both increase the risk of obesity and
+of associated diseases?
 
 ## Time per unit distance for hillraces
 
@@ -110,22 +112,6 @@ constSl <- offy - bsl[2]*mean(log(nihr$Dist))
 How does time per unit distance (`timePerKm`) vary with distance. 
 We will fit two equations, both with $y$ = `timePerKm`.
 
-Figure \@ref(fig:resid)A gives a visual represention of the
-way that `timePerKm` depends on `log(Dist)`, when `log(Climb)`
-is held at its mean value.  Use of `log(Dist)` rather than 
-`Dist` means that we are looking at the effect of relative, 
-rather than absolute  changes.  Thus, distance on the $x$-axis 
-from 2 to 4 (km) is the same as the distance from 4 to 8, or
-from 8 to 16, or from 16 to 32.  The equation that is plotted
-is  
-`timePerKm` = `r round(constCl,2)` `r round(bcl[2],2)` $\times$ `log(Dist)`  
-
-Figure \@ref(fig:resid)B gives a visual representation of the
-way that `timePerKm` depends on `log(Dist)`, when `log(Climb/Dist)`
-is held at its mean value. The equation that is plotted
-is  
-`timePerKm` = `r round(constSl,2)` + `r round(bsl[2],2)` $\times$ `log(Climb/Dist)`   
-
 ```{r cap1}
 cap1 <- "Variation in time per unit distance with distance.  Panel A
 shows the pattern of change when `log(Climb)` is held constant at its 
@@ -152,10 +138,27 @@ mtext("B: `Climb/Dist` held constant", side=3, line=0.5, at=1, adj=0)
 lines(log(nihr$Dist), tms.slope[,1]+offy, col='red')
 par(opar)
 ```
+
+Figure \@ref(fig:resid)A shows the dependence of
+`timePerKm` depends on `log(Dist)`, when `log(Climb)`
+is held at its mean value.  Use of `log(Dist)` rather than 
+`Dist` means that distance on the $x$-axis from 2 to 4 (km) 
+is the same as from 4 to 8, or from 8 to 16, or from 16 to 32,
+i.e., equal distances correspond to equal multiplicative
+changes.  The equation that is plotted is  
+
+> `timePerKm` = `r round(constCl,2)` `r round(bcl[2],2)` $\times$ `log(Dist)`  
+
+Figure \@ref(fig:resid)B shows the dependence of
+`timePerKm` depends on `log(Dist)`, when `log(Climb/Dist)`
+is held at its mean value. The equation that is plotted is  
+
+> `timePerKm` = `r round(constSl,2)` + `r round(bsl[2],2)` $\times$ `log(Dist)`   
+
 In Panel A, time per kilometer decreases quite sharply as distance
 increases.  This happens because the ratio of `Climb` to `Dist` 
 decreases if `Climb` is held constant while `Dist` increases, 
-i.e., longer distance races involve gentler ascents and  descents.  
+i.e., longer distance races involve gentler ascents and  descents.
 
 Panel B shows what happens when `Climb/Dist` is held 
 constant, i.e., we are comparing races with the same ratio of 
@@ -167,15 +170,47 @@ coefficients may differ greatly depending on what adjustments
 are made for other variables.  This is important for attaching
 meaning to a coefficient.
 
-## By air, or by water --- 1849 cholera deaths
+## Cholera deaths in London --- 1832 to 1855
+
+6,500 died from cholera in London in 1832. Medical opinion
+blamed "miasma" or noxious air, associated with the stink
+from rotting garbage, faeces, and pollution in the Thames.
+Poor areas had higher rates of cholera, thought to be
+a result of worse smell that was a result of crowding and
+poorer sanitation.  More directly to the point, people 
+were older, houses were poorly heated, and the water
+supply was more likely to be contaminated. Human excreta
+went into cesspits, with night-soil periodically taken 
+away.^[See _Cholera epidemics in Victorian London_\newline <https://www.thegazette.co.uk/all-notices/content/100519>]
+
+In 1842, [Edwin Chadwick, in The Sanitary Conditions of the Labouring Population (1842)](https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london)^[<https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london>]
+showed a direct link between poor living conditions, 
+disease and life expectancy.  Like others who accepted
+the "miasma" theory of disease, Chadwick did not 
+understand that cholera, along with some other major
+diseases, were water-borne.^[Covid-19 is of course
+spread through the air, albeit there is no associated
+smell.]
+
+In 1848 the Nuisances Removal and Diseases Prevention 
+Act^[Gazette issue 20637] was passed with the aim of 
+preventing transmission of cholera. The suggestion was to
+effectively dump the contents of cesspools and raw 
+sewage pits into the Thames, which was London's main source of drinking water. This only served to exacerbate the problem.
+The 1848-49 epidemic followed shortly after the cesspits 
+were banned.  @hassall1850memoir, in a careful microbiological study, commented that:
+
+> ... a portion of the inhabitants are made to consume
+ ... a portion of their own excrement, and ... to pay
+for the privilege.
+
+### By air, or by water --- the 1849 epidemic {-}
 
 Farr, who worked as statistician in the UK Registrar General's 
 office, collected data on deaths from cholera in London in the 
-1849 epidemic.  The prevailing theory at the time was that 
-miasma, or bad air created from rotting matter, was responsible 
-for transmitting diseases.
-Farr classified districts into three groups thus,  according
-to the source of the water for most of the householders:  
+1849 epidemic. Farr classified districts into three groups thus,  
+according to the source of the water for most of the householders:  
+
 1) Thames between Battersea Bridge and Waterloo Bridge, coded 
 as `Battersea`;  
 2) New River/Rivers Lea and Ravensbourne (sources away from
@@ -184,48 +219,51 @@ the Thames), coded as `NewRiver`;
 Thames than the first group, where the water was less polluted 
 by sewage, coded as `Kew`.
 
-Figure \@ref(fig:Farr) summarizes results from a regression analysis
-that used Farr's data 
+Figure \@ref(fig:Farr) summarizes results from a regression
+analysis that used Farr's data. None of the terms stands out 
+as substantially more important than any other. Higher rates 
+for the poor, where crowded conditions would commonly make 
+it difficult to maintain hygiene, were to be expected.
+
 
 ```{r Farr1849, echo=FALSE}
 capFarr <- "Each panel shows, in turn, the estimated contribution
-of a term in the model relative to the mean contribution from other 
-model terms. Changes in deaths are on a `log` scale, so that an 
-increase by one unit multiplies the odds of death by close to 2.7, 
-around an overall mean of just over six per 1000.
+of a term in the model relative to the mean contribution from other model terms. Changes in deaths are on a `log` scale, so 
+that an increase by one unit multiplies the odds of death by 
+close to 2.7, around an overall mean of just over six per 1000.
 "
 ```
 
-```{r Farr, out.width='100%', fig.width=7.5, fig.height=2.5, fig.show='hold', echo=F, fig.cap=capFarr}
+```{r Farr, out.width='100%', fig.width=7.0, fig.height=2.4, fig.show='hold', echo=F, fig.cap=capFarr}
 opar <- par(mgp=c(2.1,.4,0), mfrow=c(1,3))
 Cholera <- HistData::Cholera
 fitP2.glm <- glm(cholera_deaths ~ offset(log(popn)) + water + 
-                elevation + poly(poor_rate,2) +I(elevation==350),
+                log(elevation+3) + poly(poor_rate,2) +I(elevation==350),
                 data=Cholera, family=quasipoisson)
 
 Cholera[["water"]] <- factor(Cholera[["water"]], labels=c("Battersea",
                              "NewRiver","Kew"))
-termplot(fitP2.glm, partial=T, se=TRUE, pch =1, ylim='free', terms=1:3,
-         ylabs=rep("Partial residual",3))
+termplot(fitP2.glm, partial=T, se=TRUE, pch =1, 
+         ylabs=rep("Partial residual",3), terms='water')
+axis(1, at=2, labels="NewRiver", lwd=0, line=0.75)
+termplot(fitP2.glm, partial=T, se=TRUE, pch =1, 
+         ylabs=rep("Partial residual",3), terms='log(elevation + 3)')
+termplot(fitP2.glm, partial=T, se=TRUE, pch =1, 
+         ylabs=rep("Partial residual",3), terms='poly(poor_rate, 2)')
 par(opar)
 ```
-
-None of the terms stands out as substantially more important 
-than any other. Higher rates for the poor, where crowded 
-conditions would commonly make it difficult to maintain hygiene, 
-were to be expected.
 
 @snow1849mode argued that those living
 close to the Thames, and especially in the South, were
 more likely to be getting their water from or via sources
-that were likely to be contaminated with human excreta. The
+that were contaminated with human excreta. The
 piping of water up to higher ground gave contaminants
 more time to settle, with less chance of exposure to human
 excreta.  He gave examples that he had observed directly, 
 where the likely means of transmission of the infection 
-appeared to be via a water source, or from poor hygiene.
+appeared to be a water source, or poor hygiene.
 
-Farr gave Snow's arguments some credibility, but discussed
+Farr gave Snow's arguments some credence, but discussed
 ways that the air might be the main source of transmission
 of an organism responsible for the disease, which multiplied
 in a process akin to fermentation that was presumed to take
@@ -243,44 +281,20 @@ in retrospect to clinch the issue. The perspective brought by
 germ theory would come later, with the work of Pasteur in the
 late 1850s and Koch in the 1880s.
 
-## John Snow documents a natural experiment
-
-Events that led up to the 1849 cholera deaths and that followed,
-were^[See _Cholera epidemics in Victorian London_\newline <https://www.thegazette.co.uk/all-notices/content/100519>]
-
-* 6,500 died from cholera in London in 1832
-     + Medical opinion blamed "miasma", or noxious air  
-     (Stink from rotting garbage, faeces, & pollution in Thames)
-     + Poor areas had more cholera -- worst smell, sanitation  
-     (But, also, people were older, houses poorly heated, ...)
-* Cesspits -- night-soil periodically taken away
-* 1842:[Edwin Chadwick, in The Sanitary Conditions of the Labouring Population (1842)](https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london)^[<https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london>]
-showed a direct link between poor living conditions, disease and life expectancy
-     + Like others who accepted the "miasma" theory of disease, Chadwick did 
-      not understand that cholera, along with some other major diseases, were water-borne.
-* 1848: the Nuisances Removal and Diseases Prevention Act (Gazette issue 20637) was passed with the aim of stopping the 1848-9 epidemic.  The suggestion was to
-effectively dump the contents of cesspools and raw 
-sewage pits into the Thames, which was London's main source of drinking water. This only served to exacerbate the problem.
-* 1848-49 epidemic followed shortly after the cesspits were banned
-     + Both water companies --- Lambeth, and Southwark and Vauxhall, 
-     were taking water from the same polluted source.
-     + Death rates were high for both companies
-* 1850: Arthur Hassall's careful microbiological study:
-     + "... a portion of the inhabitants are made to consume  
-     ... a portion of their own excrement, and ... to pay  
-     for the privilege" [@hassall1850memoir]
+\enlargethispage{11pt}
 
 ### The 1854 epidemic --- a natural experiment {-}
 
-The 1852 act required water supply companies to move water intake 
-upriver by 1855.  By the time of the 1854 epidemic, Lambeth had 
-moved the intake 22 miles upriver, where the water was not
-contaminated by London sewage.  The Southwark and Vauxhall intake 
-was unchanged until 1855.  Data on the distribution of cholera in 
-the 1854 epidemic then allowed Snow to test the claims made in his 
-1849 study.
-
-### Lambeth versus Southwark & Vauxhall {-}
+Both water companies --- Lambeth, and Southwark and Vauxhall, 
+had been taking water from the same polluted source, in both
+cases with high death rates.  An 1852 act required water 
+supply companies to move water intake upriver by 1855.  By 
+the time of the 1854 epidemic, Lambeth had moved the intake 
+22 miles upriver, where the water was not
+contaminated by London sewage.  The Southwark and Vauxhall 
+intake was unchanged until 1855.  Data on the distribution of
+cholera in the 1854 epidemic then allowed Snow to test the 
+claims made in his 1849 study.
 
 ```{r DeathTable, results="asis"}
 tab <- cbind("#Houses"=c(40046,26107,256423),
@@ -290,13 +304,15 @@ dimnames(tab)[[1]] <- c("Southwark & Vauxhall","Lambeth","Rest of London")
 print(xtable::xtable(tab, auto=TRUE),type='latex', comment=FALSE, floating=FALSE, scalebox=1.12)
 ```
 
-"The experiment, too, was on the grandest scale. No fewer than 300,000 people ..., from gentlefolks down to the very poor, were divided into two groups without their choice, and, in most cases, without their knowledge; one group being supplied with water containing the sewage of London, and, amongst it, whatever might have come from the cholera patients, the other group having water quite free from such impurity."
+> The experiment, too, was on the grandest scale. No fewer than
+300,000 people ..., from gentlefolks down to the very poor, were
+divided into two groups without their choice, and, in most cases,
+without their knowledge; one group being supplied with water
+containing the sewage of London, and, amongst it, whatever might
+have come from the cholera patients, the other group having water
+quite free from such impurity. [@snow1855mode]
 
 ### Use water from the brewery, and stay healthy! {-}
-
-Snow noted that “Within 250 yards of the spot where Cambridge Street joins Broad 
-Street there were upwards of 500 fatal attacks of cholera in 10 days…”.
-By contrast, none of the employees of a local Soho brewery developed cholera.
 
 ```{r cap2, echo=FALSE}
 cap2 <- "Deaths (red dots) and pump locations.  Polygons that surround
@@ -308,15 +324,22 @@ suppressPackageStartupMessages(library(HistData))
 SnowMap(polygons=TRUE, main="Snow's Cholera Map with Pump Polygons")
 ```
 
-The reason, he judged, was that they drank water from the brewery (which had a 
-different source from the Broad St pump) or just drank beer alone.  
-@coleman2019causality gives detailed comments on Snow's work.
-It took a further ten years for the medical establishment to begin to accept
-Snow's conclusions.
+Snow noted that “Within 250 yards of the spot where Cambridge
+Street joins Broad Street there were upwards of 500 fatal 
+attacks of cholera in 10 days…”.  By contrast, none of the
+employees of a local Soho brewery developed cholera.
+The reason, he judged, was that they drank water from 
+the brewery (which had a different source from the Broad 
+St pump) or just drank beer alone.  
 
-Similar issues, arising from failures to ensure proper drainage systems,
-were repeated, from the 1840s and 1850s through until the end of the century,
-in New Zealand cities.^[See Christine Dann: 'Sewage, water and waste - Stinking cities', Te Ara - the Encyclopedia of New Zealand, (8 June 2017) https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool]
+@coleman2019causality gives detailed comments on Snow's work.
+It took a further ten years for the medical establishment to 
+begin to accept Snow's conclusions.  New Zealand cities
+had similar issues from the 1840s and 1850s through until the 
+end of the century, arising from failures to install proper
+drainage systems.^[See Christine Dann: 'Sewage, water and 
+waste - Stinking cities', Te Ara - the Encyclopedia of New
+Zealand, (8 June 2017) https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool]
 
 ## Are there missing explanatory factors? {#sec:maternity}
 
@@ -352,8 +375,8 @@ the elective Caesarean rate at term over 2006-2015 for doctor-led
 care was 32.8%, as against 7.4% for self employed midwives
 [@farquhar2016letter].  Effects from fetal alcohol syndrome were
 not accounted for, nor were direct effects from substance abuse.
-According to NZ Ministry of Health information, international data
-indicates that fetal alcohol syndrome may affect as many as 3% of 
+International data indicates that fetal alcohol syndrome may
+affect as many as 3% of 
 births.^[<https://www.health.govt.nz/our-work/diseases-and-conditions/fetal-alcohol-spectrum-disorder>]
 
 Studies that are similarly relatively carefully done, 
@@ -365,17 +388,16 @@ effectiveness of the adjustments made for differences
 between the two groups, other than whether the delivery
 was midwife led or medical led.
 
-## The uses and traps of "algorithmic" methods
+## The uses and traps of rule-based methods
 
-Decision tree approaches offer a way to use data that includes
-both spam and legitimate email messages to screen out spam as
-new messages appear.  In practical use, such datasets have to
-be continually updated, as spammers change their strategies.
-
-For illustrative purposes, we will work
-with a dataset that is long past its "use by" date. 
-Figure \@ref(fig:seeSpam) shows the distributions of values of 
-what were judged relevant variables.
+Figure \@ref(fig:seeSpam) shows the distributions of 
+values of six variables that have been selected for use 
+for present illustrative purposes, from an historical
+dataset (pre 1999) that has information on 4601 email 
+messages. 1813 of the messages were identified as spam.
+The data are long past their "use by" date. In practical
+use, such datasets have to be continually updated as 
+spammers change their strategies
 
 ```{r cap16}
 cap16 <- paste("Boxplots, showing distribution of variable values
@@ -402,18 +424,29 @@ nam <- c("crl.tot", "dollar", "bang", "money", "n000", "make")
   i <- 0
   for (namtxt in nam){
     i <- i+1
-    boxplot(split(spam7.2[,namtxt],yesno),cex=0.65,axes=F,boxwex=0.5, fg="gray")
-    box()
+    stripchart(split(spam7.2[,namtxt],yesno),cex=0.75,axes=F,vertical=TRUE, fg="gray60", xlim=c(0.5, 2.5), pch="-")
+    box(fg='gray60')
     ranx <- range(spam7[,namtxt])
     yloc<-xval[xval>=min(ranx)&xval<max(ranx)]
     par(mgp=c(1,.5,0))
-    axis(2,at=log(yloc+0.5),labels=paste(round(yloc,1)), cex.axis=1)
+    axis(2,at=log(yloc+0.5),labels=paste(round(yloc,1)), col=NA, cex.axis=1)
     par(mgp=c(1,.25,0))
-    axis(1,at=1:2,labels=c("n","y"))
+    axis(1,at=1:2,labels=c("n","y"),col=NA)
     mtext(side=2,line=1.75,nam2[i],adj=0.5,cex=0.8)
   }
   par(opar)
 ```
+
+Two types of decision tree approaches will be discussed 
+--- the use of individual decision trees, and the 
+random forest approach which generates and uses large 
+numbers of trees in the decision making process. The 
+details of the random forest decision making process 
+are hidden from the user, who has to be sure that
+relevant data have been used, and to rely on the 
+algorithm doing its job.  Hence the description
+*algorithmic*.
+
 Figure \@ref(fig:spam) shows a decision tree that has been derived
 for the spam data.  
 
@@ -431,72 +464,51 @@ plot(spam.rpart, uniform=TRUE)
 text(spam.rpart)
 par(mar=c(0,4,0,0))
 plot(c(1,8),c(0.5,8.5), asp=0.4, axes=FALSE, type="n", bty="n", cex=0.8, xlab="",ylab="")
-text(1,8.0, "  ",pos=4)
-text(2,8.0, "Symbols used in tree are:",pos=4)
-text(2,6.0, "dollar: Number of `$` symbols\n(as % of symbols)",pos=4)
-text(2,3.5, "bang: Number of `!` symbols\n(as % of symbols)",pos=4)
-text(2,1.5, "crl.tot: Total runs of capitals",pos=4)
+text(1,7.8, "  ",pos=4, cex=0.8)
+text(2,7.8, "Symbols used in tree are:",pos=4, cex=0.8)
+text(2,5.9, "dollar: Number of `$` symbols\n(as % of symbols)",pos=4, cex=0.8)
+text(2,3.7, "bang: Number of `!` symbols\n(as % of symbols)",pos=4, cex=0.8)
+text(2,1.9, "crl.tot: Total runs of capitals",pos=4, cex=0.8)
 text(2,0.75, "  ", pos=4)
 ```
 
 The tree in Figure \@ref(fig:spam) would be too inaccurate
 for practical use, even suitably updated with new data, 
-but it is easy to see how it might be used.  Here, it serves 
-as a lead in to discussing random forests.
+but it is easy to see how it might be used.  
 
 ### From trees to forests {-}
 
 "Random forests" improve on decision trees by using samples from
 the data to create a forest (a "random forest") of trees, then
 voting between the trees.  A downside is that "Random forests"
-and similar methods operate largely as black boxes.
-
-* Random forest type methods may work well when the way that
-explanatory factors conspire to give an output is unclear.
-* What works, but one does not know why, may be effective for
-present circumstances. 
-* This can be both a trap and a virtue. Thus, for detecting spam:
-    + When it fails, we will likely have few clues why!
-    + This may, for a short time, impede spammers!
-* Spammers are anyway continually refining their strategies
-    + Spam detectors must be responsive to new challenges
-* Automated systems that can be easily gamed abound. They are a
-menace!
+and similar methods operate largely as black boxes.  For
+detection of spam email, this may, as those who deploy the
+spam detectors have little idea what may be going on in the
+minds of the spammers, not be too much of an issue.  One
+wants a spam detector that will respond effectively to 
+whatever is thrown at it.
 
 ### It helps to know the how and why of the algorithms used {-}
 
-Cathy O'Neill: "... it’s not enough to just know how to run a black box
-algorithm. You actually need to know how and why it works, so that when
-it does’nt work, you can adjust."
+In her book "Weapons of math destruction", @oneil_2016
+comments:
+
+> ... it’s not enough to just know how to run a black box
+algorithm. You actually need to know how and why it works, 
+so that when it does’nt work, you can adjust.
+
+This is too strong.  But if one does not know the how and
+why of how an algorithm works, it is absolutely crucial to
+be sure that the data used to fit and test the model 
+(the "training" and "test" data) are directly relevant to
+the task in hand. 
+
+Automated systems that can be easily gamed do, however, 
+abound. They are a menace!
 
 ## Examples that illustrate other traps
 
 ### Are herricanes more dangerous than himmicanes? {-}
-
-The United States National Hurricane Center began formally naming
-hurricanes in 1950, a task now under control of the
-World Meteorological Organization.  Female names were used for
-Atlantic hurricanes from 1953 to 1978, with a mix of male and
-female names used from 1979 onwards.
-
-In a paper titled "Female hurricanes are deadlier than male 
-hurricanes", @jung2014female used data for 94 Atlantic hurricanes 
-that made landfall in the United States during 1950-2012 to argue
-that death rates from those with female names were overall higher 
-than for those with male names. The suggestion was that where names
-were female, authorities took the risk less seriously.  The paper 
-attracted wide interest on the blogosphere, with female hurricanes 
-jokingly called herricanes and males called himmicanes.
-
-The separate dotted lines in Figure \@ref(fig:hurricanes1), red for 
-female and blue for male, are a close equivalent to the authors' fit 
-to the data.  Notice the use of a relative (numbers of deaths) scale 
-on the $y$-axis, and a dollar scale on the $x$-axis. 
-An unfortunate consequence of the use of a linear dollar scale
-on the $x$-axis is that the slopes of the lines are strongly
-influenced by the final four points at the upper end of the scale.
-Why did the authors not use, at least as a starting point, the same 
-relative scale on both axes, as in Figure \@ref(fig:hurricanes2)?
 
 ```{r cap17-5}
 cap17.5 <- "Deaths versus damage estimate in US dollars. The red (for female) 
@@ -544,12 +556,20 @@ gph3 + layer(lims <- current.panel.limits(),
                         cex=0.8, col="gray30"))
 ```
 
-As well as using a relative scale on the $x$-axis, Figure 
-\@ref(fig:hurricanes2) uses a methodology that allows the 
-data to determine the form of the response.  Deaths do on 
-average increase more at a higher rate than the damage measure, 
-but not at the rate suggested by the dashed curves. There
-is now no evident difference between the two curves.
+The United States National Hurricane Center began formally naming
+hurricanes in 1950, a task now under control of the
+World Meteorological Organization.  Female names were used for
+Atlantic hurricanes from 1953 to 1978, with a mix of male and
+female names used from 1979 onwards.
+
+In a paper titled "Female hurricanes are deadlier than male 
+hurricanes", @jung2014female used data for 94 Atlantic hurricanes 
+that made landfall in the United States during 1950-2012 to argue
+that death rates from those with female names were overall higher 
+than for those with male names. The suggestion was that where names
+were female, authorities took the risk less seriously.  The paper 
+attracted wide interest on the blogosphere, with female hurricanes 
+jokingly called herricanes and males called himmicanes.
 
 ```{r cap18}
 cap18 <- "Deaths versus damage estimate in US dollars, with logarithmic scales
@@ -615,6 +635,23 @@ gph4 + layer(lims <- current.panel.limits(),
                         cex=0.8, col="gray30"))
 ```
 
+The separate dotted lines in Figure \@ref(fig:hurricanes1), red for 
+female and blue for male, are a close equivalent to the authors' fit 
+to the data.  Notice the use of a relative (numbers of deaths) scale 
+on the $y$-axis, and a dollar scale on the $x$-axis. 
+An unfortunate consequence of the use of a linear dollar scale
+on the $x$-axis is that the slopes of the lines are strongly
+influenced by the final four points at the upper end of the scale.
+Why did the authors not use, at least as a starting point, the same relative scale on both axes, as in Figure 
+\@ref(fig:hurricanes2)?
+
+As well as using a relative scale on the $x$-axis, Figure 
+\@ref(fig:hurricanes2) uses a methodology that allows the 
+data to determine the form of the response.  Deaths do on 
+average increase more at a higher rate than the damage measure, 
+but not at the rate suggested by the dashed curves. There
+is now no evident difference between the two curves.
+
 Jung et al omitted `Audrey` (in 1957) and `Katrina` (in 2005), as 
 outliers. These are included in Figures \@ref(fig:hurricanes1) and \@ref(fig:hurricanes2), with the curves fitted using a "robust" 
 fitting method that is relatively insensitive to outliers. 
@@ -624,20 +661,6 @@ analyses reflected in Figures \@ref(fig:hurricanes1) and
 `r if (knitr:::is_latex_output()) ', on p. \\pageref{hurricanes}'`
 
 ### Historical speed of light estimates --- is there a pattern?{-}
-
-Creationist Barry Setterfield has argued that a reduction over 
-time in the speed of light has led the passage of time to slow 
-down, relative to the remote past, so that the universe is 
-thousands rather than billions of years old.  His arguments rely 
-on making various adjustments to figures obtained historically,
-selecting what he regarded as the most reliable data, and
-then fitting a curve.  
-
-Setterfield tells a story that, while different from that of 
-the line in Panel A of Figure \@ref(fig:plot-c-data), makes equally 
-little sense.  The right panel is limited to the points from 1926 
-and on, marked off with the gray background on the left panel.^[Data 
-are from <https://en.wikipedia.org/wiki/Speed_of_light>]
 
 ```{r c-data}
 cvalues <- data.frame(
@@ -649,14 +672,12 @@ cvalues <- data.frame(
 ```
 
 ```{r cap19}
-cap19 <- "Successive speed of light estimates.
-Error estimates are available for the 1855 and later
-measurments.  Panel B limits attention to measurements
-made in 1926 and later. The line 
-was fitted with no adjustment for the very different error
-estimates.  The dashed curve, which incorporates
-such adjustments, is statistically indistinguishable
-from the thick gray horizontal line."
+cap19 <- "Successive speed of light estimates.  Panel B 
+limits attention to measurements made in 1926 and later. 
+The line was fitted with no adjustment for the very
+different error estimates.  The dashed curve, which 
+incorporates such adjustments, is statistically 
+indistinguishable from the thick gray horizontal line."
 ```
 
 ```{r plot-c-data, fig.width=7.5, fig.height=3.0, fig.show='hold', fig.pos='H', fig.cap=cap19}
@@ -689,6 +710,20 @@ with(subdata, segments(Year - 1.25, speed + error, Year +
 par(opar)
 ```
 
+Creationist Barry Setterfield has argued that a reduction over 
+time in the speed of light has led the passage of time to slow 
+down, relative to the remote past, so that the universe is 
+thousands rather than billions of years old.  His arguments rely 
+on making various adjustments to figures obtained historically,
+selecting what he regarded as the most reliable data, and
+then fitting a curve.  
+
+Setterfield tells a story that, while a little different from that of 
+the line in Panel A of Figure \@ref(fig:plot-c-data), makes equally 
+little sense.  The right panel is limited to the points from 1926 
+and on, marked off with the gray background on the left panel.^[Data 
+are from <https://en.wikipedia.org/wiki/Speed_of_light>]
+
 For the measurements from 1862 onward, estimates of accuracy
 are available.  Until 1950, each new estimate lay outside the
 bounds for the previous estimate, indicating that these
@@ -708,6 +743,23 @@ bounds for the previous estimate, indicating that these
 were underestimates.
 
 ## Global mean temperature trends
+
+Figure \@ref(fig:climate) plots global 
+[air and sea surface temperature anomaly data](http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.GISSTEMP/.Global/.LOTI/)
+against year. Anomalies, in hundredths of a degree centigrade, are
+differences from the 1951-1980 global average. The grey curve plots
+the average anomaly up to that point in time. 
+
+Observe that 1964 was the last year in which the global 
+temperature fell below the average to that time.
+For the 52 subsequent years (from 1965 to 2016 inclusive),
+the global average was above the average up to that date.  Under
+the (false) assumption that global temperature is varying
+randomly (and therefore independently) about a common mean,
+the probability of this happening is 2$^{-40}$ = 9.1
+$\times$ 10$^{-13}$.  A variation of this argument came
+from a speaker on the Australian ABC Science Show on April
+3 2011. 
 
 ```{r cap20}
 cap20 <- "Anomalies (differences) in hundredths of a degree centigrade
@@ -737,23 +789,6 @@ yarrow <- lastLessy - c(4, 0.75) * strheight("O")
 arrows(lastLessYr, yarrow[1], lastLessYr, yarrow[2],
        col = "gray", lwd = 2)
 ```
-
-Figure \@ref(fig:climate) plots global 
-[air and sea surface temperature anomaly data](http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.GISSTEMP/.Global/.LOTI/)
-against year. Anomalies, in hundredths of a degree centigrade, are
-differences from the 1951-1980 global average. The grey curve plots
-the average anomaly up to that point in time. 
-
-Observe that 1964 was the last year in which the global 
-temperature fell below the average to that time.
-For the 52 subsequent years (from 1965 to 2016 inclusive),
-the global average was above the average up to that date.  Under
-the (false) assumption that global temperature is varying
-randomly (and therefore independently) about a common mean,
-the probability of this happening is 2$^{-40}$ = 9.1
-$\times$ 10$^{-13}$.  A variation of this argument came
-from a speaker on the Australian ABC Science Show on April
-3 2011. 
 
 Under any model that accounts for what are now
 fairly well understood patterns of correlation over time,

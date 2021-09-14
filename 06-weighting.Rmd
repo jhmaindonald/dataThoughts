@@ -51,7 +51,7 @@ ltge65 <- with(USdeadpop1yr, c("<65"=sum(covdeaths[age<65])/sum(pop[age<65]),
                               ">=65"=sum(covdeaths[age>=65])/sum(pop[age>=65])))
 ```
 
-Clearly, more deaths are to expected, assuming a similar
+Clearly, more deaths were to expected, assuming a similar
 breakdown by age, in countries with relatively more old people. The US
 death rates per 1000 for Covid-19, for under age 65 as opposed to age $>=$ 65, were `r round(1000*ltge65,2)`
 
@@ -72,17 +72,13 @@ deathsPer100K <- rbind("Percentage 65 or more"= 100*c(US=us65plus, Italy=it65plu
 deathsPer100K[3,1] <- 100000*with(USdeadpop1yr, sum(covdeaths)/sum(pop))
 round(deathsPer100K,1)
 ```
-Italy has a higher proportion of older people, leading to a higher 
-expected death-rate.  Kenya has a much lower proportion, and a lower 
-expected overall death-rate.  Other US totals, e.g., for infection rates 
-or hospital admissions, while still impacted by age structure, were not
-impacted to the same extent.  A table on the US Center for Disease 
-Control web page^[Hospitalization and Death by Age <https://www.cdc.gov/coronavirus/2019-ncov/covid-data/investigations-discovery/hospitalization-death-by-age.html>]
-shows how, in the US, hospitalization and death varied with
-age.  Whereas death rates for those 85 years of age or older were
-810 times those of 5-17 year olds, for hospitalization the multiplier
-was 52. The rates for 0-4 year olds were around twice those for
-5-17 year olds. Overall rates varied, in both cases, with ethnicity.
+
+Other US totals, e.g., for infection rates or hospital admissions, 
+were also impacted by age structure, but not to the same extent.
+In the time since these figures were compiled, the emergence
+of new Covid-19 variants means that an equivalent of Figure
+\@ref(fig:riskByAge) for current data would present a quite
+different picture.
 
 Between country comparisons are hazardous.  There are likely to be
 differences in the completeness of the data and in recording protocols.
@@ -90,81 +86,53 @@ The dependence of reported case numbers on testing rates makes it
 likely that they will be substantial undercounts, to an extent that 
 varies from country to country.
 
-## A paradox of human intuition 
+## University admissions data --- Simpson's paradox {#sec:Y-S}
 
-The Yule-Simpson paradox, as it is called, commonly
-arises when weighting effects that are present in the
-data operate with respect to two or more 
-factors.^[The website <https://www.youtube.com/watch?v=ZDinnCwP3dg> 
-has an animated video that provides a short overview of the paradox]
+Admissions data for University of California Berkeley in 1973
+showed a curious anomaly.  Overall admission rates strongly
+favoured males, while in individual departments the rates 
+mostly favoured females.  The table shows percent admission rates,
+with number applying shown in brackets underneath.
 
-As of August 15, Israeli data showed that 214 of those hospitalized
-with severe Covid-19 were fully vaccinated, while 301 were not.  The
-explanation is simple: older people are both more likely to be
-vaccinated and more likely to have severe responses.  Taking
-account first of the much higher numbers vaccinated than 
-unvaccinated, percentages of severe cases are:
-
-| Unvaccinated | Fully vaccinated
----- | ----- | ---- | ----
-Number | 1,302,912 | 5,634,634 
-Severe cases | 214 (16.4%) | 301 (5.3%)
-
-This, because it has not taken account of the effect of age,
-underestimates the effectiveness of vaccination.  A fairer
-picture is:
-
-| Unvaccinated | Fully vaccinated
----- | ----- | ---- | ----
-Number <50 | 1,116,834 | 3,501,118
-Severe cases | 43 (3.9%) | 11 (0.3%)
----- | ---- | ----
-Number >50 | 186,078 | 2,133,518
-Severe cases | 171 (91.9%) | 290 (13.6%)
-
-The numbers of severe cases are much higher
-for the over 50s than for the under 50s ---
-a ratio of 5.0 (=214/430 for the unvaccinated, and 27.4 (=301/11)
-for the fully vaccinated.  The effect is to weight the 
-all ages percentages of severe cases towards the number
-for the over 50s.  
-
-Misleadingly, the all ages percentage goes down from 91.9% to 
-an overall 16.4% for the unvaccinated, and down from 13.6% to 
-an overall 5.3% for the fully vaccinated.  This is an example
-of the Yule-Simpson paradox at work.^[See <https://bit.ly/3h1mwXQ> for further commentary.]
-
-## University admissions data (Berkeley)
-
-University of California Berkeley (UCB) 
-1973 admissions data for the six largest departments, 
-summarized in Figure \@ref(fig:UCBgph1), provides an example.
-Admission rates varied by department, as did the relative 
-numbers of males and females applying, in ways that led to the 
-paradox. Male/female differences within departments were of
-lesser consequence.
-
-Overall admission rates across the six largest departments were: 
-
-```{r byGender}
+```{r admitrates, comment=NA}
 ## Tabulate by Admit and Gender
-byGender <- margin.table(UCBAdmissions, margin=1:2)
-round(100*prop.table(byGender, margin=2)["Admitted", ], 1)
+byGender <- margin.table(UCBAdmissions,
+                         margin=c("Admit","Gender"))
+admitRate <- round(100*prop.table(byGender, 
+                                  margin="Gender")["Admitted", ], 1)
+admit <- cbind(OVERALL=admitRate,  
+               round(100*prop.table(UCBAdmissions,
+                     margin=c("Gender","Dept"))["Admitted", , ], 1))
+tots <- cbind(apply(byGender,2,sum), 
+              margin.table(UCBAdmissions, 
+                           margin=c("Gender", "Dept")))
+totals <- matrix(paste0('(',tots,')'),nrow=2)
+admit <- rbind(admit, totals)[c(1,3,2,4),]
+## tab <- xtable::xtable(admit, digits=1)
+## print(tab, type='latex', comment=FALSE, floating=FALSE, scalebox=0.9)
+library(kableExtra)
+x <- knitr::kable(admit, booktabs=TRUE, align="r")
+x <- column_spec(x, 2, width = "5em", bold=TRUE)
+column_spec(x, 3:8, width = "2.5em")
+## print(admit, quote=F, right=T)
 ```
 
-Taken at face value, these numbers suggest discrimination 
-against females,  
+Figure \@ref(fig:UCBgph1) provides a graphical summary.
 
 ```{r cap6, echo=FALSE}
-cap6 <- "UCB admossion data for 1973, accounting for male/female differences, by department.  Department labels range from A to E."
+cap6 <- "UCB admossion data for 1973, for males and females, by 
+department.  Department labels range from A to E.  Notice that
+the largest differences in admission rates are for departments
+A and B, in both cases favouring females."
 ```
 
-```{r UCBgph1, fig.width=6, fig.asp=0.68, fig.pos='H', out.width="72%", fig.cap=cap6}
+```{r UCBgph1, fig.width=6, fig.asp=0.6, fig.pos='H', out.width="72%", fig.cap=cap6}
 oldpar <- par(mar=c(3.1,3.1,2.6,0.6), mgp=c(2,0.5,0))
 applied <- margin.table(UCBAdmissions, margin=2:3)
 pcAdmit <- 100*prop.table(UCBAdmissions, margin=2:3)["Admitted", , ]
 byGender <- 100*prop.table(margin.table(UCBAdmissions,
                                         margin=1:2), margin=2)
+col2 <- c("black","gray60")
 dimnam <- dimnames(UCBAdmissions)
 mfStats <- data.frame(Admit=c(pcAdmit[1,],pcAdmit[2,]),
                       Applicants=c(applied[1,], applied[2,]),
@@ -174,8 +142,8 @@ mfStats <- data.frame(Admit=c(pcAdmit[1,],pcAdmit[2,]),
 xlim <- c(0, max(mfStats$Admit)*1.025)
 ylim <- c(0, max(mfStats$Applicants)*1.075)
 plot(Applicants~Admit, data=mfStats, xlim=xlim, ylim=ylim,
-     fg="gray", cex.lab=1.25,
-     col=rep(c("blue","red"),rep(6,2)),type="h",lwd=2,
+     fg="gray", cex.lab=1.25, xaxs="i",
+     col=rep(col2,rep(6,2)),type="h",lwd=3,
      xlab="UCB Admission rates (%), 1973", 
      ylab="Number of applicants")
 pcA <- rbind(pcAdmit[1,], apply(pcAdmit,2, mean)+2, pcAdmit[2,], rep(NA,6))
@@ -189,7 +157,7 @@ text(pcA[2,],appA[2,],deptNam)
 ##
 par(xpd=TRUE)
 text(byGender[1,1:2], rep(par()$usr[4],2)+0.5*strheight("^"), labels=c("^","^"),
-     col=c("blue","red"),cex=1.25,srt=180)
+     col=col2,cex=1.25,srt=180)
 text(byGender[1,], par()$usr[4]+1.4*strheight("A"),
      labels=paste(round(byGender[1,],1)),cex=0.85)
 text(byGender[1,1:2]+c(-3.5,3.5), rep(par()$usr[4],2)+2.65*strheight("A"),
@@ -197,44 +165,61 @@ text(byGender[1,1:2]+c(-3.5,3.5), rep(par()$usr[4],2)+2.65*strheight("A"),
 par(xpd=FALSE)
 abline(h=200*(0:4),col="lightgray",lty="dotted")
 abline(v=20*(0:4),col="lightgray",lty="dotted")
-legend("topleft", col=c('blue','red'),lty=c(1,1), lwd=0.75, cex=0.9,
+legend("topleft", col=col2,lty=c(1,1), lwd=0.75, cex=0.9,
        y.intersp=0.65, legend=c("Males","Females"),bty="n")
 par(oldpar)
 ```
 
-Admission rates for males and females, by department, tell a different 
-story.  Percentages are given, with totals who applied shown underneath.
 
-```{r admitrates, comment=NA}
+
+The biggest differences in admission rates were in departments
+A (82.4%-62.1%=20.3%) and B (68%-63%=5%), in both cases favouring females, in both cases favouring females.  In the other four 
+departments, differences were 3.8% or less, and split very nearly
+equally between slightly favouring females and slightly favouring
+males. Nor are there the large disparities between numbers of
+males and females applying that are apparent in departments 
+A and B.  
+
+For purposes of keeping the discussion simple, we will 
+now move to looking to more summary data that combines counts
+for the departments C, D, E, and F.  
+
+```{r admitrates123, comment=NA}
+cap123 <- "Comparion of admission rates and numbers of males and
+females applying, for departments A, B, and CDEF which combines 
+numbers for departments other than A and B."
 library(kableExtra)
-admit <- round(100*prop.table(UCBAdmissions,
-                     margin=2:3)["Admitted", , ], 1)
-tots <- margin.table(UCBAdmissions, margin=2:3)
+UCB123 <- aperm(as.table(apply(UCBAdmissions,1:2, 
+                function(x)c(x[1],x[2], CDEF=sum(x[3:6])))), c(2,3,1))
+names(dimnames(UCB123))[3] <- "Dept"
+byGender <- margin.table(UCB123,
+                         margin=c("Admit","Gender"))
+admitRate <- round(100*prop.table(byGender,
+                   margin="Gender")["Admitted", ], 1)
+admit <- cbind(TOTALS=admitRate, round(100*prop.table(UCB123,
+                     margin=c("Gender","Dept"))["Admitted",,], 1))
+tots <- cbind(apply(byGender,2,sum), 
+              margin.table(UCB123, margin=c("Gender", "Dept")))
 totals <- matrix(paste0('(',tots,')'),nrow=2)
 admit <- rbind(admit, totals)[c(1,3,2,4),]
 ## tab <- xtable::xtable(admit, digits=1)
 ## print(tab, type='latex', comment=FALSE, floating=FALSE, scalebox=0.9)
-print(admit, quote=F, right=T)
-```
-The biggest differences in admission rates were in departments
-A (82.4%-62.1%=20.3%) and B (68%-63%=5%), in both cases favouring females.
-In the other four departments, differences were 3.8% or less.
-
-In order to understand how this happens, it is necessary to look
-at how the numbers that applied break down by gender and by department:
-Comparing departments A and B with other departments, one finds:
-```{r ABvsCDEF, echo=FALSE}
-tab <- t(apply(tots, 1, function(x)c("AB"=sum(x[1:2]),"CDEF"=sum(x[4:6]))))
-names(dimnames(tab)) <- rep("",2)
-mat <- matrix(paste(tab, c("(62.1,63%)", "(82.4,68%)", 
-                           "(5.9 to 36.9%)", "(7.0 to 34.9%)")), 
-       ncol=2, dimnames=dimnames(tab))
-print(mat, quote=FALSE, right=TRUE)
+x <- knitr::kable(admit, booktabs=TRUE, align="r", 
+                  caption=cap123, label=NA)
+x <- kable_styling(x, latex_options = "HOLD_position")
+x <- column_spec(x, 2, width = "5em", bold=TRUE)
+column_spec(x, 3:5, width = "2.25em")
 ```
 
-* Overall admission rates for males are weighted (1385:981) towards
-male rates of 62.1% or 63% in departments A and B.
-* Those for females are strongly weighted (1109:133) towards admission rates that range from 5.9% to 34.1% in departments C to F.
+* 825+560=1385 males applied to departments A and B, as against 
+1306 who applied to other departments.  The overall male rates
+are weighted 1385:1306 or 1.06:1, between a rate of between
+A and B rates of respectively 62.1% and 63%, and the CDEF rate
+of 25.5%.  
+* 108+25=133 females applied to departments A and B, as against
+1702 who applied to other departments, i.e., a ratio of
+108:1702 or 1:15.8.  Overall female rates are, accordingly, 
+strongly weighted towards the 26.5% rate for other departments.
 
 ### UCB Admissions Data -- Another perspective {-}
 
@@ -261,22 +246,98 @@ leg <- c("Male:Female ratios of numbers",
 legend("topleft", legend=leg, box.col="gray")
 ```
 
+In order to understand how the overall imbalance between
+numbers of males and females arose, it was necessary to
+break the data down by department.  The major driver 
+of the overall imbalance was the low numbers of females,
+relative to males, applying to department A (and, to a
+lesser extent, B) where admission rates were highest.
+
+See <https://www.youtube.com/watch?v=ZDinnCwP3dg> 
+    for an animated video that explains the Yule-Simpson
+    paradox.
+
 ### A note on Lord's paradox {-}
 
 The same sorts of paradoxical effects can be found in regression.
 The Yule-Simpson paradox may be regarded as a special case of Lord's
-paradox, described in @lord1967paradox. Any attempt to attach meaning
-to regression coefficients can be highly misleading, unless one can be
-sure that effects of all relevant variables are properly 
-accounted for.  It is rarely easy, with observational data, to be sure 
-that this has been done effectively.
+paradox, described in @lord1967paradox.^[See also @tu2011statistical,
+pp.60-71] Any attempt to attach meaning to regression 
+coefficients can be highly misleading, unless it is clear
+that effects of all relevant variables are properly 
+accounted for. It is rarely easy, with observational data, to be 
+sure that this has been done effectively, a point that will be 
+taken up in Chapter \@ref(sec:reg).
 
-## Further examples of the same type
+## Comparing unvaccinated with vaccinated
+
+Once high enough vaccination rates have been achieved, a greater
+number of Covid-19 infections will be found among the vaccinated
+than among the vaccinated.  Suppose that, for a particular age
+group and for a particular vaccine, the risk rate for severe
+Covid-19, is 5% for unvaccinated versus 1% for vaccinated,
+i.e. a relative risk of 5:1.  Consider the following scenarios.
+The final column has the relative numbers, for unvaccinated 
+versus vaccinated with Covid-19:
+
+Unvaccinated | Vaccinated | Relative numbers with severe Covid-19
+---- | ---- | ----
+200 | 800 | 10 unvaccinated : 8 among vaccinated
+100|  900 | 5 : 9 
+0 | 1000 | 0 : 10 
+
+At a certain point, provided the risk ratio is greater than 1.0,
+the higher number will be from the vaccinated.  Of course, 
+the 100% vaccination rate scenario in the final row is unlikely
+to be realized.
+
+### Report found almost 60% of cases were vaccinated {-}
+
+As of August 15 2021, Israeli data showed that 301 of those hospitalized with severe Covid-19 were fully vaccinated, while 214 were not.
+We need to compare, not the counts, but the proportions of 
+vaccinated and unvaccinated, i.e., look at the percentages that are
+shown in brackets following the counts.^[Data are from
+<https://bit.ly/3h1mwXQ>, on the website <https://www.covid-datascience.com/>.]
+Numbers given are of those aged 12 or more.
+
+ | | Unvaccinated | Fully vaccinated
+---- | ----- | ---- | ----
+Number (aged >=12) | 1,302,912 | 5,634,634 
+Severe cases | 214 (16.4%) | 301 (5.3%)
+
+The relative risk is 16.4/5.3 $\simeq$ 3.1.
+This, because it has not taken account of the effect of age,
+still underestimates the effectiveness of vaccination.  A fairer
+picture is:
+
+ | | Unvaccinated | Fully vaccinated
+---- | ----- | ---- | ----
+Number <50 | 1,116,834 | 3,501,118
+Severe cases | 43 (3.9%) | 11 (0.3%)
+---- | ---- | ----
+Number >=50 | 186,078 | 2,133,518
+Severe cases | 171 (91.9%) | 290 (13.6%)
+
+The relative risk is 3.9/0.3 $\simeq$ 13 for those under 50,
+and 91.9/13.6 $\simeq$ 6.8 for those over 50, i.e., in both
+cases much greater than the 3.1 ratio obtained when the
+split between under 50s and 50 or more is ignored.
+Even this does not do justice to the data, which needs to
+be split into smaller age ranges.
 
 <!-- Here, "variable" is used as generic name for either continuous -->
 <!-- variables, or categorical variables, otherwise called factors. -->
 
+## Further illustrative examples
+
 ### Does Baclofen help in reducing pain? {-}
+
+In work reported in @cohen1996, researchers were comparing two
+analgesic treatments, without and with baclofen. When the paper was
+first submitted for publication, an alert reviewer spotted that some
+of the treatment groups contained more women than men, and asked
+whether this might account for the
+results.
 
 <!-- ```{r baclofen,  out.width="100%"} -->
 <!-- knitr::include_graphics("./pictures/baclofen.png") -->
@@ -289,7 +350,7 @@ cap9 <- "Data are pain reduction scores. Subgroup numbers, shown
     slightly towards the low male average."
 ```
 
-```{r painkiller, fig.cap=cap9, fig.width=7, fig.asp=0.4, eval=TRUE}
+```{r painkiller, fig.cap=cap9, fig.width=7, fig.asp=0.4, fig.pos='H', eval=TRUE}
 library(lattice)
 parset <- simpleTheme(cex=1.35, pch=16:17,
                       col=c("darkblue","turquoise"))
@@ -309,14 +370,6 @@ gph <- stripplot(sex~values, groups=trt, data=gabalong,
 gph + latticeExtra::layer(panel.abline(h=1.35, col="gray"))
 ```
 
-Researchers were comparing two
-analgesic treatments, without and with baclofen. When the paper was
-first submitted for publication, an alert reviewer spotted that some
-of the treatment groups contained more women than men, and asked
-whether this might account for the
-results.\footnote{Cohen, P. 1996. Pain discriminates between the
-sexes.  New Scientist, 2 November, p. 16.}
-
 For a fair overall comparison:
 
 * Calculate means for each subgroup separately.
@@ -330,33 +383,57 @@ The effect of baclofen (reduction in pain score from time 0) is then:
 
 ### Web page revenue per click {-}
 
-In 2010 a US Internet company collected data that compared the effectiveness
-of a 1-click strategy where an advert appeared on the website's first page,
-and a 2-click strategy, where a click on a keyword sends user to page with 
-the advert.  The response (total amount of purchases in millions of dollars)
-was compared between the two.  RP1000 is revenue per thousand users.
-[@smith-sd, p.111]
+@smith-sd (p.111) describes an experiment where a US Internet company
+collected data that compared the effectiveness of two strategies.
+In the 1-click strategy, an advert appeared on the website's first page.
+The 2-click strategy required the user to click on a keyword which
+then  led to a page with the advert.  The response (total dollar value
+of purchases) was compared between the two. 
+
+The following, with numbers changed to make the comparison relatively
+simple, shows a scenario that is not unlike that given by Smith:
 
 1-click   |         |   |     | 2-click |  |
----| ------- | -----   | --- | -- | ------- | ------- | ---
+---- | ------- | -----   | --- | -- | ------- | ------- | ---
    | Revenue | Users   | RP1000 |    | Revenue | Users   | RP1000
-  | $2.9   | 250  |$11.60 |   | $1.7 | 140  | $12.14
+  | $2500   | 200  |$12.50 |   | $3000 | 300  | $15.00
 
-Now break the data down, looking separately at US and International users.
-\begin{tabular}{l r r r r r r r}
-& \multicolumn{3}{l}{1-click} & & \multicolumn{3}{l}{2-click}\\
-Location   & Revenue & Users   & RP1000 && Revenue & Users & RP1000\\
-US & \$1.8   & \textcolor{red}{70}  &\$27.71 && \$1.2 & \textcolor{red}{50}  & \$24.00\\
-Int. & \$1.1   & \textcolor{red}{180} &\$6.11  && \$0.50 & \textcolor{red}{90} & \$5.56\\
-& \multicolumn{3}{c}{$\frac{180}{70}$=\textcolor{red}{2.57}} & & \multicolumn{3}{c}{$\frac{90}{50}$=\textcolor{red}{1.8}}\\
-\end{tabular}
+The 1-click strategy appears to give a better return.
 
-The overall figure is dominated by the result for the 180,000 international
-(as opposed to the 70,000 US) users in the 1-click sample.
+<!-- Now break the data down, looking separately at US and International users. -->
+<!-- \begin{tabular}{l r r r r r r r} -->
+<!-- & \multicolumn{3}{l}{1-click} & & \multicolumn{3}{l}{2-click}\\ -->
+<!-- Location   & Revenue & Users   & RP1000 && Revenue & Users & RP1000\\ -->
+<!-- US & \$1.8   & \textcolor{red}{70}  &\$27.71 && \$1.2 & \textcolor{red}{50}  & \$24.00\\ -->
+<!-- Int. & \$1.1   & \textcolor{red}{180} &\$6.11  && \$0.50 & \textcolor{red}{90} & \$5.56\\ -->
+<!-- & \multicolumn{3}{c}{$\frac{180}{70}$=\textcolor{red}{2.57}} & & \multicolumn{3}{c}{$\frac{90}{50}$=\textcolor{red}{1.8}}\\ -->
+<!-- \end{tabular} -->
 
-This was followed up with a randomized experiment (an A/B test), where
-the probability of assignment to 1-click, as opposed to 2-click, was
-the same for both classes of user.
+Now, see how the numbers divide up when a split is made between
+US and international visitors to the site.
+The numbers (thousands) for the two strategies divide up thus,
+with the revenue per thousand users given, in each case, in brackets:
+
+ |  | 1-click | 2-click
+---- | ---- | ----
+US | 50 | 80
+ | | ($32) | ($30)
+Int | 150 | 120
+ | | ($6) | ($5)
+
+The 1-click strategy clearly gives a better return, both for US
+and for international users.
+
+The overall figure is dominated by the result for the 150,000 
+international users (as opposed to 50,000 US) in the 1-click 
+sample.  This compares with the much weaker weighting towards 
+international users (120,000 as opposed to 80,000) in the 
+2-click sample.
+
+In the case that Smith reported, the type of analysis shown was
+followed up with a randomized experiment (an A/B test), where
+the probability of assignment to 1-click, as opposed to 2-click, 
+was the same for both classes of user.
 
 ## Cricket Bowling Averages
 

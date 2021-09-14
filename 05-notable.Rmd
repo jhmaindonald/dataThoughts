@@ -119,9 +119,11 @@ convicted on the basis of expert testimony alone.
  
  > Guidelines for using probability theory in criminal cases are urgently needed. The basic principles are not difficult to understand, and judges could be trained to recognise and rule out the kind of misunderstanding that arose in this case.
 
-They are perhaps more difficult than Watkins allowed.  Watkins
-somewhat over-states his case.  Watkins was at the time 
-Director of Public Health for Stockport. 
+Watkins, who was at the time Director of Public Health for Stockport
+in the UK, argued that the calculation of the relevant probability
+should have had no regard to the probability of an initial cot death.
+It surely has some relevance.  The basic principles are perhaps more 
+difficult than Watkins was willing to allow. 
 
 ## The Reinhoff and Rogoff saga
 
@@ -345,7 +347,7 @@ The study claimed to be based on data from 96,032
 hospitalized COVID-19 patients from six continents, of which 66%
 were from North America.  Very soon after it appeared, the article 
 attracted critical attention, with a number of critics joining 
-together to submit the letter @watson2020open to Lancet.
+together to submit the @watson2020open letter to Lancet.
 
 The sources from which the data had been obtained could not be verified,
 data that claimed to be from just five Australian sources had more
@@ -360,11 +362,16 @@ were temporarily halted.  The eventual conclusion was that the
 drugs did not improve medical outcomes. There was some evidence
 that hydroxychloroquine could have adverse effects.
 
-With current web-based technology, RCTs can be planned and carried out and yield definitive answers, in much the same time as it would take to collect and analyze the data that are required for an observational study whose conclusions can be, at best, suggestive. Data confidentiality issues are easier to handle in the context of an RCT.
+With current web-based technology, randomized controlled trials 
+can be planned and carried out and yield definitive answers, in 
+much the same time as it would take to collect and analyze the 
+data that are required for an observational study whose 
+conclusions can be, at best, suggestive. Data confidentiality 
+issues are easier to handle in the context of an RCT.
 
 ## A simplistic use of publicly available data
 A June 2021 paper in _Vaccines_, titled 
-"The Safety of COVID-19 Vaccinations -— We Should Rethink the Policy."^[_Vaccines_, June2021, bit.ly/3dTg1oh]
+"The Safety of COVID-19 Vaccinations -— We Should Rethink the Policy."^[_Vaccines_, June 2021, bit.ly/3dTg1oh]
 massively over-stated vaccine risk.  The paper claimed that
 “For three deaths prevented by vaccination we have to accept 
 two inflicted by vaccination.” 
@@ -373,7 +380,7 @@ two inflicted by vaccination.”
 professionals and the public  
     (Such data has to be used with a 'baseline' comparison)
 * Vaccine benefits extend far beyond 6 weeks of Israeli study
-* Focused on immediate risk to individual, not community.
+* The paper focused on immediate risk to individual, not community.
 * The way that any risk from the vaccine balances out against
 risk of death from Covid-19 will vary depending on the the age 
 structure of the population, on proportion immunized within 

@@ -99,13 +99,9 @@ mainly due to genetic factors, and fathers share half of their genes
 with their sons, this is to be expected.]
 
 Notice that the points that are plotted show a a symmetrical 
-oval shaped scatter about the mean (shown with a large solid 
-dot in Panel A).  Thistype of scatter is, strictly, required 
+elliptical shaped scatter about the mean (shown with a large solid 
+dot in Panel A).  This type of scatter is, strictly, required 
 for uses of the correlation that will now be discussed. 
-
-Consider a father whose height is 72 inches, which is the 
-95th percentile of heights for fathers. What is a best guess 
-for the height of a son?
 
 ```{r cap12}
 cap12 <- "Tall fathers are likely to have tall sons, but shorter than themselves. 
@@ -128,7 +124,7 @@ b <- coef(Pearson.lm)
 pc95 <- quantile(Pearson$Father, 0.95)
 son95 <- quantile(Pearson$Son, 0.95)
 pred95 <- b[1]+b[2]*pc95
-abline(Pearson.lm, col=2)
+abline(Pearson.lm, lwd=2, col=2)
 abline(v=pc95, col=2)
 abline(h=pred95, col=2)
 abline(h=son95, col=2, lty=2)
@@ -136,29 +132,37 @@ pcSon <- round(100*with(Pearson, sum(Son<pred95)/nrow(Pearson)))
 mtext(side=3, line=0.05, "95th percentile", col=2, at=pc95)
 mtext(side=4, line=0.05, paste0(pcSon,"th percentile"), col=2, at=pred95, 
       adj=0.5, srt=90)
-mtext(side=3, line=1.0, "Son's ht, given father's ht (red lines)",
+mtext(side=3, line=1.0, "A: Son's height, given father's height",
       adj=0, at=56)
+##
 par(fig=c(0.52,1,0,1), new=TRUE)
 plot(Pearson[,1:2], col=ptCol, fg="gray")
+points(avFather, avSon, cex=1.5, col=2, pch=16)
 text(60.5,77, paste("r =", round(r,2)))
 Pearson.lm2 <- lm(Father~Son, data=Pearson)
 c2 <- coef(Pearson.lm2)
 b2 <- c(-c2[1]/c2[2], 1/c2[2])
 son95 <- quantile(Pearson$Son, 0.95)
 predF95 <- c2[1]+c2[2]*son95
-abline(Pearson.lm, col=adjustcolor("red",alpha=0.4))
-abline(b2, col="purple", lty=2, lwd=2)
-abline(h=son95, col="purple", lty=2, lwd=2)
-abline(v=predF95, col="purple", lty=2, lwd=2)
-abline(v=pc95, col=adjustcolor('red',alpha=0.4))
-abline(h=pred95, col=adjustcolor('red',alpha=0.4))
+## abline(Pearson.lm, col=adjustcolor("red",alpha=0.4))
+abline(b2, col="purple", lwd=2)  ## Regression of x on y
+abline(h=son95, col="purple", lty=1, lwd=1)
+abline(v=predF95, col="purple")
+pc95 <- quantile(Pearson$Father, 0.95)
+abline(v=pc95, col="purple",lty=2)
 pcF <- round(100*with(Pearson, sum(Father<=predF95)/nrow(Pearson)))
-mtext(side=3, line=1.0, "Father's ht, given son's ht (purple lines)",
+mtext(side=3, line=1.0, "B: Father's height, given son's height",
       adj=0, at=56)
 mtext(side=3, line=0.05, paste0(pcF,"th percentile"), col="purple", at=predF95)
 mtext(side=4, line=0.05, paste0("95th percentile"), col="purple", at=son95, srt=90)
 par(opar)
 ```
+
+Consider a father whose height is 72 inches, which is the 
+95th percentile of heights for fathers. What is a best guess 
+for the height of a son? One can read the predicted value off 
+from the graph (the solid horizontal line in Panel A). Or use 
+the regression equation.  Or, reason thus: 
 
 * If the correlation between father's height and son's height were 0, 
 the best guess would be the mean for son's, i.e., 68.7 inches
@@ -169,7 +173,7 @@ the best guess would be the mean for son's, i.e., 68.7 inches
 the mean and move 0.5 of the distance up to the 95th percentile.
 
 Now consider a son whose height is 73.3 inches (the 95th percentile for 
-sons):
+sons).  The argument now goes:
 
 * The best estimate of the father's height is 67.7 +
 0.5$\times$(73.3-67.7)=2.8 inches,  i.e., start at the mean
@@ -232,7 +236,7 @@ For each industry in 1920: he then split firms into 4 quartiles: top 25%,
 > Complete freedom to enter trade and the continuance of competition
 mean the perpetuation of mediocrity.  ...  neither superiority or
 inferiority will tend to persist. Rather, mediocrity tends to become
-the rule.
+the rule. [@secrist1933triumph]
 
 ```{r cap15}
 cap15 <- "Secrist's data showed a correlation of 0.5 between
@@ -280,9 +284,10 @@ Secrist was seeing regression to the mean. Figure \@ref(fig:sim)
 makes the point that if one takes the four quartiles in 1930 and looks 
 back to 1920, in each case there is a regression back to the mean.
 Given a correlation of 0.7 between time intervals five years apart,
-The absolute difference from the mean moves from 8 to 0.7$\times 8 
-(= `r 0.7*8`) to 0.7$\times 5.6 (= `r 0.7*5.6`), whether one moves
-forward in time, or back in time.
+The absolute difference from the mean moves from 8 to 0.7$\times$ 8 
+(= `r 0.7*8`) to 0.7$\times$ 5.6 (= `r 0.7*5.6`), whether one moves
+by two successive five year intervals forward in time, or back in 
+time.
 
 ### "Do old fallacies ever die?" {-}
 

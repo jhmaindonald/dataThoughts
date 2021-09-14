@@ -33,11 +33,11 @@ points.
 The gray dots, and the axis on the right, show rates per year,
 thus comparing like with like.
 
-```{r cap2, echo=FALSE}
-cap2 <- "The black line shows numbers of US Nobel prizes, for given time intervals. The gray dots. with the right axis label, show average per year."
+```{r cap1, echo=FALSE}
+cap1 <- "The black line shows numbers of US Nobel prizes, for given time intervals. The gray dots. with the right axis label, show average per year."
 ```
 
-```{r Nobel, fig.width=6.5, fig.asp=0.575, fig.show="hold", out.width="80%", fig.pos='H', fig.cap=cap2}
+```{r Nobel, fig.width=6.5, fig.asp=0.575, fig.show="hold", out.width="80%", fig.pos='H', fig.cap=cap1}
 par(mar=c(4.1,3.1,2.1,3.1),mgp=c(2.25,0.5,0))
 n2 <- c(1,1,4,12,15,29,27,11)
 n1 <- c(1,1,4,12,15,29,27,39)
@@ -62,13 +62,13 @@ other than time --- for example of length or volume.
 
 ## Banking --- the importance of aspect ratio
 
-```{r cap1, echo=FALSE}
-cap1 <- "The same data are used for both graphs.  The pattern that is not
+```{r cap2, echo=FALSE}
+cap2 <- "The same data are used for both graphs.  The pattern that is not
 obvious in Panel A is very obvious in Panel B"
 ```
 
 
-```{r Banking, fig.width=8, fig.height=3.5, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap1}
+```{r Banking, fig.width=8, fig.height=3.5, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap2}
 suppressPackageStartupMessages(library(latticeExtra))
 trellis.par.set(theme)
 gph1 <- xyplot(sin((1:30)*0.92) ~ I((1:30)*0.92), xlab="", ylab="",
@@ -91,7 +91,7 @@ above or below the horizontal.  Angles in
 the approximate range 20^o^ to 70^o^ may be satisfactory,
 and the aspect ratio should be chosen accordingly.
 
-## Scales that show changes by equal factors
+## Scales that show changes by equal multipliers
 
 Figure \@ref(fig:animals) shows two plots of the same data.
 Panel A plots brain weight (grams) against body weight (kilograms),
@@ -103,7 +103,7 @@ weight).
 cap3 <- "Panel A plots brain weight (grams) against body weight 
 (kilograms), for 28 'animals'.  Panel B plots the same data, 
 with relative weight scales, i.e., equal distances on each scale 
-show changes by the same factor."
+show changes by the same multiplier."
 ```
 
 ```{r animals, fig.width=8, fig.height=3.5, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap3}
@@ -132,10 +132,9 @@ print(gph2, position=c(0.475,0,1,1))
 Often, when measurement data span a large range (e.g., a change
 from smallest to largest by a factor of 100 to 1 or more),
 it is a relative amount scale that is appropriate.^[Technically,
-such scales are known as logarithmic, as opposed to straight
-line or linear, scales. For this purpose, all one needs to know 
-about taking logarithms is that it gives such relative distance 
-scales.]
+such scales are termed logarithmic, as opposed to straight
+line or linear. A logarithmic transformation is used to
+obtain such relative distance scales.]
 
 ## Different graphs serve different purposes {#track}
 
@@ -143,8 +142,8 @@ The line in Figure \@ref(fig:resid)A shows the broad overall
 pattern, while Figure \@ref(fig:resid)B shows how that pattern
 needs to be tweaked to more closely reflect the data.
 
-```{r cap6, echo=FALSE}
-cap6 <- "Panel A plots world record Time (as of 2006, in minutes)
+```{r cap4, echo=FALSE}
+cap4 <- "Panel A plots world record Time (as of 2006, in minutes)
 against Distance (in kilometers), for field races.  On both the
 `x` and `y` axes, the scale is one on which equal distances on 
 the scale correspond to equal relative changes.  Panel B plots
@@ -155,7 +154,7 @@ difference is a difference that amounts to 5\\% of the time
 predicted by the line."
 ```
 
-```{r resid, fig.width=8, fig.height=3.25, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap6}
+```{r resid, fig.width=8, fig.height=3.25, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap4}
 atx <- c(.1,.3,1,3,10,30,100)
 aty=c(.1,.3,1,3,10,30,100,300)
 track <- subset(DAAG::worldRecords, roadORtrack=='track')
@@ -206,8 +205,8 @@ kilometers, and then steadily up again.
 
 Figure \@ref(fig:lnscales) shows different "equal physical
 distance along the scale" labels that might be used for the
-relative `Distance` scale in Figure \@ref(fig:resid)} in
-Subsection \@ref(track).  
+relative `Distance` ("logarithmic") scale in Figure 
+\@ref(fig:resid) in Subsection \@ref(track).  
 
 ```{r cap5, echo=FALSE}
 cap5 <- "Different labelings, all with tick marks at the same

@@ -1,8 +1,8 @@
 \backmatter
 
-# Further reading --- books, videos, and websites {-}
+# Books, videos, and websites {#app:more}
 
-The books noted have all been referred to in the text.
+### Books (all been referred to in the text)
 
 * @kahneman_2013 . Thinking, fast and slow.
     + [Interview with Kahneman](https://www.youtube.com/watch?v=PirFrDVRBo4 "Interview")^[<https://www.youtube.com/watch?v=PirFrDVRBo4>]
@@ -17,5 +17,16 @@ The books noted have all been referred to in the text.
 	graphics and visualization.
 * @ritchie2020science . Science fictions: Exposing fraud, bias, 
 negligence and hype in science.
+
+### Videos {-}
+
+* [Randomized controlled trials --- animated summary of key issues](https://www.youtube.com/watch?v=Wy7qpJeozec)^[<https://www.youtube.com/watch?v=Wy7qpJeozec>]
+* [Yule-Simpson paradox --- animated video](https://www.youtube.com/watch?v=ZDinnCwP3dg)^[<https://www.youtube.com/watch?v=ZDinnCwP3dg>]
+
+### Websites {-}
+
 * [BBC links to helpful web resources](http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics)^[<http://www.bbc.co.uk/editorialguidelines/guidance/reporting-statistics>]
+* The [Cochrane Center](https://www.cochrane.org/)^[<https://www.cochrane.org/>]
+* [Harding Center for Risk Literacy](https://www.hardingcenter.de/en)^[<https://www.hardingcenter.de/en>]
+* [Winton Centre for Risk and Evidence  Communication](https://wintoncentre.maths.cam.ac.uk/)^[<https://wintoncentre.maths.cam.ac.uk/>]
 

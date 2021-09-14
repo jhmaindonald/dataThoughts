@@ -1,6 +1,6 @@
 \thispagestyle{empty}
 
-## About the author {#author .unnumbered}
+### About the author {#author .unnumbered}
 
 For the major part of his career, John Maindonald has worked with other
 researchers as a quantitative problem solver.

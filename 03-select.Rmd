@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Selection and survivor bias
 
 ```{r setup, include=FALSE}
@@ -50,12 +55,12 @@ cotton worker wages in the UK in the late 19th century were results
 from an 1889 US Bureau of Labor survey, intended for use for
 comparison with the US cotton industry wages.
 
-```{r cap22}
-cap22 <- "Cotton worker wages in the UK --- 1889 US Bureau of Labor 'survey'
+```{r cap8}
+cap8 <- "Cotton worker wages in the UK --- 1889 US Bureau of Labor 'survey'
 versus 1886 census data. Wages are in pence per week."
   ```
 
-```{r cotton, fig.width=7, fig.asp=0.5, fig.cap=cap22}
+```{r cotton, fig.width=7, fig.asp=0.5, fig.cap=cap8}
 ## detach("package:latticeExtra")
 suppressPackageStartupMessages(library(ggplot2, quietly=TRUE))
 cottonworkers <- DAAG::cottonworkers

@@ -10,21 +10,19 @@ thinking processes.
 
 Encounter with "educating gossip", as Kahneman calls it, is an
 important and necessary part of learning effective judgment.
-This present booklet avoids detailed discussion of methodology,
-instead focusing on what is, in Kahneman's sense, "educating
-gossip".  Such "gossip" can be important for improving the quality 
+Such "gossip" can be important for improving the quality 
 of judgments and decisions
 
 Important themes are
 
-* We easily think associatively, ... metaphorically, casually,
-but statistics requires thinking about many things at once ...
-* We too readily judge decisions by outcome, rather than by how they are made.
 * We have "an excessive confidence in what we think we know".
+* We too readily judge decisions by outcome, rather than by how they are made.
 * We have two selves --- an experiencing self and a remembering self
     + These do not always have the same interests.
 * Automatic memory formation has its own rules
     + This is exploited to improve the memory of a bad episode
+* "We easily think associatively, ... metaphorically, casually,
+but statistics requires thinking about many things at once ..."
 
 ## System 1 and System 2 --- further comments
 
@@ -124,7 +122,7 @@ that have no foundation in fact:
 do not understand medicine.  You see, medical statistics are not
 like other statistics."  
 [Prostate biopsy specialist, in response to evidence that screening
-is counterproductive. [@levitin_2015, p.247]]
+may be counterproductive, quoted in @levitin_2015, p.247]
 
 The following comment appeared in a discussion of the response 
 to a U.S. Preventive Services assessment that prostate screening,
@@ -162,8 +160,6 @@ of bias
 later in Subsection \@ref(sec:yule1)
     + The paradox lies in the failure of human intuition to
     accommodate straightforward arithmetic!
-    + <https://www.youtube.com/watch?v=ZDinnCwP3dg> 
-    (This animated video provides a short overview)
 
 ## Further examples
 
