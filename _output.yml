@@ -16,6 +16,7 @@ bookdown::pdf_book:
   includes:
     # after_body: dataSense-book.ind
     in_header: preamble.tex
+    before_body: before_body.tex
   toc_depth: 2
   latex_engine: xelatex
   toc_bib: true

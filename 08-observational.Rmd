@@ -28,8 +28,9 @@ of explanatory variables, and an outcome variable.
 ## We have a prediction. What are the drivers?
 
 The issues that arise for observational studies do not in general have 
-clear and easy answers.  The discussion on 
-[Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/)^[https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/] canvasses some of the more important issues. There are no simple
+clear and easy answers. Chapters 20 and 21 of @gelman2020regression
+canvass points that authors of those studies need to address. See also
+[Andrew Gelman's blog.](https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/)^[https://statmodeling.stat.columbia.edu/2018/11/10/matching-] There are no simple
 answers!^[See also <https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/>]
 
 Where there are several explanatory variables, and the aim is

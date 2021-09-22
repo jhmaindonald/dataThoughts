@@ -1,6 +1,7 @@
 .Rproj.user
 .Rhistory
 .RData
+info.txt
 _publish.R
 _bookdown_files
 _book/*.md
