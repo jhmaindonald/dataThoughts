@@ -90,11 +90,10 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+% \frontmatter
+% \let\oldmaketitle\maketitle
+% \AtBeginDocument{\let\maketitle\relax}
 \frontmatter
-
-% This book is licensed under a Creative
-%  Commons Attribution-ShareAlike 3.0 New Zealand License.
-%  Visit \url{http://creativecommons.org/licenses} for details.
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -142,10 +141,24 @@
 \makeatother
 \subtitle{Think again --- examples that inform and educate}
 \author{John Maindonald}
-\date{2021-09-22}
+\date{2021-09-28}
 
 \begin{document}
 \maketitle
+
+% \thispagestyle{empty}
+% \begin{center}
+% {\Huge The Skeptical Data Analyst}
+% \includegraphics{cover.png}
+% {\huge John Maindonald}
+% \end{center}
+
+% \let\maketitle\oldmaketitle
+% \maketitle
+This book is licensed under a Creative
+Commons Attribution-ShareAlike 3.0 New Zealand License.
+Visit \url{http://creativecommons.org/licenses} for details.
+
 
 {
 \hypersetup{linkcolor=}
@@ -1358,9 +1371,11 @@ to check whether a drug or other treatment warrants further
 investigation. Evidence will be presented in Section \ref{sec:lab}
 that suggests that these trials are commonly not doing a good
 job at achieving their intended purpose. Greater attention is
-needed to the rigor that is required for clinical trials.
+needed to the rigour that is required for clinical trials that
+are designed to meet regulatory requirements for the approval
+of drugs, vaccines, or other therapeutic intervention≥
 
-Clinical trials typically are conducted in three phases.
+Clinical trials are typically conducted in three phases.
 Phase I applies the treatment to a small number of subjects
 and checks that the treatment appears safe.
 Phase II, perhaps with several hundred subjects, looks for
@@ -1584,6 +1599,28 @@ controlled trials together with evidence from long term
 cohort studies (4 or 8 years) to make a convincing case
 for the long-term effects of sugar-sweetened beverages on
 increasing obesity and obesity-related diseases.
+
+Clinical trials have their own problems and issues. Using
+evidence from published review sources, \protect\hyperlink{ref-chalmers2009avoidable}{Chalmers and Glasziou} (\protect\hyperlink{ref-chalmers2009avoidable}{2009})
+found issues with the choice of research questions; the quality
+of research design and methods, and the adequacy of
+publication practices. They reported that 50\% of studies were
+designed without reference to systematic reviews of existing
+evidence, and that 50\% were~never published in full.
+
+Planning and execution failures are set in stone by the time
+that a research report is sent for review. Pre-registration,
+involving the depositing a research question and study design
+with a registration service or journal before starting an
+investigation, allows peer review feedback that can elicit
+suggestions for improvement and detect any potential flaws
+before the study
+begins.\footnote{See \url{https://plos.org/open-science/preregistration/}}
+Even more than for industrial~quality control,~processes
+are needed that prevent defects from appearing in the first
+place, with screening for defects at the end of the production
+line used as a check that those processes have done the job
+asked of them.
 
 \hypertarget{avoid-or-expose-infants-to-peanuts}{%
 \section{Avoid, or expose infants~to~peanuts?}\label{avoid-or-expose-infants-to-peanuts}}
@@ -4267,27 +4304,33 @@ What follows introduces technicalities that have been avoided in the
 preceding chapters.
 
 Consider an experiment that compares a treatment with a control.
-A \(p\)-value measures the probability that a value as small as
-that observed, or smaller, would occur by chance if there really
-was no difference in effect between treatment and control.
-(The assumption of no difference is termed the NULL hypothesis.)
-The probability of 0.05, or 1 in 20 applies in the case where
-a threshold of 0.05 has been set in advance --- all values
-under that threshold are lumped together without distinction.
+The starting point for a \(p\)-value calculation is the NULL
+hypothesis assumption of no difference in effect between
+treatment and control.
+A \(p\)-value measures the probability that a difference in
+measured effect as small as that observed, or smaller would,
+assuming the NULL hypothesis, occur by chance.
 
-Issues for understanding what a \(p\)-values tells you are:
+Two points to note are:
 
 \begin{itemize}
 \tightlist
 \item
-  It does not tell you what happens if there is a difference.
+  It is necessary to distinguish between the common use of the
+  cutoff \(0.05\) (or, less commonly, 0.01) and the individual \(p\)-value.
+  The probability \(0.05\), or 1 in 20 applies in the case where
+  a threshold of 0.05 has been set in advance --- all values
+  under that threshold are lumped together without distinction.
+\item
+  The definition says nothing about the \(p\)-value that can be expected
+  if there is a difference. It does not give, as is sometimes thought,
+  the probability that there really is a difference.
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    In particular, it does not tell you the probability that
-    there really is a difference.
-  \end{itemize}
+Issues for understanding the meaning of a \(p\)-value are:
+
+\begin{itemize}
+\tightlist
 \item
   Finding \(p \leq 0.05\) is all very well. What one really
   needs to know is that there is an alternative that is
@@ -4304,6 +4347,11 @@ Issues for understanding what a \(p\)-values tells you are:
   \item
     In fact, under the NULL, all values between 0 and 1 are
     equally likely!
+  \item
+    A careful analysis suggests that with \(p\)=0.05, the
+    alternative is at least 2, but no more than 5 times as
+    likely as the
+    NULL.\footnote{See \url{https://statisticsbyjim.com/hypothesis-testing/interpreting-p-values/}}
   \end{itemize}
 \end{itemize}
 
@@ -4412,6 +4460,9 @@ Brawley, Otis W. 2018. {``Prostate Cancer Screening: And the Pendulum Swings.''}
 
 \leavevmode\hypertarget{ref-cairo_2013}{}%
 Cairo, Alberto. 2013. \emph{The Functional Art: An Introduction to Information Graphics and Vizualisation}. 1st ed. New Riders.
+
+\leavevmode\hypertarget{ref-chalmers2009avoidable}{}%
+Chalmers, Iain, and Paul Glasziou. 2009. {``Avoidable Waste in the Production and Reporting of Research Evidence.''} \emph{The Lancet} 374 (9683): 86--89. https://doi.org/\url{https://doi.org/10.1016/S0140-6736(09)60329-9}.
 
 \leavevmode\hypertarget{ref-chisholm_2016}{}%
 Chisholm, Donna. 2016. {``Birth Control.''} \emph{The NZ Listener, October 8 - 14}, 18--24.

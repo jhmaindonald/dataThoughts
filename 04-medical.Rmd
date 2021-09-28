@@ -160,9 +160,11 @@ to check whether a drug or other treatment warrants further
 investigation. Evidence will be presented in Section \@ref(sec:lab)
 that suggests that these trials are commonly not doing a good
 job at achieving their intended purpose. Greater attention is
-needed to the rigor that is required for clinical trials.
+needed to the rigour that is required for clinical trials that
+are designed to meet regulatory requirements for the approval
+of drugs, vaccines, or other therapeutic intervention≥
 
-Clinical trials typically are conducted in three phases. 
+Clinical trials are typically conducted in three phases. 
 Phase I applies the treatment to a small number of subjects 
 and checks that the treatment appears safe.
 Phase II, perhaps with several hundred subjects, looks for
@@ -316,6 +318,28 @@ controlled trials together with evidence from long term
 cohort studies (4 or 8 years) to make a convincing case 
 for the long-term effects of sugar-sweetened beverages on 
 increasing obesity and obesity-related diseases.
+
+Clinical trials have their own problems and issues. Using 
+evidence from published review sources, @chalmers2009avoidable 
+found issues with the choice of research questions; the quality 
+of research design and methods, and the adequacy of 
+publication practices. They reported that 50% of studies were 
+designed without reference to systematic reviews of existing 
+evidence, and that 50% were never published in full.
+
+Planning and execution failures are set in stone by the time
+that a research report is sent for review.  Pre-registration, 
+involving the depositing a research question and study design 
+with a registration service or journal before starting an 
+investigation, allows peer review feedback that can elicit 
+suggestions for improvement and detect any potential flaws 
+before the study 
+begins.^[See <https://plos.org/open-science/preregistration/>]
+Even more than for industrial quality control, processes
+are needed that prevent defects from appearing in the first 
+place, with screening for defects at the end of the production 
+line used as a check that those processes have done the job
+asked of them.
 
 ## Avoid, or expose infants to peanuts?
 
