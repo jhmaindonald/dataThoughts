@@ -114,6 +114,7 @@ x <- knitr::kable(stats)
 
 ## 2. $^*$What does a $p$-value tell the experimenter? {#pval .unnumbered}
 
+$P$-values are very widely used to indicate whether a difference
 What follows introduces technicalities that have been avoided in the
 preceding chapters. 
 

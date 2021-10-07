@@ -2,7 +2,7 @@
 title: 'The Skeptical Data Analyst'
 subtitle: "Think again --- examples that inform and educate"
 author: "John Maindonald"
-date: "2021-09-28"
+date: "2021-10-08"
 site: bookdown::bookdown_site
 documentclass: book
 classoption: b5paper
