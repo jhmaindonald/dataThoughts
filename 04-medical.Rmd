@@ -4,16 +4,26 @@
 knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.5,fig.height=5.5)
 ```
 
+A focus on medicine and public health is used as a context in
+which to introduce ideas and issues that are more generally
+relevant.  There is wide acceptance that the evidence provided 
+by randomized controlled trials (RCTs) that are conducted to 
+high standards is at the top of a hierarchy of evidence.
+
+Web sources are noted that, because they base their advice on 
+careful and transparent evaluations of the available evidence,
+can be trusted.
+
 ## Useful sources of advice and information
 
 Here are noted web resources that, for many issues of major
 interest, provide carefully collated assessments that are
 based on a critical examination of the whole range of evidence
-that the authors could identify.  There may be many 
-published studies, not all of equal quality, that bear on a medical 
-issue.  Or there may be one, or a small number, of large-scale high 
-quality trials that are used as a basis for judgment.  The updating 
-of assessments as new evidence emerges is a major challenge.
+that the authors could identify.  There may be many published 
+studies, not all of equal quality, that bear on a medical issue.
+Or there may be one, or a small number, of large-scale high 
+quality trials that are used as a basis for judgment.  It is
+important that assessments are updated as new evidence emerges.
 
 Resources that will be noted are
 
@@ -85,7 +95,7 @@ participate in prostate cancer screening, using the PSA test, for 16 years.^[<ht
 || 1000 men, No screening | 1000 men, Screening
 | --- | ------- | ------- 
 | Deaths (prostate cancer) | 12 | 10
-|||
+| ---| ---| ---
 | Biopsy & false alarm | 0 | 155
 | Unnecessary treatment | 0 | 51
 
@@ -99,21 +109,21 @@ undue readiness to use the test result as a reason for further
 potentially harmful testing and treatment.  "Wait and watch" is often
 the preferred strategy.
 
-See also: @levitin_2015, Chapter 6, and 
-[How Patients Think, and How They Should](https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html)^[<https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html>]
+See @martin2018effect, @levitin_2015 [chap. 6], @fung2020cancer [pp. 278-281],
+and the web page [How Patients Think, and How They Should](https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html)^[<https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html>]
 
 ### Breast cancer screening --- a contested area {-}
 
-See, e.g., @raichand2017conclusions. The review starts with the comment:
+The @raichand2017conclusions review starts with the comment:
     
 > The recent controversy about using mammography to screen for breast cancer 
-based on randomized controlled trials over 3 decades in Western countries has 
-not only eclipsed the paradigm of evidence-based medicine, but also puts health decision-makers in countries where breast cancer screening is still being considered in a dilemma to adopt or abandon such a well-established screening modality.
+based on randomized controlled trials over 3 decades in Western countries 
+has not only eclipsed the paradigm of evidence-based medicine, but also puts health decision-makers in countries where breast cancer screening is still being considered in a dilemma to adopt or abandon such a well-established screening modality.
 
 The short summary from the 
 [Harding Center Fact Box for Mammography Screening](https://www.hardingcenter.de/en/early-detection-breast-cancer-mammography-screening), referring to women 50 years [a few trials looked at
 women aged>=40] and older who either did or did not participate in 
-mammography screening for approximately 11 years, reads
+mammography screening for approximately 11 years reads
 
 > Mammography reduced the number of women who died from breast
 cancer by 1 out of every 1000 women.  It had no effect on the 
@@ -121,19 +131,61 @@ number of women who died from any type of cancer.  Among all
 women taking part in screening, some women with non-progressive
 cancer were over-diagnosed and received unnecessary treatment.^[<https://www.hardingcenter.de/en/early-detection-breast-cancer-mammography-screening>] 
 
-Those who are convinced of 
-the virtues of screening for a wide age group may wish  to challenge 
-the evidence as presented at the time of writing.  On what grounds, 
-however?  It might be argued that
+The chief English source of evidence for the fact box is the 
+Cochrane review @gotzsche2013screening.  Eligible trials included 
+more than 600,000 women.
 
-* Improvements in medical procedures since the time of the trials
-on which the Fact Boxes are based have changed the balance of risk.
-* The trials do not apply to New Zealand conditions.  
+@loberg2015benefits provide a slightly more detailed breakdown 
+of the evidence, as applied to women who were screened 
+for 20 years, starting at age 50, with mortality assessed 
+at ages 56 to 75 in the UK. .  Figure \@ref(fig:c-screen) 
+is a visual summary.
+Interval cancers are cancers that are detected in between regular 
+screens.  A prior normal screen may give a false assurance and 
+lead to a delay in seeking help when symptoms appear.
 
-Both cases require justification.
+```{r cap2, echo=FALSE}
+cap2 <- "Estimates of benefits and harms of screening, as applied to the observed incidence of invasive breast cancer (women aged 50 to 69 years) and mortality (women aged 55 to 74 years) in the UK in 2007."
+```
 
-An important Harding Center study that is in progress is the
-FORCEE project [@wegwarth2018european]:
+```{r c-screen, echo=FALSE, message=FALSE, warning=FALSE, fig.width=6, fig.height=3.75, fig.pos='H', out.width="60%", fig.cap=cap2}
+dset <- data.frame(num = c(200,30,3,15,2,0),
+                   outcome = c("False positive","False positive\nwith biopsy",
+                               "Interval cancer","Overdiagnosed",
+                               "Prevented breast\ncancer death", 
+                               "Prevented\noverall death"))
+lattice::barchart(outcome~num, data=dset, horiz=T, xlim=c(0,210),
+                  col=rep(c("gray90","white"), c(4,2)),
+                  xlab="Number out of 1000",
+                  panel=function(x,y,...){
+                       ylim <- current.panel.limits()$ylim
+                      lrect(0,ylim[1],210,4.55, 
+                      border='white', col='gray95');
+                      panel.barchart(x,y,...);
+                    panel.text(x,y, labels=paste(x), offset=0.3,
+                               pos=c(2,2,4,2,4,4))}
+)
+```
+
+@fung2020cancer gives a readable summary of 
+the evidence, for a number of different cancers. In the case
+of breast cancer, the widespread introduction of screening
+has dramatically increased the detection of early stage cancers, 
+a large proportion of which will never progress to become 
+symptomatic or life-threatening.  Over-diagnosis leads to invasive
+tests and treatments that themselves carry, over the medium to
+long term, serious physical and mental risks.
+
+It may be argued that there have been improvements in medical 
+procedures since the trials on which the Fact Boxes are based 
+that have changed the balance of risk, or that the trials do 
+not apply to New Zealand conditions.  Both cases require 
+justification. It is not legitimate to focus on "cancers"
+detected, without regard to sources of harm.
+
+The FORCEE project [@wegwarth2018european], currently in progress
+at the Harding Center study, has as an aim the individualising 
+of screening and prevention.
 
 > Against this background, the Horizon2020 research project “Female cancer prediction using cervical omics to individualise screening and prevention” (FORECEE) has taken on the task of developing a test that could determine the risk of developing four cancers that are specific to women. The test will look for molecular changes in cells that predict a woman’s individual risk of developing breast, cervical, womb, and ovarian cancer. This could make it possible to identify women with a high risk of these cancers, and to spare women with a low risk from unnecessary screening and the anxiety of false alarms.
 
@@ -150,7 +202,7 @@ For simplicity, it will be assumed that there are two alternatives
 to be compared, in what is known as a two-armed trial. In medical 
 trials the two arms may be a treatment and a placebo, with the 
 placebo (something harmless that has no effect) made to look as 
-similar as possible to the treatment.^[For a helpful animated summary of some of the key issues, see: <https://www.youtube.com/watch?v=Wy7qpJeozec>]
+similar as possible to the treatment. 
 
 An important distinction is between pre-clinical trials, often
 with animals such as mice, and clinical trials with human
@@ -158,13 +210,10 @@ subjects.  Pre-clinical trials are likely to be conducted
 with a small number of mice or other animals, and are intended
 to check whether a drug or other treatment warrants further
 investigation. Evidence will be presented in Section \@ref(sec:lab)
-that suggests that these trials are commonly not doing a good
-job at achieving their intended purpose. Greater attention is
-needed to the rigour that is required for clinical trials that
-are designed to meet regulatory requirements for the approval
-of drugs, vaccines, or other therapeutic intervention≥
+that suggests that these trials are commonly not achieving their
+intended purpose.
 
-Clinical trials are typically conducted in three phases. 
+Clinical trials typically are conducted in three phases. 
 Phase I applies the treatment to a small number of subjects 
 and checks that the treatment appears safe.
 Phase II, perhaps with several hundred subjects, looks for
@@ -212,6 +261,9 @@ a smaller or larger element of risk.
     + Some slow growing cancers may be better left untreated, 
     rather than exposing the patient to a treatment that may itself 
     do serious damage. 
+
+For a helpful animated summary of some of the key issues, see:  
+<https://www.youtube.com/watch?v=Wy7qpJeozec>
 
 ### A note in passing: HiPPO decisions vs A/B testing {-}
 
@@ -269,8 +321,7 @@ studies that have been conducted with high methodological
 rigour.  The strongest evidence comes, as with the link
 between smoking and lung cancer, from multiple studies,
 with different likely biases, that all point strongly in 
-the same direction.^[Note the comments on Lord's paradox
-in Section \@ref{sec:Y-S}.]
+the same direction.
 
 ### Issues for all types of study {-} 
 
@@ -434,12 +485,10 @@ the syndrome.
 | Fatal heart attacks | 18 | 5
 | Non-fatal heart attacks | 171 | 99
 
-Later work indicated that overall benefits are limited to those 
-with previous symptoms.  A 2009 study found major bleeding episodes, 
+Later work indicated that benefits are limited to those with 
+previous symptoms. A 2009 study found that major bleeding episodes, 
 requiring admission to hospital, were 20 (1.2%) in the placebo group,
-and 34 (2%) in the aspirin group^[<https://www.theguardian.com/society/2009/aug/31/aspirin-british-heart-foundation>]  It is important that all adverse effects are documented.
-
-For a summary of current evidence, see @barbarawi2019aspirin.
+and 34 (2%) in the aspirin group^[<https://www.theguardian.com/society/2009/aug/31/aspirin-british-heart-foundation>].  @barbarawi2019aspirin gives a summary of current evidence.
 
 ## The effectiveness of surgery
 
