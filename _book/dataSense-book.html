@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The Skeptical Data Analyst</title>
   <meta name="description" content="The Skeptical Data Analyst" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The Skeptical Data Analyst" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -24,7 +23,7 @@
 <meta name="author" content="John Maindonald" />
 
 
-<meta name="date" content="2021-09-22" />
+<meta name="date" content="2021-11-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,12 +49,16 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -270,8 +273,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10" data-path=""><a href="#notes"><i class="fa fa-check"></i><b>10</b> Notes</a>
 <ul>
-<li><a href="#hurricanes">1. The <span class="citation"><span>Jung et al.</span> (<span>2014</span>)</span> US hurricane data</a></li>
-<li><a href="#pval">2. <span class="math inline">\(^*\)</span>What does a <span class="math inline">\(p\)</span>-value tell the experimenter?</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#hurricanes"><i class="fa fa-check"></i>1. The <span class="citation">Jung et al. (2014)</span> US hurricane data</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#pval"><i class="fa fa-check"></i>2. <span class="math inline">\(^*\)</span>What does a <span class="math inline">\(p\)</span>-value tell the experimenter?</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path=""><a href="#app:more"><i class="fa fa-check"></i><b>11</b> Books, videos, and websites</a>
 <ul>
@@ -307,388 +310,526 @@ div.csl-indent {
 <h1 class="title">The Skeptical Data Analyst</h1>
 <h2 class="subtitle"><em>Think again — examples that inform and educate</em></h2>
 <p class="author"><em>John Maindonald</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-09-22</em></p>
+<p class="date"><em>2021-11-27</em></p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
+<div id="preface" class="section level1 unnumbered hasAnchor">
+<h1>Preface<a href="#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
 
 </div>
-<div id="systems-of-human-judgment" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Systems of human judgment</h1>
+<div id="systems-of-human-judgment" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Systems of human judgment<a href="#systems-of-human-judgment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="system-1-and-system-2-further-comments" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> System 1 and System 2 — further comments</h2>
+<div id="system-1-and-system-2-further-comments" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> System 1 and System 2 — further comments<a href="#system-1-and-system-2-further-comments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="the-intuition-of-professionals" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> The Intuition of Professionals</h2>
-<div id="obstacles-to-effective-judgment" class="section level3 unnumbered">
-<h3>Obstacles to effective judgment</h3>
-</div>
-</div>
-<div id="a-demand-for-discipline-careful-thought" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> A demand for discipline &amp; careful thought</h2>
-</div>
-<div id="further-examples" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Further examples</h2>
-<div id="a-simple-and-arguably-trick-example" class="section level3 unnumbered">
-<h3>A simple (and, arguably, trick) example</h3>
-</div>
-<div id="even-careful-critics-sometimes-get-it-wrong" class="section level3 unnumbered">
-<h3>Even careful critics sometimes get it wrong</h3>
-</div>
-<div id="think-again-a-very-simple-example" class="section level3 unnumbered">
-<h3>Think again — a very simple example</h3>
-</div>
-<div id="a-test-to-check-understanding-of-risk" class="section level3 unnumbered">
-<h3>A test to check understanding of risk</h3>
+<div id="the-intuition-of-professionals" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> The Intuition of Professionals<a href="#the-intuition-of-professionals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="obstacles-to-effective-judgment" class="section level3 unnumbered hasAnchor">
+<h3>Obstacles to effective judgment<a href="#obstacles-to-effective-judgment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="misbehaving-humans" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Misbehaving humans!</h2>
+<div id="a-demand-for-discipline-careful-thought" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> A demand for discipline &amp; careful thought<a href="#a-demand-for-discipline-careful-thought" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="negotiating-life-in-an-uncertain-world" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Negotiating Life in an Uncertain World<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h2>
+<div id="further-examples" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Further examples<a href="#further-examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="a-simple-and-arguably-trick-example" class="section level3 unnumbered hasAnchor">
+<h3>A simple (and, arguably, trick) example<a href="#a-simple-and-arguably-trick-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="even-careful-critics-sometimes-get-it-wrong" class="section level3 unnumbered hasAnchor">
+<h3>Even careful critics sometimes get it wrong<a href="#even-careful-critics-sometimes-get-it-wrong" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="think-again-a-very-simple-example" class="section level3 unnumbered hasAnchor">
+<h3>Think again — a very simple example<a href="#think-again-a-very-simple-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="a-test-to-check-understanding-of-risk" class="section level3 unnumbered hasAnchor">
+<h3>A test to check understanding of risk<a href="#a-test-to-check-understanding-of-risk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="misbehaving-humans" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Misbehaving humans!<a href="#misbehaving-humans" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="negotiating-life-in-an-uncertain-world" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Negotiating Life in an Uncertain World<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a><a href="#negotiating-life-in-an-uncertain-world" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="effective-use-of-graphs" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Effective use of graphs</h1>
+<div id="effective-use-of-graphs" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Effective use of graphs<a href="#effective-use-of-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="general-principles" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> General principles</h2>
+<div id="general-principles" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> General principles<a href="#general-principles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="varying-time-intervals-show-rates-not-counts" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Varying time intervals — show rates, not counts</h2>
+<div id="varying-time-intervals-show-rates-not-counts" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Varying time intervals — show rates, not counts<a href="#varying-time-intervals-show-rates-not-counts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="banking-the-importance-of-aspect-ratio" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Banking — the importance of aspect ratio</h2>
+<div id="banking-the-importance-of-aspect-ratio" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Banking — the importance of aspect ratio<a href="#banking-the-importance-of-aspect-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="scales-that-show-changes-by-equal-multipliers" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Scales that show changes by equal multipliers</h2>
+<div id="scales-that-show-changes-by-equal-multipliers" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Scales that show changes by equal multipliers<a href="#scales-that-show-changes-by-equal-multipliers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="track" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Different graphs serve different purposes</h2>
-<div id="relative-distance-scales" class="section level3 unnumbered">
-<h3>Relative distance scales</h3>
+<div id="track" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Different graphs serve different purposes<a href="#track" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="relative-distance-scales" class="section level3 unnumbered hasAnchor">
+<h3>Relative distance scales<a href="#relative-distance-scales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="helpful-web-links-are" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Helpful web links are:</h2>
+<div id="helpful-web-links-are" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Helpful web links are:<a href="#helpful-web-links-are" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="selection-and-survivor-bias" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Selection and survivor bias</h1>
+<div id="selection-and-survivor-bias" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Selection and survivor bias<a href="#selection-and-survivor-bias" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="the-hazards-of-convenience-samples" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> The hazards of convenience samples</h2>
-<div id="convenience-samples-sometimes-have-a-story-to-tell" class="section level3 unnumbered">
-<h3>Convenience samples sometimes have a story to tell</h3>
+<div id="the-hazards-of-convenience-samples" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> The hazards of convenience samples<a href="#the-hazards-of-convenience-samples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="convenience-samples-sometimes-have-a-story-to-tell" class="section level3 unnumbered hasAnchor">
+<h3>Convenience samples sometimes have a story to tell<a href="#convenience-samples-sometimes-have-a-story-to-tell" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="uk-cotton-worker-wages-in-the-1880s" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> UK cotton worker wages in the 1880s</h2>
+<div id="uk-cotton-worker-wages-in-the-1880s" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> UK cotton worker wages in the 1880s<a href="#uk-cotton-worker-wages-in-the-1880s" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="the-uneasy-path-from-hindsight-to-insight" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> The uneasy path from hindsight to insight</h2>
-<div id="tales-of-standout-past-success" class="section level3 unnumbered">
-<h3>Tales of standout past success</h3>
+<div id="the-uneasy-path-from-hindsight-to-insight" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> The uneasy path from hindsight to insight<a href="#the-uneasy-path-from-hindsight-to-insight" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tales-of-standout-past-success" class="section level3 unnumbered hasAnchor">
+<h3>Tales of standout past success<a href="#tales-of-standout-past-success" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="ss:wald" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> The message in the missing bullet holes</h2>
+<div id="ss:wald" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> The message in the missing bullet holes<a href="#ss:wald" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="medicine-and-health" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Medicine and health</h1>
+<div id="medicine-and-health" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Medicine and health<a href="#medicine-and-health" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="useful-sources-of-advice-and-information" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Useful sources of advice and information</h2>
-<div id="the-harding-center-for-risk-literacy" class="section level3 unnumbered">
-<h3>The Harding Center for Risk Literacy</h3>
+<div id="useful-sources-of-advice-and-information" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Useful sources of advice and information<a href="#useful-sources-of-advice-and-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-harding-center-for-risk-literacy" class="section level3 unnumbered hasAnchor">
+<h3>The Harding Center for Risk Literacy<a href="#the-harding-center-for-risk-literacy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="harding-center-medical-fact-boxes" class="section level3 unnumbered">
-<h3>Harding Center Medical Fact Boxes</h3>
+<div id="harding-center-medical-fact-boxes" class="section level3 unnumbered hasAnchor">
+<h3>Harding Center Medical Fact Boxes<a href="#harding-center-medical-fact-boxes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="the-cochrane-center" class="section level3 unnumbered">
-<h3>The Cochrane Center<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></h3>
+<div id="the-cochrane-center" class="section level3 unnumbered hasAnchor">
+<h3>The Cochrane Center<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a><a href="#the-cochrane-center" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="winton-centre-for-risk-and-evidence-communication" class="section level3 unnumbered">
-<h3>Winton Centre for Risk and Evidence Communication<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h3>
-</div>
-</div>
-<div id="screening-for-cancer-randomized-trials" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Screening for cancer — randomized trials</h2>
-<div id="psa-screening-for-prostate-cancer-more" class="section level3 unnumbered">
-<h3>PSA Screening for Prostate Cancer, &amp; more</h3>
-</div>
-<div id="breast-cancer-screening-a-contested-area" class="section level3 unnumbered">
-<h3>Breast cancer screening — a contested area</h3>
+<div id="winton-centre-for-risk-and-evidence-communication" class="section level3 unnumbered hasAnchor">
+<h3>Winton Centre for Risk and Evidence Communication<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a><a href="#winton-centre-for-risk-and-evidence-communication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="ss:rct" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Randomized Controlled Trials vs other study types</h2>
-<div id="randomized-controlled-trials-the-gold-standard" class="section level3 unnumbered">
-<h3>Randomized Controlled Trials — the gold standard?</h3>
+<div id="screening-for-cancer-randomized-trials" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Screening for cancer — randomized trials<a href="#screening-for-cancer-randomized-trials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="psa-screening-for-prostate-cancer-more" class="section level3 unnumbered hasAnchor">
+<h3>PSA Screening for Prostate Cancer, &amp; more<a href="#psa-screening-for-prostate-cancer-more" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="a-note-in-passing-hippo-decisions-vs-ab-testing" class="section level3 unnumbered">
-<h3>A note in passing: HiPPO decisions vs A/B testing</h3>
-</div>
-<div id="population-studies-groups-must-be-broadly-comparable" class="section level3 unnumbered">
-<h3>Population studies — groups must be broadly comparable</h3>
-</div>
-<div id="issues-for-all-types-of-study" class="section level3 unnumbered">
-<h3>Issues for all types of study</h3>
+<div id="breast-cancer-screening-a-contested-area" class="section level3 unnumbered hasAnchor">
+<h3>Breast cancer screening — a contested area<a href="#breast-cancer-screening-a-contested-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="hierarchies-of-evidence" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Hierarchies of evidence</h2>
+<div id="ss:rct" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Randomized Controlled Trials vs other study types<a href="#ss:rct" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="randomized-controlled-trials-the-gold-standard" class="section level3 unnumbered hasAnchor">
+<h3>Randomized Controlled Trials — the gold standard?<a href="#randomized-controlled-trials-the-gold-standard" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="avoid-or-expose-infants-to-peanuts" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Avoid, or expose infants to peanuts?</h2>
+<div id="a-note-in-passing-hippo-decisions-vs-ab-testing" class="section level3 unnumbered hasAnchor">
+<h3>A note in passing: HiPPO decisions vs A/B testing<a href="#a-note-in-passing-hippo-decisions-vs-ab-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="false-positives" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> False Positives</h2>
-<div id="the-aspirin-story-randomized-trials" class="section level3 unnumbered">
-<h3>The Aspirin story (randomized trials)</h3>
+<div id="population-studies-groups-must-be-broadly-comparable" class="section level3 unnumbered hasAnchor">
+<h3>Population studies — groups must be broadly comparable<a href="#population-studies-groups-must-be-broadly-comparable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="issues-for-all-types-of-study" class="section level3 unnumbered hasAnchor">
+<h3>Issues for all types of study<a href="#issues-for-all-types-of-study" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="the-effectiveness-of-surgery" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> The effectiveness of surgery</h2>
+<div id="hierarchies-of-evidence" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Hierarchies of evidence<a href="#hierarchies-of-evidence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="avoid-or-expose-infants-to-peanuts" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Avoid, or expose infants to peanuts?<a href="#avoid-or-expose-infants-to-peanuts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="false-positives" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> False Positives<a href="#false-positives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-aspirin-story-randomized-trials" class="section level3 unnumbered hasAnchor">
+<h3>The Aspirin story (randomized trials)<a href="#the-aspirin-story-randomized-trials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="the-effectiveness-of-surgery" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> The effectiveness of surgery<a href="#the-effectiveness-of-surgery" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="matters-of-consequence" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Matters of consequence</h1>
+<div id="matters-of-consequence" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Matters of consequence<a href="#matters-of-consequence" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="the-mmr-vaccine-scandal" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> [The MMR vaccine scandal](</h2>
+<div id="the-mmr-vaccine-scandal" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> [The MMR vaccine scandal](<a href="#the-mmr-vaccine-scandal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="sally-clarks-disturbing-cot-death-story" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Sally Clark’s disturbing cot death story</h2>
+<div id="sally-clarks-disturbing-cot-death-story" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Sally Clark’s disturbing cot death story<a href="#sally-clarks-disturbing-cot-death-story" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="the-reinhoff-and-rogoff-saga" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> The Reinhoff and Rogoff saga</h2>
-<div id="is-there-a-pattern-across-countries" class="section level3 unnumbered">
-<h3>Is there a pattern across countries?</h3>
+<div id="the-reinhoff-and-rogoff-saga" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> The Reinhoff and Rogoff saga<a href="#the-reinhoff-and-rogoff-saga" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="is-there-a-pattern-across-countries" class="section level3 unnumbered hasAnchor">
+<h3>Is there a pattern across countries?<a href="#is-there-a-pattern-across-countries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="there-are-further-serious-issues-of-interpretation" class="section level3 unnumbered">
-<h3>There are further serious issues of interpretation</h3>
+<div id="there-are-further-serious-issues-of-interpretation" class="section level3 unnumbered hasAnchor">
+<h3>There are further serious issues of interpretation<a href="#there-are-further-serious-issues-of-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="parting-comments" class="section level3 unnumbered">
-<h3>Parting comments</h3>
+<div id="parting-comments" class="section level3 unnumbered hasAnchor">
+<h3>Parting comments<a href="#parting-comments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="sec:lancet" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> What do malaria drugs do to Covid-19 patients?<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></h2>
+<div id="sec:lancet" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> What do malaria drugs do to Covid-19 patients?<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a><a href="#sec:lancet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="a-simplistic-use-of-publicly-available-data" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> A simplistic use of publicly available data</h2>
+<div id="a-simplistic-use-of-publicly-available-data" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> A simplistic use of publicly available data<a href="#a-simplistic-use-of-publicly-available-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="sec:yule1" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Weighting effects that skew statistics</h1>
+<div id="sec:yule1" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Weighting effects that skew statistics<a href="#sec:yule1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="covid-19-deaths-comparing-countries" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Covid-19 deaths — comparing countries</h2>
+<div id="covid-19-deaths-comparing-countries" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Covid-19 deaths — comparing countries<a href="#covid-19-deaths-comparing-countries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="sec:Y-S" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> University admissions data — Simpson’s paradox</h2>
-<div id="ucb-admissions-data-another-perspective" class="section level3 unnumbered">
-<h3>UCB Admissions Data – Another perspective</h3>
+<div id="sec:Y-S" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> University admissions data — Simpson’s paradox<a href="#sec:Y-S" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ucb-admissions-data-another-perspective" class="section level3 unnumbered hasAnchor">
+<h3>UCB Admissions Data – Another perspective<a href="#ucb-admissions-data-another-perspective" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="a-note-on-lords-paradox" class="section level3 unnumbered">
-<h3>A note on Lord’s paradox</h3>
-</div>
-</div>
-<div id="comparing-unvaccinated-with-vaccinated" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Comparing unvaccinated with vaccinated</h2>
-<div id="report-found-almost-60-of-cases-were-vaccinated" class="section level3 unnumbered">
-<h3>Report found almost 60% of cases were vaccinated</h3>
+<div id="a-note-on-lords-paradox" class="section level3 unnumbered hasAnchor">
+<h3>A note on Lord’s paradox<a href="#a-note-on-lords-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="further-illustrative-examples" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Further illustrative examples</h2>
-<div id="does-baclofen-help-in-reducing-pain" class="section level3 unnumbered">
-<h3>Does Baclofen help in reducing pain?</h3>
-</div>
-<div id="web-page-revenue-per-click" class="section level3 unnumbered">
-<h3>Web page revenue per click</h3>
+<div id="comparing-unvaccinated-with-vaccinated" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Comparing unvaccinated with vaccinated<a href="#comparing-unvaccinated-with-vaccinated" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="report-found-almost-60-of-cases-were-vaccinated" class="section level3 unnumbered hasAnchor">
+<h3>Report found almost 60% of cases were vaccinated<a href="#report-found-almost-60-of-cases-were-vaccinated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="cricket-bowling-averages" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Cricket Bowling Averages</h2>
-<div id="runs-r-wickets-w-and-runs-per-wicket" class="section level3 unnumbered">
-<h3>Runs (R), wickets (W) and runs per wicket ({})</h3>
+<div id="further-illustrative-examples" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Further illustrative examples<a href="#further-illustrative-examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="does-baclofen-help-in-reducing-pain" class="section level3 unnumbered hasAnchor">
+<h3>Does Baclofen help in reducing pain?<a href="#does-baclofen-help-in-reducing-pain" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="fair-comparison-compare-runs-per-wicket" class="section level3 unnumbered">
-<h3>Fair comparison: Compare runs per wicket ({})</h3>
+<div id="web-page-revenue-per-click" class="section level3 unnumbered hasAnchor">
+<h3>Web page revenue per click<a href="#web-page-revenue-per-click" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="epistatic-effects-on-genetic-studies" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Epistatic effects on genetic studies</h2>
+<div id="cricket-bowling-averages" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Cricket Bowling Averages<a href="#cricket-bowling-averages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="runs-r-wickets-w-and-runs-per-wicket" class="section level3 unnumbered hasAnchor">
+<h3>Runs (R), wickets (W) and runs per wicket ({})<a href="#runs-r-wickets-w-and-runs-per-wicket" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="fair-comparison-compare-runs-per-wicket" class="section level3 unnumbered hasAnchor">
+<h3>Fair comparison: Compare runs per wicket ({})<a href="#fair-comparison-compare-runs-per-wicket" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="epistatic-effects-on-genetic-studies" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Epistatic effects on genetic studies<a href="#epistatic-effects-on-genetic-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="sec:reg" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Regression and Correlation</h1>
+<div id="sec:reg" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Regression and Correlation<a href="#sec:reg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="correlation-is-not-causation" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Correlation is not causation</h2>
+<div id="correlation-is-not-causation" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Correlation is not causation<a href="#correlation-is-not-causation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="regression-to-the-mean" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Regression to the mean</h2>
+<div id="regression-to-the-mean" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Regression to the mean<a href="#regression-to-the-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="nba-player-points-correlations-decline-over-time" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> NBA player points — correlations decline over time</h2>
+<div id="nba-player-points-correlations-decline-over-time" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> NBA player points — correlations decline over time<a href="#nba-player-points-correlations-decline-over-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="secrists-the-triumph-of-mediocrity-in-business" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Secrist’s “The Triumph of Mediocrity in Business”</h2>
-<div id="do-old-fallacies-ever-die" class="section level3 unnumbered">
-<h3>“Do old fallacies ever die?”</h3>
+<div id="secrists-the-triumph-of-mediocrity-in-business" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Secrist’s “The Triumph of Mediocrity in Business”<a href="#secrists-the-triumph-of-mediocrity-in-business" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="do-old-fallacies-ever-die" class="section level3 unnumbered hasAnchor">
+<h3>“Do old fallacies ever die?”<a href="#do-old-fallacies-ever-die" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="decathlon-performances-in-2006" class="section level3 unnumbered">
-<h3>Decathlon performances in 2006</h3>
+<div id="decathlon-performances-in-2006" class="section level3 unnumbered hasAnchor">
+<h3>Decathlon performances in 2006<a href="#decathlon-performances-in-2006" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="moderating-predictive-assessments" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Moderating predictive assessments</h2>
-<div id="moderating-sales-estimates" class="section level3 unnumbered">
-<h3>Moderating sales estimates</h3>
+<div id="moderating-predictive-assessments" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Moderating predictive assessments<a href="#moderating-predictive-assessments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="moderating-sales-estimates" class="section level3 unnumbered hasAnchor">
+<h3>Moderating sales estimates<a href="#moderating-sales-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="choosing-from-job-applicants" class="section level3 unnumbered">
-<h3>Choosing from job applicants</h3>
+<div id="choosing-from-job-applicants" class="section level3 unnumbered hasAnchor">
+<h3>Choosing from job applicants<a href="#choosing-from-job-applicants" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="kahnemans-comments-on-regression-to-the-mean" class="section level3 unnumbered">
-<h3>Kahneman’s comments on regression to the mean</h3>
+<div id="kahnemans-comments-on-regression-to-the-mean" class="section level3 unnumbered hasAnchor">
+<h3>Kahneman’s comments on regression to the mean<a href="#kahnemans-comments-on-regression-to-the-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="regression-to-the-mean-in-verse" class="section level3 unnumbered">
-<h3>Regression to the mean in verse</h3>
+<div id="regression-to-the-mean-in-verse" class="section level3 unnumbered hasAnchor">
+<h3>Regression to the mean in verse<a href="#regression-to-the-mean-in-verse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
 </div>
-<div id="the-uses-and-limits-of-observational-data" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> The uses and limits of observational data</h1>
+<div id="the-uses-and-limits-of-observational-data" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> The uses and limits of observational data<a href="#the-uses-and-limits-of-observational-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="we-have-a-prediction.-what-are-the-drivers" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> We have a prediction. What are the drivers?</h2>
+<div id="we-have-a-prediction.-what-are-the-drivers" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> We have a prediction. What are the drivers?<a href="#we-have-a-prediction.-what-are-the-drivers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="maternal-obesity-and-risk-of-colorectal-cancer" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Maternal obesity, and risk of colorectal cancer</h2>
+<div id="maternal-obesity-and-risk-of-colorectal-cancer" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Maternal obesity, and risk of colorectal cancer<a href="#maternal-obesity-and-risk-of-colorectal-cancer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="time-per-unit-distance-for-hillraces" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Time per unit distance for hillraces</h2>
+<div id="time-per-unit-distance-for-hillraces" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Time per unit distance for hillraces<a href="#time-per-unit-distance-for-hillraces" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="cholera-deaths-in-london-1832-to-1855" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Cholera deaths in London — 1832 to 1855</h2>
-<div id="by-air-or-by-water-the-1849-epidemic" class="section level3 unnumbered">
-<h3>By air, or by water — the 1849 epidemic</h3>
+<div id="cholera-deaths-in-london-1832-to-1855" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Cholera deaths in London — 1832 to 1855<a href="#cholera-deaths-in-london-1832-to-1855" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="by-air-or-by-water-the-1849-epidemic" class="section level3 unnumbered hasAnchor">
+<h3>By air, or by water — the 1849 epidemic<a href="#by-air-or-by-water-the-1849-epidemic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="the-1854-epidemic-a-natural-experiment" class="section level3 unnumbered">
-<h3>The 1854 epidemic — a natural experiment</h3>
+<div id="the-1854-epidemic-a-natural-experiment" class="section level3 unnumbered hasAnchor">
+<h3>The 1854 epidemic — a natural experiment<a href="#the-1854-epidemic-a-natural-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="use-water-from-the-brewery-and-stay-healthy" class="section level3 unnumbered">
-<h3>Use water from the brewery, and stay healthy!</h3>
-</div>
-</div>
-<div id="sec:maternity" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> Are there missing explanatory factors?</h2>
-</div>
-<div id="the-uses-and-traps-of-rule-based-methods" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> The uses and traps of rule-based methods</h2>
-<div id="from-trees-to-forests" class="section level3 unnumbered">
-<h3>From trees to forests</h3>
-</div>
-<div id="it-helps-to-know-the-how-and-why-of-the-algorithms-used" class="section level3 unnumbered">
-<h3>It helps to know the how and why of the algorithms used</h3>
+<div id="use-water-from-the-brewery-and-stay-healthy" class="section level3 unnumbered hasAnchor">
+<h3>Use water from the brewery, and stay healthy!<a href="#use-water-from-the-brewery-and-stay-healthy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="examples-that-illustrate-other-traps" class="section level2" number="8.7">
-<h2><span class="header-section-number">8.7</span> Examples that illustrate other traps</h2>
-<div id="are-herricanes-more-dangerous-than-himmicanes" class="section level3 unnumbered">
-<h3>Are herricanes more dangerous than himmicanes?</h3>
+<div id="sec:maternity" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Are there missing explanatory factors?<a href="#sec:maternity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="historical-speed-of-light-estimates-is-there-a-pattern" class="section level3 unnumbered">
-<h3>Historical speed of light estimates — is there a pattern?</h3>
+<div id="the-uses-and-traps-of-rule-based-methods" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> The uses and traps of rule-based methods<a href="#the-uses-and-traps-of-rule-based-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="from-trees-to-forests" class="section level3 unnumbered hasAnchor">
+<h3>From trees to forests<a href="#from-trees-to-forests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="it-helps-to-know-the-how-and-why-of-the-algorithms-used" class="section level3 unnumbered hasAnchor">
+<h3>It helps to know the how and why of the algorithms used<a href="#it-helps-to-know-the-how-and-why-of-the-algorithms-used" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="global-mean-temperature-trends" class="section level2" number="8.8">
-<h2><span class="header-section-number">8.8</span> Global mean temperature trends</h2>
+<div id="examples-that-illustrate-other-traps" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Examples that illustrate other traps<a href="#examples-that-illustrate-other-traps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="are-herricanes-more-dangerous-than-himmicanes" class="section level3 unnumbered hasAnchor">
+<h3>Are herricanes more dangerous than himmicanes?<a href="#are-herricanes-more-dangerous-than-himmicanes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="historical-speed-of-light-estimates-is-there-a-pattern" class="section level3 unnumbered hasAnchor">
+<h3>Historical speed of light estimates — is there a pattern?<a href="#historical-speed-of-light-estimates-is-there-a-pattern" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="global-mean-temperature-trends" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Global mean temperature trends<a href="#global-mean-temperature-trends" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="critiquing-scientific-claims" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Critiquing scientific claims</h1>
+<div id="critiquing-scientific-claims" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Critiquing scientific claims<a href="#critiquing-scientific-claims" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="what-results-can-be-trusted" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> What results can be trusted?</h2>
-<div id="sources-of-failure" class="section level3 unnumbered">
-<h3>Sources of failure</h3>
+<div id="what-results-can-be-trusted" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> What results can be trusted?<a href="#what-results-can-be-trusted" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sources-of-failure" class="section level3 unnumbered hasAnchor">
+<h3>Sources of failure<a href="#sources-of-failure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="the-case-of-eysenck-and-his-collaborators" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> The case of Eysenck and his collaborators</h2>
+<div id="the-case-of-eysenck-and-his-collaborators" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> The case of Eysenck and his collaborators<a href="#the-case-of-eysenck-and-his-collaborators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="detection-of-covid-19-from-chest-images" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Detection of Covid-19 from chest images</h2>
+<div id="detection-of-covid-19-from-chest-images" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Detection of Covid-19 from chest images<a href="#detection-of-covid-19-from-chest-images" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="sec:lab" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Laboratory studies — what do we find?</h2>
-<div id="positive-developments-in-the-psychology-community" class="section level3 unnumbered">
-<h3>Positive developments in the psychology community</h3>
+<div id="sec:lab" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Laboratory studies — what do we find?<a href="#sec:lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="positive-developments-in-the-psychology-community" class="section level3 unnumbered hasAnchor">
+<h3>Positive developments in the psychology community<a href="#positive-developments-in-the-psychology-community" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="other-replication-studies" class="section level3 unnumbered">
-<h3>Other replication studies</h3>
-</div>
-</div>
-<div id="truths-that-special-interests-find-inconvenient" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> Truths that special interests find inconvenient</h2>
-<div id="styles-of-argument" class="section level3 unnumbered">
-<h3>Styles of argument</h3>
-</div>
-<div id="big-pharma-inconvenient-data" class="section level3 unnumbered">
-<h3>Big Pharma — inconvenient data</h3>
-</div>
-<div id="what-can-one-trust" class="section level3 unnumbered">
-<h3>What can one trust?</h3>
+<div id="other-replication-studies" class="section level3 unnumbered hasAnchor">
+<h3>Other replication studies<a href="#other-replication-studies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="tricks-used-to-dismiss-established-results" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> Tricks used to dismiss established results</h2>
+<div id="truths-that-special-interests-find-inconvenient" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Truths that special interests find inconvenient<a href="#truths-that-special-interests-find-inconvenient" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="styles-of-argument" class="section level3 unnumbered hasAnchor">
+<h3>Styles of argument<a href="#styles-of-argument" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="big-pharma-inconvenient-data" class="section level3 unnumbered hasAnchor">
+<h3>Big Pharma — inconvenient data<a href="#big-pharma-inconvenient-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="what-can-one-trust" class="section level3 unnumbered hasAnchor">
+<h3>What can one trust?<a href="#what-can-one-trust" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="tricks-used-to-dismiss-established-results" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Tricks used to dismiss established results<a href="#tricks-used-to-dismiss-established-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-<div id="notes" class="section level1" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Notes</h1>
-<p>Placeholder</p>
-<div id="hurricanes" class="section level2 unnumbered">
-<h2>1. The <span class="citation"><a href="#ref-jung2014female" role="doc-biblioref">Jung et al.</a> (<a href="#ref-jung2014female" role="doc-biblioref">2014</a>)</span> US hurricane data</h2>
+<div id="notes" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Notes<a href="#notes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="hurricanes" class="section level2 unnumbered hasAnchor">
+<h2>1. The <span class="citation">Jung et al. (<a href="#ref-jung2014female">2014</a>)</span> US hurricane data<a href="#hurricanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Figures <a href="#fig:hurricanes1"><strong>??</strong></a> and <a href="#fig:hurricanes2"><strong>??</strong></a> checked
+for a difference between the fitted male and female line or curve.
+Jung et al’s approach was, instead, to examine whether numbers of
+deaths varied with the “femaleness” of name, as judged by students
+in 2014.</p>
+<p>As a check on how the popularity of a name for each of females
+and males may have changed with time, Table <a href="#tab:changetab">10.1</a>
+uses US social security administration data to show numbers for
+names where the range of variation over 1950 to 2012 in the
+relative number of females was 0.08 or more.</p>
+<table>
+<caption><span id="tab:changetab">Table 10.1: </span>The minimum and maximum value of the relative proportion
+of female names, and the difference, are shown for the eight names
+that showed the greatest change over the years 1950 to 2012.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Fran</th>
+<th align="right">Charley</th>
+<th align="right">Cleo</th>
+<th align="right">Sandy</th>
+<th align="right">Erin</th>
+<th align="right">Inez</th>
+<th align="right">Carmen</th>
+<th align="right">Bret</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Minimum</td>
+<td align="right">0</td>
+<td align="right">0.00</td>
+<td align="right">0.39</td>
+<td align="right">0.68</td>
+<td align="right">0.84</td>
+<td align="right">0.86</td>
+<td align="right">0.88</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="even">
+<td align="left">Maximum</td>
+<td align="right">1</td>
+<td align="right">0.87</td>
+<td align="right">0.94</td>
+<td align="right">0.95</td>
+<td align="right">0.99</td>
+<td align="right">1.00</td>
+<td align="right">0.98</td>
+<td align="right">0.08</td>
+</tr>
+<tr class="odd">
+<td align="left">Difference</td>
+<td align="right">1</td>
+<td align="right">0.87</td>
+<td align="right">0.55</td>
+<td align="right">0.28</td>
+<td align="right">0.15</td>
+<td align="right">0.14</td>
+<td align="right">0.10</td>
+<td align="right">0.08</td>
+</tr>
+</tbody>
+</table>
+<p>In other cases, relative number of females were always
+either in the range 0 to 0.07 (i.e., mostly female), or
+in the range 0.93 to 1 (i.e., mostly female).</p>
+<p>Figure <a href="#fig:plotchanges">10.1</a> shows how the numbers of
+each sex changed over time, for the first six of the
+names in Table <a href="#tab:changetab">10.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:plotchanges"></span>
+<img src="10-notes_files/figure-html/plotchanges-1.png" alt="Change in numbers of names given to males and females
+over the years 1950 to 2012, for the six names where the 
+maximum difference in relative frequency was more than 0.1.
+The maximum change is shown against each name." width="90%" />
+<p class="caption">
+Figure 10.1: Change in numbers of names given to males and females
+over the years 1950 to 2012, for the six names where the
+maximum difference in relative frequency was more than 0.1.
+The maximum change is shown against each name.
+</p>
 </div>
-<div id="pval" class="section level2 unnumbered">
-<h2>2. <span class="math inline">\(^*\)</span>What does a <span class="math inline">\(p\)</span>-value tell the experimenter?</h2>
+<p>The names where the choices of parents at the time are likely to
+most different from that for students in 2014 are those where
+there has been greatest change over time (i.e., especially,
+Charley, Cleo and Fran).</p>
+<p>Other differences from the analyses on which Figures
+<a href="#fig:hurricanes1"><strong>??</strong></a> and <a href="#fig:hurricanes2"><strong>??</strong></a> were based
+are</p>
+<ul>
+<li>As the primary measure of the risk posed by the hurricanes, the
+authors used a 2013 US$ estimate of damage, intended for
+insurance purposes, for a comparable hurricane in 2013. Figure
+<a href="#fig:hurricanes1"><strong>??</strong></a> uses what is surely the more relevant
+measure, namely <code>NDAM2014</code> — this converts the estimate of
+damage caused at the time to 2014 US$.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></li>
+<li>Jung et al allowed for minor effects from barometric pressure
+at landfall, and interactions. Again, these do not affect
+the conclusions reached.</li>
+</ul>
+</div>
+<div id="pval" class="section level2 unnumbered hasAnchor">
+<h2>2. <span class="math inline">\(^*\)</span>What does a <span class="math inline">\(p\)</span>-value tell the experimenter?<a href="#pval" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math inline">\(P\)</span>-values are very widely used to indicate whether a difference
+What follows introduces technicalities that have been avoided in the
+preceding chapters.</p>
+<p>Consider an experiment that compares a treatment with a control.
+The starting point for a <span class="math inline">\(p\)</span>-value calculation is the NULL
+hypothesis assumption of no difference in effect between
+treatment and control.
+A <span class="math inline">\(p\)</span>-value measures the probability that a difference in
+measured effect as small as that observed, or smaller would,
+assuming the NULL hypothesis, occur by chance.</p>
+<p>Two points to note are:</p>
+<ul>
+<li>It is necessary to distinguish between the common use of the
+cutoff <span class="math inline">\(0.05\)</span> (or, less commonly, 0.01) and the individual <span class="math inline">\(p\)</span>-value.
+The probability <span class="math inline">\(0.05\)</span>, or 1 in 20 applies in the case where
+a threshold of 0.05 has been set in advance — all values
+under that threshold are lumped together without distinction.</li>
+<li>The definition says nothing about the <span class="math inline">\(p\)</span>-value that can be expected
+if there is a difference. It does not give, as is sometimes thought,
+the probability that there really is a difference.</li>
+</ul>
+<p>Issues for understanding the meaning of a <span class="math inline">\(p\)</span>-value are:</p>
+<ul>
+<li>Finding <span class="math inline">\(p \leq 0.05\)</span> is all very well. What one really
+needs to know is that there is an alternative that is
+substantially more likely.</li>
+<li><span class="math inline">\(p = 0.05\)</span>, or close to 0.05, is at the upper end of the range
+of <span class="math inline">\(p\)</span>-values that occur with a probability of 0.05. Treating
+<span class="math inline">\(p = 0.05\)</span> as an event that occurs with probability 0.05 under
+the NULL greatly exaggerates the evidence that it provides
+against the NULL.
+<ul>
+<li>In fact, under the NULL, all values between 0 and 1 are
+equally likely!</li>
+<li>A careful analysis suggests that with <span class="math inline">\(p\)</span>=0.05, the
+alternative is at least 2, but no more than 5 times as
+likely as the
+NULL.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></li>
+</ul></li>
+</ul>
 
 </div>
 </div>
-<div id="app:more" class="section level1" number="11">
-<h1><span class="header-section-number">Chapter 11</span> Books, videos, and websites</h1>
+<div id="app:more" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Books, videos, and websites<a href="#app:more" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Placeholder</p>
-<div id="books-all-been-referred-to-in-the-text" class="section level3" number="11.0.1">
-<h3><span class="header-section-number">11.0.1</span> Books (all been referred to in the text)</h3>
+<div id="books-all-been-referred-to-in-the-text" class="section level3 hasAnchor" number="11.0.1">
+<h3><span class="header-section-number">11.0.1</span> Books (all been referred to in the text)<a href="#books-all-been-referred-to-in-the-text" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="videos" class="section level3 unnumbered">
-<h3>Videos</h3>
+<div id="videos" class="section level3 unnumbered hasAnchor">
+<h3>Videos<a href="#videos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="websites" class="section level3 unnumbered">
-<h3>Websites</h3>
+<div id="websites" class="section level3 unnumbered hasAnchor">
+<h3>Websites<a href="#websites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="references" class="section level1 unnumbered hasAnchor">
+<h1>References<a href="#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-jung2014female" class="csl-entry">
 Jung, Kiju, Sharon Shavitt, Madhu Viswanathan, and Joseph M Hilbe. 2014. <span>“Female Hurricanes Are Deadlier Than Male Hurricanes.”</span> <em>Proceedings of the National Academy of Sciences</em> 111 (24): 8782–87. <a href="http://www.pnas.org/cgi/doi/10.1073/pnas.1402786111">http://www.pnas.org/cgi/doi/10.1073/pnas.1402786111</a>.
@@ -697,8 +838,8 @@ Jung, Kiju, Sharon Shavitt, Madhu Viswanathan, and Joseph M Hilbe. 2014. <span>�
 <div style="page-break-after: always;"></div>
 
 
-<div id="author" class="section level3 unnumbered">
-<h3>About the author</h3>
+<div id="author" class="section level3 unnumbered hasAnchor">
+<h3>About the author<a href="#author" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the major part of his career, John Maindonald has worked with other
 researchers as a quantitative problem solver.
 He has held positions at Victoria University of Wellington, in DSIR, in HortResearch Crown Research Institute (now Plant and Food), and at The Australian National University (ANU).
@@ -713,13 +854,17 @@ This has sold more than 11,000 copies over the three editions.</p>
 
 </div>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p>These questions came originally from the Harding Center web site <a href="https://www.hardingcenter.de/en" class="uri">https://www.hardingcenter.de/en</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p><a href="https://www.cochrane.org/" class="uri">https://www.cochrane.org/</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p><a href="https://wintoncentre.maths.cam.ac.uk/" class="uri">https://wintoncentre.maths.cam.ac.uk/</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Lancet, May 2020, <a href="https://bit.ly/3xqncMt" class="uri">https://bit.ly/3xqncMt</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Fortuitously, this
+change makes no difference of consequence to the graph or to
+the conclusions reached.<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>See <a href="https://statisticsbyjim.com/hypothesis-testing/interpreting-p-values/" class="uri">https://statisticsbyjim.com/hypothesis-testing/interpreting-p-values/</a><a href="#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -732,7 +877,6 @@ This has sold more than 11,000 copies over the three editions.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -772,6 +916,10 @@ gitbook.start({
 "text": null
 },
 "download": ["dataSense-book.pdf", "dataSense-book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -785,7 +933,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -30,8 +30,7 @@ reasonably be interpreted.
 
 1. Children of parents who try to control eating are more likely 
 to be overweight.
-2. Countries with higher IQs have higher average wealth measures.
-3. Ice cream consumption & polio were closely correlated in the 1950s.
+2. Ice cream consumption & polio were closely correlated in the 1950s.
     + Summer was when the virus thrived.
 
 Cases where the third variable is 

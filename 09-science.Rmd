@@ -77,7 +77,8 @@ in many disciplines, reinforced and abetted by statistical education,
 statistical software, and editorial policies. 
 
 It is not just statisticians who should be fighting back, but all 
-scientists who care about the public credibility of scientific processes.
+scientists who care about the public credibility of scientific
+processes.
 
 ## What results can be trusted?
 

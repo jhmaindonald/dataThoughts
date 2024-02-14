@@ -58,7 +58,7 @@ comparison with the US cotton industry wages.
 ```{r cap8}
 cap8 <- "Cotton worker wages in the UK --- 1889 US Bureau of Labor 'survey'
 versus 1886 census data. Wages are in pence per week."
-  ```
+```
 
 ```{r cotton, fig.width=7, fig.asp=0.5, fig.cap=cap8}
 ## detach("package:latticeExtra")

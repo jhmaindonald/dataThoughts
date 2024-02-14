@@ -41,9 +41,10 @@ ord <- round(order(abs(d), decreasing=T))
 stats <- round(rbind(ran[,ord[1:8]],d[ord[1:8]]),2)
 rownames(stats) <- c('Minimum','Maximum','Difference')
 z <- match(DAAG::hurricNamed$Name, mfsub$name, nomatch=0)
-library(kableExtra)
-kable(stats, digits=2, caption=cap1) %>% 
-  row_spec(3, bold=TRUE) %>% kable_styling(font_size=10)
+knitr::kable(stats, digits=2, caption=cap1) 
+## |> 
+##  kableExtra::row_spec(3, bold=TRUE) |> 
+##  kableExtra::kable_styling(font_size=10)
 ```
 In other cases, relative number of females were always
 either in the range 0 to 0.07 (i.e., mostly female), or
@@ -119,6 +120,7 @@ What follows introduces technicalities that have been avoided in the
 preceding chapters. 
 
 Consider an experiment that compares a treatment with a control.
+For example, does taking a drug of interest reduce sleeplessness?
 The starting point for a $p$-value calculation is the NULL 
 hypothesis assumption of no difference in effect between 
 treatment and control.
@@ -135,7 +137,7 @@ a threshold of 0.05 has been set in advance --- all values
 under that threshold are lumped together without distinction.
 * The definition says nothing about the $p$-value that can be expected 
 if there is a difference.  It does not give, as is sometimes thought, 
-the probability that there really is a difference.
+the probability that there really is no difference.
 
 Issues for understanding the meaning of a $p$-value are:
 
@@ -145,12 +147,24 @@ substantially more likely.
 * $p = 0.05$, or close to 0.05, is at the upper end of the range
 of $p$-values that occur with a probability of 0.05.  Treating
 $p = 0.05$ as an event that occurs with probability 0.05 under
-the NULL greatly exaggerates the evidence that it provides 
+the NULL exaggerates the evidence that it provides 
 against the NULL.
     + In fact, under the NULL, all values between 0 and 1 are
     equally likely!
-    + A careful analysis suggests that with $p$=0.05, the
-    alternative is at least 2, but no more than 5 times as
-    likely as the 
+    + Prior probabilities matter. If for example the data is 
+    from one of a set of drug trials where 99 out of 100 can 
+    be expected to show no effect, the 99 out of 100 instances 
+    where there is a 1 in 20 change of $p$ <= 0.05 have to be 
+    set again 1 out of 100 instances where there is a potential 
+    to detect an effect.  A $p$ <= 0.05 is more than 99/20 = 
+    4.95 times as likely to come from a drug with no effect as
+    from one that has a real effect.
+    + What size of effect is, based on whatever is known from
+    past comparable investigations, likely?  A reasonable default
+    is to center the distribution on zero, with values that become
+    increasingly less likely as the distance from zero increases.
+    Under plausible assumptions of this general type, it can be
+    shown that with $p$=0.05, the prior relative likelihood should 
+    be multiplied by, at most, around 2.5.
     NULL.^[See <https://statisticsbyjim.com/hypothesis-testing/interpreting-p-values/>]
 

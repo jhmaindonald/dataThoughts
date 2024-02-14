@@ -35,11 +35,12 @@ processes as of two types --- System 1 which jumps rapidly to
 make a judgment, and System 2 which takes time for careful 
 consideration.
 
-Human mental quirks make it useful to think of System 1 and System 2 
-as agents.  Stories about active agents who have personalities, habits, 
-and abilities readily take root in our minds. They are in this sense
-"fictions"!  They provide a model that is helpful in accounting for 
-the way that humans make judgments.
+Stories about active agents who have personalities, habits, 
+and abilities readily take root in our minds. This makes it 
+useful to think of System 1 and System 2 as 'agents'.  
+Although in reality fictions, thinking of them as agents
+provide a model that is helpful in accounting for the way that 
+humans make judgments.
 
 * System 1 responds quickly to immediate dangers, but is prey to
     priming (suggestive language), framing (response depends on how 
