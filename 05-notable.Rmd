@@ -125,17 +125,12 @@ should have had no regard to the probability of an initial cot death.
 It surely has some relevance.  The basic principles are perhaps more 
 difficult than Watkins was willing to allow. 
 
-## The Reinhoff and Rogoff saga
+## The Reinhart and Rogoff saga
 
 Figure \@ref(fig:debt2gdp12) plots data, for 1946 -- 2009 
 from 20 "advanced" countries, that underpinned the 2010 
 paper "_Growth in Time of Debt_" by the two Harvard economic 
-historians Reinhart and Rogoff [RR].  The paper [@reinhart2010growth]
-has been widely quoted in support of economic austerity programs
-internationally.  There was a huge stir, in the media and on the
-blogosphere, when graduate student Herndon found and published 
-details of coding and other errors in the results that RR had
-presented.^[<http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf>] 
+historians Reinhart and Rogoff [RR]. 
 
 ```{r cap1and2, echo=FALSE}
 cap3 <- "Dashed horizintal lines show means by Debt/GDP category, 
@@ -207,9 +202,16 @@ print(m1+annotation_custom(tableGrob(leg, theme=tt),
                            ymin=10.0, ymax=28))
 ```
 
-As well as coding errors, identified selective exclusion of 
+The paper [@reinhart2010growth]
+has been widely quoted in support of economic austerity programs
+internationally.  There was a huge stir, in the media and on the
+blogosphere, when graduate student Herndon found and published 
+details of coding and other errors in the results that RR had
+presented.^[<http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf>] 
+
+As well as coding errors, Hendon identified selective exclusion of 
 available data, and unconventional weighting of summary statistics.
-There was no acknowledgement that the relationship studied has varied 
+There was no consideration that the relationship studied has varied 
 substantially by country and over time. Half of the 20 countries
 had missing data for 5 or more of the years, with the largest
 number missing in the years 1946 to 1949.

@@ -1,6 +1,6 @@
 \thispagestyle{empty}
 
-### About the author {#author .unnumbered}
+# About the author {#author .unnumbered}
 
 For the major part of his career, John Maindonald has worked with other
 researchers as a quantitative problem solver.
@@ -12,6 +12,10 @@ Between 1983 and 1996, and occasionally after 1996, he reviewed the statistical 
 Between 2003 and 2015, he fronted 35 short courses (one week, or less)
 across different parts of Australia that demonstrated the use of the open source R data analysis and graphics system for data analysis purposes.
 <!-- These were conducted at the request of, or under the auspices of, a variety of Australian and other academic, research, and government organizations. -->
-He is the author of a book on Statistical Computation, and the senior author of “Data Analysis and Graphics Using R — An Example-Based Approach” (Maindonald and Braun, 2010).
-This has sold more than 11,000 copies over the three editions.
+He is the author of a book on Statistical Computation, and the senior author of
+the texts
 
+* _Data Analysis and Graphics Using R — An Example-Based Approach_, Maindonald and Braun, Cambridge University Press 2010.
+This has sold more than 11,000 copies over the three editions.  
+* _A Practical Guide to Data Analysis Using R -- An Example Based Approach_,
+Maindonald, Braun, Andrews. Cambridge University Press 2024 (in press).

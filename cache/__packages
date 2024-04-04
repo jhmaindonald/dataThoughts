@@ -1,0 +1,14 @@
+base
+methods
+usethis
+devtools
+datasets
+utils
+grDevices
+graphics
+stats
+knitr
+ggplot2
+nlme
+mgcv
+gridExtra

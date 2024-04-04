@@ -77,7 +77,8 @@ in many disciplines, reinforced and abetted by statistical education,
 statistical software, and editorial policies. 
 
 It is not just statisticians who should be fighting back, but all 
-scientists who care about the public credibility of scientific processes.
+scientists who care about the public credibility of scientific
+processes.
 
 ## What results can be trusted?
 
@@ -209,8 +210,6 @@ currently work.  The public good would be much better served
 by a process that encourages researchers to persist until it
 has been demonstrated that researchers have a model that meets
 standards such as are set out in Roberts [-@roberts2021common].  
-One may hope that one result of this review will be to shift 
-the research and publication focus accordingly.
 
 ## Laboratory studies --- what do we find? {#sec:lab}
 
@@ -529,7 +528,7 @@ Associate Professor Hassan Vally from La Trobe University,
 
 1. "The ‘us versus them’ narrative"  
 The powers that be are trying to deceive us."  Ask who is
-making real attempt to deceive --- commercial interest groups,
+making the real attempt to deceive --- commercial interest groups,
 peddlers of quack treatments, influence peddlers, . . .
 2. ‘I’m not a scientist, but…’  
 Meaning perhaps: "I’m not a scientist, but that does not stop me
@@ -538,22 +537,21 @@ established results." Or: “I know what the science says, but
 I’m keeping an open mind”. Politicians are among the most 
 frequent offenders.
 3. Reference to ‘the science not being settled’  
-There are of course times when the science is not settled, 
-and when this is  the case, one can expect scientists to 
-openly argue different points of view based on the evidence 
-available.  Or, what has come to be accepted wisdom
-may turn out to be wrong or in need of substantial 
-revision.  But challenges to the accepted wisdom have to be 
+Much science is of course not settled, and one can then 
+expect scientists to openly argue different points of view
+based on available evidence.  Or, what has come to be accepted
+wisdom, may turn out to be wrong or in need of substantial 
+revision.  Challenges to the accepted wisdom have, however, to be 
 carefully argued, and themselves survive informed critique.
 4. Overly simplistic explanations  
 Oversimplifications and generalizations are central to many
 anti-science arguments.  Science is often messy, complex and full
-of nuance. The truth can be harder to explain, and can sometimes
+of nuance. The truth can be harder to explain, and sometimes
 sound less plausible, than a simple but incorrect explanation.
-Use of simplistic statistical arguments is common, e.g., fit a
-line to the cherry-picked years 1998-2008, ignoring year to year
-correlation as well as influences that operate over longer time
-periods.
+Simplistic statistical arguments are common, e.g., fit a
+line to world average temperature data for the cherry-picked years
+1998-2008, ignoring year to year correlation as well as influences
+that operate over longer time periods.
 5. Cherry-picking  
 One is not entitled to choose one study over another just because it aligns
 with what you prefer to believe. This is not how science works.  

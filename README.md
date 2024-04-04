@@ -82,7 +82,7 @@ $ cp ~/_notes/dataThoughts/_book/work/book-index.ind \ ~/_notes/dataThoughts/boo
 To generate a new index file, proceed thus:
 
 * Enter, from the Unix command line in the **_book/work/** subdirectory
-$ pdftotext -f 11 -l 96 -layout -eol unix\
+$ pdftotext -f 11 -l 102 -layout -eol unix\
  ../dataSense-book.pdf dataSense-book.txt
 If necessary, change `-l 96` to exclude the existing index.
 * Open the file **termFunIndex.Rmd**, from the **_book/work/**

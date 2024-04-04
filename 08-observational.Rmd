@@ -31,23 +31,21 @@ The issues that arise for observational studies do not in general have
 clear and easy answers. Chapters 20 and 21 of @gelman2020regression
 canvass points that authors of those studies need to address. See also
 [Andrew Gelman's blog.](https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/)^[https://statmodeling.stat.columbia.edu/2018/11/10/matching-] There are no simple
-answers!^[See also <https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/>]
+answers!^[See also <https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/>].  All relevant explanatory variables have to be identified,
+with the manner in which they may be driving predictions then
+teased out.
 
-Where there are several explanatory variables, and the aim is
-to determine the manner in which they may be driving predictions,
-matters get more complicated.  Thus, in a comparison between 
-two groups (e..g., in Section \@ref(sec:maternity), midwife led
-versus medical led neonatal care) one variable or factor may
-be of particular interest, while other variables are used to
-adjust for differences between the two groups that are at
-most a secondary focus of interest.  Variables that are of 
-secondary interest are commonly referred to as covariates.
-Regression coefficients can be misleading guides to what is 
-driving predictions if one or more of the relevant covariates 
-is not available or is not properly accounted for.  A paradox 
-of the Yule-Simpson type, sometimes referred to as Laird's 
-paradox, has the same potential to deceive, a potential that 
-should be ignored.
+Thus, in a comparison between two groups (e..g., in Section
+\@ref(sec:maternity), midwife led versus medical led neonatal
+care) one variable or factor may be of particular interest, while
+other variables are used to adjust for differences between the
+two groups that are at most a secondary focus of interest.
+Variables that are of secondary interest are commonly referred to
+as covariates.  Regression coefficients can be misleading guides
+to what is driving predictions if one or more of the relevant
+covariates is not available or is not properly accounted for.  A
+paradox of the Yule-Simpson type, sometimes referred to as
+Laird's paradox, has the same potential to mislead.
 
 Little that has been published since @RosBook clarifies greatly the
 advice that can be given for practical data analysis, beyond what
@@ -96,22 +94,20 @@ the climb measure is `Climb` (vertical distance between lowest
 and highest point, in meters), and the time measure is `Time`
 (in minutes).
 
-```{r nihr, echo=FALSE}
-nihr <- with(DAAG::nihills, 
-             data.frame(Dist=dist*1.609344, Climb=climb*0.3048,
-                        Time=time*60, Timef=timef*60))
-climb.lm <- lm(I(Time/Dist)~log(Dist)+log(Climb), data = nihr)
-tms.climb <- predict(climb.lm, type='terms')
-offy <- attributes(tms.climb)$constant
-bcl <- coef(climb.lm)
-constCl <- offy - bcl[2]*mean(log(nihr$Dist))
-slope.lm <- lm(I(Time/Dist)~log(Dist)+log(Climb/Dist), data = nihr)
-bsl <- coef(slope.lm)
-constSl <- offy - bsl[2]*mean(log(nihr$Dist))
-```
-
 How does time per unit distance (`timePerKm`) vary with distance. 
 We will fit two equations, both with $y$ = `timePerKm`.
+
+```{r coeffs, echo=FALSE}
+nihr <- with(DAAG::nihills, 
+             data.frame(minPerKm=time*60/(dist*1.6093),
+                        Dist=dist*1.609344, Climb=climb*0.3048))
+climb.lm <- lm(minPerKm~log(Dist)+log(Climb), data = nihr)
+slope.lm <- lm(minPerKm~log(Dist)+log(Climb/Dist), data = nihr)
+bClimb <- coef(climb.lm)
+constCl <- c(bClimb[1]+bClimb[3]*mean(log(nihr$Climb)), bClimb[2])
+bSlope <- coef(slope.lm)
+constSl <- c(bSlope[1]+bSlope[3]*mean((log(nihr$Climb/nihr$Dist))), bSlope[2])
+```
 
 ```{r cap1}
 cap1 <- "Variation in time per unit distance with distance.  Panel A
@@ -120,41 +116,39 @@ mean value, while Panel B shows the pattern of change when
 `log(Climb/Dist)` is held constant at its mean value."
 ```
 
-```{r partial, fig.width=6.75, fig.height=2.75, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap1}
-opar <- par(mar=c(3.1,3.1,2.1, 1.1), mgp=c(2.0,.4,0), fig=c(0,0.48,0,1))
-atx <- c(4,8,16,32)
-partial.climb <- resid(climb.lm, type='partial')
-plot(log(nihr$Dist), partial.climb[,1]+offy, xaxt='n', fg='gray',
-     xlab="Distance (km)", ylab="Minutes per km")
-mtext("A: `Climb` held constant", side=3, line=0.5, at=1, adj=0)
-axis(1, at=log(atx), labels=atx, col="gray")
-lines(log(nihr$Dist), tms.climb[,1]+offy, col='red')
-## Replace `climb` by `climb/dist`
-partial.slope <- resid(slope.lm, type='partial')
-tms.slope <- predict(slope.lm, type='terms')
-par(fig=c(0.52,1,0,1),new=TRUE)
-plot(log(nihr$Dist), partial.slope[,1]+offy, fg='gray',
-     xlab="Distance (km)", ylab="Minutes per km")
-mtext("B: `Climb/Dist` held constant", side=3, line=0.5, at=1, adj=0)
-lines(log(nihr$Dist), tms.slope[,1]+offy, col='red')
+```{r partial, fig.width=8, fig.asp=0.4, out.width="100%", fig.show="hold", fig.pos="H", fig.cap=cap1}
+opar <- par(mfrow=c(1,2), mgp=c(2,0.5,0), mar=c(3.1,3.1,2.1,1.1))
+lineCols <- c("red", adjustcolor("magenta",0.4))
+car::crPlots(climb.lm, terms=.~log(Dist), xaxt='n', yaxt='n', 
+             xlab="Dist", ylab="Minutes per kilometer", col.lines=lineCols)
+mtext("A: Climb held constant at mean value", adj=0, line=0.8, at=1)
+axis(2, at=4:7-mean(nihr$minPerKm), labels=paste(4:7))
+labx <- c(4,8,16,32)
+axis(1, at=log(2^(2:5)), labels=paste(2^(2:5)))
+car::crPlots(slope.lm, terms=.~log(Dist), xaxt='n', yaxt='n', 
+             xlab="Dist", ylab="Minutes per kilometer", col.lines=lineCols)
+mtext("B: log(Climb/Dist) held constant at mean value", adj=0, line=0.8, at=1)
+axis(1, at=log(2^(2:5)), labels=paste(2^(2:5)))
+axis(2, at=4:7-mean(nihr$minPerKm), labels=paste(4:7))
 par(opar)
 ```
 
-Figure \@ref(fig:resid)A shows the dependence of
+Figure \@ref(fig:partial)A shows the dependence of
 `timePerKm` depends on `log(Dist)`, when `log(Climb)`
-is held at its mean value.  Use of `log(Dist)` rather than 
-`Dist` means that distance on the $x$-axis from 2 to 4 (km) 
+is held at its mean value.  Use of `log(Dist)` rather than
+`Dist` means that distance on the $x$-axis from 2 to 4 (km)
 is the same as from 4 to 8, or from 8 to 16, or from 16 to 32,
 i.e., equal distances correspond to equal multiplicative
-changes.  The equation that is plotted is  
+changes.  The equation that is plotted is
 
-> `timePerKm` = `r round(constCl,2)` `r round(bcl[2],2)` $\times$ `log(Dist)`  
+> `timePerKm` = `r round(constCl[1],1)` `r round(constCl[2],2)` $\times$ `log(Dist)`
 
-Figure \@ref(fig:resid)B shows the dependence of
+Figure \@ref(fig:partial)B shows the dependence of
 `timePerKm` depends on `log(Dist)`, when `log(Climb/Dist)`
-is held at its mean value. The equation that is plotted is  
+is held at its mean value. The equation that is plotted is
 
-> `timePerKm` = `r round(constSl,2)` + `r round(bsl[2],2)` $\times$ `log(Dist)`   
+> `timePerKm` = `r round(constSl[1],2)` + `r round(constSl[2],2)` $\times$ `log(Dist)`
+
 
 In Panel A, time per kilometer decreases quite sharply as distance
 increases.  This happens because the ratio of `Climb` to `Dist` 
@@ -176,30 +170,23 @@ meaning to a coefficient.
 6,500 died from cholera in London in 1832. Medical opinion
 blamed "miasma" or noxious air, associated with the stink
 from rotting garbage, faeces, and pollution in the Thames.
-Poor areas had higher rates of cholera, thought to be
-a result of worse smell that was a result of crowding and
-poorer sanitation.  More directly to the point, people 
-were older, houses were poorly heated, and the water
-supply was more likely to be contaminated. Human excreta
+Poor areas had higher rates of cholera, thought to be a
+result of the more noxious air that arose from crowding
+and poorer sanitation.  Human excreta
 went into cesspits, with night-soil periodically taken 
 away.^[See _Cholera epidemics in Victorian London_\newline <https://www.thegazette.co.uk/all-notices/content/100519>]
-
 In 1842, [Edwin Chadwick, in The Sanitary Conditions of the Labouring Population (1842)](https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london)^[<https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london>]
 showed a direct link between poor living conditions, 
-disease and life expectancy.  Like others who accepted
-the "miasma" theory of disease, Chadwick did not 
-understand that cholera, along with some other major
-diseases, were water-borne.^[Covid-19 is of course
-spread through the air, albeit there is no associated
-smell.]
+disease and life expectancy.  
 
-In 1848 the Nuisances Removal and Diseases Prevention 
-Act^[Gazette issue 20637] was passed with the aim of 
-preventing transmission of cholera. The suggestion was to
-effectively dump the contents of cesspools and raw 
-sewage pits into the Thames, which was London's main source of drinking water. This only served to exacerbate the problem.
+Under the assumption that miasma from the cesspools and raw 
+sewage pits was the source of infection, the 1848 Nuisances 
+Removal and Diseases Prevention Act^[Gazette issue 20637] 
+was passed that led to the dumping of the raw sewage into
+the Thames, which was London's main source of drinking water. 
 The 1848-49 epidemic followed shortly after the cesspits 
-were banned.  @hassall1850memoir, in a careful microbiological study, commented that:
+were banned.  @hassall1850memoir, in a careful microbiological 
+study, commented:
 
 > ... a portion of the inhabitants are made to consume
  ... a portion of their own excrement, and ... to pay
@@ -212,13 +199,10 @@ office, collected data on deaths from cholera in London in the
 1849 epidemic. Farr classified districts into three groups thus,  
 according to the source of the water for most of the householders:  
 
-1) Thames between Battersea Bridge and Waterloo Bridge, coded 
-as `Battersea`;  
-2) New River/Rivers Lea and Ravensbourne (sources away from
-the Thames), coded as `NewRiver`;  
-3) Thames between Kew and Hammersmith, i.e., further up the 
-Thames than the first group, where the water was less polluted 
-by sewage, coded as `Kew`.
+1) Lower Thames, coded as `Battersea`;  
+2) Sources away from the Thames, coded as `NewRiver`;  
+3) Further up the Thames than `Batersea`, where the water was 
+less polluted, coded as `Kew`.
 
 Figure \@ref(fig:Farr) summarizes results from a regression
 analysis that used Farr's data. None of the terms stands out 
@@ -229,7 +213,8 @@ it difficult to maintain hygiene, were to be expected.
 
 ```{r Farr1849, echo=FALSE}
 capFarr <- "Each panel shows, in turn, the estimated contribution
-of a term in the model relative to the mean contribution from other model terms. Changes in deaths are on a `log` scale, so 
+of a term in the model relative to the mean contribution from 
+other model terms. Changes in deaths are on a `log` scale, so 
 that an increase by one unit multiplies the odds of death by 
 close to 2.7, around an overall mean of just over six per 1000.
 "
@@ -254,48 +239,46 @@ termplot(fitP2.glm, partial=T, se=TRUE, pch =1,
 par(opar)
 ```
 
-@snow1849mode argued that those living
-close to the Thames, and especially in the South, were
-more likely to be getting their water from or via sources
-that were contaminated with human excreta. The
-piping of water up to higher ground gave contaminants
-more time to settle, with less chance of exposure to human
-excreta.  He gave examples that he had observed directly, 
+@snow1849mode gave examples that he had observed directly, 
 where the likely means of transmission of the infection 
-appeared to be a water source, or poor hygiene.
+appeared to be a water source, or poor hygiene. He argued 
+that those living close to the Thames, and especially in 
+the South, were more likely to be getting their water 
+that was contaminated with human excreta. Contaminants had
+more time to settle in water that was piped up to higher 
+ground.
 
-Farr gave Snow's arguments some credence, but discussed
-ways that the air might be the main source of transmission
-of an organism responsible for the disease, which multiplied
-in a process akin to fermentation that was presumed to take
-place in putrefying matter.
+Farr took Snow's arguments seriously, but in his 1852 report
+argued that water was primarily important as a vehicle for
+miasmata.  He would later, by the time of an 1866 epidemic
+when Snow was dead, be one of the waterborne theory's few 
+champions.^[@eyler1973william]  
 
-A context has to be provided in which to interpret the data
-and the regression results.  While Snow had a better understanding
-of the contextual information, it was not comprehensive 
-enough to persuade other medical specialists.  Data from the
-1854 epidemic, where it was possible to compare deaths supplied
-from a company that continued to get its supply from lower
-highly polluted Thames water with that from the company that
-had moved its supply higher up to less polluted water, seems
-in retrospect to clinch the issue. The perspective brought by
-germ theory would come later, with the work of Pasteur in the
-late 1850s and Koch in the 1880s.
-
-\enlargethispage{11pt}
+A context has to be provided in which to interpret regression 
+results such as those shown in Figure \@ref(fig:Farr). 
+Snow's understanding of the contextual information was not, 
+in 1852, sufficiently compelling to persuade other medical 
+specialists.  Data from the 1854 epidemic, which allowed a
+comparison of deaths supplied from a company that continued 
+to get its supply from lower highly polluted Thames water 
+with that from the company that had moved its supply higher 
+up to less polluted water, seems in retrospect to clinch 
+the issue, but did not  at the time convince most of the
+medical profession.^[See @eyler2004changing for further comment.]
+The perspective brought by germ theory had to
+wait for the work of Pasteur in the late 1850s and 
+Koch in the 1880s.
 
 ### The 1854 epidemic --- a natural experiment {-}
 
-Both water companies --- Lambeth, and Southwark and Vauxhall, 
-had been taking water from the same polluted source, in both
-cases with high death rates.  An 1852 act required water 
-supply companies to move water intake upriver by 1855.  By 
-the time of the 1854 epidemic, Lambeth had moved the intake 
-22 miles upriver, where the water was not
-contaminated by London sewage.  The Southwark and Vauxhall 
-intake was unchanged until 1855.  Data on the distribution of
-cholera in the 1854 epidemic then allowed Snow to test the 
-claims made in his 1849 study.
+Two water companies --- Lambeth, and Southwark and Vauxhall, 
+had been taking water from the same polluted source.  An 1852 
+act required water supply companies to move water intake 
+upriver by 1855.  By the time of the 1854 epidemic, Lambeth 
+had moved its intake 22 miles upriver, while the Southwark 
+and Vauxhall intake was unchanged until 1855.  Data on the 
+distribution of cholera in the 1854 epidemic then allowed 
+Snow to test the claims made in his 1849 study.
 
 ```{r DeathTable, results="asis"}
 tab <- cbind("#Houses"=c(40046,26107,256423),
@@ -332,12 +315,11 @@ employees of a local Soho brewery developed cholera.
 The reason, he judged, was that they drank water from 
 the brewery (which had a different source from the Broad 
 St pump) or just drank beer alone.  
-
 @coleman2019causality gives detailed comments on Snow's work.
-It took a further ten years for the medical establishment to 
-begin to accept Snow's conclusions.  New Zealand cities
-had similar issues from the 1840s and 1850s through until the 
-end of the century, arising from failures to install proper
+
+New Zealand cities had similar issues from the 1840s 
+and 1850s through until the end of the century, arising 
+from failures to install proper
 drainage systems.^[See Christine Dann: 'Sewage, water and 
 waste - Stinking cities', Te Ara - the Encyclopedia of New
 Zealand, (8 June 2017) https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool]
@@ -391,21 +373,20 @@ was midwife led or medical led.
 
 ## The uses and traps of rule-based methods
 
-Figure \@ref(fig:seeSpam) shows the distributions of 
-values of six variables that have been selected for use 
-for present illustrative purposes, from an historical
-dataset (pre 1999) that has information on 4601 email 
-messages. 1813 of the messages were identified as spam.
-The data are long past their "use by" date. In practical
-use, such datasets have to be continually updated as 
-spammers change their strategies
+Figure \@ref(fig:seeSpam) shows the distributions of values of
+six variables that have been selected for use for present
+illustrative purposes, from an historical dataset (pre 1999, now
+long past its "use by" date) that has data on 4601 email
+messages, of which 1813 were identified as spam.  In practical
+use, such datasets have to be continually updated as spammers
+change their strategies
 
 ```{r cap16}
 cap16 <- paste("Boxplots, showing distribution of variable values
                in data used to predict email spam")
 ```
 
-```{r seeSpam, fig.width=6.5, fig.height=2.5, fig.pos='H', fig.cap=cap16}
+```{r seeSpam, fig.width=6.5, fig.height=2.4, fig.pos='H', fig.cap=cap16}
 opar <- par(mfrow=c(1,6), mgp=c(1,0.5,0), mar=c(3.1,3.6,1.6,.6),las=0)
 xval <-c(.1,.2,.5,1,2,5,10,20,50,100,200,500,1000,2000)
 nam <- c("crl.tot", "dollar", "bang", "money", "n000", "make")
@@ -441,12 +422,7 @@ nam <- c("crl.tot", "dollar", "bang", "money", "n000", "make")
 Two types of decision tree approaches will be discussed 
 --- the use of individual decision trees, and the 
 random forest approach which generates and uses large 
-numbers of trees in the decision making process. The 
-details of the random forest decision making process 
-are hidden from the user, who has to be sure that
-relevant data have been used, and to rely on the 
-algorithm doing its job.  Hence the description
-*algorithmic*.
+numbers of trees in the decision making process. 
 
 Figure \@ref(fig:spam) shows a decision tree that has been derived
 for the spam data.  
@@ -475,7 +451,7 @@ text(2,0.75, "  ", pos=4)
 
 The tree in Figure \@ref(fig:spam) would be too inaccurate
 for practical use, even suitably updated with new data, 
-but it is easy to see how it might be used.  
+but it is easy to follow the decsion tree process.  
 
 ### From trees to forests {-}
 
@@ -491,6 +467,11 @@ whatever is thrown at it.
 
 ### It helps to know the how and why of the algorithms used {-}
 
+Both decison trees and random forests follow an *algorithmic*
+process.  The relatively "black box" nature of the random
+forest approach places an especially strong burden on the
+analyst to ensure relevant data have been used, and that the 
+algorithm really is doing its intended task.
 In her book "Weapons of math destruction", @oneil_2016
 comments:
 
@@ -518,7 +499,7 @@ to the data. The $y$-axis uses a scale of equal relative numbers of deaths,
 while the\ $x$-axis uses a scale of equal dollar damage costs."
 ```
 
-```{r hurricanes1, echo=FALSE, fig.width=6.5, fig.height=4.45, message=FALSE, fig.cap=cap17.5, fig.pos='H', out.width="85%", fig.align="center"}
+```{r hurricanes1, echo=FALSE, fig.width=6.0, fig.height=4.15, message=FALSE, fig.cap=cap17.5, fig.pos='H', out.width="80%", fig.align="center"}
 hurricNamed <- within(DAAG::hurricNamed, lnNDAM2014<-log(NDAM2014))
 suppressPackageStartupMessages(library(latticeExtra, quietly=TRUE))
 suppressPackageStartupMessages(library(mgcv))
@@ -580,7 +561,7 @@ cap18 <- "Deaths versus damage estimate in US dollars, with logarithmic scales
                this graph leads to the dashed curves."
 ```
 
-```{r hurricanes2, echo=FALSE, fig.width=6.5, fig.height=4.45, message=FALSE, fig.cap=cap18, fig.pos='H', out.width="85%", fig.align="center"}
+```{r hurricanes2, echo=FALSE, fig.width=6.0, fig.height=4.15, message=FALSE, fig.cap=cap18, fig.pos='H', out.width="80%", fig.align="center"}
 hurricNamed <- within(DAAG::hurricNamed, lnNDAM2014<-log(NDAM2014))
 suppressPackageStartupMessages(library(latticeExtra, quietly=TRUE))
 suppressPackageStartupMessages(library(mgcv))
@@ -751,17 +732,6 @@ against year. Anomalies, in hundredths of a degree centigrade, are
 differences from the 1951-1980 global average. The grey curve plots
 the average anomaly up to that point in time. 
 
-Observe that 1964 was the last year in which the global 
-temperature fell below the average to that time.
-For the 52 subsequent years (from 1965 to 2016 inclusive),
-the global average was above the average up to that date.  Under
-the (false) assumption that global temperature is varying
-randomly (and therefore independently) about a common mean,
-the probability of this happening is 2$^{-40}$ = 9.1
-$\times$ 10$^{-13}$.  A variation of this argument came
-from a speaker on the Australian ABC Science Show on April
-3 2011. 
-
 ```{r cap20}
 cap20 <- "Anomalies (differences) in hundredths of a degree centigrade
 from global average temperatures over 1951-1980, plotted against year.
@@ -790,6 +760,17 @@ yarrow <- lastLessy - c(4, 0.75) * strheight("O")
 arrows(lastLessYr, yarrow[1], lastLessYr, yarrow[2],
        col = "gray", lwd = 2)
 ```
+
+Observe that 1964 was the last year in which the global 
+temperature fell below the average to that time.
+For the 52 subsequent years (from 1965 to 2016 inclusive),
+the global average was above the average up to that date.  Under
+the (false) assumption that global temperature is varying
+randomly (and therefore independently) about a common mean,
+the probability of this happening is 2$^{-40}$ = 9.1
+$\times$ 10$^{-13}$.  A variation of this argument came
+from a speaker on the Australian ABC Science Show on April
+3 2011. 
 
 Under any model that accounts for what are now
 fairly well understood patterns of correlation over time,

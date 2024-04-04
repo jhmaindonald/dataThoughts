@@ -17,8 +17,8 @@ Quota sampling has often been used as an alternative to random
 sampling --- quotas are set for age categories, male/female,
 and socioeconomic categories that are designed to ensure that
 the sample is representative of the wider population.
-In polls prior to the 1948 US presidential election that pitted 
-democrat Harry Truman against republican Thomas Dewey, 
+In polls prior to the 1948 US presidential election that 
+pitted democrat Harry Truman against republican Thomas Dewey, 
 pollsters were given strict quotas, but otherwise left free to
 decide who they would approach.  Polls by three different 
 organizations gave Dewey a lead of between 5% and 15%.  In the
@@ -58,7 +58,7 @@ comparison with the US cotton industry wages.
 ```{r cap8}
 cap8 <- "Cotton worker wages in the UK --- 1889 US Bureau of Labor 'survey'
 versus 1886 census data. Wages are in pence per week."
-  ```
+```
 
 ```{r cotton, fig.width=7, fig.asp=0.5, fig.cap=cap8}
 ## detach("package:latticeExtra")

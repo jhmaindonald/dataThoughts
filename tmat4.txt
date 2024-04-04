@@ -1,0 +1,105 @@
+"AAll" "entry1" "sub1" "altsearch" "altsub1"
+"1" "algorithmic methods (\textit{see also} machine learning)" "algorithmic" "methods" "random" "forests"
+"2" "analysis issues! analysis of summary data" "data summary" NA NA NA
+"3" "analysis issues! analysis styles \& traditions" "EDA" "formal" NA NA
+"4" "analysis issues! assumptions" "assumption" NA "assumptions" NA
+"5" "analysis issues! changes of plan" "intended plan" NA NA NA
+"6" "analysis issues! deficiencies" "inadequacies" NA NA NA
+"7" "analysis issues! independence" "independence assumption" NA NA NA
+"8" "analysis issues! planning" "planning the formal" NA NA NA
+"9" "analysis issues! presentation issues" "report results" NA NA NA
+"10" "analysis issues! prior information" "prior information" NA NA NA
+"11" "analysis issues! random sampling assumptions" "random sampling assumptions" NA NA NA
+"12" "analysis issues! source/target differences" "data analysis" "strategies" "source" "target"
+"13" "analysis issues! strategies" "data analysis" "strategies" NA NA
+"14" "animal body \& brain weight" "body weight" "brain" NA NA
+"15" "aspirin" "aspirin" NA NA NA
+"16" "behavioural economics" "behavioural" "economics" NA NA
+"17" "bias! convenience samples" "convenience" "samples" NA NA
+"18" "bias! hindsight" "hindsight" "bias" NA NA
+"19" "bias! selection and survivor" "bias" "selection" "bias" "survivor"
+"20" "business success" "business" "selection" NA NA
+"21" "chloroquine or hydrochloroquine! use with Covid-19" "chloroquine" "Covid-19" NA NA
+"22" "cholera deaths in London! 1849" "cholera" "1849" NA NA
+"23" "cholera deaths in London! 1854" "cholera" "natural" "cholera" "brewery"
+"24" "climate science" "climate" "science" NA NA
+"25" "climate science! Richard Muller's study" "Richard" "Muller" NA NA
+"26" "Covid-19! detection from chest images" "chest" "images" NA NA
+"27" "Covid-19! unvaccinated vs vaccinated" "vaccinated" "unvaccinated" NA NA
+"28" "cricket bowling averages" "Runs" "wickets" NA NA
+"29" "designed experiment" "design" "experiment" NA NA
+"30" "economic growth" "RR" "GDP" NA NA
+"31" "email spam" "email" "spam" NA NA
+"32" "false positives" "false" "positives" NA NA
+"33" "false positives" "false" "positives" NA NA
+"34" "genetic studies! epigenetic effects" "epistasis" NA NA NA
+"35" "graph! choice of aspect ratio" "aspect" "ratio" NA NA
+"36" "graph! deaths vs hurricane damage" "deaths" "deaths" NA NA
+"37" "graph! debt vs debt to GDP ratio" "growth" "debt" "GDP" "debt"
+"38" "graph! decathlon performances in 2006" "decathlon" "correlations" NA NA
+"39" "graph! email spam, distribution of values" "distributions" "spam" NA NA
+"40" "graph! father vs son heights" "tall" "fathers" NA NA
+"41" "graph! global temperature trends" "global" "temperature" NA NA
+"42" "graph! John Snow's 1854 cholera map" "cholera" "brewery" NA NA
+"43" "graph! London 1849 cholera deaths" "cholera" "London" NA NA
+"44" "graph! naming trends over time" "Charley" "Cleo" NA NA
+"45" "graph! NBA player points" "correlation" "decreases" NA NA
+"46" "graph! relative change (logarithmic) scale" "relative" "scale" "relative" "multipliers"
+"47" "graph! replicate vs original effect size" "PS" "JPSP" NA NA
+"48" "graph! Secrist and regression to mean" "Secrist" "regression" NA NA
+"49" "graph! Sociology PhDs" "Deaths" "Sociology" NA NA
+"50" "graph! time vs distance" "time" "distance" NA NA
+"51" "graph! UCB admissions data" "admissions" "department" NA NA
+"52" "graph! UK cotton worker wages, 1886" "cotton" "industry" NA NA
+"53" "graph! US Covid-19 deaths, by age" "Covid-19" "relative risks" NA NA
+"54" "graph! US Nobel prizes" "US" "Nobel" NA NA
+"55" "graph! varying time intervals" "intervals" "Nobel" NA NA
+"56" "graphs! general principles" "graphs" "principles" NA NA
+"58" "human judgement! intuition of professionals" "cue" "memory" NA NA
+"59" "human judgement! system 1 \& system 2" "system" "judgment" NA NA
+"60" "human judgement! training" "system" "training" NA NA
+"61" "hurricane death data" "hurricanes" "deaths" NA NA
+"63" "machine learning! detection of Covid-19 from chest images" "chest" "images" NA NA
+"64" "malaria drugs! use with Covid-19" "chloroquine" "Covid-19" NA NA
+"65" "maternity care! midwife vs medical led" "medical" "midwife" NA NA
+"66" "medical trials" "peanut" "allergy" "peanuts" "LEAPS"
+"67" "medical trials, screening! breast cancer" "screening" "breast" NA NA
+"68" "medical trials, screening! prostate cancer" "screening" "prostate" NA NA
+"69" "missing bullet holes" "missing" "bullet" NA NA
+"70" "MMR (measles,mumps,rubella) scandal" "Wakefield" "MMR" NA NA
+"71" "NBA player points, correlation declines over time" "correlation" "decreases" NA NA
+"72" "NULL hypothesis" "NULL" "hypothesis" NA "MA"
+"73" "p-value! mis-interpretation" "p-value" NA NA NA
+"74" "Observational studies! issues for use" "observational" "studies" NA NA
+"77" "random sample" "random sample" NA NA "NA\""
+"79" "randomized controlled trials! A/B testing vs HiPPO decisions" "HiPPO" "Google" NA NA
+"80" "randomized controlled trials! as the gold standard" "randomized" "gold" NA NA
+"81" "randomized controlled trials! protocol" "randomized" "protocol" NA NA
+"82" "regression predictions! drivers" "prediction" "drivers" "predictions" "driving"
+"83" "regression predictions! drivers" "gentler" "ascents" NA NA
+"84" "regression to the mean" "regression" "mean" NA NA
+"85" "regression to the mean! decathlon scores" "decathlon" "performance" NA NA
+"86" "regression to the mean! fathers and sons" "tall" "fathers" NA NA
+"87" "regression to the mean! NBA player total points" "NBA" "player" NA NA
+"88" "regression to the mean! profit to income ratio" "Profits" "assets" NA NA
+"89" "regression to the mean! Secrist's 'Triumph of Mediocrity'" "Secrist" "profit" NA NA
+"91" "regression! loglinear" "loglinear" NA NA NA
+"92" "regression! observational data" "regression" "observational" NA NA
+"93" "replication" "replication" NA NA NA
+"94" "risk assessment! sources of advice" "risk" "evidence" NA NA
+"95" "Sally Clark's disturbing cot death saga" "Sally" "Clark" NA NA
+"97" "science! Big Pharma" "Big" "Pharma" NA NA
+"98" "science! false or unverified claims" "research" "false" "research" "replication"
+"99" "science! funding and reward processes" "science" "criticism" "science" "critique"
+"100" "science! results that special interests find inconvenient" "tobacco" "greenhouse" "vapour" "greenhouse"
+"101" "Secrist and regression to mean" "Secrist" "regression" "Secrist" "performing"
+"102" "sociology PhDs, spurious correlation" "Deaths" "Sociology" NA NA
+"103" "sources of advice! Cochrane Center" "Cochrane" "Center" NA NA
+"104" "sources of advice! fact boxes" "fact" "boxes" NA NA
+"105" "sources of advice! Harding Center" "Harding" "Center" NA NA
+"106" "speed of light estimates! historical" "speed" "light" NA NA
+"108" "table of frequencies! adding across tables (Simpson's paradox)" "table" "Simpson" NA "Yule"
+"109" "transformation! use of" "transformation" "use" NA NA
+"110" "tree-based methods! random forests (randomForest)" "random" "forest" NA NA
+"112" "university admission rates! UCB in 1973" "UCB" "departments" NA NA
+"113" "wage comparison, 19th C UK cottonworkers" "cotton" "worker" NA NA

@@ -7,10 +7,10 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Making Sense of Data -- Getting it wrong and getting it right</a></li>
+        <li><a href="./">Table of Contents</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+        <li><a href="https://github.com/dataThoughts" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/jhmaindonald/dataThoughts/master/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

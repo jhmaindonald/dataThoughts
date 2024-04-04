@@ -4,49 +4,32 @@
 knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.5,fig.height=5.5)
 ```
 
-When two variables show a relationship, they are said to be
-correlated.  Regression and correlation offer alternative,
-and complementary, perspectives on the relationship.^[The 
-discussion will avoid the technicalities of alternative
-ways to measure correlation.  The particular correlation 
-measure that is used in the examples that follow is
-the product-moment or Pearson correlation, which relates
-directly to linear (straight line) regression.]
-Nonsense correlations that arise where the third variable is 
-time provide simple examples.^[Yule-Simpson type effects, 
-discussed in Section \@ref(sec:yule1), are important in a 
-regression context also.]
+When two variables show a relationship, they are said to be correlated. Regression and correlation offer alternative, and complementary, perspectives on the relationship.[^07-regress-1] Nonsense correlations that arise where the third variable is time provide simple examples.[^07-regress-2]
+
+[^07-regress-1]: The discussion will avoid the technicalities of alternative ways to measure correlation. The particular correlation measure that is used in the examples that follow is the product-moment or Pearson correlation, which relates directly to linear (straight line) regression.
+
+[^07-regress-2]: Yule-Simpson type effects, discussed in Section \@ref(sec:yule1), are important in a regression context also.
 
 ## Correlation is not causation
 
-Variable A may cause variable B.  Or variable B may cause
-variable A.  Or  both A and B may be caused (or driven) by
-a third variable C.  
+Variable A may cause variable B. Or variable B may cause variable A. Or both A and B may be caused (or driven) by a third variable C.
 
-The following are examples where causation likely goes in the other
-direction, or where a third variable is likely to be involved.
-Such examples help highlight how correlation can and cannot 
-reasonably be interpreted. 
+The following are examples where causation likely goes in the other direction, or where a third variable is likely to be involved. Such examples help highlight how correlation can and cannot reasonably be interpreted.
 
-1. Children of parents who try to control eating are more likely 
-to be overweight.
-2. Countries with higher IQs have higher average wealth measures.
-3. Ice cream consumption & polio were closely correlated in the 1950s.
-    + Summer was when the virus thrived.
+1.  Children of parents who try to control eating are more likely to be overweight.
+2.  Ice cream consumption & polio were closely correlated in the 1950s.
+    -   Summer was when the virus thrived.
 
-Cases where the third variable is 
-time, as in Figure \@ref(fig:socAnti), are a fruitful source
-of examples of spurious correlations.^[Figure \@ref(fig:socAnti)
-is one of many such examples that are available from  
-<http://www.tylervigen.com/spurious-correlations>.]
-Is there a third factor, or is this just a chance relationship?
+Cases where the third variable is time, as in Figure \@ref(fig:socAnti), are a fruitful source of examples of spurious correlations.[^07-regress-3] Is there a third factor, or is this just a chance relationship?
+
+[^07-regress-3]: Figure \@ref(fig:socAnti) is one of many such examples that are available from\
+    <http://www.tylervigen.com/spurious-correlations>.
 
 ```{r cap11}
 cap11 <- "Sociology PhDs awarded (from US National Science 
 Foundation data) vs Deaths from Anticoagulants.  Notice
 that `Doctorates` and `Deaths` show a very similar pattern
-of change from year to year.
-"
+of change from year to year."
 ```
 
 ```{r socAnti, fig.width=7.75, fig.asp=0.375, fig.show='hold', out.width="100%", fig.cap=cap11}
@@ -81,27 +64,15 @@ print(gph2, position=c(0.64,0,1,1)
       )
 ```
 
-
-Another example is that, over 1997 to 2009, US Sociology PhDs
-awarded correlated strongly with worldwide non-commercial 
-space launches.  These correlations would seem to be the
-result of chance.  Look at enough variable pairs, and such
-correlatiosn will sometimes appear.
+Another example is that, over 1997 to 2009, US Sociology PhDs awarded correlated strongly with worldwide non-commercial space launches. These correlations would seem to be the result of chance. Look at enough variable pairs, and such correlatiosn will sometimes appear.
 
 ## Regression to the mean
 
-Tall fathers are likely to have tall sons, but shorter than themselves. 
-Tall sons are likely to have tall fathers, but shorter than themselves.
-The data shown in Figure \@ref(fig:pearson) are from @pearson1903laws.
-The correlation between son's height and father's height is 
-0.5.^[Kahneman argues, perhaps too simplistically that as height is 
-mainly due to genetic factors, and fathers share half of their genes
-with their sons, this is to be expected.]
+Tall fathers are likely to have tall sons, but shorter than themselves. Tall sons are likely to have tall fathers, but shorter than themselves. The data shown in Figure \@ref(fig:pearson) are from @pearson1903laws. The correlation between son's height and father's height is 0.5.[^07-regress-4]
 
-Notice that the points that are plotted show a a symmetrical 
-elliptical shaped scatter about the mean (shown with a large solid 
-dot in Panel A).  This type of scatter is, strictly, required 
-for uses of the correlation that will now be discussed. 
+[^07-regress-4]: Kahneman argues, perhaps too simplistically that as height is mainly due to genetic factors, and fathers share half of their genes with their sons, this is to be expected.
+
+Notice that the points that are plotted show a a symmetrical elliptical shaped scatter about the mean (shown with a large solid dot in Panel A). This type of scatter is, strictly, required for uses of the correlation that will now be discussed.
 
 ```{r cap12}
 cap12 <- "Tall fathers are likely to have tall sons, but shorter than themselves. 
@@ -111,7 +82,7 @@ Tall sons are likely to have tall fathers, but shorter than themselves."
 ```{r pearson, fig.height=3.15, fig.width=7.5, fig.pos='H', out.width="100%", fig.show="hold", fig.cap=cap12}
 opar <- par(mar=c(3.1,3.1,2.1, 1.1), mgp=c(2.0, .5,0), fig=c(0,0.48,0,1))
 ptCol <- adjustcolor('black', alpha=0.4)
-load('Data/Pearson.RData')
+load('data/Pearson.RData')
 ptCol <- adjustcolor('black', alpha=0.4)
 plot(Pearson[,1:2], col=ptCol, xlab="Father's height (in)", ylab="Son's height (in)", fg="gray")
 avSon <- mean(Pearson$Son)
@@ -158,38 +129,21 @@ mtext(side=4, line=0.05, paste0("95th percentile"), col="purple", at=son95, srt=
 par(opar)
 ```
 
-Consider a father whose height is 72 inches, which is the 
-95th percentile of heights for fathers. What is a best guess 
-for the height of a son? One can read the predicted value off 
-from the graph (the solid horizontal line in Panel A). Or use 
-the regression equation.  Or, reason thus: 
+Consider a father whose height is 72 inches, which is the 95th percentile of heights for fathers. What is a best guess for the height of a son? One can read the predicted value off from the graph (the solid horizontal line in Panel A). Or use the regression equation. Or, reason thus:
 
-* If the correlation between father's height and son's height were 0, 
-the best guess would be the mean for son's, i.e., 68.7 inches
-* If the correlation were 1, the son's height would be the
-95th percentile of heights for sons, i.e., 73.3 inches.
-* But, as the correlation is 0.5, the expected height is 
-68.7 + 0.5$\times$(73.3-68.7) = 71.0 inches, i.e., start at
-the mean and move 0.5 of the distance up to the 95th percentile.
+-   If the correlation between father's height and son's height were 0, the best guess would be the mean for son's, i.e., 68.7 inches
+-   If the correlation were 1, the son's height would be the 95th percentile of heights for sons, i.e., 73.3 inches.
+-   But, as the correlation is 0.5, the expected height is 68.7 + 0.5$\times$(73.3-68.7) = 71.0 inches, i.e., start at the mean and move 0.5 of the distance up to the 95th percentile.
 
-Now consider a son whose height is 73.3 inches (the 95th percentile for 
-sons).  The argument now goes:
+Now consider a son whose height is 73.3 inches (the 95th percentile for sons). The argument now goes:
 
-* The best estimate of the father's height is 67.7 +
-0.5$\times$(73.3-67.7)=2.8 inches,  i.e., start at the mean
-for fathers and move 0.5 of the distance up to the 95th percentile.
+-   The best estimate of the father's height is 67.7 + 0.5$\times$(73.3-67.7)=2.8 inches, i.e., start at the mean for fathers and move 0.5 of the distance up to the 95th percentile.
 
-Galton's 1886 data, which predates Pearson's data, shows a 0.46
-correlation between child height and the average of the parent
-height.
+Galton's 1886 data, which predates Pearson's data, shows a 0.46 correlation between child height and the average of the parent height.
 
 ## NBA player points --- correlations decline over time
 
-In Figure \@ref(fig:NBA), Panel A shows total points for 
-2016-2017 versus 1 year earlier, for players who competed
-in both seasons.  The correlation is 0.83. Panel B is
-for 2016-2017 versus 5 years earlier, with the correlation 
-now reducing to 0.41. 
+In Figure \@ref(fig:NBA), Panel A shows total points for 2016-2017 versus 1 year earlier, for players who competed in both seasons. The correlation is 0.83. Panel B is for 2016-2017 versus 5 years earlier, with the correlation now reducing to 0.41.
 
 ```{r cap12.5}
 cap12.5 <- "As time progresses, correlation decreases, and regression to the mean increases.  For Panel A, the correlation is 0.83, while in Panel B it is 0.41."
@@ -214,29 +168,21 @@ gph2 <- xyplot(p1617~p1112, data=df1116,
 print(gph1, position=c(0,0,0.51,1), more=TRUE)
 print(gph2, position=c(0.49,0,1,1))
 ```
-The scatter of points increases as values increase, on both axes.
-Calculations of the type given in the previous section, based on 
-the usual correlation measure, while giving more approximate results,
-are adequate for present purposes.
+
+The scatter of points increases as values increase, on both axes. Calculations of the type given in the previous section, based on the usual correlation measure, while giving more approximate results, are adequate for present purposes.
 
 ## Secrist's "The Triumph of Mediocrity in Business"
 
-Horace Secrist's 1933 book The Triumph of Mediocrity in Business" 
-was based on annual data for 1920 to 1930.  Secrist took 73 different
-industries, in each case examined the ratios
+Horace Secrist's 1933 book The Triumph of Mediocrity in Business" was based on annual data for 1920 to 1930. Secrist took 73 different industries, in each case examined the ratios
 
 > Profits:sales; Profits:assets; Expenses:sales; Expenses:assets
 
-For each industry in 1920: he then split firms into 4 quartiles: top 25%, 
-2nd highest 25%, 2nd lowest 25%, lowest 25%.
+For each industry in 1920: he then split firms into 4 quartiles: top 25%, 2nd highest 25%, 2nd lowest 25%, lowest 25%.
 
-* Took average for each statistic, for each quartile, for each year.
-* Surprise, surprise, the best went, on average, down ...
+-   Took average for each statistic, for each quartile, for each year.
+-   Surprise, surprise, the best went, on average, down ...
 
-> Complete freedom to enter trade and the continuance of competition
-mean the perpetuation of mediocrity.  ...  neither superiority or
-inferiority will tend to persist. Rather, mediocrity tends to become
-the rule. [@secrist1933triumph]
+> Complete freedom to enter trade and the continuance of competition mean the perpetuation of mediocrity. ... neither superiority or inferiority will tend to persist. Rather, mediocrity tends to become the rule. [@secrist1933triumph]
 
 ```{r cap15}
 cap15 <- "Secrist's data showed a correlation of 0.5 between
@@ -280,33 +226,18 @@ text(rep(1930,4), qxx2[,3], c("Lowest 25% in 1930","2nd Lowest 25% in 1930",
 mtext(side=3, line=0.75, "B: Looking back from 1930",  adj=0, at=1918)
 par(opar)
 ```
-Secrist was seeing regression to the mean. Figure \@ref(fig:sim)
-makes the point that if one takes the four quartiles in 1930 and looks 
-back to 1920, in each case there is a regression back to the mean.
-Given a correlation of 0.7 between time intervals five years apart,
-The absolute difference from the mean moves from 8 to 0.7$\times$ 8 
-(= `r 0.7*8`) to 0.7$\times$ 5.6 (= `r 0.7*5.6`), whether one moves
-by two successive five year intervals forward in time, or back in 
-time.
 
-### "Do old fallacies ever die?" {-}
+Secrist was seeing regression to the mean. Figure \@ref(fig:sim) makes the point that if one takes the four quartiles in 1930 and looks back to 1920, in each case there is a regression back to the mean. Given a correlation of 0.7 between time intervals five years apart, The absolute difference from the mean moves from 8 to 0.7$\times$ 8 (= `r 0.7*8`) to 0.7$\times$ 5.6 (= `r 0.7*5.6`), whether one moves by two successive five year intervals forward in time, or back in time.
 
-@smith-sd gives references to work by prominent economists in the past
-half-century that had quoted Secrist approvingly or repeated his error.
+### "Do old fallacies ever die?" {.unnumbered}
 
-* 1970: "The book [by Secrist] contains an elaborate statistical
-demonstration that, over a period of time, initially high-performing ..."
-* 1980s investment textbook: "Ultimately, economic forces will force
-the convergence of the profitability and growth rates of 
-different firms." This was backed up with a 1980/1966 
-Secrist type comparison.
-* 2000: (Journal article) "... profitability is mean-reverting
-within as well as across industries.  Other firms eventually 
-mimic products and technologies that produce above normal
-profitability ..."
-* @wainerRegress cites other examples.
+@smith-sd gives references to work by prominent economists in the past half-century that had quoted Secrist approvingly or repeated his error.
 
-### Decathlon performances in 2006 {-} 
+-   1980s investment textbook: "Ultimately, economic forces will force the convergence of the profitability and growth rates of different firms." This was backed up with a 1980/1966 Secrist type comparison.
+-   2000: (Journal article) "... profitability is mean-reverting within as well as across industries. Other firms eventually mimic products and technologies that produce above normal profitability ..."
+-   @wainerRegress cites other examples.
+
+### Decathlon performances in 2006 {.unnumbered}
 
 ```{r Decath2006}
 Decath2006 <- subset(GDAdata::Decathlon,yearEvent==2006)
@@ -397,88 +328,57 @@ longjMean+(quantile(Decath2006[,5],.93)-longjMean)*0.29
 ## 7.115
 ```
 
-Figure \@ref(fig:selected) shows between event correlations for
-top performances (6800 points and over) for six of the events
-in the decathlon in
-2006.^[Data for the twenty-one year period after new rules were
-introduced in 1985 are available in the R package `GDAdata` with
-the name `Decathlon`.  See also the Estonian website
-<http://www.decathlon2000.com/>]  Observe that the correlation
-of javelin with high jump is 0.032, so that performance in one
-of these sports gives no useful indication of the performance
-that might be expected in the other.
+Figure \@ref(fig:selected) shows between event correlations for top performances (6800 points and over) for six events in the 2006 decathlon.[^07-regress-5] Note the 0.032 correlation of javelin with high jump. Performance in one of these two sports was not a useful indicator of what to expect in the other.
 
-The correlation between shot put distances and long jump distances
-is shown as a more informative 0.29.  If we find that an athlete
-has achieved a distance of 14.9 meters in the shot put, which is 
-at the 93$^{th}$ percentile across athletes as a whole 
-(7% did better), a best estimate for the long jump can be 
-obtained thus:
+[^07-regress-5]: The dataset `Decathlon` in the R package `GDAdata` has data for the 21-year period after new rules were introduced in 1985. See also the Estonian website <http://www.decathlon2000.com/>
 
-* A 14.9 meter put is at the 93$^{th}$ centile (7% will do better)
-* The long jump mean is 6.97, with the 93% mark = 7.47
-    + The difference from the mean is 7.47-6.97 = 0.5
-* The estimate for the long jump is then 6.97+0.29 $\times$ 0.5 = 7.12
-```
+The correlation between shot put distances and long jump distances is shown as a more informative 0.29. If we find that an athlete has achieved a distance of 14.9 meters in the shot put, which is at the 93$^{th}$ percentile across athletes as a whole (7% did better), a best estimate for the long jump can be obtained thus:
+
+-   A 14.9 meter put is at the 93$^{th}$ centile (7% will do better)
+-   The long jump mean is 6.97, with the 93% mark = 7.47
+    -   The difference from the mean is 7.47-6.97 = 0.5
+-   The estimate for the long jump is then 6.97+0.29 $\times$ 0.5 = 7.12 
 
 ## Moderating predictive assessments
 
-### Moderating sales estimates {-}
+### Moderating sales estimates {.unnumbered}
 
-You are the sales forecaster for a department store chain.
-All stores are similar in size and merchandise offered,
-but random factors affect sales in any year. Overall sales
-are expected to increase by 10% from 2020 to 2021.  Sales
-in 2020, with the expected total and mean for 2021 are,
-in millions of dollars:
-    
-Store | 2020 | 2021
------ | ---- | ----
-1 | 10 | ---
-2 | 23 | ---
-3 | 18 | ---
-4 | 29 | ---
-TOTAL | 80 | 88
-MEAN  | 20 | 22
+You are the sales forecaster for a department store chain. All stores are similar in size and merchandise offered, but random factors affect sales in any year. Overall sales are expected to increase by 10% from 2020 to 2021. Sales in 2020, with the expected total and mean for 2021 are, in millions of dollars:
 
-Assuming that year to year correlation is around 0.4,
-what is a reasonable estimate for sales in each of the
-stores in 2021.  The mean sales amount in 2021 is predicted 
-to be 22,000,000 dollars?  With a correlation of 0.4, the 
-predicted sales for the individual stores are obtained thus:
+| Store | 2020             | 2021 |
+|-------|------------------|------|
+| 1     | 10               | ---  |
+| 2     | 23               | ---  |
+| 3     | 18               | ---  |
+| 4     | 29               | ---  |
+| TOTAL | 80 t each of the |      |
 
-Store | 2020 | Subtract 20 | Xply by 0.4, add to 22 | Predicted sales
------ | ---- | ---- | ---- | ----
-1 | 10 | -10 | 22-4 | 18
-2 | 23 | +3  | 22+1.2 | 23.2
-3 | 18 | -2  | 22-0.8 | 21.2
-4 | 29 | +9  | 29+3.6 | 32.6
-MEAN  | 20 | 0 | 22   | 22
+stores in 2021. The mean sales amount in 2021 is predicted to be 22,000,000 dollars? With a correlation of 0.4, the predicted sales for the individual stores are obtained thus:
 
-In the real world of 2020 and 2021, the Covid-19 pandemic makes all such
-predictions hazardous!  
+| Store | 2020 | Subtract 20 | Xply by 0.4, add to 22 | Predicted sales |
+|-------|------|-------------|------------------------|-----------------|
+| 1     | 10   | -10         | 22-4                   | 18              |
+| 2     | 23   | +3          | 22+1.2                 | 23.2            |
+| 3     | 18   | -2          | 22-0.8                 | 21.2            |
+| 4     | 29   | +9          | 29+3.6                 | 32.6            |
+| MEAN  | 20   | 0           | 22                     | 22              |
 
-### Choosing from job applicants {-}
+In the real world of 2020 and 2021, the Covid-19 pandemic makes all such predictions hazardous!
 
-Correlation between presentation & performance is likely to 
-be lower for the less well-known.  In both cases performance 
-is likely, relative to presentation, to move in closer to the
-mean. For less well-known candidates, the shift towards the
-mean is likely to be greater.
+### Choosing from job applicants {.unnumbered}
 
-### Kahneman's comments on regression to the mean {-}
+Correlation between presentation & performance is likely to be lower for the less well-known. In both cases performance is likely, relative to presentation, to move in closer to the mean. For less well-known candidates, the shift towards the mean is likely to be greater.
 
-> "Extreme predictions and a willingness to predict rare events from
-weak evidence are both manifestations of System 1. ..."  
+### Kahneman's comments on regression to the mean {.unnumbered}
 
-> "Regression to the mean is also a problem for System 2. The very idea
-... is alien and difficult to communicate and comprehend.  This is a
-case where System 2 requires special training."  
+> "Extreme predictions and a willingness to predict rare events from weak evidence are both manifestations of System 1. ..."
 
-> "We intuitively want to match predictions to the evidence."  
+> "Regression to the mean is also a problem for System 2. The very idea ... is alien and difficult to communicate and comprehend. This is a case where System 2 requires special training."
+
+> "We intuitively want to match predictions to the evidence."
 
 > "We will not learn to understand regression from experience."
 
-### Regression to the mean in verse {-}
-<https://www.youtube.com/watch?v=sxMllckUWaw>
+### Regression to the mean in verse {.unnumbered}
 
+<https://www.youtube.com/watch?v=sxMllckUWaw>
