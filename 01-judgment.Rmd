@@ -2,9 +2,7 @@
 
 # Systems of human judgment
 
-An understanding of the mental traps to which we are prone can help us avoid them. Kahneman's book [-@kahneman_2013] *Thinking Fast and Slow* is a good starting point for thinking about the strengths and limitations of human thinking processes.  There is no good substitute
-for the use of "educating gossip", as Kahneman describes it, for 
-training in effective judgment and in decision making.
+An understanding of the mental traps to which we are prone can help us avoid them. Kahneman's book [-@kahneman_2013] *Thinking Fast and Slow* is a good starting point for thinking about the strengths and limitations of human thinking processes. There is no good substitute for the use of "educating gossip", as Kahneman describes it, for training in effective judgment and in decision making.
 
 Important themes that Kahneman notes are
 
@@ -18,15 +16,10 @@ Important themes that Kahneman notes are
 
 ## System 1 and System 2 --- further comments
 
-Humans have been conditioned to respond quickly to immediate risks and challenges, without stopping to consider too carefully whether what we heard was a false alarm. They also have the ability, when the occasion seems to demand it, to stop to ponder. This is the basis for Kahneman's categorization of human thought  processes as of two types --- System 1 which jumps rapidly to make a judgment, and System 2 which takes time for careful consideration.
+Humans have been conditioned to respond quickly to immediate risks and challenges, without stopping to consider too carefully whether what we heard was a false alarm. They also have the ability, when the occasion seems to demand it, to stop to ponder. This is the basis for Kahneman's categorization of human thought  processes as of two types --- System 1 which jumps rapidly to make a judgment, and System 2 which takes time for careful 
+consideration.[^01-judgment-1]
 
-Stories about active agents who have personalities, habits, and abilities readily take root in our minds. This makes it useful to think of System 1 and System 2 as 'agents'.\
-Although in reality fictions, thinking of them as agents provide a model that is helpful in accounting for the way that humans make judgments.
-
--   System 1 responds quickly to immediate dangers, but is prey to priming (suggestive language), framing (response depends on how a choice is presented), affect (feeling or emotion), memory illusions, illusions of truth, . . .
-    -   ". . . associative memory, the core of System 1, attempts to give a coherent account of what is going on in our world in any instant"
--   System 2 is the process involved when, before making a decision, we think carefully through the issues involved.
-    -   We invoke System 2, when time allows, for decisions that are judged to matter.
+[^01-judgment-1]: See https://suebehaviouraldesign.com/kahneman-fast-slow-thinking/ for further comment.
 
 System 1 Features are
 
@@ -39,25 +32,19 @@ System 1 Features are
 System 2 features are
 
 -   It keeps you polite when angry, alert when driving at night
--   In its world, gorillas do not cross basket-ball courts ...[^01-judgment-1]
+-   In its world, gorillas do not cross basket-ball courts ...[^01-judgment-2]
 -   There are some vital tasks that only System 2 can perform
--   Problems that put 1 & 2 in conflict may require large mental effort & self-control to overcome the impulses and intuitions of System 1
+-   Problems that put 1 & 2 in conflict may require large mental effort & self-control to overcome the impulses and intuitions of System 1.
 
-[^01-judgment-1]: See http://theinvisiblegorilla.com/gorilla_experiment.html
+[^01-judgment-2]: See http://theinvisiblegorilla.com/gorilla_experiment.html
 
-Healthy living is a compromise
+Both systems are amenable to training. A well-trained System 2 helps
+greatly in creating a better System 1. Further points are:
 
--   System 1 and System 2 are both amenable to training
-    -   A well-trained System 2 is the key to a better System 1.\
 -   Healthy living is a compromise
     -   Recognize situations where mistakes are likely
     -   Aim to avoid significant mistakes when the stakes are high
--   Ascribing calculation to System 2 is shorthand for ...
-    -   "This requires mental effort. Do not do when driving!"
-    -   Pupils will be dilated, and heart rate elevated.
-
-Untrained humans are poor intuitive statisticians, in ways that will be explored in later chapters.
-
+-  Untrained humans are poor intuitive statisticians
 -   Judgments about statistical issues may require us to think about more than one, even many, things at once.
 -   Too often, we jump to conclusions, without careful assessment.
 -   We may not be equipped to make an informed and carefully thought through decision.
@@ -65,24 +52,14 @@ Untrained humans are poor intuitive statisticians, in ways that will be explored
 ## The Intuition of Professionals
 
 Effective professional training is designed to ensure that at least some of the results of well-tuned System 2 expert judgment operate at a System 1 level.
+The professional will, if the training is doing its job, build up a
+repetoire of System 2 judgments that will later, when the circumstances 
+seem to demand it, be available at a System 1 level.
 
 > The situation has provided a cue; this cue has given the expert access to information stored in memory, and the information provides the answer. Intuition is nothing more and nothing less than recognition.\
 > [@simon1992explanation, "What is an Explanation of Behavior?"]
 
-Simon's comments were in part based on the study of chess masters.
-
-> ... An expert is one who has built a deep familiarity with the patterns of a given domain and, thus, has a robust body of work from which to reference when making decisions.[^01-judgment-2]
-
-[^01-judgment-2]:  <http://www.euclidean.com/expert-intuition-and-machine-learning/>
-
 ### Obstacles to effective judgment {.unnumbered}
-
-The biases that Kahneman documents can readily take over, where there should be carefully reasoned and informed System 2 judgment.
-
--   Financial firm executive, explaining why he invested in Ford stock:
-    -   "Boy, do they know how to make a car!"
-    -   An easier and related question (do I like Ford cars?) came readily to mind and determined his choice.
--   Exemplifies the *affect* heuristic --- decisions are guided by like/dislike feelings, with little deliberation or reasoning.
 
 Even those who are experts in their field can be similarly prone to judgments that have no foundation in fact:
 
@@ -93,7 +70,8 @@ The following comment appeared in a discussion of the response to a U.S. Prevent
 
 [^01-judgment-3]: Association of Professional Psychologists, web post on @arkes2012psychological
 
-> Even faced with ... evidence ... \[from\] a ten-year study of around 250,000 men that showed the test didn’t save lives, many activists and medical professionals are clamoring for men to continue receiving their annual PSA test.
+> Even faced with ... evidence ... from a ten-year study of around 250,000 
+men that showed the test didn’t save lives, many activists and medical professionals are clamoring for men to continue receiving their annual PSA test.
 
 New evidence emerges as time proceeds, and there are advances in the approach to treatment. At least part of the problem has been a rush to treatments that themselves risk increasing damage and the risk of death. Note the comment in @brawley2018prostate that
 
@@ -106,15 +84,22 @@ New evidence emerges as time proceeds, and there are advances in the approach to
     -   Kahneman has brought together evidence on what & how.
 -   Even when data are there for the taking, someone has to notice, to collate the data, and to understand its uses and limitations
 -   Randomized controlled experiments (RCTs) are often the ideal, but require meticulous planning. If effects of interest are small, the numbers required may be very large. See further, Subsection \@ref(ss:rct)
+    -  A limitation is that results apply only to the population from which
+trial participants were taken. Any wider generalization has to be justified
 -   Observational data does not easily, if at all, substitute for the use of RCTs. It is no easy matter to adjust for sources of bias
 -   Keep in mind Yule-Simpson "paradox", which we will encounter later in Subsection \@ref(sec:yule1)
     -   The paradox lies in the failure of human intuition to accommodate straightforward arithmetic!
 
 ## Further examples
 
-### A simple (and, arguably, trick) example {.unnumbered}
+### The "conjunction fallacy" {.unnumbered}
 
-Linda is a 31-year old philosophy graduate, single, outspoken, and bright. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations. Which of the following is more probable?
+This has also, as a result of the example given in
+@tversky1983extensional come to be known as "the Linda problem".
+The name 'Linda' comes from the question and usual response
+that are given by way of example.
+
+> Linda is a 31-year old philosophy graduate, single, outspoken, and bright. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations. Which of the following is more probable?
 
 -   Linda is a bank teller.
 -   Linda is a bank teller, and active in the feminist movement.
@@ -123,7 +108,7 @@ Adding the further descriptor "active in the feminist movement" can only lower t
 
 "Linda is active in the feminist movement" is the single descriptor" that respondents see as best fitting Linda. While that was not what was asked, one has to pay close attention to prevent System 1 from substituting that for the question that was asked. Note that the correct answer will be "a bank teller", irrespective of the way that Linda was characterized before the question was asked.
 
-In part, the issue is one of use of language. The "correct" answer is asking us to use the word "likely" in a strict technical sense.
+In part, the issue is one of use of language. The "correct" answer is asking us to use the word "probable" in a strict technical sense.
 
 ### Even careful critics sometimes get it wrong {.unnumbered}
 
@@ -148,7 +133,7 @@ The symptom occurs with the same relative frequency, whether or not a person has
 
 ### A test to check understanding of risk {.unnumbered}
 
-See the 2-minute test ["Do you understand risk?"](http://www.riskliteracy.org/)[^01-judgment-4]
+See the 2-minute testm "Do you understand risk?".[^01-judgment-4]
 
 [^01-judgment-4]: http://www.riskliteracy.org/
 

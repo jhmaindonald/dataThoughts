@@ -46,7 +46,7 @@ ltge65 <- with(USdeadpop1yr, c("<65"=sum(covdeaths[age<65])/sum(pop[age<65]),
                               ">=65"=sum(covdeaths[age>=65])/sum(pop[age>=65])))
 ```
 
-Figure \@ref(fig:riskByAge) shows a stark difference by age in US Covid-19 death rates. The US death rates per 1000 for under age 65 as opposed to age $>=$ 65, were `r round(1000*ltge65,2)` US totals for infection rates and for hospital admissions were also impacted by age structure, but to a lesser extent. More recent Covid-19 variants would present a somewhat different picture.
+Figure \@ref(fig:riskByAge) shows stark differences by age in US Covid-19 death rates. The US death rates per 1000 for under age 65 as opposed to age $>=$ 65, were `r round(1000*ltge65,2)` US totals for infection rates and for hospital admissions were also impacted by age structure, but to a lesser extent. More recent Covid-19 variants would present a somewhat different picture.
 
 Countries with a lower proportion of their population aged \>=65 would, if the death rates for each of the two groups are similar to US rates, have lower overall death rates. The following compares the overall deaths rates for the US with what might, if these figures carried across, be expected for Kenya and for Italy.
 
@@ -144,7 +144,7 @@ legend("topleft", col=col2,lty=c(1,1), lwd=0.75, cex=0.9,
 par(oldpar)
 ```
 
-There are thus three different broad admission patterns The big differences in admission rates were in departments A (82.4%-62.1%=20.3%) and B (68%-63%=5%), in both cases favouring females. In the other four departments, differences were 3.8% or less, and split very nearly equally between slightly favouring females and slightly favouring males. Also, the relative numbers of males and females applying did not show the same big differences as in departments A and B.
+There are thus three different broad admission patterns. The big differences in admission rates were in departments A (82.4%-62.1%=20.3%) and B (68%-63%=5%), in both cases favouring females. In the other four departments, differences were 3.8% or less, and split very nearly equally between slightly favouring females and slightly favouring males. Also, the relative numbers of males and females applying did not show the same big differences as in departments A and B.
 
 ```{r admitrates123, comment=NA}
 cap123 <- "Comparion of admission rates (percent) and numbers of males and

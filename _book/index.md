@@ -1,5 +1,5 @@
 --- 
-title: 'What Does the Data Really Say?'
+title: 'What Does the Data Say? -- Traps  to Avoid'
 subtitle: "Examples that inform and educate"
 author: "John Maindonald"
 date: "2 April 2024"
@@ -31,12 +31,15 @@ researchers, anyone interested in using data as a basis for
 judgment.  The critical processes and skills that are discussed 
 have wide application, in everyday as well as in professional life.
 
-The questions that data and data analysis may be able to answer can 
+The questions that data and data analysis may be asked to answer can 
 often be stated simply. This may encourage the layperson to believe 
-that the answers are similarly simple. Often, they are not. Be 
-prepared for unexpected subtleties. Data have a context.  That 
-context has to be understood and to feed into the way that the data 
-are used, if credible conclusions are to be drawn.
+that the steps needed to provide answers are similarly simple.
+Very often, they are not.  It is alluringly easy to create forms of
+data summary that misrepresent what the data have to say.  
+Or inadequate attention may be paid to the context from which the
+data have been taken.  The context has to be understood and to feed 
+into the way that the data are used, if conclusions are to be drawn
+that warrant credence.
 
 The pages that follow avoid detailed discussion of methodology,
 instead focusing on what Kahneman, in his book 
@@ -53,12 +56,12 @@ processes have clearly failed are commonest where scientists work
 as individuals or in small groups with limited outside checks.
 
 In areas where the nature of the work requires cooperation between 
-scientists with a wide range of skills, and where data is shared, 
-those involved in the research provide a check on each other.
-Papers may be sent for comment to other researchers, or posted on 
-the net for comment, prior to formal submission for publication.
-This allows informed and incisive criticism, with the refereeing 
-process providing supplementary checks.
+scientists with a wide range of skills, and where data and code
+are shared, those involved in the research provide a check on each 
+other.  Papers may be sent for comment to other researchers, or 
+posted on the net for comment, prior to formal submission for 
+publication.  This allows informed and incisive criticism, with 
+the more formal refereeing process providing supplementary checks.
 
 Concerns about reproducibility, especially in wet laboratory 
 biology and in psychology, have in the past decade attracted 

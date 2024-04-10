@@ -82,7 +82,6 @@ Available fact boxes, as of March 2024, appear under the headings:
 -   Osteoarthritis of the knee
 -   Tonsil surgery
 -   Pregnancy and childbirth
--   
 
 Scroll down the home page[^04-medical-3] to find the headings **Risk
 Literate** (with a link to a risk quiz), and **Quick Risk Test** (with a
@@ -101,145 +100,6 @@ decision-making by producing high-quality, relevant, accessible
 systematic reviews and other synthesized research evidence." They rely
 heavily on meta-analyses, looking for the balance of evidence across all
 relevant studies.
-
-### Winton Centre for Risk and Evidence Communication[^04-medical-5] {.unnumbered}
-
-[^04-medical-5]: <https://wintoncentre.maths.cam.ac.uk/>
-
-## Screening for cancer --- randomized trials
-
-### PSA Screening for Prostate Cancer, & more {.unnumbered}
-
-Numbers (rounded) in the following table are from a Harding Center fact
-box. They are for men 50 years or older who either did or did not
-participate in prostate cancer screening, using the PSA test, for 16
-years.[^04-medical-6]
-
-[^04-medical-6]: <https://www.hardingcenter.de/en/early-detection-of-cancer/early-detection-of-prostate-cancer-with-psa-testing>
-
-|                          | 1000 men, No screening | 1000 men, Screening |
-|--------------------------|------------------------|---------------------|
-| Deaths (prostate cancer) | 12                     | 10                  |
-| ---                      | ---                    | ---                 |
-| Biopsy & false alarm     | 0                      | 155                 |
-| Unnecessary treatment    | 0                      | 51                  |
-
-About 10 out of every 1,000 men with screening, and 12 out of every
-1,000 men without screening, died from prostate cancer within 16 years.
-This means that 2 out of every 1,000 people could be saved from death
-from prostate cancer by early detection using PSA testing. Deaths from
-any cause were around 322 in both groups.
-
-Numbers for benefits are based on four studies with about 77,000
-participants (progressive cancer), four studies with about 472,000
-participants (overall mortality), and eleven studies with about 619,000
-participants (prostate cancer specific mortality). The numbers for harms
-are based on seven studies with approximately 128,000 participants
-(false-positive results within three to six participations in PSA
-testing for early detection) and nine studies with approximately 274,000
-participants (over-diagnosis and over-treatment). See the web site for
-references to the studies.
-
-Unlike the biopsies that may follow a positive PSA test, the PSA test
-has no direct potential to cause physical harm. Harm results from an
-undue readiness to use the test result as a reason for further
-potentially harmful testing and treatment. "Wait and watch" is often 
-the preferred strategy.
-
-See @martin2018effect, @levitin_2015 [ch. 6], @fung2020cancer [pp.
-278-281], the web page [How Patients Think, and How They
-Should](https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html)[^04-medical-7], and
- regularly updated summary of the evidence can be found at 
-[PDQ Cancer Information Summaries](https://www.ncbi.nlm.nih.gov/books/NBK65906/).
-
-[^04-medical-7]: <https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html>
-
-### Breast cancer screening {.unnumbered}
-
-The @raichand2017conclusions review starts with the comment:
-
-> The recent controversy about using mammography to screen for breast
-> cancer based on randomized controlled trials over 3 decades in Western
-> countries has not only eclipsed the paradigm of evidence-based
-> medicine, but also puts health decision-makers in countries where
-> breast cancer screening is still being considered in a dilemma to
-> adopt or abandon such a well-established screening modality.
-
-The short summary, last updated in October 2019, from the [Harding 
-Center Fact Box for Mammography
-Screening](https://www.hardingcenter.de/en/early-detection-breast-cancer-mammography-screening),
-referring to women 50 years (a few trials looked at women aged $\geq$40)
-and older who either did or did not participate in mammography screening
-for approximately 11 years reads
-
-> Mammography reduced the number of women who died from breast cancer by
-> 1 out of every 1000 women. It had no effect on the number of women who
-> died from any type of cancer. Among all women taking part in
-> screening, some women with non-progressive cancer were over-diagnosed
-> and received unnecessary treatment.[^04-medical-8]
-
-[^04-medical-8]: <https://www.hardingcenter.de/en/early-detection-breast-cancer-mammography-screening>
-
-All cause death rates are a more relevant measure than cancer specific 
-death rates, as treatments may themselves have harmful effects.
-The chief English source of evidence for the fact box is the Cochrane
-review @gotzsche2013screening. The eight eligible trials included more 
-than 600,000 women aged between 39 and 74, all reported between 1963 and 1991.  One trial was excluded because the randomization had not produced
-comparable groups. Four trials had inadequate randomization.  The three
-trials with adequate randomization did not find an effect of screening on
-total cancer mortality.
-
-@loberg2015benefits provide a slightly more detailed breakdown of the
-evidence, as applied to women who were screened for 20 years, starting
-at age 50, with mortality assessed at ages 56 to 75 in the UK. Figure
-\@ref(fig:c-screen) is a visual summary. Interval cancers are cancers
-that are detected in between regular screens. A prior normal screen may
-give a false assurance and lead to a delay in seeking help when symptoms
-appear.  See also the regularly updated summary of the evidence at[PDQ Cancer Information Summaries](https://www.ncbi.nlm.nih.gov/books/NBK65906/).
-
-```{r cap2, echo=FALSE}
-cap2 <- "Estimates of benefits and harms of screening, as applied to the observed incidence of invasive breast cancer (women aged 50 to 69 years) and mortality (women aged 55 to 74 years) in the UK in 2007."
-```
-
-```{r c-screen, echo=FALSE, message=FALSE, warning=FALSE, fig.width=6, fig.height=3.75, fig.pos='H', out.width="60%", fig.cap=cap2}
-dset <- data.frame(num = c(200,30,3,15,2,0),
-                   outcome = c("False positive","False positive\nwith biopsy",
-                               "Interval cancer","Overdiagnosed",
-                               "Prevented breast\ncancer death", 
-                               "Prevented\noverall death"))
-lattice::barchart(outcome~num, data=dset, horiz=T, xlim=c(0,210),
-                  col=rep(c("gray90","white"), c(4,2)),
-                  xlab="Number out of 1000",
-                  panel=function(x,y,...){
-                       ylim <- current.panel.limits()$ylim
-                      lrect(0,ylim[1],210,4.55, 
-                      border='white', col='gray95');
-                      panel.barchart(x,y,...);
-                    panel.text(x,y, labels=paste(x), offset=0.3,
-                               pos=c(2,2,4,2,4,4))}
-)
-```
-
-The area by area phasing of the introduction of a mammography 
-screening programme in Ireland over 1994-2011 had the 
-character of a natural experiment, allowing checks on what
-the before/after difference of each area as it was phased in,
-as against areas where the rollout occurred earlier or later.
-@MORAN2022115073 looked at data on the ten-year follow-up of
-33,722 breast cancer cases.  The conclusion was that
-"while invitation to screening increased detection, it did not 
-significantly decrease the average risk of dying from breast 
-cancer in the population."  The authors did however note that 
-"screening may have helped to reduce socioeconomic disparities 
-in late stage breast cancer incidence."
-
-The historical data does, irrespective of questions regarding 
-its current direct relevance, emphasize the importance
-of tuning breast cancer checks to the risk profile, of finding
-ways to distinguish progressive from non-progressive cancer,
-and of avoiding over-treatment.  Early diagnosis may allow the
-use of less invasive forms of treatment.  As argued in
-@essermanwisdom, women want "better, not more screening".
 
 ## Randomized Controlled Trials vs other study types {#ss:rct}
 
@@ -309,7 +169,10 @@ undiagnosed cancers.
         serious damage.
 
 For a helpful animated summary of some of the key issues, see:\
-<https://www.youtube.com/watch?v=Wy7qpJeozec>
+<https://www.youtube.com/watch?v=Wy7qpJeozec>.
+@pashayan2020personalized provide an overview of progress towards
+the personalized early detection and prevention of breast cancer,
+noting priority areas for action.  
 
 ### A note in passing: HiPPO decisions vs A/B testing {.unnumbered}
 
@@ -377,6 +240,44 @@ What are the relevant outcome measures?
 
 Care is required to deal with survivor, as well as other, biases.
 
+### False Positives
+
+In contexts where the number of false positives is likely to be high
+relative to the number of true positives, screening programs may have
+serious downsides that outweigh the benefits.
+
+Excess iron syndrome, known as "haemochromatosis", affects around 1 in
+200 in the New Zealand population. Consider a test that has an 80%
+accuracy, both for detecting the syndrome among those who have it, and
+for not detecting among those who do not.[^04-medical-11]
+
+[^04-medical-11]: These are known as the "sensitivity", and the
+    "specificity".
+
+Excess iron syndrome, known as "haemochromatosis", affects around 1 in
+200 in the New Zealand population. Consider a test that has an 80%
+accuracy, both for detecting the syndrome among those who have it, and
+for not detecting among those who do not.[^04-medical-12]\
+Among 2000 tested (10 with and 1990 without)
+
+[^04-medical-12]: These are known as the "sensitivity" (true
+    positive rate"), and the "specificity" (true negative rate).
+
+-   there will on average be **8** out of 10 true positives
+-   the 1990 without the syndrome will split up as detected +ve to
+    detected -ve in an 20%:80% ratio. Thus there will be, on average, .2
+    $\times$ 1990 = **398** false positives.
+
+Overall, those detected as positive split up in a true:false ratio of
+8:398, i.e., 8/406 or just under 2% of the positives are false
+positives. If all positives were detected as positive, the 8/406 would
+change to 10/406.
+
+A test with this kind of accuracy becomes much more useful in a subset
+of the population already known to be at high risk, perhaps as
+identified by a genetic test, or perhaps because of a medical condition
+commonly associated with the syndrome.
+
 ## Hierarchies of evidence
 
 There is broad agreement among medical researchers on the hierarchy of
@@ -436,7 +337,15 @@ done the job asked of them.
 
 [^04-medical-9]: See <https://plos.org/open-science/preregistration/>
 
-## Avoid, or expose infants to peanuts?
+## Randomized trial examples -- answers may not come easily
+
+Randomized trials can in some contexts provide clear answers.
+In others, especially where the interest is in effects of
+screening or treatment strategies on survival, it may be 
+several decades before results are available for analysis.
+Examples of both types will be discussed.
+
+### Avoid, or expose infants to peanuts?
 
 Clinical practice guidelines introduced in or around the year 2000 had
 "recommended the exclusion of allergenic foods from the diets of infants
@@ -485,68 +394,11 @@ months. The assumption that avoiding early exposure to peanuts would
 reduce risk of later development of peanut allergy was, it was judged,
 likely wrong for all infants.
 
-## False Positives
-
-In contexts where the number of false positives is likely to be high
-relative to the number of true positives, screening programs may have
-serious downsides that outweigh the benefits.
-
-Excess iron syndrome, known as "haemochromatosis", affects around 1 in
-200 in the New Zealand population. Consider a test that has an 80%
-accuracy, both for detecting the syndrome among those who have it, and
-for not detecting among those who do not.[^04-medical-11]
-
-[^04-medical-11]: These are known as the "sensitivity", and the
-    "specificity".
-
-Excess iron syndrome, known as "haemochromatosis", affects around 1 in
-200 in the New Zealand population. Consider a test that has an 80%
-accuracy, both for detecting the syndrome among those who have it, and
-for not detecting among those who do not.[^04-medical-12]\
-Among 2000 tested (10 with and 1990 without)
-
-[^04-medical-12]: These are known as the "sensitivity" (true
-    positive rate"), and the "specificity" (true negative rate).
-
--   there will on average be **8** out of 10 true positives
--   the 1990 without the syndrome will split up as detected +ve to
-    detected -ve in an 20%:80% ratio. Thus there will be, on average, .2
-    $\times$ 1990 = **398** false positives.
-
-Overall, those detected as positive split up in a true:false ratio of
-8:398, i.e., 8/406 or just under 2% of the positives are false
-positives. If all positives were detected as positive, the 8/406 would
-change to 10/406.
-
-A test with this kind of accuracy becomes much more useful in a subset
-of the population already known to be at high risk, perhaps as
-identified by a genetic test, or perhaps because of a medical condition
-commonly associated with the syndrome.
-
-### The Aspirin story (randomized trials) {.unnumbered}
-
-22,000 males, 1st 5 years of study:[^04-medical-13]
-
-[^04-medical-13]: <http://nyti.ms/2rgjFO2>
-
-|                         | Placebo group | Aspirin group |
-|-------------------------|---------------|---------------|
-| Fatal heart attacks     | 18            | 5             |
-| Non-fatal heart attacks | 171           | 99            |
-
-Later work indicated that benefits are limited to those with previous
-symptoms. A 2009 study found that major bleeding episodes, requiring
-admission to hospital, were 20 (1.2%) in the placebo group, and 34 (2%)
-in the aspirin group[^04-medical-14]. @barbarawi2019aspirin gives a
-summary of current evidence.
-
-[^04-medical-14]: <https://www.theguardian.com/society/2009/aug/31/aspirin-british-heart-foundation>
-
-## The effectiveness of surgery
+### The effectiveness of surgery
 
 The blurb on the back cover of @harris2016book states that
 
-> For many complaints and condiltions, the benefits from surgery are
+> For many complaints and conditions, the benefits from surgery are
 > lower, and the risks higher, than you or your surgeon think.
 
 Humans are very prone to the *post hoc, ergo propter hoc* fallacy: "it
@@ -579,3 +431,157 @@ A comment in @watkins2000conviction is apt
 > underlying them.
 
 What are the implications for medical practice?
+
+## Screening for cancer --- randomized trials
+
+Here, if the interest is in risk of death, it is necessary to wait
+for perhaps several decades before there is a high enough number
+of deaths that results can be usefully evaluated.  Changes that
+can be expected in the interim are:  
+
+- Screening may become more sensitive, perhaps picking up a higher
+proportion of relatively benign cancers that are unlikely to ever
+have serious effects.  
+- There may be an increased ability to distinguish between benign 
+and more aggressive cancers.  
+- More effective and/or less invasive treatments may become available, 
+and earlier treatments finessed.
+
+All cause death rates are a more relevant measure than cancer specific
+death rates, as treatments may themselves have harmful effects. 
+Whether or not results from clinical trials in past decades remain
+relevant to current circumstances, their results do highlight
+important questions.
+
+### PSA Screening for Prostate Cancer, & more {.unnumbered}
+
+Numbers (rounded) in the following table are from a Harding Center fact
+box. They are for men 50 years or older who either did or did not
+participate in prostate cancer screening, using the PSA test, for 16
+years.[^04-medical-6]
+
+[^04-medical-6]: <https://www.hardingcenter.de/en/early-detection-of-cancer/early-detection-of-prostate-cancer-with-psa-testing>
+
+|                          | 1000 men, No screening | 1000 men, Screening |
+|--------------------------|------------------------|---------------------|
+| Deaths (prostate cancer) | 12                     | 10                  |
+| ---                      | ---                    | ---                 |
+| Biopsy & false alarm     | 0                      | 155                 |
+| Unnecessary treatment    | 0                      | 51                  |
+
+About 10 out of every 1,000 men with screening, and 12 out of every
+1,000 men without screening, died from prostate cancer within 16 years.
+This means that 2 out of every 1,000 people could be saved from death
+from prostate cancer by early detection using PSA testing. Deaths from
+any cause were around 322 in both groups.
+
+Numbers for benefits are based on four studies with about 77,000
+participants (progressive cancer), four studies with about 472,000
+participants (overall mortality), and eleven studies with about 619,000
+participants (prostate cancer specific mortality). The numbers for harms
+are based on seven studies with approximately 128,000 participants
+(false-positive results within three to six participations in PSA
+testing for early detection) and nine studies with approximately 274,000
+participants (over-diagnosis and over-treatment). See the web site for
+references to the studies.
+
+Unlike the biopsies that may follow a positive PSA test, the PSA test
+has no direct potential to cause physical harm. Harm results from an
+undue readiness to use the test result as a reason for further
+potentially harmful testing and treatment. "Wait and watch" is often the
+preferred strategy.
+
+See @martin2018effect, @levitin_2015 \[ch. 6\], @fung2020cancer [pp.
+278-281], the web page [How Patients Think, and How They
+Should](https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html)[^04-medical-7],
+and regularly updated summary of the evidence can be found at [PDQ
+Cancer Information
+Summaries](https://www.ncbi.nlm.nih.gov/books/NBK65906/).
+
+[^04-medical-7]: <https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html>
+
+### Breast cancer screening {.unnumbered}
+
+The @raichand2017conclusions review starts with the comment:
+
+> The recent controversy about using mammography to screen for breast
+> cancer based on randomized controlled trials over 3 decades in Western
+> countries has not only eclipsed the paradigm of evidence-based
+> medicine, but also puts health decision-makers in countries where
+> breast cancer screening is still being considered in a dilemma to
+> adopt or abandon such a well-established screening modality.
+
+The short summary, last updated in October 2019, from the [Harding
+Center Fact Box for Mammography
+Screening](https://www.hardingcenter.de/en/early-detection-breast-cancer-mammography-screening),
+referring to women 50 years (a few trials looked at women aged
+\$\geq\$40) and older who either did or did not participate in
+mammography screening for approximately 11 years reads
+
+> Mammography reduced the number of women who died from breast cancer by
+> 1 out of every 1000 women. It had no effect on the number of women who
+> died from any type of cancer. Among all women taking part in
+> screening, some women with non-progressive cancer were over-diagnosed
+> and received unnecessary treatment.[^04-medical-8]
+
+[^04-medical-8]: <https://www.hardingcenter.de/en/early-detection-breast-cancer-mammography-screening>
+
+The chief English source of evidence for the fact box is the Cochrane 
+review @gotzsche2013screening. The eight eligible trials included more 
+than 600,000 women aged between 39 and 74, all reported between 1963 and
+1991. One trial was excluded because the randomization had not produced
+comparable groups. Four trials had inadequate randomization. The three
+trials with adequate randomization did not find an effect of screening
+on total cancer mortality.
+
+@loberg2015benefits provide a slightly more detailed breakdown of the
+evidence, as applied to women who were screened for 20 years, starting
+at age 50, with mortality assessed at ages 56 to 75 in the UK. Figure
+\@ref(fig:c-screen) is a visual summary. Interval cancers are cancers
+that are detected in between regular screens. A prior normal screen may
+give a false assurance and lead to a delay in seeking help when symptoms
+appear. See also the regularly updated summary of the evidence at[PDQ
+Cancer Information
+Summaries](https://www.ncbi.nlm.nih.gov/books/NBK65906/).
+
+```{r cap2, echo=FALSE}
+cap2 <- "Estimates of benefits and harms of screening, as applied to the observed incidence of invasive breast cancer (women aged 50 to 69 years) and mortality (women aged 55 to 74 years) in the UK in 2007."
+```
+
+```{r c-screen, echo=FALSE, message=FALSE, warning=FALSE, fig.width=6, fig.height=3.75, fig.pos='H', out.width="60%", fig.cap=cap2}
+dset <- data.frame(num = c(200,30,3,15,2,0),
+                   outcome = c("False positive","False positive\nwith biopsy",
+                               "Interval cancer","Overdiagnosed",
+                               "Prevented breast\ncancer death", 
+                               "Prevented\noverall death"))
+lattice::barchart(outcome~num, data=dset, horiz=T, xlim=c(0,210),
+                  col=rep(c("gray90","white"), c(4,2)),
+                  xlab="Number out of 1000",
+                  panel=function(x,y,...){
+                       ylim <- current.panel.limits()$ylim
+                      lrect(0,ylim[1],210,4.55, 
+                      border='white', col='gray95');
+                      panel.barchart(x,y,...);
+                    panel.text(x,y, labels=paste(x), offset=0.3,
+                               pos=c(2,2,4,2,4,4))}
+)
+```
+
+The area by area phasing of the introduction of a mammography screening
+program in Ireland over 1994-2011 had the character of a natural
+experiment, allowing checks on what the before/after difference of each
+area as it was phased in, as against areas where the rollout occurred
+earlier or later. @MORAN2022115073 looked at data on the ten-year
+follow-up of 33,722 breast cancer cases. The conclusion was that "while
+invitation to screening increased detection, it did not significantly
+decrease the average risk of dying from breast cancer in the
+population." The authors did however note that "screening may have
+helped to reduce socioeconomic disparities in late stage breast cancer
+incidence."
+
+The historical data does, irrespective of questions regarding its
+current direct relevance, emphasize the importance of tuning breast
+cancer checks to the risk profile, of finding ways to distinguish
+progressive from non-progressive cancer, and of avoiding over-treatment.
+Early diagnosis may allow the use of less invasive forms of treatment.
+As argued in @essermanwisdom, women want "better, not more screening".
