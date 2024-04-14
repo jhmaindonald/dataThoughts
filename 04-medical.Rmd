@@ -296,7 +296,7 @@ evidence that is set down in the [@us1989guide] guide:
 -   Level III: Opinions of respected authorities, based on clinical
     experience, descriptive studies, or reports of expert committees.
 
-The CONSORT 2010 statement \[Schulzc332\] sets out detailed criteria for
+The CONSORT 2010 statement [@Schulzc332] sets out detailed criteria for
 assessing randomized controlled trials (RCTs). For Level II studies, the
 STROBE guidelines [@erik2007strengthening] set out reporting standards.
 
@@ -313,9 +313,7 @@ decreasing sugar-sweetened beverage consumption will reduce the
 prevalence of obesity and obesity-related diseases" [@hu2013resolved]
 provides an example. Hu brings evidence from short-term randomized
 controlled trials together with evidence from long term cohort studies
-(4 or 8 years) to make a convincing case for the long-term effects of
-sugar-sweetened beverages on increasing obesity and obesity-related
-diseases.
+(4 or 8 years) to make a convincing case.
 
 Clinical trials have their own problems and issues. Using evidence from
 published review sources, @chalmers2009avoidable found issues with the
@@ -335,17 +333,12 @@ defects from appearing in the first place, with screening for defects at
 the end of the production line used as a check that those processes have
 done the job asked of them.
 
+Chapter \@ref(ch:obs) will discuss issues for using observational 
+data as a basis for inferences.
+
 [^04-medical-9]: See <https://plos.org/open-science/preregistration/>
 
-## Randomized trial examples -- answers may not come easily
-
-Randomized trials can in some contexts provide clear answers.
-In others, especially where the interest is in effects of
-screening or treatment strategies on survival, it may be 
-several decades before results are available for analysis.
-Examples of both types will be discussed.
-
-### Avoid, or expose infants to peanuts?
+## Avoid, or expose infants to peanuts?
 
 Clinical practice guidelines introduced in or around the year 2000 had
 "recommended the exclusion of allergenic foods from the diets of infants
@@ -394,7 +387,7 @@ months. The assumption that avoiding early exposure to peanuts would
 reduce risk of later development of peanut allergy was, it was judged,
 likely wrong for all infants.
 
-### The effectiveness of surgery
+## The effectiveness of surgery -- RCTs are challenging
 
 The blurb on the back cover of @harris2016book states that
 
@@ -432,12 +425,13 @@ A comment in @watkins2000conviction is apt
 
 What are the implications for medical practice?
 
-## Screening for cancer --- randomized trials
+## Screening for cancer --- how relevant is historical evidence
 
-Here, if the interest is in risk of death, it is necessary to wait
-for perhaps several decades before there is a high enough number
-of deaths that results can be usefully evaluated.  Changes that
-can be expected in the interim are:  
+Screening for cancer is an area where, if the interest is in 
+risk of death, it is necessary to wait for perhaps several 
+decades before there is a high enough number of deaths that 
+results can be usefully evaluated.  Changes that can be 
+expected in the interim include:  
 
 - Screening may become more sensitive, perhaps picking up a higher
 proportion of relatively benign cancers that are unlikely to ever
@@ -491,7 +485,7 @@ undue readiness to use the test result as a reason for further
 potentially harmful testing and treatment. "Wait and watch" is often the
 preferred strategy.
 
-See @martin2018effect, @levitin_2015 \[ch. 6\], @fung2020cancer [pp.
+See @martin2018effect, @levitin_2015 [ch. 6], @fung2020cancer [pp.
 278-281], the web page [How Patients Think, and How They
 Should](https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html)[^04-medical-7],
 and regularly updated summary of the evidence can be found at [PDQ

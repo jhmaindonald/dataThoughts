@@ -4,7 +4,7 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  10pt,
+  10ptls,
   b5paper]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -129,7 +129,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={What Does the Data Say? -- Traps to Avoid},
+  pdftitle={What Do the Data Say? -- Traps to Avoid},
   pdfauthor={John Maindonald},
   colorlinks=true,
   linkcolor={red},
@@ -138,7 +138,7 @@
   urlcolor={blue},
   pdfcreator={LaTeX via pandoc}}
 
-\title{What Does the Data Say? -- Traps to Avoid}
+\title{What Do the Data Say? -- Traps to Avoid}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -147,7 +147,7 @@
 \makeatother
 \subtitle{Examples that inform and educate}
 \author{John Maindonald}
-\date{2 April 2024}
+\date{11 April 2024}
 
 \begin{document}
 \maketitle
@@ -251,7 +251,7 @@ common traps are better placed to avoid them.
   \end{itemize}
 \item
   Graphs can reveal surprises. They can also be drawn
-  so that they deceive. Take care!
+  so that they deceive.
 
   \begin{itemize}
   \tightlist
@@ -281,17 +281,12 @@ common traps are better placed to avoid them.
   \begin{itemize}
   \tightlist
   \item
-    Randomized trials, if done rigorously, are a gold standard.
-  \item
-    Participants must closely reflect the population to which
-    results will be applied.
+    Randomized trials, if done rigorously, and participants
+    closely reflect the population to which results will be applied,
+    are a gold standard.
   \item
     Think carefully about the outcome measure. Thus, is it
     ``cancers'' found? Or is it ``deaths'' within a stated timeframe.
-  \item
-    Observational data from population studies, where adjustments
-    are needed to account for prior differences between the two (or
-    more) groups, readily mislead.
   \end{itemize}
 \item
   Careful checks are needed when the attempt is made to use
@@ -300,9 +295,11 @@ common traps are better placed to avoid them.
   \begin{itemize}
   \tightlist
   \item
-    In group comparisons, adjustments are typically needed
+    In group comparisons, adjustments are needed
     to account for prior differences between the two (or more)
     groups. What checks can be made that adjustments are adequate?
+    It is in general impossible to be sure that adjustments account
+    for all effects other than the effectm that is of interest.
   \item
     In what direction, and through what causal chains, do causal
     effects go? Are people healthier because they exercise more?
@@ -339,8 +336,15 @@ common traps are better placed to avoid them.
   \item
     What can be hard to grasp is that the effect goes on both directions.
     Tall sons are likely to have tall fathers, but shorter than themselves.
-    The phenomenon known as ``regression to the mean'',
-    goes in both directions.
+    The ``regression to the mean'' phenomenon goes in both directions.\\
+  \item
+    Regression models require careful checking to ensure that they
+    correctly reflect all systematic effects in the data.
+  \item
+    The coefficient that is attached to an explanatory variable accounts
+    for the effect of that variable when other variables are help constant.
+    The coefficient is likely to change with the change to different
+    explanatory variables that give the same predicted values.
   \end{itemize}
 \item
   Results become part of established science when they have
@@ -350,18 +354,18 @@ common traps are better placed to avoid them.
   \begin{itemize}
   \tightlist
   \item
-    Uninformed critique is common. Watch for the
-    tricks that are used in the attempt to discredit established
-    scientific results that detractors find inconvenient.
+    Uninformed critique is common. Watch for the tricks that
+    detractors who find established scientific results inconvenient
+    use in the attempt to discredit them.
   \item
     When presented with scientific (or any) claims, ask/check
     whether claims have been carefully critiqued. For laboratory
     studies, have results been replicated?
   \item
-    Publication processes can work well where the nature of the
-    work requires input and critique widely from across different
-    disciplinary perspectives, and where data and code are made
-    available for checking.
+    Publication processes work best where authors contribute
+    input and critique widely from across different disciplinary
+    perspectives, and where data and code are made available for
+    checking.
   \end{itemize}
 \end{enumerate}
 
@@ -379,7 +383,8 @@ Important themes that Kahneman notes are
 \item
   We have ``an excessive confidence in what we think we know''.
 \item
-  We too readily judge decisions by outcome, rather than by how they are made.
+  We too readily judge decisions by outcome, rather than by the
+  strength of the arguments that support them.
 \item
   We have two selves --- an experiencing self and a remembering self
 
@@ -403,8 +408,7 @@ Important themes that Kahneman notes are
 \hypertarget{system-1-and-system-2-further-comments}{%
 \section{System 1 and System 2 --- further comments}\label{system-1-and-system-2-further-comments}}
 
-Humans have been conditioned to respond quickly to immediate risks and challenges, without stopping to consider too carefully whether what we heard was a false alarm. They also have the ability, when the occasion seems to demand it, to stop to ponder. This is the basis for Kahneman's categorization of human thought~ processes as of two types --- System 1 which jumps rapidly to make a judgment, and System 2 which takes time for careful
-consideration.\footnote{See \url{https://suebehaviouraldesign.com/kahneman-fast-slow-thinking/} for further comment.}
+Humans have been conditioned to respond quickly to immediate risks and challenges, without stopping to consider too carefully whether what we heard was a false alarm. They also have the ability, when the occasion seems to demand it, to stop to ponder. This is the basis for Kahneman's categorization of human thought~ processes as of two types --- System 1 which jumps rapidly to make a judgment, and System 2 which takes time for careful consideration.\footnote{See \url{https://suebehaviouraldesign.com/kahneman-fast-slow-thinking/} for further comment.}
 
 System 1 Features are
 
@@ -414,10 +418,23 @@ System 1 Features are
   It may answer an easier question in place of a harder.
 \item
   It responds to irrelevancies --- priming, framing, affect, memory illusions, illusions of truth, \ldots{}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Priming by one stimulus can affect the response to a second
+    stimulus that occurs shortly aferwards
+  \item
+    The portrayal of logically equivalent alternatives in different
+    ways or `frames' can affect the response
+  \item
+    The emotion or `affect' generated by a question can affect the
+    response
+  \end{itemize}
 \item
   It has little understanding of logic and statistics
 \item
-  It cannot be turned off
+  It cannot be turned off, but it can be trained
 \item
   When flummoxed, it calls on System 2
 \end{itemize}
@@ -427,13 +444,14 @@ System 2 features are
 \begin{itemize}
 \tightlist
 \item
-  It keeps you polite when angry, alert when driving at night
+  It keeps you polite when angry, alert when driving in a severe
+  rainstorm
 \item
   In its world, gorillas do not cross basket-ball courts \ldots{}\footnote{See \url{http://theinvisiblegorilla.com/gorilla_experiment.html}}
 \item
-  There are some vital tasks that only System 2 can perform
-\item
   Problems that put 1 \& 2 in conflict may require large mental effort \& self-control to overcome the impulses and intuitions of System 1.
+\item
+  Its effectiveness depends, in important areas, on training.
 \end{itemize}
 
 Both systems are amenable to training. A well-trained System 2 helps
@@ -478,14 +496,10 @@ The situation has provided a cue; this cue has given the expert access to inform
 \subsection*{Obstacles to effective judgment}\label{obstacles-to-effective-judgment}}
 \addcontentsline{toc}{subsection}{Obstacles to effective judgment}
 
-Even those who are experts in their field can be similarly prone to judgments that have no foundation in fact:
-
-\begin{quote}
-``But you're not an MD like I am. The problem with you is that you do not understand medicine. You see, medical statistics are not like other statistics.''\\
-(Prostate biopsy specialist, in response to evidence that screening may be counterproductive, quoted in \protect\hyperlink{ref-levitin_2015}{Levitin 2015, 247})
-\end{quote}
-
-The following comment appeared in a discussion of the response to a U.S. Preventive Services assessment that prostate screening, when used in accordance with then current treatment practices, was doing more harm than good.\footnote{Association of Professional Psychologists, web post on Arkes and Gaissmaier (\protect\hyperlink{ref-arkes2012psychological}{2012})}
+Even those who are experts in their field can be similarly prone to judgments that have no foundation in fact. The following comment appeared in a discussion of
+the response to a U.S. Preventive Services assessment that prostate screening,
+when used in accordance with then current treatment practices, was doing more
+harm than good.\footnote{Association of Professional Psychologists, web post on Arkes and Gaissmaier (\protect\hyperlink{ref-arkes2012psychological}{2012})}
 
 \begin{quote}
 Even faced with \ldots{} evidence \ldots{} from a ten-year study of around 250,000
@@ -525,7 +539,9 @@ Over the past few years, the benefit‐to‐harm ratio has improved in favor of 
     trial participants were taken. Any wider generalization has to be justified
   \end{itemize}
 \item
-  Observational data does not easily, if at all, substitute for the use of RCTs. It is no easy matter to adjust for sources of bias
+  Observational data does not easily, if at all, substitute for the use of
+  RCTs. It is in general impossible to be sure that all sources of bias have
+  been properly accounted for
 \item
   Keep in mind Yule-Simpson ``paradox'', which we will encounter later in Subsection \ref{sec:yule1}
 
@@ -1387,7 +1403,7 @@ evidence that is set down in the (\protect\hyperlink{ref-us1989guide}{US Prevent
   experience, descriptive studies, or reports of expert committees.
 \end{itemize}
 
-The CONSORT 2010 statement \[Schulzc332\] sets out detailed criteria for
+The CONSORT 2010 statement (\protect\hyperlink{ref-Schulzc332}{Schulz, Altman, and Moher 2010}) sets out detailed criteria for
 assessing randomized controlled trials (RCTs). For Level II studies, the
 STROBE guidelines (\protect\hyperlink{ref-erik2007strengthening}{Erik von Elm et al. 2007}) set out reporting standards.
 
@@ -1404,9 +1420,7 @@ decreasing sugar-sweetened beverage consumption will reduce the
 prevalence of obesity and obesity-related diseases'' (\protect\hyperlink{ref-hu2013resolved}{Hu 2013})
 provides an example. Hu brings evidence from short-term randomized
 controlled trials together with evidence from long term cohort studies
-(4 or 8 years) to make a convincing case for the long-term effects of
-sugar-sweetened beverages on increasing obesity and obesity-related
-diseases.
+(4 or 8 years) to make a convincing case.
 
 Clinical trials have their own problems and issues. Using evidence from
 published review sources, Chalmers and Glasziou (\protect\hyperlink{ref-chalmers2009avoidable}{2009}) found issues with the
@@ -1426,17 +1440,11 @@ defects from appearing in the first place, with screening for defects at
 the end of the production line used as a check that those processes have
 done the job asked of them.
 
-\hypertarget{randomized-trial-examples-answers-may-not-come-easily}{%
-\section{Randomized trial examples -- answers may not come easily}\label{randomized-trial-examples-answers-may-not-come-easily}}
-
-Randomized trials can in some contexts provide clear answers.
-In others, especially where the interest is in effects of
-screening or treatment strategies on survival, it may be
-several decades before results are available for analysis.
-Examples of both types will be discussed.
+Chapter \ref{ch:obs} will discuss issues for using observational
+data as a basis for inferences.
 
 \hypertarget{avoid-or-expose-infants-to-peanuts}{%
-\subsection{Avoid, or expose infants~to~peanuts?}\label{avoid-or-expose-infants-to-peanuts}}
+\section{Avoid, or expose infants~to~peanuts?}\label{avoid-or-expose-infants-to-peanuts}}
 
 Clinical practice guidelines introduced in or around the year 2000 had
 ``recommended the exclusion of allergenic foods from the diets of infants
@@ -1483,8 +1491,8 @@ months. The assumption that avoiding early exposure to peanuts would
 reduce risk of later development of peanut allergy was, it was judged,
 likely wrong for all~infants.
 
-\hypertarget{the-effectiveness-of-surgery}{%
-\subsection{The effectiveness of surgery}\label{the-effectiveness-of-surgery}}
+\hypertarget{the-effectiveness-of-surgery-rcts-are-challenging}{%
+\section{The effectiveness of surgery -- RCTs are challenging}\label{the-effectiveness-of-surgery-rcts-are-challenging}}
 
 The blurb on the back cover of Harris (\protect\hyperlink{ref-harris2016book}{2016}) states that
 
@@ -1526,13 +1534,14 @@ underlying them.
 
 What are the implications for medical practice?
 
-\hypertarget{screening-for-cancer-randomized-trials}{%
-\section{Screening for cancer --- randomized trials}\label{screening-for-cancer-randomized-trials}}
+\hypertarget{screening-for-cancer-how-relevant-is-historical-evidence}{%
+\section{Screening for cancer --- how relevant is historical evidence}\label{screening-for-cancer-how-relevant-is-historical-evidence}}
 
-Here, if the interest is in risk of death, it is necessary to wait
-for perhaps several decades before there is a high enough number
-of deaths that results can be usefully evaluated. Changes that
-can be expected in the interim are:
+Screening for cancer is an area where, if the interest is in
+risk of death, it is necessary to wait for perhaps several
+decades before there is a high enough number of deaths that
+results can be usefully evaluated. Changes that can be
+expected in the interim include:
 
 \begin{itemize}
 \tightlist
@@ -1606,7 +1615,7 @@ undue readiness to use the test result as a reason for further
 potentially harmful testing and treatment. ``Wait and watch'' is often the
 preferred strategy.
 
-See Martin et al. (\protect\hyperlink{ref-martin2018effect}{2018}), Levitin (\protect\hyperlink{ref-levitin_2015}{2015}) \[ch. 6\], Fung (\protect\hyperlink{ref-fung2020cancer}{2020, 278--81}), the web page \href{https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html}{How Patients Think, and How They
+See Martin et al. (\protect\hyperlink{ref-martin2018effect}{2018}), Levitin (\protect\hyperlink{ref-levitin_2015}{2015}, ch.~6), Fung (\protect\hyperlink{ref-fung2020cancer}{2020, 278--81}), the web page \href{https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html}{How Patients Think, and How They
 Should}\footnote{\url{https://www.nytimes.com/2011/10/09/books/review/your-medical-mind-by-jerome-groopman-and-pamela-hartzband-book-review.html}},
 and regularly updated summary of the evidence can be found at \href{https://www.ncbi.nlm.nih.gov/books/NBK65906/}{PDQ
 Cancer Information
@@ -1688,353 +1697,199 @@ progressive from non-progressive cancer, and of avoiding over-treatment.
 Early diagnosis may allow the use of less invasive forms of treatment.
 As argued in Esserman and WISDOM Study and Athena Investigators (\protect\hyperlink{ref-essermanwisdom}{2017}), women want ``better, not more screening''.
 
-\hypertarget{matters-of-consequence}{%
-\chapter{Matters of consequence}\label{matters-of-consequence}}
+\hypertarget{ch:obs}{%
+\chapter{The uses and limits of observational data}\label{ch:obs}}
 
-\hypertarget{the-mmr-vaccine-scandal}{%
-\section{\texorpdfstring{\href{https://en.wikipedia.org/wiki/MMR_vaccine_controversy}{The MMR vaccine scandal}}{The MMR vaccine scandal}}\label{the-mmr-vaccine-scandal}}
-
-The MMR vaccine was developed to for~use in preventing measles,
-mumps, and rubella. Andrew Wakefield was the lead author of a
-study published in 1998, based on just twelve children, that
-claimed to find indications of a link between the MMR vaccine
-and autism. The journalist Brian Deer had a key role in
-identifying issues with the work,~including fraudulent
-manipulation of~the medical~evidence.
-
-It emerged that
+At least in principle, it is relatively straightforward to use regression type methods to make predictions for a set of new data that have been sampled in the same way. What is hard for observational data, harder than is commonly acknowledged, is to give the model~coefficients a causal interpretation. For this, it is necessary to have a clear understanding of the processes involved.
 
 \begin{itemize}
 \tightlist
 \item
-  Wakefield had multiple undeclared conflicts of interest
+  There will be several, perhaps a very large number, of explanatory variables, and an outcome variable.
 \item
-  Funding came from a group of lawyers who were interested
-  in possible personal injury lawsuits
+  The aim is to find a model that will make predictions for new data.
 \item
-  From 9 children said to have regressive autism
+  Note the predictive/descriptive distinction.\\
+\item
+  Note the ``in sample/out of sample'' distinction.
 
   \begin{itemize}
   \tightlist
   \item
-    Only 1 had been diagnosed; 3 had no autism
-  \item
-    5 had developmental problems before the vaccine
+    But is the ``new'' a random sample of the old population?\\
+    (Is the `target' a random sample of the `source'?)
   \end{itemize}
 \end{itemize}
 
-Wakefield's 1998 claims were widely reported
+\hypertarget{we-have-a-prediction.-what-are-the-drivers}{%
+\section{We have a prediction. What are the drivers?}\label{we-have-a-prediction.-what-are-the-drivers}}
 
-\begin{itemize}
-\tightlist
-\item
-  Vaccination rates in the UK and Ireland dropped sharply
-\item
-  The incidence of measles and mumps increased, resulting
-  in deaths and in severe and permanent injuries.
-\end{itemize}
+The issues that arise for observational studies do not in general have clear and easy answers. Chapters 20 and 21 of Gelman, Hill, and Vehtari (\protect\hyperlink{ref-gelman2020regression}{2020}) canvass points that authors of those studies need to address. See also \href{https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/}{Andrew Gelman's blog.}\footnote{\url{https://statmodeling.stat.columbia.edu/2018/11/10/matching-}} There are no simple answers!\footnote{See also \url{https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/}}. All relevant explanatory variables have to be identified, with the manner in which they may be driving predictions then teased out.
 
-Wakefield was found guilty by the General Medical Council of serious professional misconduct in May 2010 and was struck off the Medical Register.\\
-Following the initial claims in 1998, multiple large epidemiological studies failed to find any link between MMR and autism.
+Thus, in a comparison between two groups (e..g., in Section \ref{sec:maternity}, midwife led versus medical led neonatal care) one variable or factor may be of particular interest, while other variables are used to adjust for differences between the two groups that are at most a secondary focus of interest. Variables that are of secondary interest are commonly referred to as covariates. Regression coefficients can be misleading guides to what is driving predictions if one or more of the relevant covariates is not available or is not properly accounted for. A paradox of the Yule-Simpson type, sometimes referred to as Laird's paradox, has the same potential to mislead.
 
-Fact boxes on the Harding site summarize evidence of the
-effectiveness of the \href{https://www.hardingcenter.de/de/search/node?keys=mmr}{MMR vaccine}\footnote{\url{https://www.hardingcenter.de/de/search/node?keys=mmr}}
+Little that has been published since Rosenbaum (\protect\hyperlink{ref-RosBook}{2002}) clarifies greatly the advice that can be given for practical data analysis, beyond what Rosenbaum has to say. Pearl and Mackenzie (\protect\hyperlink{ref-pearl2018book}{2018}) (``The Book of Why'') offers an interesting assessment. Pearl and his co-author do a good job of highlighting important issues that should be addressed in order to make causality judgments, at the same time overplaying what their methodology can in general achieve. If strictly implemented, the standards are so high that they severely limit what they can in practice achieve. Causality diagrams have a central role. There is a detailed, and insightful, discussion of the history that finally led to the conclusion that smoking causes lung cancer.
 
-\hypertarget{sally-clarks-disturbing-cot-death-story}{%
-\section{Sally Clark's disturbing cot death story}\label{sally-clarks-disturbing-cot-death-story}}
+\hypertarget{maternal-obesity-and-risk-of-colorectal-cancer}{%
+\section{Maternal~obesity, and risk of colorectal cancer}\label{maternal-obesity-and-risk-of-colorectal-cancer}}
 
-Sudden Infant Death (SID), also referred to as ``cot death'',
-is the name given to the unexplained sudden death of very
-young children. The story of Sally Clark's unfortunate brush
-with the law, following the death of a second child, is
-interesting, disturbing, and educational. Sally's experience
-highlighted ways in which the UK legal system needed to take
-on board issues that affect the use of medical evidence ---
-issues of a type that can be important in medical research.
+Results from a study reported in Murphy et al. (\protect\hyperlink{ref-Murphygutjnl-2021-325001}{2021}) suggest that maternal obesity (≥30 kg/m2) did increase the risk of colorectal cancer (CRC), by a factor of 2.51.\footnote{95\% error bounds, as they are termed, run from 1.05 to 6.02, so that the 2.51 risk factor is not very clearly distinguished from 1.} The authors argue that ``in utero events are important risk factors for CRC and may contribute to increasing incidence rates in younger adults''. They are at the same time careful to acknowledge that, as an observational study, it could not establish cause, and that factors such as diet and microbiome might explain the association. The eating habits of mothers must surely have a large effect on what children eat, both when young and later in life. To what extent might this explain the association.
 
-Paediatrician Sir Roy Meadow had argued in his 1997 book
-\textbf{ABC of Child Abuse} that ``unless proved otherwise,
-one cot death is tragic, two is suspicious and three is murder.''
-Was this an example of ``Too hard! Try something easier, and wrong!''
-Or was it the triumph of assumed ``knowledge'' over hard evidence?
+Obesity is a risk factor for a variety of diseases. Is it obesity that is directly the risk? Or is it dietary and other factors that both increase the risk of obesity and of associated diseases?
 
-Meadow's role as an expert witness for the prosecution in several
-trials played a crucial part in wrongful convictions for murder.
-The case that attracted greatest attention is that of Sally Clarke,
-both of whose children were ``cot death'' victims. Following the
-death of the second child, Meadow gave evidence at her 1999 trial,
-and appeal in 2000. Sally Clark was finally acquitted in 2003.
+\hypertarget{cholera-deaths-in-london-1832-to-1855}{%
+\section{Cholera deaths in London --- 1832 to 1855}\label{cholera-deaths-in-london-1832-to-1855}}
 
-\begin{itemize}
-\tightlist
-\item
-  Meadow gave 1 in 8,500 as cot death rate in affluent non-smoking families
+6,500 died from cholera in London in 1832. Medical opinion blamed ``miasma'' or noxious air, associated with the stink from rotting garbage, faeces, and pollution in the Thames. Poor areas had higher rates of cholera, thought to be a result of the more noxious air that arose from crowding and poorer sanitation. Human excreta went into cesspits, with night-soil periodically taken away.\footnote{See \emph{Cholera epidemics in Victorian London}\newline \url{https://www.thegazette.co.uk/all-notices/content/100519}} In 1842, \href{https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london}{Edwin Chadwick, in The Sanitary Conditions of the Labouring Population (1842)}\footnote{\url{https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london}} showed a direct link between poor living conditions, disease and life expectancy.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Squared 8,500 to get odds of 73,000,000:1 against for two deaths.
-  \item
-    Meadow assumed, wrongly, that the probability of a death from
-    natural causes was the same in all families.
-  \item
-    A first ``cot death'' is, in some families at least, evidence of a greater
-    proneness to death from natural causes.
-  \end{itemize}
-\item
-  Royal Statistical Society press release: ``Figure has no statistical basis''
-
-  \begin{itemize}
-  \tightlist
-  \item
-    2000 appeal judges: The figure was a
-    ``sideshow'' that would not have influenced the jury's decision.
-  \item
-    The appeal judges' statement was described by a leading QC, not
-    involved in the case as: ``a breathtakingly intellectually dishonest
-    judgment.''
-  \end{itemize}
-\item
-  2003: It emerged that 2nd death was from bacterial infection
-
-  \begin{itemize}
-  \tightlist
-  \item
-    In a second appeal, Sally Clark was freed.
-  \end{itemize}
-\item
-  2005: Meadow was struck from medical register
-
-  \begin{itemize}
-  \tightlist
-  \item
-    2006: reinstated by appeal court --- misconduct fell short
-    of ``serious''!
-  \end{itemize}
-\end{itemize}
-
-Meadow was in effect assuming, without evidence, the
-absence of family-specific genetic or social factors that
-make cot deaths more likely in some families than in others.
-Why was Meadow's assumption of independence not challenged
-in the 1999 trial? Issues of whether or not different pieces
-of evidence are independent are surely crucial to assessing
-the total weight of evidence. Meadow had only enough
-understanding of probability to be dangerous.
-
-Sally Clark was finally acquitted on her second appeal in
-2003, with her sense of well-being damaged beyond repair.
-The forensic evidence had been weak. The web page
-\url{https://plus.maths.org/content/os/issue21/features/clark/index}
-has a helpful summary of the statistical issues. It
-quotes a study that suggests that the probability of a
-second cot death in the same family is somewhere between 1
-in 60 and 1 in 130. Even after this adjustment, the
-probability of death from natural causes of two children in
-the same family is low. But so also is the probability that
-an apparently caring mother from an affluent middle class
-family, with no history of abuse, will murder two of her own
-children. Those are the two probabilities that must be
-compared. Anyone who plans to work as a criminal lawyer
-ought to understand this crucial point. In a
-large population, there will from time to time be two deaths
-from natural causes in the one family.
-
-A small number of appeals were subsequently launched against
-other convictions where evidence of the same type had been
-presented, most of them successful. A further consequence
-was that the law was changed such that no person could be
-convicted on the basis of expert testimony alone.
-
-The Watkins (\protect\hyperlink{ref-watkins2000conviction}{2000}) article ``Conviction by mathematical
-error?: Doctors and lawyers should get probability theory right''
-provides a trenchant critique of the perils of allowing
-non-statisticians to present unsound statistical arguments, with
-no effective challenge.
+Under the assumption that miasma from the cesspools and raw sewage pits was the source of infection, the 1848 Nuisances Removal and Diseases Prevention Act\footnote{Gazette issue 20637} was passed that led to the dumping of the raw sewage into the Thames, which was London's main source of drinking water. The 1848-49 epidemic followed shortly after the cesspits were banned. Hassall (\protect\hyperlink{ref-hassall1850memoir}{1850}), in a careful microbiological study, commented:
 
 \begin{quote}
-Guidelines for using probability theory in criminal cases are urgently needed. The basic principles are not difficult to understand, and judges could be trained to recognise and rule out the kind of misunderstanding that arose in this case.
+\ldots{} a portion of the inhabitants are made to consume \ldots{} a portion of their own excrement, and \ldots{} to pay for the privilege.
 \end{quote}
 
-Watkins, who was at the time Director of Public Health for Stockport
-in the UK, argued that the calculation of the relevant probability
-should have had no regard to the probability of an initial cot death.
-It surely has some relevance. The basic principles are perhaps~more
-difficult than Watkins was willing to allow.
+\hypertarget{by-air-or-by-water-the-1849-epidemic}{%
+\subsection*{By air, or by water --- the 1849 epidemic}\label{by-air-or-by-water-the-1849-epidemic}}
+\addcontentsline{toc}{subsection}{By air, or by water --- the 1849 epidemic}
 
-\hypertarget{the-reinhart-and-rogoff-saga}{%
-\section{The Reinhart and Rogoff saga}\label{the-reinhart-and-rogoff-saga}}
+Farr, who worked as statistician in the UK Registrar General's~ office, collected data on deaths from cholera in London in the 1849 epidemic. Farr classified districts into three groups thus,\\
+according to the source of the water for most of the householders:
 
-Figure \ref{fig:debt2gdp12} plots data, for 1946 -- 2009
-from 20 ``advanced'' countries, that underpinned the 2010
-paper ``\emph{Growth in Time of Debt}'' by the two Harvard economic
-historians Reinhart and Rogoff {[}RR{]}.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Lower Thames, coded as \texttt{Battersea};\\
+\item
+  Sources away from the Thames, coded as \texttt{NewRiver};\\
+\item
+  Further up the Thames than \texttt{Batersea}, where the water was less polluted, coded as \texttt{Kew}.
+\end{enumerate}
 
-\begin{figure}[H]
+Figure \ref{fig:Farr} summarizes results from a regression analysis that used Farr's data. None of the terms stands out as substantially more important than any other. Higher rates for the poor, where crowded conditions would commonly make it difficult to maintain hygiene, were to be expected.
 
-{\centering \includegraphics[width=1\linewidth]{05-notable_files/figure-latex/debt2gdp12-1} 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{05-observational_files/figure-latex/Farr-1} 
 
 }
 
-\caption{Dashed horizintal lines show means by Debt/GDP category, 
-for 20 'advanced' countries, for the years 1946 --- 2009.
-(Data are missing for some countries in some years.)
-RR's mean (dots) for > 90\% Debt/GDP was from 10 only of the 20. 
-The smooth gray curve treats points as independent.}\label{fig:debt2gdp12}
+\caption{Each panel shows, in turn, the estimated contribution
+of a term in the model relative to the mean contribution from 
+other model terms. Changes in deaths are on a `log` scale, so 
+that an increase by one unit multiplies the odds of death by 
+close to 2.7, around an overall mean of just over six per 1000.
+}\label{fig:Farr}
 \end{figure}
 
-The paper (\protect\hyperlink{ref-reinhart2010growth}{Reinhart and Rogoff 2010})
-has been widely quoted in support of economic austerity programs
-internationally. There was a huge stir, in the media and on the
-blogosphere, when graduate student Herndon found and published
-details of coding and other errors in the results that RR had
-presented.\footnote{\url{http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf}}
+Snow (\protect\hyperlink{ref-snow1849mode}{1855a}) gave examples that he had observed directly, where the likely means of transmission of the infection appeared to be a water source, or poor hygiene. He argued that those living close to the Thames, and especially in the South, were more likely to be getting their water that was contaminated with human excreta. Contaminants had more time to settle in water that was piped up to higher ground.
 
-As well as coding errors, Hendon identified selective exclusion of
-available data, and unconventional weighting of summary statistics.
-There was no consideration that the relationship studied has varied
-substantially by country and over time. Half of the 20 countries
-had missing data for 5 or more of the years, with the largest
-number missing in the years 1946 to 1949.
+Farr took Snow's arguments seriously, but in his 1852 report argued that water was primarily important as a vehicle for miasmata. He would later, by the time of an 1866 epidemic when Snow was dead, be one of the waterborne theory's few champions.\footnote{Eyler (\protect\hyperlink{ref-eyler1973william}{1973})}
 
-In response to Herndon, Ash, and Pollin (\protect\hyperlink{ref-herndon2014does}{2014}) and other critics, Reinhart and
-Rogoff accepted that coding errors had led to the omission of
-several countries, but pushed back against other criticisms.
-Their revised analysis addresses only the most egregious errors
-in their work. Among other issues, their insistence on treating
-each data point for each country as an independent piece of
-evidence makes no sense. The smooth curve fitted in Figure
-\ref{fig:debt2gdp12} may be regarded as an average over the
-ten countries, but as Figure \ref{fig:debt2gdp-3} shows, with
-huge country to~country~variation.
+A context has to be provided in which to~interpret regression results such as those shown in Figure \ref{fig:Farr}. Snow's understanding of the contextual information was not, in 1852, sufficiently compelling to persuade other medical specialists. Data from the 1854 epidemic, which allowed a comparison of deaths supplied from a company that continued to get its supply from lower highly polluted Thames water with that from the company that had moved its supply higher up to less polluted water, seems in retrospect to~clinch the issue, but did not at the time convince most of the medical profession.\footnote{See Eyler (\protect\hyperlink{ref-eyler2004changing}{2004}) for further comment.} The perspective brought by germ theory had to wait for the work of Pasteur in the late 1850s and Koch in the 1880s.
+
+\hypertarget{the-1854-epidemic-a-natural-experiment}{%
+\subsection*{The 1854 epidemic --- a natural experiment}\label{the-1854-epidemic-a-natural-experiment}}
+\addcontentsline{toc}{subsection}{The 1854 epidemic --- a natural experiment}
+
+Two water companies --- Lambeth, and Southwark and Vauxhall, had been taking water from the same polluted source. An 1852 act required water supply companies to move water intake upriver by 1855. By the time of the 1854 epidemic, Lambeth had moved its intake 22 miles upriver,~while the Southwark and Vauxhall intake was unchanged until 1855. Data on the distribution of cholera in the 1854 epidemic then allowed Snow to test the claims made in his 1849 study.
+
+\scalebox{1.12}{
+\begin{tabular}{lrrr}
+  \hline
+ & \#Houses & \#Deaths & Rate per 10,000 \\ 
+  \hline
+Southwark \& Vauxhall & 40046 & 1263 & 315 \\ 
+  Lambeth & 26107 & 98 & 37 \\ 
+  Rest of London & 256423 & 1422 & 59 \\ 
+   \hline
+\end{tabular}
+}
+
+\begin{quote}
+The experiment, too, was on the grandest scale. No fewer than 300,000 people \ldots, from gentlefolks down to the very poor, were divided into two groups without their choice, and, in most cases, without their knowledge; one group being supplied with water containing the sewage of London, and, amongst it, whatever might have come from the cholera patients, the other group having water quite free from such impurity. (\protect\hyperlink{ref-snow1855mode}{Snow 1855b})
+\end{quote}
+
+\hypertarget{use-water-from-the-brewery-and-stay-healthy}{%
+\subsection*{Use water from the brewery, and stay healthy!}\label{use-water-from-the-brewery-and-stay-healthy}}
+\addcontentsline{toc}{subsection}{Use water from the brewery, and stay healthy!}
 
 \begin{figure}[H]
 
-{\centering \includegraphics{05-notable_files/figure-latex/debt2gdp-3-1} 
+{\centering \includegraphics[width=0.6\linewidth]{05-observational_files/figure-latex/pump-1} 
 
 }
 
-\caption{Smooths have been fitted for each of the 10 countries
-for which debt to GDP ratios were in some years greater than 90\%.
-There is no consistent pattern, as there should be if RR's claim
-is to hold up.}\label{fig:debt2gdp-3}
+\caption{Deaths (red dots) and pump locations.  Polygons that surround
+each pump enclose the locations for which that is the nearest pump.}\label{fig:pump}
 \end{figure}
 
-\hypertarget{is-there-a-pattern-across-countries}{%
-\subsection*{Is there a pattern across countries?}\label{is-there-a-pattern-across-countries}}
-\addcontentsline{toc}{subsection}{Is there a pattern across countries?}
+Snow noted that ``Within 250 yards of the spot where Cambridge Street joins Broad Street there were upwards of 500 fatal attacks of cholera in 10 days\ldots{}''. By contrast, none of the employees of a local Soho brewery developed cholera. The reason, he judged, was that they drank water from the brewery (which had a different source from the Broad St pump) or just drank beer alone.\\
+Coleman (\protect\hyperlink{ref-coleman2019causality}{2019}) gives detailed comments on Snow's work.
 
-There were just 10 countries where debt to GDP ratios were
-greater than 90\% for one or more years. For 9 of
-those countries, the average of their GDP growth in the years at issue
-was on average positive relative to the previous year. The average
-percentage growth over all 10 countries, weighted according
-to number of years, was 2.168.
+New Zealand cities had similar issues from the 1840s and 1850s through until~the end of the century, arising from failures to install proper drainage systems.\footnote{See Christine Dann: `Sewage, water and waste - Stinking cities', Te Ara - the Encyclopedia of New Zealand, (8 June 2017) \url{https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool}}
 
-\hypertarget{there-are-further-serious-issues-of-interpretation}{%
-\subsection*{There are further serious issues of interpretation}\label{there-are-further-serious-issues-of-interpretation}}
-\addcontentsline{toc}{subsection}{There are further serious issues of interpretation}
+\hypertarget{sec:maternity}{%
+\section{Are there missing explanatory factors?}\label{sec:maternity}}
 
-\begin{itemize}
-\tightlist
-\item
-  Does GDP drive debt/GDP ratio, or is it the other way round?
+The (\protect\hyperlink{ref-wernham_EtAl_2016}{Wernham et al. 2016}) study used data from 244,047 singleton term deliveries that occurred between 2008 and 2012 to make the claim that midwife led care, as opposed to medical led care, gave a greater risk of adverse fetal and neonatal outcomes. Notably, the claim was that midwife led care resulted in a lower Apgar score (a measure of infant health immediately after birth) and a greater risk of the imprecisely defined diagnosis of birth asphyxia.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Or does a third factor drive both?
-  \end{itemize}
-\item
-  Is the effect immediate, or on future economic performance
-\end{itemize}
+This study was then the basis for exaggerated claims in an article in the October 8-14 2016 issue of the NZ Listener (\protect\hyperlink{ref-chisholm_2016}{Chisholm 2016} ``Birth Control''). Contrary to what was claimed, the research did not ``lob a grenade into the historically war-torn territory of New Zealand's maternity care.'' Even less did its results warrant the melodramatic claims of ``Alarming maternity research'' and ``Revolution gone wrong'' that appeared on the Listener's front cover.
 
-Smith (p.64) refers to work indicating that economic performance
-is more closely correlated with economic growth in the past than
-with future growth.
+A major~issue with the analysis is that it relies on using the NZ Deprivation Index\footnote{\url{https://www.health.govt.nz/publication/nzdep2013-index-deprivation}} to adjust for socioeconomic differences. This provides a deprivation score for meshblocks, each of around 60--110 people. It estimates the relative socioeconomic deprivation of an area, and does not directly relate to individuals. Deprived areas will often include some individuals with high socioeconomic status. Caesarean section, as a delivery type, may well have been more accessible for those of higher socioeconomic status. For National Women's in Auckland, the elective Caesarean rate at term over 2006-2015 for doctor-led care was 32.8\%, as against 7.4\% for self employed midwives (\protect\hyperlink{ref-farquhar2016letter}{Farquhar, McCowan, and Fleming 2016}). Effects from fetal alcohol syndrome were not accounted for, nor were direct effects from substance abuse. International data indicates that fetal alcohol syndrome may affect as many as 3\% of births.\footnote{\url{https://www.health.govt.nz/our-work/diseases-and-conditions/fetal-alcohol-spectrum-disorder}}
 
-\hypertarget{parting-comments}{%
-\subsection*{Parting comments}\label{parting-comments}}
-\addcontentsline{toc}{subsection}{Parting comments}
+Studies that are similarly relatively carefully done, but naive in the weight placed on the regression results, are embarrassingly common. There are analysis tools, and associated graphs, that the authors of the study could and should have used to shed light on the likely effectiveness of the adjustments made for differences between the two groups, other than whether the delivery was midwife led or medical led.
 
-Herndon, Ash, and Pollin (\protect\hyperlink{ref-herndon2014does}{2014}) comment
+\hypertarget{the-uses-and-traps-of-rule-based-methods}{%
+\section{The uses and traps of rule-based methods}\label{the-uses-and-traps-of-rule-based-methods}}
 
-``\ldots{} RR's findings have served as an intellectual bulwark in support of austerity politics. The fact that RR's findings are wrong should therefore lead us to reassess the austerity agenda itself in both Europe and the United States.''
+Figure \ref{fig:seeSpam} shows the distributions of values of six variables that have been selected for use for present illustrative purposes, from an historical dataset (pre 1999, now long past its ``use by'' date) that has data on 4601 email messages, of which 1813 were identified as spam. In practical use, such datasets have to be continually updated as spammers change their strategies
 
-The saga emphasizes the importance of working with reproducible code,
-rather than with spreadsheet calculations.
-The errors in RR's calculations were from one perspective fortunate.
-Once highlighted, the errors drew critical attention to the paper,
-and to the serious flaws in the analysis.
+\begin{figure}[H]
 
-\hypertarget{sec:lancet}{%
-\section[What do malaria drugs do to Covid-19 patients?]{\texorpdfstring{What do malaria drugs do to Covid-19 patients?\footnote{Lancet, May 2020, \url{https://bit.ly/3xqncMt}}}{What do malaria drugs do to Covid-19 patients?}}\label{sec:lancet}}
+{\centering \includegraphics{05-observational_files/figure-latex/seeSpam-1} 
 
-Thirteen days after it was published on May 20 2020, three of the
-four authors withdrew a paper that claimed to~find that malaria drugs,
-when used experimentally with patients with Covid-19, led to around
-30\% excess deaths. Irrespective of the problems with the data that
-will be noted shortly, serious flaws in the analysis ought to~have
-attracted the attention of referees. There was inadequate
-adjustment for known and measured confounders (disease severity,
-temporal effects, site effects, dose used).
+}
 
-The study claimed to~be based on data from 96,032
-hospitalized COVID-19 patients from six continents, of which 66\%
-were from North America. Very soon after it appeared, the article
-attracted critical attention, with a number of critics joining
-together to submit the Watson et al. (\protect\hyperlink{ref-watson2020open}{2020}) letter to Lancet.
+\caption{Boxplots, showing distribution of variable values
+               in data used to predict email spam}\label{fig:seeSpam}
+\end{figure}
 
-The sources from which the data had been obtained could not be verified,
-data that claimed to be from just five Australian sources had more
-cases than the total of Australian government figures, and similarly
-for Australian deaths, there were implausibly small reported variances
-in baseline variables, mean daily doses of hydroxychloroquine that were
-100 mg higher than US FDA recommendations.
+Two types of decision tree approaches will be discussed --- the use of individual decision trees, and the random forest approach which generates and uses large numbers of trees in the decision making process.
 
-Randomized trials designed to test the effectiveness of the drugs,
-and that were in progress at the time when the paper appeared,
-were temporarily halted. The eventual~conclusion was that the
-drugs did not improve medical outcomes. There was some evidence
-that hydroxychloroquine could have adverse effects.
+Figure \ref{fig:spam} shows a decision tree that has been derived for the spam data.
 
-With current web-based technology, randomized controlled trials
-can be planned and carried out and yield definitive answers, in
-much the same time as it would take to collect and analyze the
-data that are required for an observational study whose
-conclusions can be, at best, suggestive. Data confidentiality
-issues are easier to handle in the context of an RCT.
+\begin{figure}[H]
 
-\hypertarget{a-simplistic-use-of-publicly-available-data}{%
-\section{A simplistic use of publicly available data}\label{a-simplistic-use-of-publicly-available-data}}
+{\centering \includegraphics[width=0.48\linewidth]{05-observational_files/figure-latex/spam-1} \includegraphics[width=0.48\linewidth]{05-observational_files/figure-latex/spam-2} 
 
-A June 2021 paper in \emph{Vaccines}, titled
-``The Safety of COVID-19 Vaccinations -\/--- We Should Rethink the Policy.''\footnote{\emph{Vaccines}, June 2021, bit.ly/3dTg1oh}
-massively over-stated vaccine risk. The paper claimed that
-``For three deaths prevented by vaccination we have to accept
-two inflicted by vaccination.''
+}
 
-\begin{itemize}
-\tightlist
-\item
-  Deaths were from any cause, post-vaccination, reported both by
-  professionals and the public\\
-  (Such data has to~be used with a `baseline' comparison)
-\item
-  Vaccine benefits extend far beyond 6 weeks of Israeli study
-\item
-  The paper focused on immediate risk to individual, not community.
-\item
-  The way that any risk from the vaccine balances out against
-  risk of death from Covid-19 will vary depending on the the age
-  structure of the population, on proportion immunized within
-  each age group, and on the age and health of the individual.
-\end{itemize}
+\caption{Decision tree for spam data. If the condition is satisfied, take
+               the branch to the left.  Otherwise, take the branch to the right.}\label{fig:spam}
+\end{figure}
 
-Deaths that could be verified as from the Pfizer vaccine have been,
-with the possible exception of frail elderly people, extremely rare.
-See US CDC report on risk (for Pfizer, anaphylaxis)\footnote{www.cdc.gov/coronavirus/2019-ncov/vaccines/safety/adverse-events.html},
-and Helen Petousis-Harris' commentary on risks.\footnote{sciblogs.co.nz/diplomaticimmunity/2021/04/15/covid-vaccines-and-blood-clots-what-is-this-about/}
+The tree in Figure \ref{fig:spam} would be too inaccurate for practical use, even suitably updated with new data, but it is easy to follow the decsion tree process.
+
+\hypertarget{from-trees-to-forests}{%
+\subsection*{From trees to forests}\label{from-trees-to-forests}}
+\addcontentsline{toc}{subsection}{From trees to forests}
+
+``Random forests'' improve on decision trees by using samples from the data to create a forest (a ``random forest'') of trees, then voting between the trees. A downside is that ``Random forests'' and similar methods operate largely as black boxes. For detection of spam email, this may, as those who deploy the spam detectors have little idea what may be going on in the minds of the spammers, not be too much of an issue. One wants a spam detector that will respond effectively to whatever is thrown at it.
+
+\hypertarget{it-helps-to-know-the-how-and-why-of-the-algorithms-used}{%
+\subsection*{It helps to know the how and why of the algorithms used}\label{it-helps-to-know-the-how-and-why-of-the-algorithms-used}}
+\addcontentsline{toc}{subsection}{It helps to know the how and why of the algorithms used}
+
+Both decison trees and random forests follow an \emph{algorithmic} process. The relatively ``black box'' nature of the random forest approach places an especially strong burden on the analyst to ensure relevant data have been used, and that the algorithm really is doing its intended task. In her book ``Weapons of math destruction'', O'Neil (\protect\hyperlink{ref-oneil_2016}{2016}) comments:
+
+\begin{quote}
+\ldots{} it's not enough to just know how to run a black box algorithm. You actually need to know how and why it works, so that when it does'nt work, you can adjust.
+\end{quote}
+
+This is too strong. But if one does not know the how and why of how an algorithm works, it is absolutely crucial to be sure that the data used to fit and test the model (the ``training''~and ``test'' data) are directly relevant to the task in hand.
+
+Automated systems that can be easily gamed do, however, abound. They are a menace!
 
 \hypertarget{sec:yule1}{%
 \chapter{Weighting effects that skew statistics}\label{sec:yule1}}
@@ -2101,7 +1956,7 @@ A and B, in both cases favouring females.}\label{fig:UCBgph1}
 There are thus three different broad admission patterns. The big differences in admission rates were in departments A (82.4\%-62.1\%=20.3\%) and B (68\%-63\%=5\%), in both cases favouring females. In the other four departments, differences were 3.8\% or less, and split very nearly equally between slightly favouring females and slightly favouring males. Also, the relative numbers of males and females applying did not show the same big differences as in departments A and B.
 
 \begin{table}[H]
-
+\centering
 \caption{Comparion of admission rates (percent) and numbers of males and
 females applying, for departments A, B, and CDEF which combines 
 numbers for departments other than A and B.}
@@ -2340,6 +2195,354 @@ In population genetics, Simpson's paradox type effects are known as epistasis. M
 
 Such effects are major issues for gene/disease population association studies. It is now common to collect genetic fingerprinting data that should identify major heterogeneity. Providing such differences are accounted for, large effects that show up in large studies are likely to be real. Small effects may well be epistatic.
 
+\hypertarget{matters-of-consequence}{%
+\chapter{Matters of consequence}\label{matters-of-consequence}}
+
+\hypertarget{the-mmr-vaccine-scandal}{%
+\section{\texorpdfstring{\href{https://en.wikipedia.org/wiki/MMR_vaccine_controversy}{The MMR vaccine scandal}}{The MMR vaccine scandal}}\label{the-mmr-vaccine-scandal}}
+
+The MMR vaccine was developed to for~use in preventing measles,
+mumps, and rubella. Andrew Wakefield was the lead author of a
+study published in 1998, based on just twelve children, that
+claimed to find indications of a link between the MMR vaccine
+and autism. The journalist Brian Deer had a key role in
+identifying issues with the work,~including fraudulent
+manipulation of~the medical~evidence.
+
+It emerged that
+
+\begin{itemize}
+\tightlist
+\item
+  Wakefield had multiple undeclared conflicts of interest
+\item
+  Funding came from a group of lawyers who were interested
+  in possible personal injury lawsuits
+\item
+  From 9 children said to have regressive autism
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only 1 had been diagnosed; 3 had no autism
+  \item
+    5 had developmental problems before the vaccine
+  \end{itemize}
+\end{itemize}
+
+Wakefield's 1998 claims were widely reported
+
+\begin{itemize}
+\tightlist
+\item
+  Vaccination rates in the UK and Ireland dropped sharply
+\item
+  The incidence of measles and mumps increased, resulting
+  in deaths and in severe and permanent injuries.
+\end{itemize}
+
+Wakefield was found guilty by the General Medical Council of serious professional misconduct in May 2010 and was struck off the Medical Register.\\
+Following the initial claims in 1998, multiple large epidemiological studies failed to find any link between MMR and autism.
+
+Fact boxes on the Harding site summarize evidence of the
+effectiveness of the \href{https://www.hardingcenter.de/de/search/node?keys=mmr}{MMR vaccine}\footnote{\url{https://www.hardingcenter.de/de/search/node?keys=mmr}}
+
+\hypertarget{sally-clarks-disturbing-cot-death-story}{%
+\section{Sally Clark's disturbing cot death story}\label{sally-clarks-disturbing-cot-death-story}}
+
+Sudden Infant Death (SID), also referred to as ``cot death'',
+is the name given to the unexplained sudden death of very
+young children. The story of Sally Clark's unfortunate brush
+with the law, following the death of a second child, is
+interesting, disturbing, and educational. Sally's experience
+highlighted ways in which the UK legal system needed to take
+on board issues that affect the use of medical evidence ---
+issues of a type that can be important in medical research.
+
+Paediatrician Sir Roy Meadow had argued in his 1997 book
+\textbf{ABC of Child Abuse} that ``unless proved otherwise,
+one cot death is tragic, two is suspicious and three is murder.''
+Was this an example of ``Too hard! Try something easier, and wrong!''
+Or was it the triumph of assumed ``knowledge'' over hard evidence?
+
+Meadow's role as an expert witness for the prosecution in several
+trials played a crucial part in wrongful convictions for murder.
+The case that attracted greatest attention is that of Sally Clarke,
+both of whose children were ``cot death'' victims. Following the
+death of the second child, Meadow gave evidence at her 1999 trial,
+and appeal in 2000. Sally Clark was finally acquitted in 2003.
+
+\begin{itemize}
+\tightlist
+\item
+  Meadow gave 1 in 8,500 as cot death rate in affluent non-smoking families
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Squared 8,500 to get odds of 73,000,000:1 against for two deaths.
+  \item
+    Meadow assumed, wrongly, that the probability of a death from
+    natural causes was the same in all families.
+  \item
+    A first ``cot death'' is, in some families at least, evidence of a greater
+    proneness to death from natural causes.
+  \end{itemize}
+\item
+  Royal Statistical Society press release: ``Figure has no statistical basis''
+
+  \begin{itemize}
+  \tightlist
+  \item
+    2000 appeal judges: The figure was a
+    ``sideshow'' that would not have influenced the jury's decision.
+  \item
+    The appeal judges' statement was described by a leading QC, not
+    involved in the case as: ``a breathtakingly intellectually dishonest
+    judgment.''
+  \end{itemize}
+\item
+  2003: It emerged that 2nd death was from bacterial infection
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In a second appeal, Sally Clark was freed.
+  \end{itemize}
+\item
+  2005: Meadow was struck from medical register
+
+  \begin{itemize}
+  \tightlist
+  \item
+    2006: reinstated by appeal court --- misconduct fell short
+    of ``serious''!
+  \end{itemize}
+\end{itemize}
+
+Meadow was in effect assuming, without evidence, the
+absence of family-specific genetic or social factors that
+make cot deaths more likely in some families than in others.
+Why was Meadow's assumption of independence not challenged
+in the 1999 trial? Issues of whether or not different pieces
+of evidence are independent are surely crucial to assessing
+the total weight of evidence. Meadow had only enough
+understanding of probability to be dangerous.
+
+Sally Clark was finally acquitted on her second appeal in
+2003, with her sense of well-being damaged beyond repair.
+The forensic evidence had been weak. The web page
+\url{https://plus.maths.org/content/os/issue21/features/clark/index}
+has a helpful summary of the statistical issues. It
+quotes a study that suggests that the probability of a
+second cot death in the same family is somewhere between 1
+in 60 and 1 in 130. Even after this adjustment, the
+probability of death from natural causes of two children in
+the same family is low. But so also is the probability that
+an apparently caring mother from an affluent middle class
+family, with no history of abuse, will murder two of her own
+children. Those are the two probabilities that must be
+compared. Anyone who plans to work as a criminal lawyer
+ought to understand this crucial point. In a
+large population, there will from time to time be two deaths
+from natural causes in the one family.
+
+A small number of appeals were subsequently launched against
+other convictions where evidence of the same type had been
+presented, most of them successful. A further consequence
+was that the law was changed such that no person could be
+convicted on the basis of expert testimony alone.
+
+The Watkins (\protect\hyperlink{ref-watkins2000conviction}{2000}) article ``Conviction by mathematical
+error?: Doctors and lawyers should get probability theory right''
+provides a trenchant critique of the perils of allowing
+non-statisticians to present unsound statistical arguments, with
+no effective challenge.
+
+\begin{quote}
+Guidelines for using probability theory in criminal cases are urgently needed. The basic principles are not difficult to understand, and judges could be trained to recognise and rule out the kind of misunderstanding that arose in this case.
+\end{quote}
+
+Watkins, who was at the time Director of Public Health for Stockport
+in the UK, argued that the calculation of the relevant probability
+should have had no regard to the probability of an initial cot death.
+It surely has some relevance. The basic principles are perhaps~more
+difficult than Watkins was willing to allow.
+
+\hypertarget{the-reinhart-and-rogoff-saga}{%
+\section{The Reinhart and Rogoff saga}\label{the-reinhart-and-rogoff-saga}}
+
+Figure \ref{fig:debt2gdp12} plots data, for 1946 -- 2009
+from 20 ``advanced'' countries, that underpinned the 2010
+paper ``\emph{Growth in Time of Debt}'' by the two Harvard economic
+historians Reinhart and Rogoff {[}RR{]}.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{07-notable_files/figure-latex/debt2gdp12-1} 
+
+}
+
+\caption{Dashed horizintal lines show means by Debt/GDP category, 
+for 20 'advanced' countries, for the years 1946 --- 2009.
+(Data are missing for some countries in some years.)
+RR's mean (dots) for > 90\% Debt/GDP was from 10 only of the 20. 
+The smooth gray curve treats points as independent.}\label{fig:debt2gdp12}
+\end{figure}
+
+The paper (\protect\hyperlink{ref-reinhart2010growth}{Reinhart and Rogoff 2010})
+has been widely quoted in support of economic austerity programs
+internationally. There was a huge stir, in the media and on the
+blogosphere, when graduate student Herndon found and published
+details of coding and other errors in the results that RR had
+presented.\footnote{\url{http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf}}
+
+As well as coding errors, Hendon identified selective exclusion of
+available data, and unconventional weighting of summary statistics.
+There was no consideration that the relationship studied has varied
+substantially by country and over time. Half of the 20 countries
+had missing data for 5 or more of the years, with the largest
+number missing in the years 1946 to 1949.
+
+In response to Herndon, Ash, and Pollin (\protect\hyperlink{ref-herndon2014does}{2014}) and other critics, Reinhart and
+Rogoff accepted that coding errors had led to the omission of
+several countries, but pushed back against other criticisms.
+Their revised analysis addresses only the most egregious errors
+in their work. Among other issues, their insistence on treating
+each data point for each country as an independent piece of
+evidence makes no sense. The smooth curve fitted in Figure
+\ref{fig:debt2gdp12} may be regarded as an average over the
+ten countries, but as Figure \ref{fig:debt2gdp-3} shows, with
+huge country to~country~variation.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{07-notable_files/figure-latex/debt2gdp-3-1} 
+
+}
+
+\caption{Smooths have been fitted for each of the 10 countries
+for which debt to GDP ratios were in some years greater than 90\%.
+There is no consistent pattern, as there should be if RR's claim
+is to hold up.}\label{fig:debt2gdp-3}
+\end{figure}
+
+\hypertarget{is-there-a-pattern-across-countries}{%
+\subsection*{Is there a pattern across countries?}\label{is-there-a-pattern-across-countries}}
+\addcontentsline{toc}{subsection}{Is there a pattern across countries?}
+
+There were just 10 countries where debt to GDP ratios were
+greater than 90\% for one or more years. For 9 of
+those countries, the average of their GDP growth in the years at issue
+was on average positive relative to the previous year. The average
+percentage growth over all 10 countries, weighted according
+to number of years, was 2.168.
+
+\hypertarget{there-are-further-serious-issues-of-interpretation}{%
+\subsection*{There are further serious issues of interpretation}\label{there-are-further-serious-issues-of-interpretation}}
+\addcontentsline{toc}{subsection}{There are further serious issues of interpretation}
+
+\begin{itemize}
+\tightlist
+\item
+  Does GDP drive debt/GDP ratio, or is it the other way round?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Or does a third factor drive both?
+  \end{itemize}
+\item
+  Is the effect immediate, or on future economic performance
+\end{itemize}
+
+Smith (p.64) refers to work indicating that economic performance
+is more closely correlated with economic growth in the past than
+with future growth.
+
+\hypertarget{parting-comments}{%
+\subsection*{Parting comments}\label{parting-comments}}
+\addcontentsline{toc}{subsection}{Parting comments}
+
+Herndon, Ash, and Pollin (\protect\hyperlink{ref-herndon2014does}{2014}) comment
+
+``\ldots{} RR's findings have served as an intellectual bulwark in support of austerity politics. The fact that RR's findings are wrong should therefore lead us to reassess the austerity agenda itself in both Europe and the United States.''
+
+The saga emphasizes the importance of working with reproducible code,
+rather than with spreadsheet calculations.
+The errors in RR's calculations were from one perspective fortunate.
+Once highlighted, the errors drew critical attention to the paper,
+and to the serious flaws in the analysis.
+
+\hypertarget{sec:lancet}{%
+\section[What do malaria drugs do to Covid-19 patients?]{\texorpdfstring{What do malaria drugs do to Covid-19 patients?\footnote{Lancet, May 2020, \url{https://bit.ly/3xqncMt}}}{What do malaria drugs do to Covid-19 patients?}}\label{sec:lancet}}
+
+Thirteen days after it was published on May 20 2020, three of the
+four authors withdrew a paper that claimed to~find that malaria drugs,
+when used experimentally with patients with Covid-19, led to around
+30\% excess deaths. Irrespective of the problems with the data that
+will be noted shortly, serious flaws in the analysis ought to~have
+attracted the attention of referees. There was inadequate
+adjustment for known and measured confounders (disease severity,
+temporal effects, site effects, dose used).
+
+The study claimed to~be based on data from 96,032
+hospitalized COVID-19 patients from six continents, of which 66\%
+were from North America. Very soon after it appeared, the article
+attracted critical attention, with a number of critics joining
+together to submit the Watson et al. (\protect\hyperlink{ref-watson2020open}{2020}) letter to Lancet.
+
+The sources from which the data had been obtained could not be verified,
+data that claimed to be from just five Australian sources had more
+cases than the total of Australian government figures, and similarly
+for Australian deaths, there were implausibly small reported variances
+in baseline variables, mean daily doses of hydroxychloroquine that were
+100 mg higher than US FDA recommendations.
+
+Randomized trials designed to test the effectiveness of the drugs,
+and that were in progress at the time when the paper appeared,
+were temporarily halted. The eventual~conclusion was that the
+drugs did not improve medical outcomes. There was some evidence
+that hydroxychloroquine could have adverse effects.
+
+With current web-based technology, randomized controlled trials
+can be planned and carried out and yield definitive answers, in
+much the same time as it would take to collect and analyze the
+data that are required for an observational study whose
+conclusions can be, at best, suggestive. Data confidentiality
+issues are easier to handle in the context of an RCT.
+
+\hypertarget{a-simplistic-use-of-publicly-available-data}{%
+\section{A simplistic use of publicly available data}\label{a-simplistic-use-of-publicly-available-data}}
+
+A June 2021 paper in \emph{Vaccines}, titled
+``The Safety of COVID-19 Vaccinations -\/--- We Should Rethink the Policy.''\footnote{\emph{Vaccines}, June 2021, bit.ly/3dTg1oh}
+massively over-stated vaccine risk. The paper claimed that
+``For three deaths prevented by vaccination we have to accept
+two inflicted by vaccination.''
+
+\begin{itemize}
+\tightlist
+\item
+  Deaths were from any cause, post-vaccination, reported both by
+  professionals and the public\\
+  (Such data has to~be used with a `baseline' comparison)
+\item
+  Vaccine benefits extend far beyond 6 weeks of Israeli study
+\item
+  The paper focused on immediate risk to individual, not community.
+\item
+  The way that any risk from the vaccine balances out against
+  risk of death from Covid-19 will vary depending on the the age
+  structure of the population, on proportion immunized within
+  each age group, and on the age and health of the individual.
+\end{itemize}
+
+Deaths that could be verified as from the Pfizer vaccine have been,
+with the possible exception of frail elderly people, extremely rare.
+See US CDC report on risk (for Pfizer, anaphylaxis)\footnote{www.cdc.gov/coronavirus/2019-ncov/vaccines/safety/adverse-events.html},
+and Helen Petousis-Harris' commentary on risks.\footnote{sciblogs.co.nz/diplomaticimmunity/2021/04/15/covid-vaccines-and-blood-clots-what-is-this-about/}
+
 \hypertarget{sec:reg}{%
 \chapter{Regression and Correlation}\label{sec:reg}}
 
@@ -2372,7 +2575,7 @@ Cases where the third variable is time, as in Figure \ref{fig:socAnti}, are a fr
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{07-regress_files/figure-latex/socAnti-1} 
+{\centering \includegraphics[width=1\linewidth]{08-regress_files/figure-latex/socAnti-1} 
 
 }
 
@@ -2393,7 +2596,7 @@ Notice that the points that are plotted show a a symmetrical elliptical shaped s
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{07-regress_files/figure-latex/pearson-1} 
+{\centering \includegraphics[width=1\linewidth]{08-regress_files/figure-latex/pearson-1} 
 
 }
 
@@ -2430,7 +2633,7 @@ In Figure \ref{fig:NBA}, Panel A shows total points for 2016-2017 versus 1 year 
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{07-regress_files/figure-latex/NBA-1} 
+{\centering \includegraphics[width=1\linewidth]{08-regress_files/figure-latex/NBA-1} 
 
 }
 
@@ -2464,7 +2667,7 @@ Complete freedom to enter trade and the continuance of competition mean the perp
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1.05\linewidth]{07-regress_files/figure-latex/sim-1} 
+{\centering \includegraphics[width=1.05\linewidth]{08-regress_files/figure-latex/sim-1} 
 
 }
 
@@ -2498,7 +2701,7 @@ Smith (\protect\hyperlink{ref-smith-sd}{2014}) gives references to work by promi
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.68\linewidth]{07-regress_files/figure-latex/selected-1} 
+{\centering \includegraphics[width=0.68\linewidth]{08-regress_files/figure-latex/selected-1} 
 
 }
 
@@ -2618,32 +2821,15 @@ Correlation between presentation \& performance is likely to be lower for the le
 \hypertarget{time-per-unit-distance-for-hillraces}{%
 \section{Time per unit distance for hillraces}\label{time-per-unit-distance-for-hillraces}}
 
-Regression coefficients may differ greatly depending on what
-adjustments are made for other variables. This is important
-for attaching meaning to a coefficient. For the hillrace
-data that will now be considered, it is relatively easy to
-tease out the role of the explanatory variables that have
-been included in one or alternative versions of the regression
-equation. Especially where there are three or more explanatory
-variables, with the manner in which they should enter into the
-regression equation is unclear, the effect of an individual
-variable that is of interest can be difficult or impossible
-to tease out.
+Regression coefficients may differ greatly depending on what adjustments are made for other variables. This is important for attaching meaning to a coefficient. For the hillrace data that will now be considered, it is relatively easy to tease out the role of the explanatory variables that have been included in one or alternative versions of the regression equation. Especially where there are three or more explanatory variables, with the manner in which they should enter into the regression equation is unclear, the effect of an individual variable that is of interest can be difficult or impossible to tease out.
 
-The hillrace dataset has record times for 23 Northern Ireland
-Mountain Running Association hillraces, as given in the 2007
-calendar. In the models fitted and graphs shown that follow,
-the distance measure is \texttt{Dist} (distance converted to kilometers),
-the climb measure is \texttt{Climb} (vertical distance between lowest
-and highest point, in meters), and the time measure is \texttt{Time}
-(in minutes).
+The hillrace dataset has record times for 23 Northern Ireland Mountain Running Association hillraces, as given in the 2007 calendar. In the models fitted and graphs shown that follow, the distance measure is \texttt{Dist} (distance converted to kilometers), the climb measure is \texttt{Climb} (vertical distance between lowest and highest point, in meters), and the time measure is \texttt{Time} (in minutes).
 
-How does time per unit distance (\texttt{timePerKm}) vary with distance.
-We will fit two equations, both with \(y\) = \texttt{timePerKm}.
+How does time per unit distance (\texttt{timePerKm}) vary with distance. We will fit two equations, both with \(y\) = \texttt{timePerKm}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{07-regress_files/figure-latex/partial-1} 
+{\centering \includegraphics[width=1\linewidth]{08-regress_files/figure-latex/partial-1} 
 
 }
 
@@ -2653,38 +2839,24 @@ mean value, while Panel B shows the pattern of change when
 `log(Climb/Dist)` is held constant at its mean value.}\label{fig:partial}
 \end{figure}
 
-Figure \ref{fig:partial}A shows the dependence of
-\texttt{timePerKm} depends on \texttt{log(Dist)}, when \texttt{log(Climb)}
-is held at its mean value. Use of \texttt{log(Dist)} rather than
-\texttt{Dist} means that distance on the \(x\)-axis from 2 to 4 (km)
-is the same as from 4 to 8, or from 8 to 16, or from 16 to 32,
-i.e., equal distances correspond to equal multiplicative
-changes. The equation that is plotted is
+Figure \ref{fig:partial}A shows the dependence of \texttt{timePerKm} depends on \texttt{log(Dist)}, when \texttt{log(Climb)} is held at its mean value. Use of \texttt{log(Dist)} rather than \texttt{Dist} means that distance on the \(x\)-axis from 2 to 4 (km) is the same as from 4 to 8, or from 8 to 16, or from 16 to 32, i.e., equal distances correspond to equal multiplicative changes. The equation that is plotted is
 
 \begin{quote}
 \texttt{timePerKm} = 8.5 -1.6 \(\times\) \texttt{log(Dist)}
 \end{quote}
 
-Figure \ref{fig:partial}B shows the dependence of
-\texttt{timePerKm} depends on \texttt{log(Dist)}, when \texttt{log(Climb/Dist)}
-is held at its mean value. The equation that is plotted is
+Figure \ref{fig:partial}B shows the dependence of \texttt{timePerKm} depends on \texttt{log(Dist)}, when \texttt{log(Climb/Dist)} is held at its mean value. The equation that is plotted is
 
 \begin{quote}
 \texttt{timePerKm} = 3.33 + 0.84 \(\times\) \texttt{log(Dist)}
 \end{quote}
 
-In Panel A, time per kilometer decreases quite sharply as distance
-increases. This happens because the ratio of \texttt{Climb} to \texttt{Dist}
-decreases if \texttt{Climb} is held constant while \texttt{Dist} increases,
-i.e., longer distance races involve gentler ascents and descents.
+In Panel A, time per kilometer decreases quite sharply as distance increases. This happens because the ratio of \texttt{Climb} to \texttt{Dist} decreases if \texttt{Climb} is held constant while \texttt{Dist} increases, i.e., longer distance races involve gentler ascents and descents.
 
-Panel B~shows what happens when \texttt{Climb/Dist} is held
-constant, i.e., we are comparing races with the same ratio of
-\texttt{Climb} to \texttt{Dist}. As expected, time per kilometer does then
-decrease as distance increases.
+Panel B~shows what happens when \texttt{Climb/Dist} is held constant, i.e., we are comparing races with the same ratio of \texttt{Climb} to \texttt{Dist}. As expected, time per kilometer does then decrease as distance increases.
 
-\hypertarget{does-fitting-a-least-squares-line-make-sense}{%
-\section{Does fitting a least squares line make sense?}\label{does-fitting-a-least-squares-line-make-sense}}
+\hypertarget{model-that-do-not-correctly-fit-the-data-readily-mislead}{%
+\section{Model that do not correctly fit the data readily mislead}\label{model-that-do-not-correctly-fit-the-data-readily-mislead}}
 
 \hypertarget{are-herricanes-more-dangerous-than-himmicanes}{%
 \subsection*{Are herricanes more dangerous than himmicanes?}\label{are-herricanes-more-dangerous-than-himmicanes}}
@@ -2692,7 +2864,7 @@ decrease as distance increases.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{07-regress_files/figure-latex/hurricanes1-1} 
+{\centering \includegraphics[width=0.8\linewidth]{08-regress_files/figure-latex/hurricanes1-1} 
 
 }
 
@@ -2702,24 +2874,13 @@ to the data. The $y$-axis uses a scale of equal relative numbers of deaths,
 while the $x$-axis uses a scale of equal dollar damage costs.}\label{fig:hurricanes1}
 \end{figure}
 
-The United States National Hurricane Center began formally naming
-hurricanes in 1950, a task now under control of the
-World Meteorological Organization. Female names were used for
-Atlantic hurricanes from 1953 to 1978, with a mix of male and
-female names used from 1979 onwards.
+The United States National Hurricane Center began formally naming hurricanes in 1950, a task now under control of the World Meteorological Organization. Female names were used for Atlantic hurricanes from 1953 to 1978, with a mix of male and female names used from 1979 onwards.
 
-In a paper titled ``Female hurricanes are deadlier than male
-hurricanes'', Jung et al. (\protect\hyperlink{ref-jung2014female}{2014}) used data for 94 Atlantic hurricanes
-that made landfall in the United States during 1950-2012 to argue
-that death rates from those with female names were overall higher
-than for those with male names. The suggestion was that where names
-were female, authorities took the risk less seriously. The paper
-attracted wide interest on the blogosphere, with female hurricanes
-jokingly called herricanes and males called himmicanes.
+In a paper titled ``Female hurricanes are deadlier than male hurricanes'', Jung et al. (\protect\hyperlink{ref-jung2014female}{2014}) used data for 94 Atlantic hurricanes that made landfall in the United States during 1950-2012 to argue that death rates from those with female names were overall higher than for those with male names. The suggestion was that where names were female, authorities took the risk less seriously. The paper attracted wide interest on the blogosphere, with female hurricanes jokingly called herricanes and males called himmicanes.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{07-regress_files/figure-latex/hurricanes2-1} 
+{\centering \includegraphics[width=0.8\linewidth]{08-regress_files/figure-latex/hurricanes2-1} 
 
 }
 
@@ -2730,30 +2891,11 @@ jokingly called herricanes and males called himmicanes.
                this graph leads to the dashed curves.}\label{fig:hurricanes2}
 \end{figure}
 
-The separate dotted lines in Figure \ref{fig:hurricanes1}, red for
-female and blue for male, are a close equivalent to the authors' fit
-to the data. Notice the use of a relative (numbers of deaths) scale
-on the \(y\)-axis, and a dollar scale on the \(x\)-axis.
-An unfortunate~consequence of the use of a linear dollar scale
-on the \(x\)-axis is that the slopes of the lines are strongly
-influenced by the final four points at the upper~end of the scale.
-Why did the authors not use, at least as a starting point, the same relative scale on both axes, as in Figure
-\ref{fig:hurricanes2}?
+The separate dotted lines in Figure \ref{fig:hurricanes1}, red for female and blue for male, are a close equivalent to the authors' fit to the data. Notice the use of a relative (numbers of deaths) scale on the \(y\)-axis, and a dollar scale on the \(x\)-axis. An unfortunate~consequence of the use of a linear dollar scale on the \(x\)-axis is that the slopes of the lines are strongly influenced by the final four points at the upper~end of the scale. Why did the authors not use, at least as a starting point, the same relative scale on both axes, as in Figure \ref{fig:hurricanes2}?
 
-As well as using a relative scale on the \(x\)-axis, Figure
-\ref{fig:hurricanes2} uses a methodology that allows the
-data to determine the form of the response. Deaths do on
-average increase more at a higher rate than the damage measure,
-but not at the rate suggested by the dashed curves. There
-is now no evident difference between the two curves.
+As well as using a relative scale on the \(x\)-axis, Figure \ref{fig:hurricanes2} uses a methodology that allows the data to determine the form of the response. Deaths do on average increase more at a higher rate than the damage measure, but not at the rate suggested by the dashed curves. There is now no evident difference between the two curves.
 
-Jung et al omitted \texttt{Audrey} (in 1957) and \texttt{Katrina} (in 2005), as
-outliers. These are included in Figures \ref{fig:hurricanes1} and \ref{fig:hurricanes2}, with the curves fitted using a ``robust''
-fitting method that is relatively insensitive to outliers.
-Other differences between the Jung et al analysis, and the
-analyses reflected in Figures \ref{fig:hurricanes1} and
-\ref{fig:hurricanes2} are documented in Note 1
-, on p.~\pageref{hurricanes}
+Jung et al omitted \texttt{Audrey} (in 1957) and \texttt{Katrina} (in 2005), as outliers. These are included in Figures \ref{fig:hurricanes1} and \ref{fig:hurricanes2}, with the curves fitted using a ``robust'' fitting method that is relatively insensitive to outliers. Other differences between the Jung et al analysis, and the analyses reflected in Figures \ref{fig:hurricanes1} and \ref{fig:hurricanes2} are documented in Note 1 , on p.~\pageref{hurricanes}
 
 \hypertarget{historical-speed-of-light-estimates-is-there-a-pattern}{%
 \subsection*{Historical speed of light estimates --- is there a pattern?}\label{historical-speed-of-light-estimates-is-there-a-pattern}}
@@ -2761,7 +2903,7 @@ analyses reflected in Figures \ref{fig:hurricanes1} and
 
 \begin{figure}[H]
 
-{\centering \includegraphics{07-regress_files/figure-latex/plot-c-data-1} 
+{\centering \includegraphics{08-regress_files/figure-latex/plot-c-data-1} 
 
 }
 
@@ -2773,50 +2915,22 @@ incorporates such adjustments, is statistically
 indistinguishable from the thick gray horizontal line.}\label{fig:plot-c-data}
 \end{figure}
 
-Creationist Barry Setterfield has argued that a reduction over
-time in the speed of light has led the passage of time to slow
-down, relative to the remote past, so that the universe is
-thousands rather than billions of years old. His arguments rely
-on making various adjustments to figures obtained historically,
-selecting what he regarded as the most reliable data, and
-then fitting a curve.
+Creationist Barry Setterfield has argued that a reduction over time in the speed of light has led the passage of time to slow down, relative to the remote past, so that the universe is thousands rather than billions of years old. His arguments rely on making various adjustments to figures obtained historically, selecting what he regarded as the most reliable data, and then fitting a curve.
 
-Setterfield tells a story that, while a little different from that of
-the line in Panel A of Figure \ref{fig:plot-c-data}, makes equally
-little sense. The right panel is limited to the points from 1926
-and on, marked off with the gray background on the left panel.\footnote{Data
-  are from \url{https://en.wikipedia.org/wiki/Speed_of_light}}
+Setterfield tells a story that, while a little different from that of the line in Panel A of Figure \ref{fig:plot-c-data}, makes equally little sense. The right panel is limited to the points from 1926 and on, marked off with the gray background on the left panel.\footnote{Data are from \url{https://en.wikipedia.org/wiki/Speed_of_light}}
 
-For the measurements from 1862 onward, estimates of accuracy
-are available. Until 1950, each new estimate lay outside the
-bounds for the previous estimate, indicating that these
-were underestimates.
-Even if one were to accept Setterfield's manipulation of the data,
-it makes no sense at all to fit either lines such as are shown, or
-curves, to data values which have such very different
-accuracies.
+For the measurements from 1862 onward, estimates of accuracy are available. Until 1950, each new estimate lay outside the bounds for the previous estimate, indicating that these were underestimates. Even if one were to accept Setterfield's manipulation of the data, it makes no sense at all to fit either lines such as are shown, or curves, to data values which have such very different accuracies.
 
-Even if one were to accept Setterfield's manipulation of the data,
-it makes no sense at all to fit either lines such as are shown, or
-curves, to data values which have such very different
-accuracies as those shown in the graphs. For the
-measurements from 1862 onwards, estimates of accuracy are
-available. Until 1950, each new estimate lay outside the
-bounds for the previous estimate, indicating that these
-were underestimates.
+Even if one were to accept Setterfield's manipulation of the data, it makes no sense at all to fit either lines such as are shown, or curves, to data values which have such very different accuracies as those shown in the graphs. For the measurements from 1862 onwards, estimates of accuracy are available. Until 1950, each new estimate lay outside the bounds for the previous estimate, indicating that these were underestimates.
 
 \hypertarget{global-mean-temperature-trends}{%
 \subsection{Global mean temperature trends}\label{global-mean-temperature-trends}}
 
-Figure \ref{fig:climate} plots global
-\href{https://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.GISSTEMP/.Global/.LOTI/}{air and sea surface temperature anomaly data}
-against year. Anomalies, in hundredths of a degree centigrade, are
-differences from the 1951-1980 global average. The grey curve plots
-the average anomaly up to that point in time.
+Figure \ref{fig:climate} plots global \href{https://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.GISSTEMP/.Global/.LOTI/}{air and sea surface temperature anomaly data} against year. Anomalies, in hundredths of a degree centigrade, are differences from the 1951-1980 global average. The grey curve plots the average anomaly up to that point in time.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{07-regress_files/figure-latex/climate-1} 
+{\centering \includegraphics[width=0.8\linewidth]{08-regress_files/figure-latex/climate-1} 
 
 }
 
@@ -2827,413 +2941,11 @@ point in time.  The last year in which this lay below the gray line
 was 1962.}\label{fig:climate}
 \end{figure}
 
-Observe that 1964 was the last year in which the global
-temperature fell below the average to that time.
-For the 52 subsequent years (from 1965 to 2016 inclusive),
-the global average was above the average up to that date. Under
-the (false) assumption that global temperature is varying
-randomly (and therefore independently) about a common mean,
-the probability of this happening is 2\(^{-40}\) = 9.1
-\(\times\) 10\(^{-13}\). A variation of this argument came
-from a speaker on the Australian ABC Science Show on April
-3 2011.
+Observe that 1964 was the last year in which the global temperature fell below the average to that time. For the 52 subsequent years (from 1965 to 2016 inclusive), the global average was above the average up to that date. Under the (false) assumption that global temperature is varying randomly (and therefore independently) about a common mean, the probability of this happening is 2\(^{-40}\) = 9.1 \(\times\) 10\(^{-13}\). A variation of this argument came from a speaker on the Australian ABC Science Show on April 3 2011.
 
-Under any model that accounts for what are now
-fairly well understood patterns of correlation over time,
-the probability, while very small, is not that small!
-Arguments that overstate the case for what is now a
-well-established pattern of change are unhelpful
+Under any model that accounts for what are now fairly well understood patterns of correlation over time, the probability, while very small, is not that small! Arguments that overstate the case for what is now a well-established pattern of change are unhelpful
 
-It is likewise nonsensical to fit a line to the cherry-picked
-years 1998-2008, where the trend was relatively flat. Year
-to year temperatures are correlated.
-
-\hypertarget{the-uses-and-limits-of-observational-data}{%
-\chapter{The uses and limits of observational data}\label{the-uses-and-limits-of-observational-data}}
-
-At least in principle, it is relatively straightforward to use
-regression type methods to make predictions for a set of new
-data that have been sampled in the same way. What is hard for
-observational data, harder than is commonly acknowledged,
-is to give the model~coefficients a causal interpretation.
-For this, it is necessary to have a clear understanding of the
-processes involved.
-
-\begin{itemize}
-\tightlist
-\item
-  There will be several, perhaps a very large number,
-  of explanatory variables, and an outcome variable.
-\item
-  The aim is to find a model that will make predictions for new data.
-\item
-  Note the predictive/descriptive distinction.\\
-\item
-  Note the ``in sample/out of sample'' distinction.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    But is the ``new'' a random sample of the old population?\\
-    (Is the `target' a random sample of the `source'?)
-  \end{itemize}
-\end{itemize}
-
-\hypertarget{we-have-a-prediction.-what-are-the-drivers}{%
-\section{We have a prediction. What are the drivers?}\label{we-have-a-prediction.-what-are-the-drivers}}
-
-The issues that arise for observational studies do not in general have
-clear and easy answers. Chapters 20 and 21 of Gelman, Hill, and Vehtari (\protect\hyperlink{ref-gelman2020regression}{2020})
-canvass points that authors of those studies need to address. See also
-\href{https://statmodeling.stat.columbia.edu/2018/11/10/matching-discarding-non-matches-deal-lack-complete-overlap-regression-adjust-imbalance-treatment-control-groups/}{Andrew Gelman's blog.}\footnote{\url{https://statmodeling.stat.columbia.edu/2018/11/10/matching-}} There are no simple
-answers!\footnote{See also \url{https://mathbabe.org/2011/06/16/the-basics-of-quantitative-modeling/}}. All relevant explanatory variables have to be identified,
-with the manner in which they may be driving predictions then
-teased out.
-
-Thus, in a comparison between two groups (e..g., in Section
-\ref{sec:maternity}, midwife led versus medical led neonatal
-care) one variable or factor may be of particular interest, while
-other variables are used to adjust for differences between the
-two groups that are at most a secondary focus of interest.
-Variables that are of secondary interest are commonly referred to
-as covariates. Regression coefficients can be misleading guides
-to what is driving predictions if one or more of the relevant
-covariates is not available or is not properly accounted for. A
-paradox of the Yule-Simpson type, sometimes referred to as
-Laird's paradox, has the same potential to mislead.
-
-Little that has been published since Rosenbaum (\protect\hyperlink{ref-RosBook}{2002}) clarifies greatly the
-advice that can be given for practical data analysis, beyond what
-Rosenbaum has to say. Pearl and Mackenzie (\protect\hyperlink{ref-pearl2018book}{2018}) (``The Book of Why'') offers an
-interesting assessment. Pearl and his co-author do a good job of
-highlighting important issues that should be addressed in order to
-make causality judgments, at the same time overplaying what their
-methodology can in general achieve. If strictly implemented,
-the standards are so high that they severely limit what they can
-in practice achieve. Causality diagrams have a central role.
-There is a detailed, and insightful, discussion of the history
-that finally led to the conclusion that smoking causes lung cancer.
-
-\hypertarget{maternal-obesity-and-risk-of-colorectal-cancer}{%
-\section{Maternal~obesity, and risk of colorectal cancer}\label{maternal-obesity-and-risk-of-colorectal-cancer}}
-
-Results from a study reported in Murphy et al. (\protect\hyperlink{ref-Murphygutjnl-2021-325001}{2021}) suggest
-that maternal obesity (≥30 kg/m2) did increase the risk of
-colorectal cancer (CRC), by a factor of 2.51.\footnote{95\%
-  error bounds, as they are termed, run from 1.05 to 6.02,
-  so that the 2.51 risk factor is not very clearly distinguished
-  from 1.} The authors argue that ``in utero events are important
-risk factors for CRC and may contribute to increasing incidence
-rates in younger adults''. They are at the same time careful to
-acknowledge that, as an observational study, it could not
-establish cause, and that factors such as diet and microbiome
-might explain the association. The eating habits of mothers
-must surely have a large effect on what children eat, both when
-young and later in life. To what extent might this explain
-the association.
-
-Obesity is a risk factor for a variety of diseases. Is it
-obesity that is directly the risk? Or is it dietary and
-other factors that both increase the risk of obesity and
-of associated diseases?
-
-\hypertarget{cholera-deaths-in-london-1832-to-1855}{%
-\section{Cholera deaths in London --- 1832 to 1855}\label{cholera-deaths-in-london-1832-to-1855}}
-
-6,500 died from cholera in London in 1832. Medical opinion
-blamed ``miasma'' or noxious air, associated with the stink
-from rotting garbage, faeces, and pollution in the Thames.
-Poor areas had higher rates of cholera, thought to be a
-result of the more noxious air that arose from crowding
-and poorer sanitation. Human excreta
-went into cesspits, with night-soil periodically taken
-away.\footnote{See \emph{Cholera epidemics in Victorian London}\newline \url{https://www.thegazette.co.uk/all-notices/content/100519}}
-In 1842, \href{https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london}{Edwin Chadwick, in The Sanitary Conditions of the Labouring Population (1842)}\footnote{\url{https://www.sciencemuseum.org.uk/objects-and-stories/medicine/cholera-victorian-london}}
-showed a direct link between poor living conditions,
-disease and life expectancy.
-
-Under the assumption that miasma from the cesspools and raw
-sewage pits was the source of infection, the 1848 Nuisances
-Removal and Diseases Prevention Act\footnote{Gazette issue 20637}
-was passed that led to the dumping of the raw sewage into
-the Thames, which was London's main source of drinking water.
-The 1848-49 epidemic followed shortly after the cesspits
-were banned. Hassall (\protect\hyperlink{ref-hassall1850memoir}{1850}), in a careful microbiological
-study, commented:
-
-\begin{quote}
-\ldots{} a portion of the inhabitants are made to consume
-\ldots{} a portion of their own excrement, and \ldots{} to pay
-for the privilege.
-\end{quote}
-
-\hypertarget{by-air-or-by-water-the-1849-epidemic}{%
-\subsection*{By air, or by water --- the 1849 epidemic}\label{by-air-or-by-water-the-1849-epidemic}}
-\addcontentsline{toc}{subsection}{By air, or by water --- the 1849 epidemic}
-
-Farr, who worked as statistician in the UK Registrar General's~
-office, collected data on deaths from cholera in London in the
-1849 epidemic. Farr classified districts into three groups thus,\\
-according to the source of the water for most of the householders:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
-\tightlist
-\item
-  Lower Thames, coded as \texttt{Battersea};\\
-\item
-  Sources away from the Thames, coded as \texttt{NewRiver};\\
-\item
-  Further up the Thames than \texttt{Batersea}, where the water was
-  less polluted, coded as \texttt{Kew}.
-\end{enumerate}
-
-Figure \ref{fig:Farr} summarizes results from a regression
-analysis that used Farr's data. None of the terms stands out
-as substantially more important than any other. Higher rates
-for the poor, where crowded conditions would commonly make
-it difficult to maintain hygiene, were to be expected.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{08-observational_files/figure-latex/Farr-1} 
-
-}
-
-\caption{Each panel shows, in turn, the estimated contribution
-of a term in the model relative to the mean contribution from 
-other model terms. Changes in deaths are on a `log` scale, so 
-that an increase by one unit multiplies the odds of death by 
-close to 2.7, around an overall mean of just over six per 1000.
-}\label{fig:Farr}
-\end{figure}
-
-Snow (\protect\hyperlink{ref-snow1849mode}{1855a}) gave examples that he had observed directly,
-where the likely means of transmission of the infection
-appeared to be a water source, or poor hygiene. He argued
-that those living close to the Thames, and especially in
-the South, were more likely to be getting their water
-that was contaminated with human excreta. Contaminants had
-more time to settle in water that was piped up to higher
-ground.
-
-Farr took Snow's arguments seriously, but in his 1852 report
-argued that water was primarily important as a vehicle for
-miasmata. He would later, by the time of an 1866 epidemic
-when Snow was dead, be one of the waterborne theory's few
-champions.\footnote{Eyler (\protect\hyperlink{ref-eyler1973william}{1973})}
-
-A context has to be provided in which to~interpret regression
-results such as those shown in Figure \ref{fig:Farr}.
-Snow's understanding of the contextual information was not,
-in 1852, sufficiently compelling to persuade other medical
-specialists. Data from the 1854 epidemic, which allowed a
-comparison of deaths supplied from a company that continued
-to get its supply from lower highly polluted Thames water
-with that from the company that had moved its supply higher
-up to less polluted water, seems in retrospect to~clinch
-the issue, but did not at the time convince most of the
-medical profession.\footnote{See Eyler (\protect\hyperlink{ref-eyler2004changing}{2004}) for further comment.}
-The perspective brought by germ theory had to
-wait for the work of Pasteur in the late 1850s and
-Koch in the 1880s.
-
-\hypertarget{the-1854-epidemic-a-natural-experiment}{%
-\subsection*{The 1854 epidemic --- a natural experiment}\label{the-1854-epidemic-a-natural-experiment}}
-\addcontentsline{toc}{subsection}{The 1854 epidemic --- a natural experiment}
-
-Two water companies --- Lambeth, and Southwark and Vauxhall,
-had been taking water from the same polluted source. An 1852
-act required water supply companies to move water intake
-upriver by 1855. By the time of the 1854 epidemic, Lambeth
-had moved its intake 22 miles upriver,~while the Southwark
-and Vauxhall intake was unchanged until 1855. Data on the
-distribution of cholera in the 1854 epidemic then allowed
-Snow to test the claims made in his 1849 study.
-
-\scalebox{1.12}{
-\begin{tabular}{lrrr}
-  \hline
- & \#Houses & \#Deaths & Rate per 10,000 \\ 
-  \hline
-Southwark \& Vauxhall & 40046 & 1263 & 315 \\ 
-  Lambeth & 26107 & 98 & 37 \\ 
-  Rest of London & 256423 & 1422 & 59 \\ 
-   \hline
-\end{tabular}
-}
-
-\begin{quote}
-The experiment, too, was on the grandest scale. No fewer than
-300,000 people \ldots, from gentlefolks down to the very poor, were
-divided into two groups without their choice, and, in most cases,
-without their knowledge; one group being supplied with water
-containing the sewage of London, and, amongst it, whatever might
-have come from the cholera patients, the other group having water
-quite free from such impurity. (\protect\hyperlink{ref-snow1855mode}{Snow 1855b})
-\end{quote}
-
-\hypertarget{use-water-from-the-brewery-and-stay-healthy}{%
-\subsection*{Use water from the brewery, and stay healthy!}\label{use-water-from-the-brewery-and-stay-healthy}}
-\addcontentsline{toc}{subsection}{Use water from the brewery, and stay healthy!}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.6\linewidth]{08-observational_files/figure-latex/pump-1} 
-
-}
-
-\caption{Deaths (red dots) and pump locations.  Polygons that surround
-each pump enclose the locations for which that is the nearest pump.}\label{fig:pump}
-\end{figure}
-
-Snow noted that ``Within 250 yards of the spot where Cambridge
-Street joins Broad Street there were upwards of 500 fatal
-attacks of cholera in 10 days\ldots{}''. By contrast, none of the
-employees of a local Soho brewery developed cholera.
-The reason, he judged, was that they drank water from
-the brewery (which had a different source from the Broad
-St pump) or just drank beer alone.\\
-Coleman (\protect\hyperlink{ref-coleman2019causality}{2019}) gives detailed comments on Snow's work.
-
-New Zealand cities had similar issues from the 1840s
-and 1850s through until~the end of the century, arising
-from failures to install proper
-drainage systems.\footnote{See Christine Dann: `Sewage, water and
-  waste - Stinking cities', Te Ara - the Encyclopedia of New
-  Zealand, (8 June 2017) \url{https://teara.govt.nz/en/zoomify/24431/dunedin-renamed-stinkapool}}
-
-\hypertarget{sec:maternity}{%
-\section{Are there missing explanatory factors?}\label{sec:maternity}}
-
-The (\protect\hyperlink{ref-wernham_EtAl_2016}{Wernham et al. 2016}) study used data from 244,047 singleton
-term deliveries that occurred between 2008 and 2012 to make the
-claim that midwife led care, as opposed to medical led care, gave a
-greater risk of adverse fetal and neonatal outcomes. Notably, the
-claim was that midwife led care resulted in a lower Apgar score
-(a measure of infant health immediately after birth) and a greater
-risk of the imprecisely defined diagnosis of birth asphyxia.
-
-This study was then the basis for exaggerated claims in an article
-in the October 8-14 2016 issue of the NZ Listener
-(\protect\hyperlink{ref-chisholm_2016}{Chisholm 2016} ``Birth Control''). Contrary to what was
-claimed, the research did not
-``lob a grenade into the historically war-torn territory of
-New Zealand's maternity care.''
-Even less did its results warrant the melodramatic claims of
-``Alarming maternity research'' and ``Revolution gone wrong'' that
-appeared on the Listener's front cover.
-
-A major~issue with the analysis is that it relies on using the NZ
-Deprivation Index\footnote{
-  \url{https://www.health.govt.nz/publication/nzdep2013-index-deprivation}}
-to adjust for socioeconomic differences. This provides a deprivation
-score for meshblocks, each of around 60--110 people. It estimates the
-relative socioeconomic deprivation of an area, and does not directly
-relate to individuals. Deprived areas will often include some
-individuals with high socioeconomic status. Caesarean section, as a
-delivery type, may well have been more accessible for those of
-higher socioeconomic status. For National Women's in Auckland,
-the elective Caesarean rate at term over 2006-2015 for doctor-led
-care was 32.8\%, as against 7.4\% for self employed midwives
-(\protect\hyperlink{ref-farquhar2016letter}{Farquhar, McCowan, and Fleming 2016}). Effects from fetal alcohol syndrome were
-not accounted for, nor were direct effects from substance abuse.
-International data indicates that fetal alcohol syndrome may
-affect as many as 3\% of
-births.\footnote{\url{https://www.health.govt.nz/our-work/diseases-and-conditions/fetal-alcohol-spectrum-disorder}}
-
-Studies that are similarly relatively carefully done,
-but naive in the weight placed on the regression results,
-are embarrassingly common. There are analysis tools, and
-associated graphs, that the authors of the study could
-and should have used to shed light on the likely
-effectiveness of the adjustments made for differences
-between the two groups, other than whether the delivery
-was midwife led or medical led.
-
-\hypertarget{the-uses-and-traps-of-rule-based-methods}{%
-\section{The uses and traps of rule-based methods}\label{the-uses-and-traps-of-rule-based-methods}}
-
-Figure \ref{fig:seeSpam} shows the distributions of values of
-six variables that have been selected for use for present
-illustrative purposes, from an historical dataset (pre 1999, now
-long past its ``use by'' date) that has data on 4601 email
-messages, of which 1813 were identified as spam. In practical
-use, such datasets have to be continually updated as spammers
-change their strategies
-
-\begin{figure}[H]
-
-{\centering \includegraphics{08-observational_files/figure-latex/seeSpam-1} 
-
-}
-
-\caption{Boxplots, showing distribution of variable values
-               in data used to predict email spam}\label{fig:seeSpam}
-\end{figure}
-
-Two types of decision tree approaches will be discussed
---- the use of individual decision trees, and the
-random forest approach which generates and uses large
-numbers of trees in the decision making process.
-
-Figure \ref{fig:spam} shows a decision tree that has been derived
-for the spam data.
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.48\linewidth]{08-observational_files/figure-latex/spam-1} \includegraphics[width=0.48\linewidth]{08-observational_files/figure-latex/spam-2} 
-
-}
-
-\caption{Decision tree for spam data. If the condition is satisfied, take
-               the branch to the left.  Otherwise, take the branch to the right.}\label{fig:spam}
-\end{figure}
-
-The tree in Figure \ref{fig:spam} would be too inaccurate
-for practical use, even suitably updated with new data,
-but it is easy to follow the decsion tree process.
-
-\hypertarget{from-trees-to-forests}{%
-\subsection*{From trees to forests}\label{from-trees-to-forests}}
-\addcontentsline{toc}{subsection}{From trees to forests}
-
-``Random forests'' improve on decision trees by using samples from
-the data to create a forest (a ``random forest'') of trees, then
-voting between the trees. A downside is that ``Random forests''
-and similar methods operate largely as black boxes. For
-detection of spam email, this may, as those who deploy the
-spam detectors have little idea what may be going on in the
-minds of the spammers, not be too much of an issue. One
-wants a spam detector that will respond effectively to
-whatever is thrown at it.
-
-\hypertarget{it-helps-to-know-the-how-and-why-of-the-algorithms-used}{%
-\subsection*{It helps to know the how and why of the algorithms used}\label{it-helps-to-know-the-how-and-why-of-the-algorithms-used}}
-\addcontentsline{toc}{subsection}{It helps to know the how and why of the algorithms used}
-
-Both decison trees and random forests follow an \emph{algorithmic}
-process. The relatively ``black box'' nature of the random
-forest approach places an especially strong burden on the
-analyst to ensure relevant data have been used, and that the
-algorithm really is doing its intended task.
-In her book ``Weapons of math destruction'', O'Neil (\protect\hyperlink{ref-oneil_2016}{2016})
-comments:
-
-\begin{quote}
-\ldots{} it's not enough to just know how to run a black box
-algorithm. You actually need to know how and why it works,
-so that when it does'nt work, you can adjust.
-\end{quote}
-
-This is too strong. But if one does not know the how and
-why of how an algorithm works, it is absolutely crucial to
-be sure that the data used to fit and test the model
-(the ``training''~and ``test'' data) are directly relevant to
-the task in hand.
-
-Automated systems that can be easily gamed do, however,
-abound. They are a menace!
+It is likewise nonsensical to fit a line to the cherry-picked years 1998-2008, where the trend was relatively flat. Year to year temperatures are correlated.
 
 \hypertarget{critiquing-scientific-claims}{%
 \chapter{Critiquing scientific claims}\label{critiquing-scientific-claims}}
@@ -4264,6 +3976,9 @@ Roberts, Michael, Derek Driggs, Matthew Thorpe, Julian Gilbey, Michael Yeung, St
 \leavevmode\vadjust pre{\hypertarget{ref-RosBook}{}}%
 Rosenbaum, P R. 2002. \emph{Observational Studies}. 2nd ed. Springer.
 
+\leavevmode\vadjust pre{\hypertarget{ref-Schulzc332}{}}%
+Schulz, Kenneth F, Douglas G Altman, and David Moher. 2010. {``CONSORT 2010 Statement: Updated Guidelines for Reporting Parallel Group Randomised Trials.''} \emph{BMJ} 340. \url{https://doi.org/10.1136/bmj.c332}.
+
 \leavevmode\vadjust pre{\hypertarget{ref-secrist1933triumph}{}}%
 Secrist, H. 1933. \emph{The Triumph of Mediocrity in Business}. Business Studies. Bureau of Business Research, Northwestern University. \url{https://books.google.co.nz/books?id=n8RAAAAAIAAJ}.
 
@@ -4327,168 +4042,171 @@ Young, Scott WH. 2014. {``Improving Library User Experience with a/b Testing: Pr
 
 \begin{theindex}
 
-  \item algorithmic methods (\textit{see also} machine learning), 1
+  \item algorithmic methods (\textit{see also} machine learning), 24, 
+        38, 39
   \item analysis issues
-    \subitem assumptions, 1
-    \subitem source/target differences, 1
-    \subitem strategies, 1
-  \item animal body \& brain weight, 1
+    \subitem assumptions, 6, 33, 53, 72, 89
+    \subitem source/target differences, 15, 31
+  \item animal body \& brain weight, 9
 
   \indexspace
 
-  \item behavioural economics, 1
+  \item behavioural economics, 6
   \item bias
-    \subitem convenience samples, 1
-    \subitem hindsight, 1
-    \subitem selection and survivor, 1
-  \item business success, 1
+    \subitem convenience samples, 13
+    \subitem hindsight, 15
+    \subitem selection and survivor, 13, 15, 16, 22, 76
+  \item business success, 15
 
   \indexspace
 
   \item cholera deaths in London
-    \subitem 1832 to 1855, 1
-    \subitem 1854, 1
-  \item climate science, 1
-    \subitem Richard Muller's study, 1
+    \subitem 1832 to 1855, 33
+    \subitem 1854, 35, 36
+  \item climate science, 73, 75, 81, 82
+    \subitem Richard Muller's study, 81, 82
   \item Covid-19
-    \subitem detection from chest images, 1
-    \subitem unvaccinated vs vaccinated, 1
-  \item cricket bowling averages, 1
+    \subitem detection from chest images, 77
+    \subitem unvaccinated vs vaccinated, 45
+  \item cricket bowling averages, 48
 
   \indexspace
 
-  \item designed experiment, 1
+  \item designed experiment, 2, 73, 74
 
   \indexspace
 
-  \item economic growth, 1
-  \item email spam, 1
+  \item economic growth, 54--56
+  \item email spam, 38, 39
 
   \indexspace
 
-  \item false positives, 1
+  \item false positives, 20, 22
 
   \indexspace
 
   \item genetic studies
-    \subitem epigenetic effects, 1
+    \subitem epigenetic effects, 48
   \item graph
-    \subitem choice of aspect ratio, 1
-    \subitem deaths vs hurricane damage, 1
-    \subitem debt vs debt to GDP ratio, 1
-    \subitem decathlon performances in 2006, 1
-    \subitem email spam, distribution of values, 1
-    \subitem father vs son heights, 1
-    \subitem global temperature trends, 1
-    \subitem John Snow's 1854 cholera map, 1
-    \subitem London 1849 cholera deaths, 1
-    \subitem NBA player points, 1
-    \subitem relative change (logarithmic) scale, 1
-    \subitem replicate vs original effect size, 1
-    \subitem Secrist and regression to mean, 1
-    \subitem Sociology PhDs, 1
-    \subitem time varying female/male name choices, 1
-    \subitem time vs distance, 1
-    \subitem UCB admissions data, 1
-    \subitem UK cotton worker wages, 1886, 1
-    \subitem US Nobel prizes, 1
-    \subitem varying time intervals, 1
+    \subitem choice of aspect ratio, 8, 9
+    \subitem deaths vs hurricane damage, 22, 26, 33, 34, 41, 42, 51--53, 
+        56, 57, 68, 74, 82, 87
+    \subitem deaths, Covid-19 vs all causes, US, by age, 18, 41, 42, 45, 
+        56, 57, 74, 77, 78, 83
+    \subitem debt vs debt to GDP ratio, 54--56
+    \subitem decathlon performances in 2006, 64
+    \subitem email spam, distribution of values, 38
+    \subitem father vs son heights, 60, 61
+    \subitem global temperature trends, 71, 72, 82
+    \subitem John Snow's 1854 cholera map, 36
+    \subitem London 1849 cholera deaths, 33, 35
+    \subitem NBA player points, 62
+    \subitem relative change (logarithmic) scale, 9--11, 34, 68, 69
+    \subitem replicate vs original effect size, 80
+    \subitem Secrist and regression to mean, 62, 63
+    \subitem Sociology PhDs, 60
+    \subitem time varying female/male name choices, 87
+    \subitem time vs distance, 10, 64, 66--68, 89
+    \subitem UCB admissions data, 42
+    \subitem UK cotton worker wages, 1886, 14
+    \subitem US Nobel prizes, 8
+    \subitem varying time intervals, 8
   \item graphs
-    \subitem general principles, 1
+    \subitem general principles, 7
 
   \indexspace
 
   \item human judgement
-    \subitem intuition of professionals, 1
-    \subitem system 1 \& system 2, 1
-    \subitem training, 1
-  \item hurricane death data, 1
+    \subitem intuition of professionals, 3
+    \subitem system 1 \& system 2, 2, 52
+    \subitem training, 2, 39
+  \item hurricane death data, 68
 
   \indexspace
 
   \item machine learning
-    \subitem detection of Covid-19 from chest images, 1
+    \subitem detection of Covid-19 from chest images, 77
   \item malaria drugs
-    \subitem use with Covid-19, 1
+    \subitem use with Covid-19, 56
   \item maternity care
-    \subitem midwife vs medical led, 1
-  \item medical trials, 1
+    \subitem midwife vs medical led, 32, 37
+  \item medical trials, 24, 25
   \item medical trials, screening
-    \subitem breast cancer, 1
-    \subitem prostate cancer, 1
-  \item missing bullet holes, 1
-  \item MMR (measles,mumps,rubella) scandal, 1
+    \subitem breast cancer, 20, 28, 29
+    \subitem prostate cancer, 3, 20, 27
+  \item missing bullet holes, 16
+  \item MMR (measles,mumps,rubella) scandal, 51
 
   \indexspace
 
-  \item NBA player points, correlation declines over time, 1
-  \item NULL hypothesis, 1
+  \item NBA player points, correlation declines over time, 62
+  \item NULL hypothesis, 89
 
   \indexspace
 
   \item Observational studies
-    \subitem issues for use, 1
+    \subitem issues for use, 21, 24, 31, 74
 
   \indexspace
 
   \item p-values
-    \subitem mis-interpretation, 1
+    \subitem mis-interpretation, 89
 
   \indexspace
 
   \item randomized controlled trials
-    \subitem A/B testing vs HiPPO decisions, 1
-    \subitem as the gold standard, 1
-    \subitem protocol, 1
+    \subitem A/B testing vs HiPPO decisions, 20
+    \subitem as the gold standard, 19
+    \subitem protocol, 25
   \item regression
-    \subitem loglinear, 1
-    \subitem observational data, 1
+    \subitem loglinear, 10
+    \subitem observational data, 31
   \item regression predictions
-    \subitem drivers, 1
-  \item regression to the mean, 1
-    \subitem decathlon scores, 1
-    \subitem fathers and sons, 1
-    \subitem NBA player total points, 1
-    \subitem profit to income ratio, 1
-    \subitem Secrist's 'Triumph of Mediocrity', 1
-  \item replication, 1
+    \subitem drivers, 31, 32, 67
+  \item regression to the mean, 16, 34, 44, 61--63, 66
+    \subitem decathlon scores, 64
+    \subitem fathers and sons, 60, 61
+    \subitem NBA player total points, 62
+    \subitem profit to income ratio, 62
+    \subitem Secrist's 'Triumph of Mediocrity', 63
+  \item replication, 5, 76, 80
   \item risk assessment
-    \subitem sources of advice, 1
+    \subitem sources of advice, 3, 18, 19, 23--26, 57, 76, 83, 84
 
   \indexspace
 
-  \item Sally Clark's disturbing cot death saga, 1
+  \item Sally Clark's disturbing cot death saga, 52, 53
   \item science
-    \subitem Big Pharma, 1
-    \subitem false or unverified claims, 1
-    \subitem funding and reward processes, 1
-    \subitem results that special interests find inconvenient, 1
-  \item Secrist and regression to mean, 1
-  \item sociology PhDs, spurious correlation, 1
+    \subitem Big Pharma, 82
+    \subitem false or unverified claims, 5, 78, 80
+    \subitem funding and reward processes, 73--75, 82, 84
+    \subitem results that special interests find inconvenient, 81, 82
+  \item Secrist and regression to mean, 62, 63
+  \item sociology PhDs, spurious correlation, 60
   \item sources of advice
-    \subitem Cochrane Center, 1
-    \subitem fact boxes, 1
-    \subitem Harding Center, 1
+    \subitem Cochrane Center, 17--19, 28
+    \subitem fact boxes, 18
+    \subitem Harding Center, 6, 17, 18, 26, 28
   \item speed of light estimates
-    \subitem historical, 1
+    \subitem historical, 70
 
   \indexspace
 
   \item table of frequencies
-    \subitem adding across tables (Simpson's paradox), 1
+    \subitem adding across tables (Simpson's paradox), 42
   \item transformation
-    \subitem use of, 1
+    \subitem use of, 9
   \item tree-based methods
-    \subitem random forests (randomForest), 1
+    \subitem random forests (randomForest), 38, 39
 
   \indexspace
 
   \item university admission rates
-    \subitem UCB in 1973, 1
+    \subitem UCB in 1973, 43, 44
 
   \indexspace
 
-  \item wage comparison, 19th C UK cottonworkers, 1
+  \item wage comparison, 19th C UK cottonworkers, 14
 
 \end{theindex}
 

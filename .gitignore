@@ -9,3 +9,4 @@ _book/work
 dataSense-book.rds
 rsconnect
 _working.Rmd
+packrat/lib*/

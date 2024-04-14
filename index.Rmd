@@ -1,12 +1,12 @@
 --- 
-title: 'What Does the Data Say? -- Traps  to Avoid'
+title: 'What Do the Data Say? -- Traps  to Avoid'
 subtitle: "Examples that inform and educate"
 author: "John Maindonald"
-date: "2 April 2024"
+date: "11 April 2024"
 site: bookdown::bookdown_site
 documentclass: book
 classoption: b5paper
-fontsize: 10pt
+fontsize: 10ptls
 urlcolor: blue
 linkcolor: red
 bibliography: [book.bib, packages.bib, dataSense.bib]
@@ -92,7 +92,7 @@ common traps are better placed to avoid them.
 1. Understand the psychology  --- why the showcase of fallacies
     +  Recognize and avoid the mental traps to which humans are prone.
 2. Graphs can reveal surprises. They can also be drawn 
-so that they deceive.  Take care! 
+so that they deceive.  
     + Choice of one or both scales such that equal relative
     changes mark out equal distances on the scale may show 
     patterns that are not otherwise obvious.
@@ -104,19 +104,18 @@ way to go is down. If at the bottom, the only way is up.
 4. Medicine and health provides a good context into which to study
 a number of important issues. What causes cholera – bad air or bad water? 
  Does drinking coffee help or harm health? 
-    + Randomized trials, if done rigorously, are a gold standard.
-    + Participants must closely reflect the population to which
-results will be applied.
+    + Randomized trials, if done rigorously, and participants 
+    closely reflect the population to which results will be applied,
+    are a gold standard.
     + Think carefully about the outcome measure.  Thus, is it
     "cancers" found?  Or is it "deaths" within a stated timeframe.
-    + Observational data from population studies, where adjustments 
-    are needed to account for prior differences between the two (or 
-    more) groups, readily mislead. 
 5. Careful checks are needed when the attempt is made to use
 observational data to establish causation.
-    + In group comparisons, adjustments are typically needed 
+    + In group comparisons, adjustments are needed 
     to account for prior differences between the two (or more)
     groups. What checks can be made that adjustments are adequate?
+    It is in general impossible to be sure that adjustments account
+    for all effects other than the effectm that is of interest.
     + In what direction, and through what causal chains, do causal
     effects go? Are people healthier because they exercise more?
     Or, do they exercise more because they are healthier?  Or, do
@@ -137,21 +136,26 @@ weight to some combinations of effects than to others.
     + Tall fathers are likely to have tall sons, but shorter than themselves. 
     + What can be hard to grasp is that the effect goes on both directions.
 Tall sons are likely to have tall fathers, but shorter than themselves.
-The phenomenon known as "regression to the mean", 
-goes in both directions.
+The "regression to the mean" phenomenon goes in both directions.  
+    + Regression models require careful checking to ensure that they
+    correctly reflect all systematic effects in the data.
+    + The coefficient that is attached to an explanatory variable accounts
+    for the effect of that variable when other variables are help constant.
+    The coefficient is likely to change with the change to different 
+    explanatory variables that give the same predicted  values.
 9. Results become part of established science when they have
 survived informed critique. Work that claims to revise or overturn
 established results has itself to survive the same informed critique.
-    + Uninformed critique is common.  Watch for the 
-    tricks that are used in the attempt to discredit established
-    scientific results that detractors find inconvenient.
+    + Uninformed critique is common.  Watch for the tricks that 
+    detractors who find established scientific results inconvenient
+    use in the attempt to discredit them.
     + When presented with scientific (or any) claims, ask/check
     whether claims have been carefully critiqued.  For laboratory
     studies, have results been replicated?
-    + Publication processes can work well where the nature of the 
-    work requires input and critique widely from across different 
-    disciplinary perspectives, and where data and code are made
-    available for checking.
+    + Publication processes work best where authors contribute
+    input and critique widely from across different disciplinary 
+    perspectives, and where data and code are made available for 
+    checking.
 
 
 ```{r include=FALSE}
