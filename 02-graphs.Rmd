@@ -1,3 +1,9 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
 # Effective use of graphs
 
 ```{r setup, include=FALSE}

@@ -1,0 +1,133 @@
+\begin{theindex}
+
+  \item algorithmic methods (\textit{see also} machine learning), 24, 
+		31, 38, 39
+  \item analysis issues
+    \subitem assumptions, 6, 25, 33, 53, 72
+    \subitem source/target differences, 15, 31
+  \item animal body \& brain weight, 9
+
+  \indexspace
+
+  \item behavioural economics, 6
+  \item bias
+    \subitem convenience samples, 13
+    \subitem hindsight, 15
+    \subitem selection and survivor, 13, 15, 16, 22, 76
+  \item business success, 15
+
+  \indexspace
+
+  \item cholera deaths in London
+    \subitem 1854, 35, 36
+  \item climate science, 73, 75
+  \item Covid-19
+    \subitem detection from chest images, 77
+    \subitem unvaccinated vs vaccinated, 45
+  \item cricket bowling averages, 48
+
+  \indexspace
+
+  \item designed experiment, 2, 73, 74
+
+  \indexspace
+
+  \item email spam, 38, 39
+
+  \indexspace
+
+  \item false positives, 20, 22
+
+  \indexspace
+
+  \item genetic studies
+    \subitem epigenetic effects, 48
+  \item graph
+    \subitem choice of aspect ratio, 8, 9
+    \subitem deaths vs hurricane damage, 22, 26, 33, 34, 41, 42, 51--53, 
+		56, 57, 68, 69, 74
+    \subitem debt vs debt to GDP ratio, 54--56
+    \subitem decathlon performances in 2006, 64
+    \subitem email spam, distribution of values, 38
+    \subitem father vs son heights, 60, 61
+    \subitem global temperature trends, 71, 72
+    \subitem John Snow's 1854 cholera map, 36
+    \subitem London 1849 cholera deaths, 33
+    \subitem NBA player points, 62
+    \subitem relative change (logarithmic) scale, 9--11, 34, 68, 69
+    \subitem time vs distance, 11, 64, 66--68
+    \subitem UCB admissions data, 42
+    \subitem UK cotton worker wages, 1886, 14
+  \item graphs
+    \subitem general principles, 7
+
+  \indexspace
+
+  \item human judgement
+    \subitem intuition of professionals, 3
+    \subitem system 1 \& system 2, 2, 52
+    \subitem training, 2, 39
+  \item hurricane death data, 68, 69
+
+  \indexspace
+
+  \item machine learning
+    \subitem detection of Covid-19 from chest images, 77
+  \item maternity care
+    \subitem midwife vs medical led, 32, 37
+  \item medical trials, 24, 25
+  \item medical trials, screening
+    \subitem breast cancer, 20, 28, 29
+    \subitem prostate cancer, 3, 20, 27
+  \item missing bullet holes, 16
+
+  \indexspace
+
+  \item NBA player points, correlation declines over time, 62
+
+  \indexspace
+
+  \item Observational studies
+    \subitem issues for use, 21, 24, 31, 74
+
+  \indexspace
+
+  \item random sample, 13, 31
+  \item randomized controlled trials
+    \subitem as the gold standard, 19
+    \subitem protocol, 25
+  \item regression
+    \subitem loglinear, 11
+    \subitem observational data, 21, 31
+  \item regression predictions
+    \subitem drivers, 31, 32, 67
+  \item regression to the mean, 16, 34, 44, 61--63, 66
+    \subitem decathlon scores, 64
+    \subitem fathers and sons, 60, 61
+  \item replication, 5, 76, 80
+  \item risk assessment
+    \subitem sources of advice, 3, 18, 19, 23--26, 57, 76
+
+  \indexspace
+
+  \item science
+    \subitem false or unverified claims, 5, 78, 80
+    \subitem funding and reward processes, 73--75
+  \item sources of advice
+    \subitem fact boxes, 18
+    \subitem Harding Center, 18, 27, 28, 52
+  \item speed of light estimates
+    \subitem historical, 70
+
+  \indexspace
+
+  \item transformation
+    \subitem use of, 9
+  \item tree-based methods
+    \subitem random forests (randomForest), 38, 39
+
+  \indexspace
+
+  \item wage comparison, 19th C UK cottonworkers, 14
+
+\end{theindex}

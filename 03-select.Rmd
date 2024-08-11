@@ -3,6 +3,7 @@ output:
   pdf_document: default
   html_document: default
 ---
+
 # Selection and survivor bias
 
 ```{r setup, include=FALSE}

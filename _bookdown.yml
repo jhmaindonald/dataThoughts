@@ -1,11 +1,20 @@
+---
+site: "bookdown::bookdown_site"
+# output:
+#   bookdown::gitbook:
+#   bookdown::pdf_book:
+#     keep_tex: yes
+#   bookdown::epub_book: default
+new_session: yes
+before_chapter_script: ["eachChap.R"]
+output_dir: "docs"
 book_filename: "dataSense-book"
 language:
   ui:
     chapter_name: "Chapter "
-new_session: true
+---
 rmd_files: ["index.Rmd","01-judgment.Rmd","02-graphs.Rmd","03-select.Rmd",
 "04-medical.Rmd","05-observational.Rmd","06-weighting.Rmd","07-notable.Rmd",
 "08-regress.Rmd","09-science.Rmd","10-notes.Rmd","11-toRead.Rmd",
 "20-references.Rmd","book-index.ind","author.Rmd"]
-before_chapter_script: eachChap.R
 delete_merged_file: true
