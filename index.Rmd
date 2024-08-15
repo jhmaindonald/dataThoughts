@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.align='center', fig.width=5.
 > Its what you know for sure that just ain't so.
 > [Variously attributed; author unknown]
 
-This booklet has as its intended audience, as well as practising 
+This booklet has as its intended audience, as well as practicing 
 researchers, anyone interested in using data as a basis for
 judgment.  The critical processes and skills that are discussed 
 have wide application, in everyday as well as in professional life.

@@ -7,7 +7,6 @@ site: "bookdown::bookdown_site"
 #   bookdown::epub_book: default
 new_session: yes
 before_chapter_script: ["eachChap.R"]
-output_dir: "docs"
 book_filename: "dataSense-book"
 language:
   ui:
